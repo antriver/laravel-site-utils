@@ -1,12 +1,12 @@
 <?php
 
-namespace Tmd\LaravelHelpers\ModelPresenters\Traits;
+namespace Antriver\SiteUtils\ModelPresenters\Traits;
 
+use Antriver\SiteUtils\Libraries\Pagination\LengthAwarePaginator;
+use Antriver\SiteUtils\ModelPresenters\Base\ModelPresenterInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
-use Tmd\LaravelHelpers\Libraries\Pagination\LengthAwarePaginator;
-use Tmd\LaravelHelpers\ModelPresenters\Base\ModelPresenterInterface;
 
 trait PresentArrayTrait
 {
@@ -33,8 +33,6 @@ trait PresentArrayTrait
     /**
      * @param \Illuminate\Contracts\Pagination\Paginator|Paginator|LengthAwarePaginator $paginator
      * @param array $args
-     *
-     * @return array
      */
     public function presentPaginator(\Illuminate\Contracts\Pagination\Paginator $paginator, ...$args)
     {

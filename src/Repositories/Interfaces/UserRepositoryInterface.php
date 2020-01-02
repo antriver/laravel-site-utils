@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelHelpers\Repositories\Interfaces;
+namespace Antriver\SiteUtils\Repositories\Interfaces;
 
 use Tmd\LaravelRepositories\Interfaces\RepositoryInterface;
 

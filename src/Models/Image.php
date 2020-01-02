@@ -1,17 +1,15 @@
 <?php
 
-namespace Tmd\LaravelHelpers\Models;
+namespace Antriver\SiteUtils\Models;
 
+use Antriver\SiteUtils\Models\Base\AbstractModel;
+use Antriver\SiteUtils\Models\Interfaces\BelongsToUserInterface;
+use Antriver\SiteUtils\Models\Traits\BelongsToUserTrait;
 use Config;
-use Tmd\LaravelHelpers\Models\Base\AbstractModel;
-use Tmd\LaravelHelpers\Models\Interfaces\BelongsToUserInterface;
-use Tmd\LaravelHelpers\Models\Traits\BelongsToUserTrait;
 
 class Image extends AbstractModel implements BelongsToUserInterface
 {
     use BelongsToUserTrait;
-
-
 
     /*
     const DIRECTORY_CONTENT = 'content';
@@ -33,7 +31,7 @@ class Image extends AbstractModel implements BelongsToUserInterface
     protected $visible = [
         'id',
         'width',
-        'height'
+        'height',
     ];
 
     public $timestamps = false;

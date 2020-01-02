@@ -1,11 +1,11 @@
 <?php
 
-namespace Tmd\LaravelHelpers\Models;
+namespace Antriver\SiteUtils\Models;
 
-use Tmd\LaravelHelpers\Models\Base\AbstractModel;
+use Antriver\SiteUtils\Models\Base\AbstractModel;
 
 /**
- * Tmd\LaravelHelpers\Models\UserSocialAccount
+ * Antriver\SiteUtils\Models\UserSocialAccount
  *
  * @mixin \Eloquent
  */

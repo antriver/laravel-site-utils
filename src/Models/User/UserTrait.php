@@ -1,0 +1,57 @@
+<?php
+
+namespace Antriver\SiteUtils\Models\User;
+
+use Antriver\SiteUtils\Lang\LanguageHelpers;
+use Illuminate\Support\Str;
+use Tmd\LaravelPasswordUpdater\PasswordHasher;
+
+trait UserTrait
+{
+    /**
+     * @return bool
+     */
+    public function isModerator(): bool
+    {
+        return !!($this->moderator || $this->admin);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAdmin(): bool
+    {
+        return !!$this->admin;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPossessiveUsername(): string
+    {
+        return LanguageHelpers::possessive($this->username);
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrlUsername(): string
+    {
+        return strtolower($this->username);
+    }
+
+    /**
+     * @param string $password
+     * @param PasswordHasher $passwordHasher
+     */
+    public function setPassword(string $password, PasswordHasher $passwordHasher)
+    {
+        $hash = $passwordHasher->generateHash($password);
+        $this->forceFill(
+            [
+                'password' => $hash,
+                'rememberToken' => Str::random(60),
+            ]
+        );
+    }
+}

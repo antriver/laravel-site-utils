@@ -1,7 +1,8 @@
 <?php
 
-namespace Tmd\LaravelHelpers\Repositories\Traits;
+namespace Antriver\SiteUtils\Repositories\Traits;
 
+use Exception;
 use Illuminate\Database\Eloquent\Model;
 
 trait AcceptsModelsOrIdsTrait
@@ -14,6 +15,6 @@ trait AcceptsModelsOrIdsTrait
             return $parameter->getKey();
         }
 
-        throw new \Exception("The given property must be an integer or a Model.");
+        throw new Exception("The given property must be an integer or a Model.");
     }
 }

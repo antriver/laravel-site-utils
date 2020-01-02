@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelHelpers\Repositories\Traits;
+namespace Antriver\SiteUtils\Repositories\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,12 +10,12 @@ use Illuminate\Database\Eloquent\Model;
 trait CreatesSelectListsTrait
 {
     /**
-     * @param array   $list
+     * @param array $list
      * @param Model[] $items
      * @param         $nameField
      * @param         $keyField
      * @param         $nextDepthFunction
-     * @param int     $depth
+     * @param int $depth
      */
     protected function appendToSelectList(array &$list, $items, $nameField, $keyField, $nextDepthFunction, $depth = 0)
     {

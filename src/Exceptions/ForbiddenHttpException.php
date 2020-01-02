@@ -1,16 +1,16 @@
 <?php
 
-namespace Tmd\LaravelHelpers\Exceptions;
+namespace Antriver\SiteUtils\Exceptions;
 
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class ForbiddenHttpException extends HttpException
 {
     /**
-     * @param null            $message
+     * @param null $message
      * @param \Exception|null $previous
-     * @param array           $headers
-     * @param int             $code
+     * @param array $headers
+     * @param int $code
      */
     public function __construct($message = null, \Exception $previous = null, array $headers = [], $code = 0)
     {

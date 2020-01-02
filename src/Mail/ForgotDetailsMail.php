@@ -1,9 +1,9 @@
 <?php
 
-namespace Tmd\LaravelHelpers\Mail;
+namespace Antriver\SiteUtils\Mail;
 
-use Tmd\LaravelHelpers\Mail\Base\ExtendedMailable;
-use Tmd\LaravelHelpers\Models\User;
+use Antriver\SiteUtils\Mail\Base\ExtendedMailable;
+use Antriver\SiteUtils\Models\User;
 
 class ForgotDetailsMail extends ExtendedMailable
 {
@@ -15,8 +15,8 @@ class ForgotDetailsMail extends ExtendedMailable
     /**
      * Create a notification instance.
      *
-     * @param  string $token
-     * @param  User   $user
+     * @param string $token
+     * @param User $user
      */
     public function __construct($token, $user)
     {

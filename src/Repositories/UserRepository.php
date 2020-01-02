@@ -1,10 +1,10 @@
 <?php
 
-namespace Tmd\LaravelHelpers\Repositories;
+namespace Antriver\SiteUtils\Repositories;
 
+use Antriver\SiteUtils\Models\User;
 use Carbon\Carbon;
 use DB;
-use Tmd\LaravelHelpers\Models\User;
 use Tmd\LaravelRepositories\Base\AbstractCachedRepository;
 
 class UserRepository extends AbstractCachedRepository
@@ -32,9 +32,9 @@ class UserRepository extends AbstractCachedRepository
     public function countNewToday(): int
     {
         $row = DB::selectOne(
-            'SELECT COUNT(*) AS count FROM user_profiles p WHERE p.createdAt >= ?',
+            'SELECT COUNT(*) AS `count` FROM `user_profiles` `p` WHERE `p`.`createdAt` >= ?',
             [
-                (new Carbon('midnight today'))->toDateTimeString()
+                (new Carbon('midnight today'))->toDateTimeString(),
             ]
         );
 

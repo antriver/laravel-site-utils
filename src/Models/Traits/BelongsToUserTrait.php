@@ -1,9 +1,9 @@
 <?php
 
-namespace Tmd\LaravelHelpers\Models\Traits;
+namespace Antriver\SiteUtils\Models\Traits;
 
-use Tmd\LaravelHelpers\Models\User;
-use Tmd\LaravelHelpers\Repositories\UserRepository;
+use Antriver\SiteUtils\Models\User;
+use Antriver\SiteUtils\Repositories\UserRepository;
 
 trait BelongsToUserTrait
 {

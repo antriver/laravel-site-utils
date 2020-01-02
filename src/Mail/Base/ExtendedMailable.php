@@ -1,52 +1,14 @@
 <?php
 
-namespace Tmd\LaravelHelpers\Mail\Base;
+namespace Antriver\SiteUtils\Mail\Base;
 
+use Antriver\LaravelSimpleMessageTrait\SimpleMessageTrait;
+use Antriver\SiteUtils\Models\User;
 use Illuminate\Mail\Mailable;
-use Tmd\LaravelHelpers\Models\Achievement;
-use Tmd\LaravelHelpers\Models\User;
 
-/**
- * Extends the base Mailable class with some useful functions for adding content.
- * A lot of this is replicated from Illuminate\Notifications\Messages\SimpleMessage
- * because the interface is nice, but we want to use it for both Notifications and regular Mailables.
- */
 abstract class ExtendedMailable extends Mailable
 {
-    /**
-     * The "level" of the notification (info, success, error).
-     *
-     * @var string
-     */
-    public $level = 'info';
-
-    /**
-     * The "intro" lines of the notification.
-     *
-     * @var array
-     */
-    public $introLines = [];
-
-    /**
-     * The "outro" lines of the notification.
-     *
-     * @var array
-     */
-    public $outroLines = [];
-
-    /**
-     * The text / label for the action.
-     *
-     * @var string
-     */
-    public $actionText;
-
-    /**
-     * The action URL.
-     *
-     * @var string
-     */
-    public $actionUrl;
+    use SimpleMessageTrait;
 
     /**
      * @var array
@@ -57,44 +19,6 @@ abstract class ExtendedMailable extends Mailable
      * @var User
      */
     public $recipient;
-
-    /**
-     * Indicate that the notification gives information about a successful operation.
-     *
-     * @return $this
-     */
-    public function success()
-    {
-        $this->level = 'success';
-
-        return $this;
-    }
-
-    /**
-     * Indicate that the notification gives information about an error.
-     *
-     * @return $this
-     */
-    public function error()
-    {
-        $this->level = 'error';
-
-        return $this;
-    }
-
-    /**
-     * Set the "level" of the notification (success, error, etc.).
-     *
-     * @param  string $level
-     *
-     * @return $this
-     */
-    public function level($level)
-    {
-        $this->level = $level;
-
-        return $this;
-    }
 
     public function box($content, $href = null, $title = null)
     {
@@ -117,71 +41,6 @@ abstract class ExtendedMailable extends Mailable
             'title' => $title,
             'style' => 'user-box',
         ];
-
-        return $this;
-    }
-
-    public function achievementBox(Achievement $achievement, $title = null)
-    {
-        $this->boxes[] = [
-            'preformattedContent' =>
-                '<img src="'.$achievement->getImageUrl().'" style="width:60px; border:0; border-radius:50%;" />
-                <br/><strong>'.$achievement->name.'</strong>
-                <br/>'.$achievement->description,
-            'href' => $achievement->getUrl(),
-            'title' => $title,
-            'style' => 'achievement-box',
-        ];
-
-        return $this;
-    }
-
-    /**
-     * Add a line of text to the notification.
-     *
-     * @param  \Illuminate\Notifications\Action|string $line
-     *
-     * @return $this
-     */
-    public function line($line)
-    {
-        if (!$this->actionText) {
-            $this->introLines[] = $this->formatLine($line);
-        } else {
-            $this->outroLines[] = $this->formatLine($line);
-        }
-
-        return $this;
-    }
-
-    /**
-     * Format the given line of text.
-     *
-     * @param  string|array $line
-     *
-     * @return string
-     */
-    protected function formatLine($line)
-    {
-        if (is_array($line)) {
-            return implode(' ', array_map('trim', $line));
-        }
-
-        return trim(implode(' ', array_map('trim', preg_split('/\\r\\n|\\r|\\n/', $line))));
-    }
-
-    /**
-     * Configure the "call to action" button.
-     *
-     * @param  string $text
-     * @param  string $url
-     *
-     * @return $this
-     */
-    public function action($text, $url)
-    {
-        $this->actionText = $text;
-        $this->actionUrl = $url;
 
         return $this;
     }

@@ -1,11 +1,11 @@
 <?php
 
-namespace Tmd\LaravelHelpers\Models\Base;
+namespace Antriver\SiteUtils\Models\Base;
 
+use Antriver\SiteUtils\Models\Traits\OutputsDatesTrait;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Support\Str;
 use Schema;
-use Tmd\LaravelHelpers\Models\Traits\OutputsDatesTrait;
 
 /**
  * @mixin \Eloquent
@@ -45,10 +45,10 @@ class AbstractModel extends EloquentModel
     /**
      * Create a new pivot model instance. Returns our custom Pivot class instead of the default.
      *
-     * @param  \Illuminate\Database\Eloquent\Model $parent
-     * @param  array                               $attributes
-     * @param  string                              $table
-     * @param  bool                                $exists
+     * @param \Illuminate\Database\Eloquent\Model $parent
+     * @param array $attributes
+     * @param string $table
+     * @param bool $exists
      *
      * @return Pivot
      */

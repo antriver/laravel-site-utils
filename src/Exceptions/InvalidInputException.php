@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelHelpers\Exceptions;
+namespace Antriver\SiteUtils\Exceptions;
 
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 

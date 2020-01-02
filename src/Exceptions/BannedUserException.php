@@ -1,17 +1,16 @@
 <?php
 
-namespace Tmd\LaravelHelpers\Exceptions;
+namespace Antriver\SiteUtils\Exceptions;
 
-use Exception;
-use Tmd\LaravelHelpers\Models\UserBan;
+use Antriver\SiteUtils\Models\Ban\Ban;
 
-class BannedUserException extends Exception
+class BannedUserException extends ForbiddenHttpException
 {
-    public function __construct(UserBan $ban)
+    public function __construct(Ban $ban)
     {
         $message = 'This account is disabled';
-        if ($ban->to) {
-            $message .= ' until <strong>'.display_datetime($ban->to).'</strong>';
+        if ($ban->expiresAt) {
+            $message .= ' until <strong>'.display_datetime($ban->expiresAt).'</strong>';
         }
         if ($ban->reason) {
             $message .= ' due to: <strong>'.$ban->reason.'</strong>';
@@ -19,6 +18,6 @@ class BannedUserException extends Exception
             $message .= '.';
         }
 
-        $this->message = $message;
+        parent::__construct($message);
     }
 }

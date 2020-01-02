@@ -1,15 +1,14 @@
 <?php
 
-namespace Tmd\LaravelHelpers\Repositories\Traits;
+namespace Antriver\SiteUtils\Repositories\Traits;
 
+use Antriver\SiteUtils\Libraries\Pagination\LastHiddenLengthAwarePaginator;
+use Antriver\SiteUtils\Libraries\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
-use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Laravel\Scout\Builder as ScoutBuilder;
-use Laravel\Scout\Engines\Engine as ScoutEngine;
-use Tmd\LaravelHelpers\Libraries\Pagination\LastHiddenLengthAwarePaginator;
-use Tmd\LaravelHelpers\Libraries\Pagination\LengthAwarePaginator;
 
 trait ReturnsPaginatorsTrait
 {

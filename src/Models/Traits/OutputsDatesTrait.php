@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelHelpers\Models\Traits;
+namespace Antriver\SiteUtils\Models\Traits;
 
 /**
  * Provides a method to convert the dates of a model to ISO 8601

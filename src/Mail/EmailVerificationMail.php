@@ -1,10 +1,10 @@
 <?php
 
-namespace Tmd\LaravelHelpers\Mail;
+namespace Antriver\SiteUtils\Mail;
 
-use Tmd\LaravelHelpers\Mail\Base\ExtendedMailable;
-use Tmd\LaravelHelpers\Models\EmailVerification;
-use Tmd\LaravelHelpers\Models\User;
+use Antriver\SiteUtils\Mail\Base\ExtendedMailable;
+use Antriver\SiteUtils\Models\EmailVerification;
+use Antriver\SiteUtils\Models\User;
 
 class EmailVerificationMail extends ExtendedMailable
 {
@@ -15,7 +15,7 @@ class EmailVerificationMail extends ExtendedMailable
 
     /**
      * @param EmailVerification $emailVerification
-     * @param User              $user
+     * @param User $user
      */
     public function __construct(EmailVerification $emailVerification, User $user)
     {
