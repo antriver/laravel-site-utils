@@ -25,6 +25,7 @@ class SiteUtilsServiceProvider extends ServiceProvider
         include_once dirname(dirname(__DIR__)).'/helpers.php';
 
         // Register a 'repository' user provider.
+        // A service provider prior to this one should have registered UserRepositoryInterface with the DI container.
         Auth::provider(
             'repository',
             function (Container $app) {
