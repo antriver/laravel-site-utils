@@ -1,5 +1,5 @@
 {
-    "name": "antriver/site-utils",
+    "name": "antriver/laravel-site-utils",
     "description": "A bunch of stuff to reduce duplication between Laravel apps.",
     "type": "library",
     "authors": [
