@@ -4,7 +4,7 @@ namespace Antriver\LaravelSiteUtils\Laravel\Providers;
 
 use Antriver\LaravelSiteUtils\Debug\QueryLogger;
 use Antriver\LaravelSiteUtils\Laravel\Auth\RepositoryUserProvider;
-use Antriver\LaravelSiteUtils\Repositories\Interfaces\UserRepositoryInterface;
+use Antriver\LaravelSiteUtils\Users\UserRepositoryInterface;
 use Auth;
 use Config;
 use Illuminate\Contracts\Container\Container;
@@ -13,7 +13,7 @@ use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
-class SiteUtilsServiceProvider extends ServiceProvider
+class LaravelSiteUtilsServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.

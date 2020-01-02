@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Laravel\Auth;
+namespace Antriver\LaravelSiteUtils\Users;
 
 use Tmd\LaravelRepositories\Interfaces\RepositoryInterface;
 
