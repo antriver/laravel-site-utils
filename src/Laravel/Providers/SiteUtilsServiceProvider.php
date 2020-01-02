@@ -2,16 +2,16 @@
 
 namespace Antriver\SiteUtils\Laravel\Providers;
 
-use Antriver\SiteUtils\Libraries\Debug\QueryLogger;
-use Antriver\SiteUtils\Libraries\Laravel\Auth\RepositoryUserProvider;
+use Antriver\SiteUtils\Debug\QueryLogger;
+use Antriver\SiteUtils\Laravel\Auth\RepositoryUserProvider;
 use Antriver\SiteUtils\Repositories\Interfaces\UserRepositoryInterface;
 use Auth;
 use Config;
-use DB;
 use Illuminate\Contracts\Container\Container;
+use Illuminate\Routing\Events\RouteMatched;
+use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
-use Validator;
 
 class SiteUtilsServiceProvider extends ServiceProvider
 {
@@ -22,12 +22,9 @@ class SiteUtilsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ($this->app->environment() !== 'production') {
-            $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
-        }
-
         include_once dirname(dirname(__DIR__)).'/helpers.php';
 
+        // Register a 'repository' user provider.
         Auth::provider(
             'repository',
             function (Container $app) {
@@ -48,31 +45,28 @@ class SiteUtilsServiceProvider extends ServiceProvider
         // or inject Authenticable into classes
         // The only thing not working is injecting Authenticable into controller methods.
         // @see http://mattallan.org/2016/setting-the-guard-per-route-in-laravel/
-        $this->app['router']->matched(
-            function (\Illuminate\Routing\Events\RouteMatched $event) {
+
+        /** @var Router $router */
+        $router = $this->app['router'];
+
+        /** @var \Illuminate\Auth\AuthManager $auth */
+        $auth = $this->app['auth'];
+
+        $router->matched(
+            function (RouteMatched $event) use ($auth) {
                 $route = $event->route;
-                if (!array_has($route->getAction(), 'guard')) {
+                if (!\Arr::has($route->getAction(), 'guard')) {
                     return;
                 }
-                $routeGuard = array_get($route->getAction(), 'guard');
-                $this->app['auth']->resolveUsersUsing(
-                    function ($guard = null) use ($routeGuard) {
-                        return $this->app['auth']->guard($routeGuard)->user();
+                $routeGuard = \Arr::get($route->getAction(), 'guard');
+                $auth->resolveUsersUsing(
+                    function ($guard = null) use ($auth, $routeGuard) {
+                        return $auth->guard($routeGuard)->user();
                     }
                 );
-                $this->app['auth']->setDefaultDriver($routeGuard);
+                $auth->setDefaultDriver($routeGuard);
             }
         );
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-
     }
 
     private function registerQueryLogger()

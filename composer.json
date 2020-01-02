@@ -26,7 +26,6 @@
         "tmd/laravel-repositories": "^2.2"
     },
     "require-dev": {
-        "barryvdh/laravel-ide-helper": "^2.3",
         "phpunit/phpunit": "^8.0"
     }
 }
