@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "450d8e7da8a78f25d71ff710622e62bf",
+    "content-hash": "02b216a27a6c1fe1b97f01a1776256c0",
     "packages": [
         {
             "name": "antriver/laravel-simple-message-trait",
@@ -3362,6 +3362,48 @@
             ],
             "description": "A way to keep a simple list of models belonging to another model. e.g. Users that have liked a Post.",
             "time": "2017-11-14T02:23:20+00:00"
+        },
+        {
+            "name": "tmd/laravel-repositories",
+            "version": "2.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/antriver/laravel-repositories.git",
+                "reference": "4d4b84ad7d33561a22529573767896a171824f05"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/antriver/laravel-repositories/zipball/4d4b84ad7d33561a22529573767896a171824f05",
+                "reference": "4d4b84ad7d33561a22529573767896a171824f05",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.*.*",
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.6",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "^5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tmd\\LaravelRepositories\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anthony Kuske",
+                    "homepage": "http://www.anthonykuske.com"
+                }
+            ],
+            "description": "Model repositories for Laravel 5.",
+            "time": "2019-02-08T23:25:26+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

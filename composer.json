@@ -22,7 +22,8 @@
         "tmd/laravel-password-updater": "^0.0.2",
         "tmd/laravel-registers": "^2.1",
         "antriver/laravel-simple-message-trait": "^5.8",
-        "google/recaptcha": "^1.2"
+        "google/recaptcha": "^1.2",
+        "tmd/laravel-repositories": "^2.2"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.3",
