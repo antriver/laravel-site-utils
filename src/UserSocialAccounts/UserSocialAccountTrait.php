@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Entities\UserSocialAccount;
+namespace Antriver\LaravelSiteUtils\UserSocialAccounts;
 
 trait UserSocialAccountTrait
 {

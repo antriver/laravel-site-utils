@@ -2,9 +2,7 @@
 
 namespace Antriver\LaravelSiteUtils\Users;
 
-use Antriver\LaravelSiteUtils\Models\User;
 use Antriver\LaravelSiteUtils\Models\UserSocialAccount;
-use Antriver\LaravelSiteUtils\Repositories\UserRepository;
 use Antriver\LaravelSiteUtils\Repositories\UserSocialAccountRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;

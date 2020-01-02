@@ -1,16 +1,16 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Entities\UserSocialAccount;
+namespace Antriver\LaravelSiteUtils\UserSocialAccounts;
 
 use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
 
 /**
- * Antriver\LaravelSiteUtils\Models\UserSocialAccount
- *
  * @mixin \Eloquent
  */
-class UserSocialAccount extends AbstractModel
+class UserSocialAccount extends AbstractModel implements UserSocialAccountInterface
 {
+    use UserSocialAccountTrait;
+
     protected $table = 'user_social_accounts';
 
     public $timestamps = true;

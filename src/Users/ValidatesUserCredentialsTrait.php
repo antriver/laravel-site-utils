@@ -2,15 +2,13 @@
 
 namespace Antriver\LaravelSiteUtils\Users;
 
-use Antriver\LaravelSiteUtils\Models\User;
-
 trait ValidatesUserCredentialsTrait
 {
-    protected function getUsernameValidationRules(User $user = null, $required = true)
+    protected function getUsernameValidationRules(UserInterface $user = null, $required = true)
     {
         $rules = [
             'max:30',
-            $user ? 'unique:users,username,'.$user->id : 'unique:users,username',
+            $user ? 'unique:users,username,'.$user->getId() : 'unique:users,username',
             'regex:'.$this->getUsernameRegex(),
             'i_not_in:'.implode(',', $this->getReservedUsernames()),
         ];
@@ -39,13 +37,13 @@ trait ValidatesUserCredentialsTrait
         ];
     }
 
-    protected function getEmailValidationRules(User $user = null, $required = true)
+    protected function getEmailValidationRules(UserInterface $user = null, $required = true)
     {
         $rules = [
             'bail',
             'email',
             //'email_valid',
-            $user ? 'unique:users,email,'.$user->id : 'unique:users,email',
+            $user ? 'unique:users,email,'.$user->getId() : 'unique:users,email',
         ];
 
         if ($required) {

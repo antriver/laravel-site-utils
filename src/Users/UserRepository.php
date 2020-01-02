@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Entities\User;
+namespace Antriver\LaravelSiteUtils\Users;
 
 use Antriver\LaravelSiteUtils\Users\UserRepositoryInterface;
 use Tmd\LaravelRepositories\Base\AbstractCachedRepository;

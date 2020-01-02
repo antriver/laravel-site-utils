@@ -2,7 +2,6 @@
 
 namespace Antriver\LaravelSiteUtils\Users;
 
-use Antriver\LaravelSiteUtils\Repositories\UserRepository;
 use Laravel\Socialite\AbstractUser;
 
 class UsernameFactory

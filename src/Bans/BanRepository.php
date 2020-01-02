@@ -2,10 +2,9 @@
 
 namespace Antriver\LaravelSiteUtils\Bans;
 
-use Amirite\Events\ContentTextUpdatedEvent;
-use Amirite\Models\Ban;
-use Antriver\LaravelSiteUtils\Entities\User\UserInterface;
-use Antriver\LaravelSiteUtils\Repositories\Traits\ReturnsPaginatorsTrait;
+//use Amirite\Events\ContentTextUpdatedEvent;
+use Antriver\LaravelSiteUtils\Pagination\ReturnsPaginatorsTrait;
+use Antriver\LaravelSiteUtils\Users\UserInterface;
 use Cache;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
@@ -38,26 +37,26 @@ class BanRepository extends AbstractRepository
     }
 
     /**
-     * @param User $user
+     * @param UserInterface $user
      *
      * @return Ban[]
      */
-    public function findFor(User $user)
+    public function findFor(UserInterface $user)
     {
-        return Ban::where('userId', $user->id)->orderBy('expiresAt')->orderBy('id')->get();
+        return Ban::where('userId', $user->getId())->orderBy('expiresAt')->orderBy('id')->get();
     }
 
     /**
-     * @param User $user
+     * @param UserInterface $user
      *
      * @return Ban[]|\Illuminate\Database\Eloquent\Collection
      */
-    public function findAllForUser(User $user)
+    public function findAllForUser(UserInterface $user)
     {
         return Ban::fromQuery(
             'SELECT * FROM bans WHERE userId = ? ORDER BY ID DESC',
             [
-                $user->id
+                $user->getId()
             ]
         );
     }
@@ -82,7 +81,7 @@ class BanRepository extends AbstractRepository
      *
      * @return Ban|null
      */
-    public function findCurrentForIp($ip)
+    public function findCurrentForIp(string $ip)
     {
         $result = Cache::rememberForever(
             'ip-ban:'.md5($ip),
@@ -96,7 +95,7 @@ class BanRepository extends AbstractRepository
         return $result instanceof Ban ? $result : null;
     }
 
-    public function allCurrent($page = 1)
+    public function allCurrent(int $page = 1)
     {
         /** @var Builder $query */
         $query = Ban::orderBy('id', 'DESC');
@@ -139,7 +138,7 @@ class BanRepository extends AbstractRepository
             Cache::forget('ip-ban:'.md5($model->ip));
         }
 
-        event(new ContentTextUpdatedEvent($model));
+        //event(new ContentTextUpdatedEvent($model));
     }
 
     /**

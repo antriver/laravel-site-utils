@@ -1,9 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Repositories;
+namespace Antriver\LaravelSiteUtils\UserSocialAccounts;
 
-use Antriver\LaravelSiteUtils\Models\User;
-use Antriver\LaravelSiteUtils\Models\UserSocialAccount;
+use Antriver\LaravelSiteUtils\Users\UserInterface;
 use Tmd\LaravelRepositories\Base\AbstractRepository;
 
 class UserSocialAccountRepository extends AbstractRepository
@@ -29,14 +28,14 @@ class UserSocialAccountRepository extends AbstractRepository
     }
 
     /**
-     * @param User $user
+     * @param UserInterface $user
      * @param bool $indexByService
      *
      * @return UserSocialAccount[]|UserSocialAccount[][]|\Illuminate\Database\Eloquent\Collection
      */
-    public function findAccountsForUser(User $user, $indexByService = false)
+    public function findAccountsForUser(UserInterface $user, $indexByService = false)
     {
-        $accounts = UserSocialAccount::where('userId', $user->id)->get();
+        $accounts = UserSocialAccount::where('userId', $user->getId())->get();
 
         if ($indexByService) {
             return $this->indexAccountsByService($accounts);

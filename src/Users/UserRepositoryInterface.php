@@ -2,7 +2,6 @@
 
 namespace Antriver\LaravelSiteUtils\Users;
 
-use Antriver\LaravelSiteUtils\Entities\User\UserInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Tmd\LaravelRepositories\Interfaces\RepositoryInterface;

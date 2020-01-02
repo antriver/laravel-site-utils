@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Entities\User;
+namespace Antriver\LaravelSiteUtils\Users;
 
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
