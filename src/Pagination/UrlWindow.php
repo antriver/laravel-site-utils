@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Laravel\Pagination;
+namespace Antriver\LaravelSiteUtils\Pagination;
 
 /**
  * Class UrlWindow
@@ -8,18 +8,18 @@ namespace Antriver\LaravelSiteUtils\Laravel\Pagination;
  * Limit the total number of pages (or dots) shown to a max of 9.
  * 1 first page + ... + 5 middle + ... + 1 last page
  *
- * @package Antriver\LaravelSiteUtils\Libraries\Pagination
+ * @package Amirite\Libraries\Pagination
  */
 class UrlWindow extends \Illuminate\Pagination\UrlWindow
 {
+    protected $maxItems = 9;
+
     /**
      * The paginator implementation.
      *
      * @var LengthAwarePaginator
      */
     protected $paginator;
-
-    protected $maxItems = 9;
 
     /**
      * Get the window of URLs to be shown.

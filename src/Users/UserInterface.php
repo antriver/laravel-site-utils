@@ -1,18 +1,24 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Models\User;
+namespace Antriver\LaravelSiteUtils\Entities\User;
 
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
 interface UserInterface
 {
-    public function getKey();
+    public function getId(): int;
+
+    public function getEmail(): ?string;
+
+    public function setEmail(?string $email);
 
     public function isAdmin(): bool;
 
     public function isModerator(): bool;
 
-    public function isVerified(): bool;
+    public function isEmailVerified(): bool;
+
+    public function setEmailVerified(bool $emailVerified);
 
     public function getPossessiveUsername(): string;
 

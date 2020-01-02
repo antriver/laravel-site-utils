@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Models\Ban;
+namespace Antriver\LaravelSiteUtils\Bans;
 
 use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
 

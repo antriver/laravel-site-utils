@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Models;
+namespace Antriver\LaravelSiteUtils\EmailVerification;
 
 use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
 use Antriver\LaravelSiteUtils\Models\Traits\CreatedAtWithoutUpdatedAtTrait;

@@ -59,6 +59,14 @@ class AbstractModel extends EloquentModel implements AbstractModelInterface
     }
 
     /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->getKey();
+    }
+
+    /**
      * Return the attributes in an array.
      * Here we convert DateTimes to ISO 8601 format.
      *

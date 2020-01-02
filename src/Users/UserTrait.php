@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Models\User;
+namespace Antriver\LaravelSiteUtils\Entities\User;
 
 use Antriver\LaravelSiteUtils\Lang\LanguageHelpers;
 use Illuminate\Support\Str;
@@ -8,6 +8,19 @@ use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
 trait UserTrait
 {
+    /**
+     * @return string|null
+     */
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email)
+    {
+        $this->email = $email;
+    }
+
     /**
      * @return bool
      */
@@ -27,9 +40,14 @@ trait UserTrait
     /**
      * @return bool
      */
-    public function isVerified(): bool
+    public function isEmailVerified(): bool
     {
         return $this->emailVerified;
+    }
+
+    public function setEmailVerified(bool $emailVerified)
+    {
+        $this->emailVerified = $emailVerified;
     }
 
     /**

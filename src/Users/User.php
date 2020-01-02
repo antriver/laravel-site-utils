@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Models\User;
+namespace Antriver\LaravelSiteUtils\Entities\User;
 
 use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
 use Illuminate\Auth\Authenticatable as AuthenticatableTrait;

@@ -1,13 +1,12 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\ModelPresenters;
+namespace Antriver\LaravelSiteUtils\Bans;
 
 use Antriver\LaravelSiteUtils\Date\DateFormat;
 use Antriver\LaravelSiteUtils\Lang\TextPresenter;
 use Antriver\LaravelSiteUtils\ModelPresenters\Base\ModelPresenterInterface;
 use Antriver\LaravelSiteUtils\ModelPresenters\Traits\PresentArrayTrait;
-use Antriver\LaravelSiteUtils\Models\User;
-use Antriver\LaravelSiteUtils\Repositories\UserRepository;
+use Antriver\LaravelSiteUtils\Users\UserRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
 
 class BanPresenter implements ModelPresenterInterface
@@ -20,13 +19,13 @@ class BanPresenter implements ModelPresenterInterface
     private $textPresenter;
 
     /**
-     * @var UserRepository
+     * @var UserRepositoryInterface
      */
     private $userRepository;
 
     public function __construct(
         TextPresenter $textPresenter,
-        UserRepository $userRepository
+        UserRepositoryInterface $userRepository
     ) {
         $this->textPresenter = $textPresenter;
         $this->userRepository = $userRepository;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Models;
+namespace Antriver\LaravelSiteUtils\Entities\UserSocialAccount;
 
 use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
 

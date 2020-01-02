@@ -2,34 +2,15 @@
 
 namespace Antriver\LaravelSiteUtils\Models\Traits;
 
-use Antriver\LaravelSiteUtils\Models\User;
-use Antriver\LaravelSiteUtils\Repositories\UserRepository;
-
 trait BelongsToUserTrait
 {
     /**
-     * Get the user this model belongs to or was created by.
+     * Return the userId this model belongs to or was created by.
      *
-     * @return User
+     * @return int|null
      */
-    public function getUserId()
+    public function getUserId(): ?int
     {
         return $this->getAttribute('userId');
-    }
-
-    /**
-     * @return User
-     */
-    public function getUser(): ?User
-    {
-        return $this->getUserRepository()->find($this->getUserId());
-    }
-
-    /**
-     * @return UserRepository
-     */
-    protected function getUserRepository()
-    {
-        return app(UserRepository::class);
     }
 }

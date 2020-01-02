@@ -12,6 +12,13 @@ interface AbstractModelInterface
     public function getKey();
 
     /**
+     * Get the value of the model's primary key.
+     *
+     * @return int
+     */
+    public function getId(): int;
+
+    /**
      * Get the primary key for the model.
      *
      * @return string

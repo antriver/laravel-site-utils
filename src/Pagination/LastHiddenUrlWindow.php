@@ -1,13 +1,13 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Laravel\Pagination;
+namespace Antriver\LaravelSiteUtils\Pagination;
 
 /**
  * Class LastHiddenUrlWindow
  *
  * Always shows 8 links
  *
- * @package Antriver\LaravelSiteUtils\Libraries\Pagination
+ * @package Amirite\Libraries\Pagination
  */
 class LastHiddenUrlWindow extends UrlWindow
 {

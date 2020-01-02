@@ -1,14 +1,12 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Models;
+namespace Antriver\LaravelSiteUtils\EmailVerification;
 
 use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
 use Antriver\LaravelSiteUtils\Models\Interfaces\BelongsToUserInterface;
 use Antriver\LaravelSiteUtils\Models\Traits\BelongsToUserTrait;
 
 /**
- * Antriver\LaravelSiteUtils\Models\EmailVerification
- *
  * @property int $id
  * @property int $userId
  * @property string $email
@@ -22,12 +20,35 @@ class EmailVerification extends AbstractModel implements BelongsToUserInterface
 {
     use BelongsToUserTrait;
 
+    const TYPE_SIGNUP = 'signup';
+    const TYPE_CHANGE = 'change';
+    const TYPE_REVERIFY  = 'reverify';
+
     protected $table = 'email_verifications';
+
+    protected $dates = [
+        self::CREATED_AT,
+        'resentAt'
+    ];
+
+    protected $visible = [
+        'id',
+        'email',
+        'userId',
+        'type',
+        'createdAt',
+        'resentAt'
+    ];
 
     public $timestamps = false;
 
     public function getUrl()
     {
         return url('verify-email').'?id='.$this->id.'&token='.$this->token;
+    }
+
+    public function isChange(): bool
+    {
+        return $this->type === self::TYPE_CHANGE;
     }
 }
