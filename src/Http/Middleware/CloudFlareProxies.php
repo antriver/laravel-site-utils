@@ -5,6 +5,7 @@ namespace Antriver\LaravelSiteUtils\Http\Middleware;
 use Cache;
 use Closure;
 use Exception;
+use Symfony\Component\HttpFoundation\Request;
 
 class CloudFlareProxies
 {
@@ -34,7 +35,7 @@ class CloudFlareProxies
             }
         );
 
-        $request->setTrustedProxies($proxyIps);
+        $request->setTrustedProxies($proxyIps, Request::HEADER_X_FORWARDED_ALL);
 
         return $next($request);
     }
