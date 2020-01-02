@@ -5,6 +5,11 @@ namespace Antriver\LaravelSiteUtils\Date;
 class DateFormat
 {
     /**
+     * 2017-11-10T10:51:00Z
+     */
+    const API_DATE_FORMAT = \DateTime::RFC3339;
+
+    /**
      * Nov 10th 2017
      */
     const DATE_ONLY = 'M jS Y';
@@ -31,8 +36,6 @@ class DateFormat
 
     /**
      * 2017-11-10 10:51:55
-     *
-     * Can also use Carbon::toDateTimeString()
      */
     const DB_DATE_TIME = 'Y-m-d H:i:s';
 

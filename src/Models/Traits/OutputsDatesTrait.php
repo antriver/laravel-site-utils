@@ -2,6 +2,9 @@
 
 namespace Antriver\LaravelSiteUtils\Models\Traits;
 
+use Antriver\LaravelSiteUtils\Date\DateFormat;
+use Carbon\Carbon;
+
 /**
  * Provides a method to convert the dates of a model to ISO 8601
  */
@@ -18,8 +21,9 @@ trait OutputsDatesTrait
             }
             $value = $this->{$dateAttribute};
             if ($value) {
+                /** @var Carbon $carbon */
                 $carbon = $this->asDateTime($this->{$dateAttribute});
-                $array[$dateAttribute] = $carbon->format(\DateTime::ATOM);
+                $array[$dateAttribute] = $carbon->format(DateFormat::API_DATE_FORMAT);
             }
         }
 

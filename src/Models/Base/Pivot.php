@@ -30,13 +30,6 @@ class Pivot extends EloquentPivot
      */
     const UPDATED_AT = 'updatedAt';
 
-    public $casts = [
-        'userId' => 'int',
-        'stickerId' => 'int',
-        'id' => 'int',
-        'likeCount' => 'int',
-    ];
-
     public function toArray()
     {
         $array = parent::toArray();

@@ -3,6 +3,7 @@
 namespace Antriver\LaravelSiteUtils\Models\Base;
 
 use Antriver\LaravelSiteUtils\Models\Traits\OutputsDatesTrait;
+use DB;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Support\Str;
 use Schema;
@@ -10,7 +11,7 @@ use Schema;
 /**
  * @mixin \Eloquent
  */
-class AbstractModel extends EloquentModel
+class AbstractModel extends EloquentModel implements AbstractModelInterface
 {
     use OutputsDatesTrait;
 
@@ -139,5 +140,35 @@ class AbstractModel extends EloquentModel
         }
 
         return app($repositoryClass)->find($this->{$field});
+    }
+
+    /**
+     * @return int|null
+     */
+    public static function getMaxKey()
+    {
+        $model = new static();
+        if (!$model->incrementing) {
+            return null;
+        }
+
+        return DB::table($model->getTable())->max($model->getKeyName());
+    }
+
+    /**
+     * @param $data
+     *
+     * @param bool $exists
+     *
+     * @return AbstractModel
+     */
+    public static function hydrateOne($data, bool $exists = true)
+    {
+        $model = new static();
+
+        $model->setRawAttributes($data);
+        $model->exists = $exists;
+
+        return $model;
     }
 }
