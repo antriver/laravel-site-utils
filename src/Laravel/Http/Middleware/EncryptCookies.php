@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\SiteUtils\Laravel\Http\Middleware;
+namespace Antriver\LaravelSiteUtils\Laravel\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;
 

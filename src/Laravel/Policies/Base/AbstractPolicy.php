@@ -1,11 +1,11 @@
 <?php
 
-namespace Antriver\SiteUtils\Laravel\Policies\Base;
+namespace Antriver\LaravelSiteUtils\Laravel\Policies\Base;
 
 /**
  * Provides some useful methods for checking authorization.
  *
- * @package Antriver\SiteUtils\Policies\Base
+ * @package Antriver\LaravelSiteUtils\Policies\Base
  */
 abstract class AbstractPolicy
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\SiteUtils\Mail;
+namespace Antriver\LaravelSiteUtils\Mail;
 
-use Antriver\SiteUtils\Mail\Base\ExtendedMailable;
-use Antriver\SiteUtils\Models\User;
+use Antriver\LaravelSiteUtils\Mail\Base\ExtendedMailable;
+use Antriver\LaravelSiteUtils\Models\User;
 
 class ForgotDetailsMail extends ExtendedMailable
 {

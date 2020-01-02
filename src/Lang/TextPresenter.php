@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\SiteUtils\Lang;
+namespace Antriver\LaravelSiteUtils\Lang;
 
 use Amirite\Libraries\Enums\ImageSize;
 use Amirite\Libraries\Images\Traits\MatchesImageMarkup;

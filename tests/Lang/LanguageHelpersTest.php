@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\SiteUtilsTests\Libraries;
+namespace Antriver\LaravelSiteUtilsTests\Lang;
 
 use PHPUnit\Framework\TestCase;
-use Antriver\SiteUtils\Lang\LanguageHelpers;
+use Antriver\LaravelSiteUtils\Lang\LanguageHelpers;
 
 class LanguageHelpersTest extends TestCase
 {

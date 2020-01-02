@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\SiteUtils\Users;
+namespace Antriver\LaravelSiteUtils\Users;
 
-use Antriver\SiteUtils\Repositories\UserRepository;
+use Antriver\LaravelSiteUtils\Repositories\UserRepository;
 use Laravel\Socialite\AbstractUser;
 
 class UsernameFactory

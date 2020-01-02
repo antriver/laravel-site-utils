@@ -1,10 +1,10 @@
 <?php
 
-namespace Antriver\SiteUtils\Laravel\Policies\Traits;
+namespace Antriver\LaravelSiteUtils\Laravel\Policies\Traits;
 
-use Antriver\SiteUtils\Models\Base\AbstractModel;
-use Antriver\SiteUtils\Models\Interfaces\BelongsToUserInterface;
-use Antriver\SiteUtils\Models\User\UserInterface;
+use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
+use Antriver\LaravelSiteUtils\Models\Interfaces\BelongsToUserInterface;
+use Antriver\LaravelSiteUtils\Models\User\UserInterface;
 
 trait PolicyHelpersTrait
 {

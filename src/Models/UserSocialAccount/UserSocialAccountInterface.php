@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\SiteUtils\Models\UserSocialAccount;
+namespace Antriver\LaravelSiteUtils\Models\UserSocialAccount;
 
 interface UserSocialAccountInterface
 {

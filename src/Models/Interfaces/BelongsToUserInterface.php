@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\SiteUtils\Models\Interfaces;
+namespace Antriver\LaravelSiteUtils\Models\Interfaces;
 
-use Antriver\SiteUtils\Models\User;
+use Antriver\LaravelSiteUtils\Models\User;
 
 interface BelongsToUserInterface
 {

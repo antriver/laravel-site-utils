@@ -1,26 +1,26 @@
 <?php
 
-namespace Antriver\SiteUtils\Models;
+namespace Antriver\LaravelSiteUtils\Models;
 
-use Antriver\SiteUtils\Models\Base\AbstractModel;
-use Antriver\SiteUtils\Models\Traits\CreatedAtWithoutUpdatedAtTrait;
+use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
+use Antriver\LaravelSiteUtils\Models\Traits\CreatedAtWithoutUpdatedAtTrait;
 
 /**
- * Antriver\SiteUtils\Models\UserEmailChange
+ * Antriver\LaravelSiteUtils\Models\UserEmailChange
  *
  * @property int $id
  * @property int $userId
  * @property string $oldEmail
  * @property string $newEmail
  * @property \Carbon\Carbon $createdAt
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\SiteUtils\Models\UserEmailChange
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Models\UserEmailChange
  *     whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\SiteUtils\Models\UserEmailChange whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\SiteUtils\Models\UserEmailChange
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Models\UserEmailChange whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Models\UserEmailChange
  *     whereNewEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\SiteUtils\Models\UserEmailChange
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Models\UserEmailChange
  *     whereOldEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\SiteUtils\Models\UserEmailChange whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Models\UserEmailChange whereUserId($value)
  * @mixin \Eloquent
  */
 class UserEmailChange extends AbstractModel

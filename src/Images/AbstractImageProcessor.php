@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\SiteUtils\Images;
+namespace Antriver\LaravelSiteUtils\Images;
 
 use Imagick;
 use Intervention\Image\Image as InterventionImage;

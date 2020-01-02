@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\SiteUtils\Users;
+namespace Antriver\LaravelSiteUtils\Users;
 
-use Antriver\SiteUtils\Models\User;
+use Antriver\LaravelSiteUtils\Models\User;
 
 trait ValidatesUserCredentialsTrait
 {

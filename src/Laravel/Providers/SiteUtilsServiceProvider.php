@@ -1,10 +1,10 @@
 <?php
 
-namespace Antriver\SiteUtils\Laravel\Providers;
+namespace Antriver\LaravelSiteUtils\Laravel\Providers;
 
-use Antriver\SiteUtils\Debug\QueryLogger;
-use Antriver\SiteUtils\Laravel\Auth\RepositoryUserProvider;
-use Antriver\SiteUtils\Repositories\Interfaces\UserRepositoryInterface;
+use Antriver\LaravelSiteUtils\Debug\QueryLogger;
+use Antriver\LaravelSiteUtils\Laravel\Auth\RepositoryUserProvider;
+use Antriver\LaravelSiteUtils\Repositories\Interfaces\UserRepositoryInterface;
 use Auth;
 use Config;
 use Illuminate\Contracts\Container\Container;

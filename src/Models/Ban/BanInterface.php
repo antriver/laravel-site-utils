@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\SiteUtils\Models\Ban;
+namespace Antriver\LaravelSiteUtils\Models\Ban;
 
 interface BanInterface
 {

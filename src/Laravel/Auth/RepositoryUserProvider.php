@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\SiteUtils\Laravel\Auth;
+namespace Antriver\LaravelSiteUtils\Laravel\Auth;
 
-use Antriver\SiteUtils\Models\User;
-use Antriver\SiteUtils\Repositories\Interfaces\UserRepositoryInterface;
+use Antriver\LaravelSiteUtils\Models\User;
+use Antriver\LaravelSiteUtils\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider as UserProviderInterface;
 use Illuminate\Support\Facades\Cache;

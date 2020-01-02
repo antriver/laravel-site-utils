@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\SiteUtils\Traits;
+namespace Antriver\LaravelSiteUtils\Traits;
 
 trait ConvertsCaseTrait
 {

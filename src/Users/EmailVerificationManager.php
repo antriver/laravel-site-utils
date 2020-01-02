@@ -1,13 +1,13 @@
 <?php
 
-namespace Antriver\SiteUtils\Users;
+namespace Antriver\LaravelSiteUtils\Users;
 
-use Antriver\SiteUtils\Libraries\Traits\GeneratesTokensTrait;
-use Antriver\SiteUtils\Mail\EmailVerificationMail;
-use Antriver\SiteUtils\Models\EmailVerification;
-use Antriver\SiteUtils\Models\User;
-use Antriver\SiteUtils\Models\UserEmailChange;
-use Antriver\SiteUtils\Repositories\UserRepository;
+use Antriver\LaravelSiteUtils\Libraries\Traits\GeneratesTokensTrait;
+use Antriver\LaravelSiteUtils\Mail\EmailVerificationMail;
+use Antriver\LaravelSiteUtils\Models\EmailVerification;
+use Antriver\LaravelSiteUtils\Models\User;
+use Antriver\LaravelSiteUtils\Models\UserEmailChange;
+use Antriver\LaravelSiteUtils\Repositories\UserRepository;
 use Carbon\Carbon;
 use Mail;
 use Tmd\LaravelRepositories\Base\AbstractRepository;
@@ -21,7 +21,7 @@ use Tmd\LaravelRepositories\Interfaces\RepositoryInterface;
  * @method EmailVerification find($key)
  * @method EmailVerification findOrFail($key)
  *
- * @package Antriver\SiteUtils\Libraries\Users
+ * @package Antriver\LaravelSiteUtils\Libraries\Users
  */
 class EmailVerificationManager extends AbstractRepository implements RepositoryInterface
 {

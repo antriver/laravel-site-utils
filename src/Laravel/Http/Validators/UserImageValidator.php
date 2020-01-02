@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\SiteUtils\Laravel\Http\Validators;
+namespace Antriver\LaravelSiteUtils\Laravel\Http\Validators;
 
-use Antriver\SiteUtils\Models\Image;
-use Antriver\SiteUtils\Repositories\ImageRepository;
+use Antriver\LaravelSiteUtils\Models\Image;
+use Antriver\LaravelSiteUtils\Repositories\ImageRepository;
 
 class UserImageValidator
 {

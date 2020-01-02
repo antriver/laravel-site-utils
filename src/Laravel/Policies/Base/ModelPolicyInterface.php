@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\SiteUtils\Laravel\Policies\Base;
+namespace Antriver\LaravelSiteUtils\Laravel\Policies\Base;
 
-use Antriver\SiteUtils\Models\Base\AbstractModel;
-use Antriver\SiteUtils\Models\User;
+use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
+use Antriver\LaravelSiteUtils\Models\User;
 
 interface ModelPolicyInterface
 {

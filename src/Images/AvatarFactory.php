@@ -1,10 +1,10 @@
 <?php
 
-namespace Antriver\SiteUtils\Images;
+namespace Antriver\LaravelSiteUtils\Images;
 
-use Antriver\SiteUtils\Models\Image;
-use Antriver\SiteUtils\Models\User;
-use Antriver\SiteUtils\Repositories\ImageRepository;
+use Antriver\LaravelSiteUtils\Models\Image;
+use Antriver\LaravelSiteUtils\Models\User;
+use Antriver\LaravelSiteUtils\Repositories\ImageRepository;
 
 class AvatarFactory
 {

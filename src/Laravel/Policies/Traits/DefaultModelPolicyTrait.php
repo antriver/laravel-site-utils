@@ -1,11 +1,11 @@
 <?php
 
-namespace Antriver\SiteUtils\Laravel\Policies\Traits;
+namespace Antriver\LaravelSiteUtils\Laravel\Policies\Traits;
 
-use Antriver\SiteUtils\Laravel\Policies\Base\AbstractPolicy;
-use Antriver\SiteUtils\Models\Base\AbstractModel;
-use Antriver\SiteUtils\Models\User;
-use Antriver\SiteUtils\Policies\Traits\PolicyHelpersTrait;
+use Antriver\LaravelSiteUtils\Laravel\Policies\Base\AbstractPolicy;
+use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
+use Antriver\LaravelSiteUtils\Models\User;
+use Antriver\LaravelSiteUtils\Policies\Traits\PolicyHelpersTrait;
 
 trait DefaultModelPolicyTrait
 {

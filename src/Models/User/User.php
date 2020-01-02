@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\SiteUtils\Models\User;
+namespace Antriver\LaravelSiteUtils\Models\User;
 
-use Antriver\SiteUtils\Models\Base\AbstractModel;
+use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
 
 /**
  * @property int $id

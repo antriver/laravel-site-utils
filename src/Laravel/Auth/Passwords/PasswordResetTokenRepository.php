@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\SiteUtils\Laravel\Auth\Passwords;
+namespace Antriver\LaravelSiteUtils\Laravel\Auth\Passwords;
 
-use Antriver\SiteUtils\Libraries\Traits\GeneratesTokensTrait;
+use Antriver\LaravelSiteUtils\Libraries\Traits\GeneratesTokensTrait;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Auth\Passwords\TokenRepositoryInterface;

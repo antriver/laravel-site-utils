@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\SiteUtils\Images;
+namespace Antriver\LaravelSiteUtils\Images;
 
-use Antriver\SiteUtils\Models\Image;
+use Antriver\LaravelSiteUtils\Models\Image;
 use Config;
 use Exception;
 use Intervention\Image\Image as InterventionImage;

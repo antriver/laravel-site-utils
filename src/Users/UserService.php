@@ -1,11 +1,11 @@
 <?php
 
-namespace Antriver\SiteUtils\Users;
+namespace Antriver\LaravelSiteUtils\Users;
 
-use Antriver\SiteUtils\Models\User;
-use Antriver\SiteUtils\Models\UserSocialAccount;
-use Antriver\SiteUtils\Repositories\UserRepository;
-use Antriver\SiteUtils\Repositories\UserSocialAccountRepository;
+use Antriver\LaravelSiteUtils\Models\User;
+use Antriver\LaravelSiteUtils\Models\UserSocialAccount;
+use Antriver\LaravelSiteUtils\Repositories\UserRepository;
+use Antriver\LaravelSiteUtils\Repositories\UserSocialAccountRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Laravel\Socialite\AbstractUser;

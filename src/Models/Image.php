@@ -1,10 +1,10 @@
 <?php
 
-namespace Antriver\SiteUtils\Models;
+namespace Antriver\LaravelSiteUtils\Models;
 
-use Antriver\SiteUtils\Models\Base\AbstractModel;
-use Antriver\SiteUtils\Models\Interfaces\BelongsToUserInterface;
-use Antriver\SiteUtils\Models\Traits\BelongsToUserTrait;
+use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
+use Antriver\LaravelSiteUtils\Models\Interfaces\BelongsToUserInterface;
+use Antriver\LaravelSiteUtils\Models\Traits\BelongsToUserTrait;
 use Config;
 
 class Image extends AbstractModel implements BelongsToUserInterface

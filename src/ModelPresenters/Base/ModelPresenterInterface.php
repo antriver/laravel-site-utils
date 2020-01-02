@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\SiteUtils\ModelPresenters\Base;
+namespace Antriver\LaravelSiteUtils\ModelPresenters\Base;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;

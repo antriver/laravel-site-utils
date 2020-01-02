@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\SiteUtils\Laravel\Http\Middleware;
+namespace Antriver\LaravelSiteUtils\Laravel\Http\Middleware;
 
-use Antriver\SiteUtils\Libraries\Traits\ConvertsCaseTrait;
+use Antriver\LaravelSiteUtils\Libraries\Traits\ConvertsCaseTrait;
 use Closure;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
  * Middleware to convert incoming request parameters form camelCase keys to snake_case keys.
  * And convert keys in the response from snake_case to camelCase.
  *
- * @package Antriver\SiteUtils\Http\Middleware
+ * @package Antriver\LaravelSiteUtils\Http\Middleware
  */
 class CamelCaseRequestToSnakeCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\SiteUtils\Models\Interfaces;
+namespace Antriver\LaravelSiteUtils\Models\Interfaces;
 
 interface LinkableInterface
 {

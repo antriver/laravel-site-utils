@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\SiteUtils\Models\Traits;
+namespace Antriver\LaravelSiteUtils\Models\Traits;
 
-use Antriver\SiteUtils\Models\User;
-use Antriver\SiteUtils\Repositories\UserRepository;
+use Antriver\LaravelSiteUtils\Models\User;
+use Antriver\LaravelSiteUtils\Repositories\UserRepository;
 
 trait BelongsToUserTrait
 {

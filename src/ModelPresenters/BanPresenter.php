@@ -1,14 +1,14 @@
 <?php
 
-namespace Antriver\SiteUtils\ModelPresenters;
+namespace Antriver\LaravelSiteUtils\ModelPresenters;
 
-use Antriver\SiteUtils\Libraries\Enums\DateFormat;
-use Antriver\SiteUtils\Models\User;
-use Antriver\SiteUtils\Presenters\TextPresenter;
-use Antriver\SiteUtils\Repositories\UserRepository;
+use Antriver\LaravelSiteUtils\Date\DateFormat;
+use Antriver\LaravelSiteUtils\Lang\TextPresenter;
+use Antriver\LaravelSiteUtils\ModelPresenters\Base\ModelPresenterInterface;
+use Antriver\LaravelSiteUtils\ModelPresenters\Traits\PresentArrayTrait;
+use Antriver\LaravelSiteUtils\Models\User;
+use Antriver\LaravelSiteUtils\Repositories\UserRepository;
 use Illuminate\Database\Eloquent\Model;
-use Tmd\LaravelHelpers\ModelPresenters\Base\ModelPresenterInterface;
-use Tmd\LaravelHelpers\ModelPresenters\Traits\PresentArrayTrait;
 
 class BanPresenter implements ModelPresenterInterface
 {

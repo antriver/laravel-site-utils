@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\SiteUtils\Debug\Events;
+namespace Antriver\LaravelSiteUtils\Debug\Events;
 
 class LocalKeyWrittenEvent
 {

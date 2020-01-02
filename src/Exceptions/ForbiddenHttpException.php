@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\SiteUtils\Exceptions;
+namespace Antriver\LaravelSiteUtils\Exceptions;
 
 use Symfony\Component\HttpKernel\Exception\HttpException;
 

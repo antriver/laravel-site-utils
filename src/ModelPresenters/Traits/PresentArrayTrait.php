@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\SiteUtils\ModelPresenters\Traits;
+namespace Antriver\LaravelSiteUtils\ModelPresenters\Traits;
 
-use Antriver\SiteUtils\Libraries\Pagination\LengthAwarePaginator;
-use Antriver\SiteUtils\ModelPresenters\Base\ModelPresenterInterface;
+use Antriver\LaravelSiteUtils\Libraries\Pagination\LengthAwarePaginator;
+use Antriver\LaravelSiteUtils\ModelPresenters\Base\ModelPresenterInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;

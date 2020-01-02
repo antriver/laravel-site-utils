@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\SiteUtils\Repositories;
+namespace Antriver\LaravelSiteUtils\Repositories;
 
-use Antriver\SiteUtils\Models\User;
+use Antriver\LaravelSiteUtils\Models\User;
 use Carbon\Carbon;
 use DB;
 use Tmd\LaravelRepositories\Base\AbstractCachedRepository;

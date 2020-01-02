@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\SiteUtils\Repositories\Traits;
+namespace Antriver\LaravelSiteUtils\Repositories\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 

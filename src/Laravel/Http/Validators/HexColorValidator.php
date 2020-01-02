@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\SiteUtils\Laravel\Http\Validators;
+namespace Antriver\LaravelSiteUtils\Laravel\Http\Validators;
 
 class HexColorValidator
 {
