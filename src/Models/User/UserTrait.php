@@ -25,11 +25,27 @@ trait UserTrait
     }
 
     /**
+     * @return bool
+     */
+    public function isVerified(): bool
+    {
+        return $this->emailVerified;
+    }
+
+    /**
      * @return string
      */
     public function getPossessiveUsername(): string
     {
         return LanguageHelpers::possessive($this->username);
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl(): string
+    {
+        return '/user/'.$this->getUrlUsername();
     }
 
     /**

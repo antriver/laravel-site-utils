@@ -12,7 +12,11 @@ interface UserInterface
 
     public function isModerator(): bool;
 
+    public function isVerified(): bool;
+
     public function getPossessiveUsername(): string;
+
+    public function getUrl(): string;
 
     public function getUrlUsername(): string;
 
