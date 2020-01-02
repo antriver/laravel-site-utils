@@ -22,7 +22,7 @@ class LaravelSiteUtilsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        include_once dirname(dirname(__DIR__)).'/helpers.php';
+        include_once dirname(__DIR__).'/helpers.php';
 
         // Register a 'repository' user provider.
         // A service provider prior to this one should have registered UserRepositoryInterface with the DI container.
