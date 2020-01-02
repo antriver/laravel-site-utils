@@ -17,7 +17,7 @@
         "php": ">=7.1",
         "laravel/framework": "^5.6|^6.8",
         "intervention/image": "^2.3",
-        "laravel/socialite": "^3.0",
+        "laravel/socialite": "^3.0|^4.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "tmd/laravel-password-updater": "^0.0.2",
         "tmd/laravel-registers": "^2.1",
