@@ -69,7 +69,7 @@ class Handler extends \Illuminate\Foundation\Exceptions\Handler
             return response()->redirectTo('/');
         }
 
-        if (config('app.debug') && !$isJson) {
+        if (config('app.debug')) {
             return $this->convertExceptionToResponse($exception);
         }
 
@@ -95,14 +95,6 @@ class Handler extends \Illuminate\Foundation\Exceptions\Handler
         if ($exception instanceof AuthenticationException) {
             return $this->unauthenticated($request, $exception);
         }
-
-        $data['currentUser'] = Auth::user();
-        $data['activeNavItem'] = null;
-        $data['activeSubnav'] = null;
-        $data['activeSubnavItem'] = null;
-
-        $data['isApp'] = request()->getHost() === config('app.app_domain');
-        $data['isWeb'] = request()->getHost() === config('app.web_domain');
 
         return response()->view('errors.general', $data, $data['status']);
     }
