@@ -10,6 +10,7 @@ use Config;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Routing\Events\RouteMatched;
 use Illuminate\Routing\Router;
+use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
@@ -56,10 +57,10 @@ class LaravelSiteUtilsServiceProvider extends ServiceProvider
         $router->matched(
             function (RouteMatched $event) use ($auth) {
                 $route = $event->route;
-                if (!\Arr::has($route->getAction(), 'guard')) {
+                if (!Arr::has($route->getAction(), 'guard')) {
                     return;
                 }
-                $routeGuard = \Arr::get($route->getAction(), 'guard');
+                $routeGuard = Arr::get($route->getAction(), 'guard');
                 $auth->resolveUsersUsing(
                     function ($guard = null) use ($auth, $routeGuard) {
                         return $auth->guard($routeGuard)->user();

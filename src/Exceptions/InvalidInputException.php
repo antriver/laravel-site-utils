@@ -10,11 +10,11 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
  */
 class InvalidInputException extends BadRequestHttpException
 {
-    private $inputMessages = [];
+    private $messages = [];
 
     public function __construct(array $messages)
     {
-        $this->inputMessages = $messages;
+        $this->messages = $messages;
 
         $flattenedMessages = [];
         array_walk_recursive(
@@ -31,8 +31,8 @@ class InvalidInputException extends BadRequestHttpException
     /**
      * @return array
      */
-    public function getInputMessages()
+    public function getMessages()
     {
-        return $this->inputMessages;
+        return $this->messages;
     }
 }
