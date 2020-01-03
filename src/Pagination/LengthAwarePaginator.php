@@ -112,7 +112,7 @@ class LengthAwarePaginator extends \Illuminate\Pagination\LengthAwarePaginator
     {
         return [
             'currentPage' => $this->currentPage(),
-            'data' => $this->items->toArray(),
+            'items' => $this->items->toArray(),
             'firstPageUrl' => $this->url(1),
             'from' => $this->firstItem(),
             'lastPage' => $this->lastPage(),
