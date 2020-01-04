@@ -2,9 +2,10 @@
 
 namespace Antriver\LaravelSiteUtils\Users;
 
+use Illuminate\Contracts\Auth\Authenticatable;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
-interface UserInterface
+interface UserInterface extends Authenticatable
 {
     public function getId(): int;
 

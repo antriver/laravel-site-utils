@@ -2,7 +2,7 @@
 
 namespace Antriver\LaravelSiteUtils\Http\Controllers\Base;
 
-use Antriver\LaravelSiteUtils\ModelPresenters\Base\ModelPresenterInterface;
+use Antriver\LaravelModelPresenters\ModelPresenterInterface;
 use Antriver\LaravelSiteUtils\Users\UserInterface;
 use Carbon\Carbon;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;

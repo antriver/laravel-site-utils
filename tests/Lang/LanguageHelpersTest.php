@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtilsTests\Lang;
+namespace Antriver\LaravelSiteScaffoldingTests\Lang;
 
 use PHPUnit\Framework\TestCase;
 use Antriver\LaravelSiteUtils\Lang\LanguageHelpers;

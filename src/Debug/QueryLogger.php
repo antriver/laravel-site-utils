@@ -20,13 +20,17 @@ use Monolog\Logger;
 
 class QueryLogger
 {
+    /**
+     * @var Logger
+     */
+    private $logger;
+
     public function __construct()
     {
-        global $queryLogger;
-        $queryLogger = new Logger('Queries');
+        $this->logger = new Logger('Queries');
 
         $rotatingFileHandler = new RotatingFileHandler(
-            storage_path().'/logs/query.log',
+            storage_path().'/logs/queries.log',
             5,
             \Monolog\Logger::DEBUG,
             true,
@@ -43,12 +47,11 @@ class QueryLogger
         $lineFormatter = new LineFormatter("%message% %context% %extra%\n", null, true, true);
         $rotatingFileHandler->setFormatter($lineFormatter);
 
-        $queryLogger->pushHandler($bufferHandler);
-
+        $this->logger->pushHandler($bufferHandler);
         //$queryLogger->pushHandler(new StreamHandler("php://output"));
 
         if (php_sapi_name() !== 'cli') {
-            $queryLogger->info(
+            $this->logger->info(
                 "\n\n=======\n{$_SERVER['REQUEST_METHOD']}\n{$_SERVER['REQUEST_URI']}"
                 //." \n".Request::server('HTTP_REFERER')
                 ."\n".(new Carbon())->toDateTimeString()
@@ -58,8 +61,8 @@ class QueryLogger
 
         Event::listen(
             CommandStarting::class,
-            function (CommandStarting $event) use ($queryLogger) {
-                $queryLogger->info(
+            function (CommandStarting $event) {
+                $this->logger->info(
                     "\n\n=======\n{$event->command}"
                     ."\n".(new Carbon())->toDateTimeString()
                     ."\n========="
@@ -69,43 +72,43 @@ class QueryLogger
 
         Event::listen(
             CacheMissed::class,
-            function (CacheMissed $event) use ($queryLogger) {
+            function (CacheMissed $event) {
                 if ($event->key === 'illuminate:queue:restart') {
                     return false;
                 }
 
-                return $queryLogger->info("cache.missed\t\t\t{$event->key}");
+                return $this->logger->info("cache.missed\t\t\t{$event->key}");
             }
         );
 
         Event::listen(
             CacheHit::class,
-            function (CacheHit $event) use ($queryLogger) {
+            function (CacheHit $event) {
                 if ($event->key === 'illuminate:queue:restart') {
                     return;
                 }
 
-                $queryLogger->info("cache.hit\t\t\t{$event->key}");
+                $this->logger->info("cache.hit\t\t\t{$event->key}");
             }
         );
 
         Event::listen(
             KeyWritten::class,
-            function (KeyWritten $event) use ($queryLogger) {
-                $queryLogger->info("cache.write\t\t\t{$event->key}");
+            function (KeyWritten $event) {
+                $this->logger->info("cache.write\t\t\t{$event->key}");
             }
         );
 
         Event::listen(
             KeyForgotten::class,
-            function (KeyForgotten $event) use ($queryLogger) {
-                $queryLogger->info("cache.forget\t\t\t{$event->key}");
+            function (KeyForgotten $event) {
+                $this->logger->info("cache.forget\t\t\t{$event->key}");
             }
         );
 
         Event::listen(
             QueryExecuted::class,
-            function (QueryExecuted $event) use ($queryLogger) {
+            function (QueryExecuted $event) {
 
                 $query = $event->sql;
                 $bindings = $event->bindings;
@@ -125,29 +128,29 @@ class QueryLogger
                 $query = str_replace(['%', '?'], ['%%', '%s'], $query);
                 $query = vsprintf($query, $bindings);
 
-                $queryLogger->info("query\t\t{$query}", [$event->time]);
+                $this->logger->info("query\t\t{$query}", [$event->time]);
             }
         );
 
 
         Event::listen(
             LocalCacheMissedEvent::class,
-            function (LocalCacheMissedEvent $event) use ($queryLogger) {
-                $queryLogger->info("array-cache.missed\t{$event->key}");
+            function (LocalCacheMissedEvent $event) {
+                $this->logger->info("array-cache.missed\t{$event->key}");
             }
         );
 
         Event::listen(
             LocalCacheHitEvent::class,
-            function (LocalCacheHitEvent $event) use ($queryLogger) {
-                $queryLogger->info("array-cache.hit\t\t{$event->key}");
+            function (LocalCacheHitEvent $event) {
+                $this->logger->info("array-cache.hit\t\t{$event->key}");
             }
         );
 
         Event::listen(
             LocalKeyWrittenEvent::class,
-            function (LocalKeyWrittenEvent $event) use ($queryLogger) {
-                $queryLogger->info("array-cache.write\t{$event->key}");
+            function (LocalKeyWrittenEvent $event) {
+                $this->logger->info("array-cache.write\t{$event->key}");
             }
         );
 

@@ -1,16 +1,21 @@
 {
-    "name": "antriver/laravel-site-utils",
+    "name": "antriver/laravel-site-scaffolding",
     "description": "A bunch of stuff to reduce duplication between Laravel apps.",
     "type": "library",
     "authors": [
         {
             "name": "Anthony Kuske",
-            "email": "anthonykuske@gmail.com"
+            "homepage": "https://anthonykuske.com"
         }
     ],
     "autoload": {
         "psr-4": {
-            "Antriver\\LaravelSiteUtils\\": "src/"
+            "Antriver\\LaravelSiteScaffolding\\": "src/"
+        }
+    },
+        "autoload-dev": {
+        "psr-4": {
+            "Antriver\\LaravelSiteScaffoldingTests\\": "tests/"
         }
     },
     "require": {
@@ -23,7 +28,9 @@
         "tmd/laravel-registers": "^2.1",
         "antriver/laravel-simple-message-trait": "^5.8",
         "google/recaptcha": "^1.2",
-        "tmd/laravel-repositories": "^2.2"
+        "tmd/laravel-repositories": "^2.2",
+        "antriver/laravel-database-session-auth": "^2.0",
+        "antriver/laravel-model-presenters": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0"

@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
+/**
+ * Laravel auth provider that loads users from a repository.
+ */
 class RepositoryUserProvider implements UserProviderInterface
 {
     /**

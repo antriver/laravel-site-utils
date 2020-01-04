@@ -4,8 +4,80 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a42210aefc9b741089c681ef64394f30",
+    "content-hash": "85c23bd706fdc314a2a1c53a109ef9b9",
     "packages": [
+        {
+            "name": "antriver/laravel-database-session-auth",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/antriver/laravel-database-session-auth.git",
+                "reference": "6701c89dac525df61e00764f404c27a9a648fb16"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/antriver/laravel-database-session-auth/zipball/6701c89dac525df61e00764f404c27a9a648fb16",
+                "reference": "6701c89dac525df61e00764f404c27a9a648fb16",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Antriver\\LaravelDatabaseSessionAuth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anthony Kuske",
+                    "email": "anthonykuske@gmail.com"
+                }
+            ],
+            "description": "Laravel auth guard that stores a session token in the database.",
+            "time": "2020-01-03T00:11:01+00:00"
+        },
+        {
+            "name": "antriver/laravel-model-presenters",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/antriver/laravel-model-presenters.git",
+                "reference": "5b3d5722e7fd85873d486aebe906211c58f14fff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/antriver/laravel-model-presenters/zipball/5b3d5722e7fd85873d486aebe906211c58f14fff",
+                "reference": "5b3d5722e7fd85873d486aebe906211c58f14fff",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.*.*",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Antriver\\LaravelModelPresenters\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anthony Kuske",
+                    "homepage": "https://anthonykuske.com"
+                }
+            ],
+            "time": "2020-01-04T01:57:28+00:00"
+        },
         {
             "name": "antriver/laravel-simple-message-trait",
             "version": "5.8.15",

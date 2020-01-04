@@ -2,10 +2,10 @@
 
 namespace Antriver\LaravelSiteUtils\Bans;
 
+use Antriver\LaravelModelPresenters\ModelPresenterInterface;
+use Antriver\LaravelModelPresenters\PresentArrayTrait;
 use Antriver\LaravelSiteUtils\Date\DateFormat;
 use Antriver\LaravelSiteUtils\Lang\TextPresenter;
-use Antriver\LaravelSiteUtils\ModelPresenters\Base\ModelPresenterInterface;
-use Antriver\LaravelSiteUtils\ModelPresenters\Traits\PresentArrayTrait;
 use Antriver\LaravelSiteUtils\Users\UserRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
 

@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Support\Collection;
 use Tmd\LaravelRepositories\Base\AbstractRepository;
 
-class BanRepository extends AbstractRepository
+class BanRepository extends AbstractRepository implements BanRepositoryInterface
 {
     use ReturnsPaginatorsTrait;
 
@@ -22,7 +22,7 @@ class BanRepository extends AbstractRepository
      *
      * @return Ban|null
      */
-    public function findCurrentForUser(UserInterface $user)
+    public function findCurrentForUser(UserInterface $user): ?Ban
     {
         $result = Cache::rememberForever(
             'user-ban:'.$user->getId(),
