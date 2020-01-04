@@ -17,7 +17,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
-class LaravelSiteUtilsServiceProvider extends ServiceProvider
+class LaravelSiteScaffoldingServiceProvider extends ServiceProvider
 {
     protected $concreteBindings = [
         UserPresenterInterface::class => UserPresenter
