@@ -4,6 +4,7 @@ namespace Antriver\LaravelSiteScaffolding\Providers;
 
 use Antriver\LaravelSiteScaffolding\Auth\RepositoryUserProvider;
 use Antriver\LaravelSiteScaffolding\Bans\BanPresenter;
+use Antriver\LaravelSiteScaffolding\Bans\BanPresenterInterface;
 use Antriver\LaravelSiteScaffolding\Bans\BanRepository;
 use Antriver\LaravelSiteScaffolding\Bans\BanRepositoryInterface;
 use Antriver\LaravelSiteScaffolding\Debug\QueryLogger;
@@ -97,19 +98,10 @@ class LaravelSiteScaffoldingServiceProvider extends ServiceProvider
 
     protected function bindInterfaces()
     {
-        $this->app->singleton(BanRepositoryInterface::class, $this->getConcreteBanRepositoryClassName());
-        $this->app->singleton(UserPresenterInterface::class, $this->getConcreteUserRepositoryClassName());
-        $this->app->singleton(UserRepositoryInterface::class, $this->getConcreteUserRepositoryClassName());
-    }
-
-    protected function getConcreteBanRepositoryClassName(): string
-    {
-        return BanRepository::class;
-    }
-
-    protected function getConcreteUserRepositoryClassName(): string
-    {
-        return UserRepository::class;
+        foreach ($this->concreteBindings as $interface => $concrete) {
+            $this->app->singleton($concrete);
+            $this->app->singleton($interface, $concrete);
+        }
     }
 
     protected function setupQueryLogger()

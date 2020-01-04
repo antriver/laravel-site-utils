@@ -2,28 +2,26 @@
 
 namespace Antriver\LaravelSiteScaffolding\Bans\Exceptions;
 
-use Amirite\Libraries\Enums\ContentHiddenReason;
-use Amirite\ModelPresenters\BanPresenter;
-use Amirite\ModelPresenters\UserPresenter;
-use Amirite\Models\Ban;
-use Amirite\Models\User;
+use Antriver\LaravelSiteScaffolding\Bans\Ban;
+use Antriver\LaravelSiteScaffolding\Bans\BanPresenter;
+use Antriver\LaravelSiteScaffolding\Bans\BanPresenterInterface;
 use Antriver\LaravelSiteScaffolding\Exceptions\ForbiddenHttpException;
+use Antriver\LaravelSiteScaffolding\Exceptions\Traits\HasUserTrait;
+use Antriver\LaravelSiteScaffolding\Users\UserInterface;
+use Antriver\LaravelSiteScaffolding\Users\UserPresenterInterface;
 
 class BannedUserException extends ForbiddenHttpException
 {
+    use HasUserTrait;
+
     private $ban;
 
     private $user;
 
-    public function __construct(Ban $ban, User $user)
+    public function __construct(Ban $ban, UserInterface $user)
     {
         $this->ban = $ban;
-        $this->user = $user;
-
-        if (empty($this->hiddenReason)) {
-            // Check for emptiness because subclass may have set this.
-            $this->setHiddenReason(ContentHiddenReason::POSTER_BANNED);
-        }
+        $this->setUser($user);
 
         $message = BanPresenter::getMessage($ban, $user, false);
 
@@ -38,21 +36,14 @@ class BannedUserException extends ForbiddenHttpException
         return $this->ban;
     }
 
-    /**
-     * @return User
-     */
-    public function getUser(): User
-    {
-        return $this->user;
-    }
-
     public function getData(): array
     {
-        $presentedBan = $this->ban ? app(BanPresenter::class)->present($this->ban) : null;
+        $presentedBan = $this->ban ? app(BanPresenterInterface::class)->present($this->ban) : null;
+
         return [
             'additionalHtml' => $presentedBan ? $presentedBan['reasonHtml'] : null,
             'ban' => $presentedBan,
-            'user' => $this->user ? app(UserPresenter::class)->present($this->user) : null,
+            'user' => $this->user ? app(UserPresenterInterface::class)->present($this->user) : null,
         ];
     }
 }

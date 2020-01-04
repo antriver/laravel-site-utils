@@ -3,7 +3,7 @@
 namespace Antriver\LaravelSiteScaffoldingTests\Lang;
 
 use PHPUnit\Framework\TestCase;
-use Antriver\LaravelSiteUtils\Lang\LanguageHelpers;
+use Antriver\LaravelSiteScaffolding\Lang\LanguageHelpers;
 
 class LanguageHelpersTest extends TestCase
 {

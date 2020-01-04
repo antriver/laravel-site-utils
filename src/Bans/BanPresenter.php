@@ -6,10 +6,11 @@ use Antriver\LaravelModelPresenters\ModelPresenterInterface;
 use Antriver\LaravelModelPresenters\PresentArrayTrait;
 use Antriver\LaravelSiteScaffolding\Date\DateFormat;
 use Antriver\LaravelSiteScaffolding\Lang\TextPresenter;
+use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 use Antriver\LaravelSiteScaffolding\Users\UserRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class BanPresenter implements ModelPresenterInterface
+class BanPresenter implements ModelPresenterInterface, BanPresenterInterface
 {
     use PresentArrayTrait;
 
@@ -47,11 +48,10 @@ class BanPresenter implements ModelPresenterInterface
         return $array;
     }
 
-    public static function getMessage(Ban $ban, ?User $user, bool $withReason)
+    public static function getMessage(Ban $ban, ?UserInterface $user, bool $withReason)
     {
         $who = null;
         if ($user) {
-            //$who = $user->username;
             $who = 'This user';
         } elseif ($ban->ip) {
             $who = 'IP '.$ban->ip;

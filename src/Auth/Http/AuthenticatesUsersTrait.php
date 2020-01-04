@@ -1,17 +1,11 @@
 <?php
 
-namespace Amirite\Http\Controllers\Traits;
+namespace Antriver\LaravelSiteScaffolding\Auth\Http;
 
-use Amirite\Exceptions\BannedUserException;
-use Amirite\Exceptions\DeactivatedUserException;
-use Amirite\Exceptions\InvalidInputException;
-use Amirite\Exceptions\UnverifiedUserException;
-use Amirite\Libraries\Users\EmailVerificationManager;
-use Amirite\Models\User;
-use Amirite\Repositories\BanRepository;
 use Antriver\LaravelDatabaseSessionAuth\DatabaseSessionGuard;
 use Antriver\LaravelSiteScaffolding\Bans\BanRepositoryInterface;
-use Antriver\LaravelSiteScaffolding\Exceptions\InvalidInputException;
+use Antriver\LaravelSiteScaffolding\Bans\Exceptions\BannedUserException;
+use Antriver\LaravelSiteScaffolding\Users\User;
 use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 use Antriver\LaravelSiteScaffolding\Users\ValidatesUserCredentialsTrait;
 use Auth;
@@ -122,8 +116,11 @@ trait AuthenticatesUsersTrait
         }
     }
 
-    protected function createUserDatabaseSessionToken(UserInterface $user, Request $request, DatabaseSessionGuard $guard)
-    {
+    protected function createUserDatabaseSessionToken(
+        UserInterface $user,
+        Request $request,
+        DatabaseSessionGuard $guard
+    ) {
         $guard->login($user, $request);
 
         return $guard->getSessionId();
@@ -173,23 +170,20 @@ trait AuthenticatesUsersTrait
     }
 
     /**
-     * @param User $user
-     * @param BanRepository $banRepository
+     * @param UserInterface $user
+     * @param BanRepositoryInterface $banRepository
      *
      * @return bool
-     * @throws BannedUserException
-     * @throws DeactivatedUserException
-     * @throws UnverifiedUserException
      */
-    protected function ensureAccountCanLogin(User $user, BanRepositoryInterface $banRepository)
+    protected function ensureAccountCanLogin(UserInterface $user, BanRepositoryInterface $banRepository)
     {
         if ($ban = $banRepository->findCurrentForUser($user)) {
             throw new BannedUserException($ban, $user);
         }
 
-        if ($user->isDeactivated()) {
+        /*if ($user->isDeactivated()) {
             throw new DeactivatedUserException($user);
-        }
+        }*/
 
         // We now allow unverified users to login.
         /*if (!$user->emailVerified) {

@@ -30,7 +30,8 @@
         "google/recaptcha": "^1.2",
         "tmd/laravel-repositories": "^2.2",
         "antriver/laravel-database-session-auth": "^2.0",
-        "antriver/laravel-model-presenters": "^1.0"
+        "antriver/laravel-model-presenters": "^1.0",
+        "firebase/php-jwt": "^5.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0"

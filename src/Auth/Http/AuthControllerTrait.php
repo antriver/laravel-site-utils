@@ -2,11 +2,9 @@
 
 namespace Antriver\LaravelSiteScaffolding\Auth\Http;
 
-use Amirite\Http\Controllers\Traits\AuthenticatesUsersTrait;
-use Antriver\LaravelSiteScaffolding\Bans\BanRepository;
+use Antriver\LaravelSiteScaffolding\Auth\JwtFactory;
 use Antriver\LaravelSiteScaffolding\Bans\BanRepositoryInterface;
 use Antriver\LaravelSiteScaffolding\Users\Exceptions\UnverifiedUserException;
-use Antriver\LaravelSiteScaffolding\Users\UserPresenterInterface;
 use Antriver\LaravelSiteScaffolding\Users\UserRepositoryInterface;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Auth\AuthManager;
@@ -20,18 +18,18 @@ trait AuthControllerTrait
     /**
      * @api {get} /auth Get User For Session Token
      *
-     * @param AuthManager $authManager
-     * @param UserPresenterInterface $userPresenter
-     * @param UserRepositoryInterface $userRepository
+     * @param ApiAuthResponseFactory $apiAuthResponseFactory
      * @param Request $request
+     * @param AuthManager $authManager
+     * @param UserRepositoryInterface $userRepository
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return array
      * @throws AuthenticationException
      */
     public function show(
+        ApiAuthResponseFactory $apiAuthResponseFactory,
         Request $request,
         AuthManager $authManager,
-        UserPresenterInterface $userPresenter,
         UserRepositoryInterface $userRepository
     ) {
         $token = $request->input('token');
@@ -43,35 +41,32 @@ trait AuthControllerTrait
         }
         $user = $userRepository->findOrFail($userId);
 
-        $response = [
-            'user' => $userPresenter->present($user),
-            'token' => $token,
-        ];
+        $response = $apiAuthResponseFactory->make(
+            $request,
+            $user
+        );
 
         return $this->response($response);
-     }
+    }
 
-     /**
+    /**
      * @api {post} /auth Login (Create Session Token)
      *
      * @apiDesc Validate login credentials and start a session for the user.
      * Returns an API token for the user.
      *
      * @param ApiAuthResponseFactory $apiAuthResponseFactory
-     * @param BanRepository $banRepository
-     * @param DeactivationManager $deactivationManager
+     * @param BanRepositoryInterface $banRepository
      * @param JwtFactory $jwtFactory
      * @param PasswordHasher $passwordHasher
      * @param Request $request
      *
      * @return \Illuminate\Http\JsonResponse
-     * @throws DeactivatedUserException
      * @throws UnverifiedUserException
      */
     public function store(
         ApiAuthResponseFactory $apiAuthResponseFactory,
         BanRepositoryInterface $banRepository,
-        DeactivationManager $deactivationManager,
         JwtFactory $jwtFactory,
         PasswordHasher $passwordHasher,
         Request $request
@@ -85,17 +80,6 @@ trait AuthControllerTrait
 
             throw $exception;
 
-        } catch (DeactivatedUserException $exception) {
-            // Credentials were valid but user is deactivated.
-
-            // TODO: Remove this. v5 calls the reactivate endpoint.
-            if ($request->input('reactivate')) {
-                $user = $exception->getUser();
-                $deactivationManager->reactivateUser($user);
-            } else {
-                $exception->setJwt($jwtFactory->generateToken($exception->getUser()));
-                throw $exception;
-            }
         }
 
         $response = $apiAuthResponseFactory->make(
