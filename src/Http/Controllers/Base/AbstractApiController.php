@@ -3,9 +3,9 @@
 namespace Antriver\LaravelSiteScaffolding\Http\Controllers\Base;
 
 use Antriver\LaravelModelPresenters\ModelPresenterInterface;
+use Antriver\LaravelSiteScaffolding\Pagination\LengthAwarePaginator;
 use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 use Carbon\Carbon;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
