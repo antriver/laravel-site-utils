@@ -1,14 +1,16 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Providers;
+namespace Antriver\LaravelSiteScaffolding\Providers;
 
-use Antriver\LaravelSiteUtils\Auth\RepositoryUserProvider;
-use Antriver\LaravelSiteUtils\Bans\BanRepository;
-use Antriver\LaravelSiteUtils\Bans\BanRepositoryInterface;
-use Antriver\LaravelSiteUtils\Debug\QueryLogger;
-use Antriver\LaravelSiteUtils\Users\UserPresenterInterface;
-use Antriver\LaravelSiteUtils\Users\UserRepository;
-use Antriver\LaravelSiteUtils\Users\UserRepositoryInterface;
+use Antriver\LaravelSiteScaffolding\Auth\RepositoryUserProvider;
+use Antriver\LaravelSiteScaffolding\Bans\BanPresenter;
+use Antriver\LaravelSiteScaffolding\Bans\BanRepository;
+use Antriver\LaravelSiteScaffolding\Bans\BanRepositoryInterface;
+use Antriver\LaravelSiteScaffolding\Debug\QueryLogger;
+use Antriver\LaravelSiteScaffolding\Users\UserPresenter;
+use Antriver\LaravelSiteScaffolding\Users\UserPresenterInterface;
+use Antriver\LaravelSiteScaffolding\Users\UserRepository;
+use Antriver\LaravelSiteScaffolding\Users\UserRepositoryInterface;
 use Auth;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Routing\Events\RouteMatched;
@@ -20,7 +22,10 @@ use Tmd\LaravelPasswordUpdater\PasswordHasher;
 class LaravelSiteScaffoldingServiceProvider extends ServiceProvider
 {
     protected $concreteBindings = [
-        UserPresenterInterface::class => UserPresenter
+        BanPresenterInterface::class => BanPresenter::class,
+        BanRepositoryInterface::class => BanRepository::class,
+        UserPresenterInterface::class => UserPresenter::class,
+        UserRepositoryInterface::class => UserRepository::class,
     ];
 
     /**

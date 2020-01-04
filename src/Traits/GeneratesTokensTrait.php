@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Traits;
+namespace Antriver\LaravelSiteScaffolding\Traits;
 
 use Illuminate\Support\Str;
 

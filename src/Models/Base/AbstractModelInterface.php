@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Models\Base;
+namespace Antriver\LaravelSiteScaffolding\Models\Base;
 
 interface AbstractModelInterface
 {

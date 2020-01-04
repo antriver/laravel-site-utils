@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Http\Controllers\Base;
+namespace Antriver\LaravelSiteScaffolding\Http\Controllers\Base;
 
-use Antriver\LaravelSiteUtils\Users\UserInterface;
+use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;

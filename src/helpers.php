@@ -1,6 +1,6 @@
 <?php
 
-use Antriver\LaravelSiteUtils\Date\DateFormat;
+use Antriver\LaravelSiteScaffolding\Date\DateFormat;
 
 /**
  * Include this in AppServiceProvider::boot()

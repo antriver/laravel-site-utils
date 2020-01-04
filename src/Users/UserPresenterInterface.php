@@ -1,13 +1,15 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Users;
+namespace Antriver\LaravelSiteScaffolding\Users;
+
+use Illuminate\Database\Eloquent\Model;
 
 interface UserPresenterInterface
 {
     /**
-     * @param UserInterface $user
+     * @param Model|UserInterface $user
      *
      * @return array
      */
-    public function presentUser(UserInterface $user): array;
+    public function present(Model $user): array;
 }

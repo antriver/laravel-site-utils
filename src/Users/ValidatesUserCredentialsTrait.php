@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Users;
+namespace Antriver\LaravelSiteScaffolding\Users;
 
 trait ValidatesUserCredentialsTrait
 {

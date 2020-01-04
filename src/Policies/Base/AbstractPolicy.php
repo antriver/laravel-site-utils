@@ -1,10 +1,10 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Policies\Base;
+namespace Antriver\LaravelSiteScaffolding\Policies\Base;
 
-use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
-use Antriver\LaravelSiteUtils\Models\Interfaces\BelongsToUserInterface;
-use Antriver\LaravelSiteUtils\Users\UserInterface;
+use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
+use Antriver\LaravelSiteScaffolding\Models\Interfaces\BelongsToUserInterface;
+use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 
 abstract class AbstractPolicy
 {

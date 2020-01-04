@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Pagination;
+namespace Antriver\LaravelSiteScaffolding\Pagination;
 
 use Illuminate\Support\HtmlString;
 

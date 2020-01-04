@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Policies\Traits;
+namespace Antriver\LaravelSiteScaffolding\Policies\Traits;
 
-use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
-use Antriver\LaravelSiteUtils\Users\UserInterface;
+use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
+use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 
 trait AdminOnlyPolicyTrait
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Pagination;
+namespace Antriver\LaravelSiteScaffolding\Pagination;
 
 class LastHiddenLengthAwarePaginator extends LengthAwarePaginator
 {

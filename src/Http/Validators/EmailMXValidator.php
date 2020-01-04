@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Http\Validators;
+namespace Antriver\LaravelSiteScaffolding\Http\Validators;
 
 class EmailMXValidator
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Http\Middleware;
+namespace Antriver\LaravelSiteScaffolding\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;

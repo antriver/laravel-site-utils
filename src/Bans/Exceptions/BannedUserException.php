@@ -1,13 +1,13 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Bans\Exceptions;
+namespace Antriver\LaravelSiteScaffolding\Bans\Exceptions;
 
 use Amirite\Libraries\Enums\ContentHiddenReason;
 use Amirite\ModelPresenters\BanPresenter;
 use Amirite\ModelPresenters\UserPresenter;
 use Amirite\Models\Ban;
 use Amirite\Models\User;
-use Antriver\LaravelSiteUtils\Exceptions\ForbiddenHttpException;
+use Antriver\LaravelSiteScaffolding\Exceptions\ForbiddenHttpException;
 
 class BannedUserException extends ForbiddenHttpException
 {

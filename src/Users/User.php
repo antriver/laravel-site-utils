@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Users;
+namespace Antriver\LaravelSiteScaffolding\Users;
 
-use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
+use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
 use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 use Illuminate\Auth\Passwords\CanResetPassword as CanResetPasswordTrait;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;

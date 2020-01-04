@@ -1,10 +1,10 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Bans;
+namespace Antriver\LaravelSiteScaffolding\Bans;
 
 //use Amirite\Events\ContentTextUpdatedEvent;
-use Antriver\LaravelSiteUtils\Pagination\ReturnsPaginatorsTrait;
-use Antriver\LaravelSiteUtils\Users\UserInterface;
+use Antriver\LaravelSiteScaffolding\Pagination\ReturnsPaginatorsTrait;
+use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 use Cache;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model as EloquentModel;

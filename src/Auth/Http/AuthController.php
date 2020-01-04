@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Auth\Http;
+namespace Antriver\LaravelSiteScaffolding\Auth\Http;
 
-use Antriver\LaravelSiteUtils\Http\Controllers\Base\AbstractApiController;
+use Antriver\LaravelSiteScaffolding\Http\Controllers\Base\AbstractApiController;
 
 class AuthController extends AbstractApiController
 {

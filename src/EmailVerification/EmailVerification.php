@@ -1,10 +1,10 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\EmailVerification;
+namespace Antriver\LaravelSiteScaffolding\EmailVerification;
 
-use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
-use Antriver\LaravelSiteUtils\Models\Interfaces\BelongsToUserInterface;
-use Antriver\LaravelSiteUtils\Models\Traits\BelongsToUserTrait;
+use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
+use Antriver\LaravelSiteScaffolding\Models\Interfaces\BelongsToUserInterface;
+use Antriver\LaravelSiteScaffolding\Models\Traits\BelongsToUserTrait;
 
 /**
  * @property int $id

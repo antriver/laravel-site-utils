@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Debug;
+namespace Antriver\LaravelSiteScaffolding\Debug;
 
 class DebugTimer
 {

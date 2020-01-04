@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Models\Base;
+namespace Antriver\LaravelSiteScaffolding\Models\Base;
 
-use Antriver\LaravelSiteUtils\Models\Traits\OutputsDatesTrait;
+use Antriver\LaravelSiteScaffolding\Models\Traits\OutputsDatesTrait;
 use DB;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Support\Str;

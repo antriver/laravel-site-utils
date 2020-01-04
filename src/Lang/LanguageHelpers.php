@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Lang;
+namespace Antriver\LaravelSiteScaffolding\Lang;
 
 class LanguageHelpers
 {

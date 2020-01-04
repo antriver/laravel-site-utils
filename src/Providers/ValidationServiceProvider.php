@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Providers;
+namespace Antriver\LaravelSiteScaffolding\Providers;
 
 use Validator;
 
@@ -10,11 +10,11 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
     {
         parent::register();
 
-        Validator::extend('email_valid', 'Antriver\LaravelSiteUtils\Http\Validators\EmailMXValidator@validate');
-        Validator::extend('hex_color', 'Antriver\LaravelSiteUtils\Http\Validators\HexColorValidator@validate');
-        Validator::extend('recaptcha', 'Antriver\LaravelSiteUtils\Http\Validators\RecaptchaValidator@validate');
-        Validator::extend('user_image', 'Antriver\LaravelSiteUtils\Http\Validators\UserImageValidator@validate');
-        Validator::extend('i_in', 'Antriver\LaravelSiteUtils\Http\Validators\InCaseInsensitiveValidator@validateIn');
-        Validator::extend('i_not_in', 'Antriver\LaravelSiteUtils\Http\Validators\InCaseInsensitiveValidator@validateNotIn');
+        Validator::extend('email_valid', 'Antriver\LaravelSiteScaffolding\Http\Validators\EmailMXValidator@validate');
+        Validator::extend('hex_color', 'Antriver\LaravelSiteScaffolding\Http\Validators\HexColorValidator@validate');
+        Validator::extend('recaptcha', 'Antriver\LaravelSiteScaffolding\Http\Validators\RecaptchaValidator@validate');
+        Validator::extend('user_image', 'Antriver\LaravelSiteScaffolding\Http\Validators\UserImageValidator@validate');
+        Validator::extend('i_in', 'Antriver\LaravelSiteScaffolding\Http\Validators\InCaseInsensitiveValidator@validateIn');
+        Validator::extend('i_not_in', 'Antriver\LaravelSiteScaffolding\Http\Validators\InCaseInsensitiveValidator@validateNotIn');
     }
 }

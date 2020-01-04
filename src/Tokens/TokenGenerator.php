@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Tokens;
+namespace Antriver\LaravelSiteScaffolding\Tokens;
 
 use Illuminate\Support\Str;
 

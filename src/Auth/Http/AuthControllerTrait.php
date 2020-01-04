@@ -1,13 +1,13 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Auth\Http;
+namespace Antriver\LaravelSiteScaffolding\Auth\Http;
 
 use Amirite\Http\Controllers\Traits\AuthenticatesUsersTrait;
-use Antriver\LaravelSiteUtils\Bans\BanRepository;
-use Antriver\LaravelSiteUtils\Bans\BanRepositoryInterface;
-use Antriver\LaravelSiteUtils\Users\Exceptions\UnverifiedUserException;
-use Antriver\LaravelSiteUtils\Users\UserPresenterInterface;
-use Antriver\LaravelSiteUtils\Users\UserRepositoryInterface;
+use Antriver\LaravelSiteScaffolding\Bans\BanRepository;
+use Antriver\LaravelSiteScaffolding\Bans\BanRepositoryInterface;
+use Antriver\LaravelSiteScaffolding\Users\Exceptions\UnverifiedUserException;
+use Antriver\LaravelSiteScaffolding\Users\UserPresenterInterface;
+use Antriver\LaravelSiteScaffolding\Users\UserRepositoryInterface;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Auth\AuthManager;
 use Illuminate\Http\Request;
@@ -44,7 +44,7 @@ trait AuthControllerTrait
         $user = $userRepository->findOrFail($userId);
 
         $response = [
-            'user' => $userPresenter->presentUser($user),
+            'user' => $userPresenter->present($user),
             'token' => $token,
         ];
 

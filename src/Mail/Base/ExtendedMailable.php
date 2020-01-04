@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Mail\Base;
+namespace Antriver\LaravelSiteScaffolding\Mail\Base;
 
 use Antriver\LaravelSimpleMessageTrait\SimpleMessageTrait;
-use Antriver\LaravelSiteUtils\Entities\User\User;
+use Antriver\LaravelSiteScaffolding\Entities\User\User;
 use Illuminate\Mail\Mailable;
 
 abstract class ExtendedMailable extends Mailable

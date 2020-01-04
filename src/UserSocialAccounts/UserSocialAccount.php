@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\UserSocialAccounts;
+namespace Antriver\LaravelSiteScaffolding\UserSocialAccounts;
 
-use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
+use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
 
 /**
  * @mixin \Eloquent

@@ -1,12 +1,12 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Users;
+namespace Antriver\LaravelSiteScaffolding\Users;
 
 use Antriver\LaravelModelPresenters\ModelPresenterInterface;
 use Antriver\LaravelModelPresenters\PresentArrayTrait;
-use Antriver\LaravelSiteUtils\Images\ImageSize;
-use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
-use Antriver\LaravelSiteUtils\Repositories\ImageRepository;
+use Antriver\LaravelSiteScaffolding\Images\ImageSize;
+use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
+use Antriver\LaravelSiteScaffolding\Repositories\ImageRepository;
 use Illuminate\Database\Eloquent\Model;
 
 class UserPresenter implements ModelPresenterInterface, UserPresenterInterface
@@ -43,11 +43,5 @@ class UserPresenter implements ModelPresenterInterface, UserPresenterInterface
         $array['url'] = $user->getUrl();
 
         return $array;
-    }
-
-    public function presentUser(UserInterface $user): array
-    {
-        /** @var UserInterface|AbstractModel $user */
-        return $this->present($user);
     }
 }

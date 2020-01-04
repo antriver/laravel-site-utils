@@ -1,10 +1,10 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Debug;
+namespace Antriver\LaravelSiteScaffolding\Debug;
 
-use Antriver\LaravelSiteUtils\Debug\Events\LocalCacheHitEvent;
-use Antriver\LaravelSiteUtils\Debug\Events\LocalCacheMissedEvent;
-use Antriver\LaravelSiteUtils\Debug\Events\LocalKeyWrittenEvent;
+use Antriver\LaravelSiteScaffolding\Debug\Events\LocalCacheHitEvent;
+use Antriver\LaravelSiteScaffolding\Debug\Events\LocalCacheMissedEvent;
+use Antriver\LaravelSiteScaffolding\Debug\Events\LocalKeyWrittenEvent;
 use Carbon\Carbon;
 use Event;
 use Illuminate\Cache\Events\CacheHit;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Repositories\Traits;
+namespace Antriver\LaravelSiteScaffolding\Repositories\Traits;
 
 use Exception;
 use Illuminate\Database\Eloquent\Model;

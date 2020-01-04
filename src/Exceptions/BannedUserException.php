@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Exceptions;
+namespace Antriver\LaravelSiteScaffolding\Exceptions;
 
-use Antriver\LaravelSiteUtils\Models\Ban\Ban;
+use Antriver\LaravelSiteScaffolding\Models\Ban\Ban;
 
 class BannedUserException extends ForbiddenHttpException
 {

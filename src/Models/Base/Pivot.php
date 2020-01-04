@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Models\Base;
+namespace Antriver\LaravelSiteScaffolding\Models\Base;
 
-use Antriver\LaravelSiteUtils\Models\Traits\OutputsDatesTrait;
+use Antriver\LaravelSiteScaffolding\Models\Traits\OutputsDatesTrait;
 use Illuminate\Database\Eloquent\Relations\Pivot as EloquentPivot;
 
 class Pivot extends EloquentPivot

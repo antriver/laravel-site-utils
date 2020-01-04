@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Models\Interfaces;
+namespace Antriver\LaravelSiteScaffolding\Models\Interfaces;
 
 interface BelongsToUserInterface
 {

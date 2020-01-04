@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Users;
+namespace Antriver\LaravelSiteScaffolding\Users;
 
-use Antriver\LaravelSiteUtils\Lang\LanguageHelpers;
+use Antriver\LaravelSiteScaffolding\Lang\LanguageHelpers;
 use Illuminate\Support\Str;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
 

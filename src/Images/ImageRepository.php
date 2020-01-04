@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Repositories;
+namespace Antriver\LaravelSiteScaffolding\Repositories;
 
-use Antriver\LaravelSiteUtils\Models\Image;
+use Antriver\LaravelSiteScaffolding\Models\Image;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Tmd\LaravelRepositories\Base\AbstractCachedRepository;

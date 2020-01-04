@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Bans;
+namespace Antriver\LaravelSiteScaffolding\Bans;
 
-use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
+use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
 
 /**
  * @property int $id

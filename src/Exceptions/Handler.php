@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Exceptions;
+namespace Antriver\LaravelSiteScaffolding\Exceptions;
 
 use Auth;
 use Exception;

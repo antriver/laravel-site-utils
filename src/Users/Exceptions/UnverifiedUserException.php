@@ -1,11 +1,11 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Users\Exceptions;
+namespace Antriver\LaravelSiteScaffolding\Users\Exceptions;
 
-use Antriver\LaravelSiteUtils\EmailVerification\EmailVerification;
-use Antriver\LaravelSiteUtils\Exceptions\ForbiddenHttpException;
-use Antriver\LaravelSiteUtils\Users\UserInterface;
-use Antriver\LaravelSiteUtils\Users\UserPresenterInterface;
+use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification;
+use Antriver\LaravelSiteScaffolding\Exceptions\ForbiddenHttpException;
+use Antriver\LaravelSiteScaffolding\Users\UserInterface;
+use Antriver\LaravelSiteScaffolding\Users\UserPresenterInterface;
 
 class UnverifiedUserException extends ForbiddenHttpException
 {

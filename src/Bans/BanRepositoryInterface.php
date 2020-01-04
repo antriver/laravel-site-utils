@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Bans;
+namespace Antriver\LaravelSiteScaffolding\Bans;
 
-use Antriver\LaravelSiteUtils\Users\UserInterface;
+use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 use Tmd\LaravelRepositories\Interfaces\RepositoryInterface;
 
 interface BanRepositoryInterface extends RepositoryInterface

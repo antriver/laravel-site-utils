@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\EmailVerification;
+namespace Antriver\LaravelSiteScaffolding\EmailVerification;
 
-use Antriver\LaravelSiteUtils\Entities\User\User;
-use Antriver\LaravelSiteUtils\Mail\Base\ExtendedMailable;
+use Antriver\LaravelSiteScaffolding\Entities\User\User;
+use Antriver\LaravelSiteScaffolding\Mail\Base\ExtendedMailable;
 
 class EmailVerificationMail extends ExtendedMailable
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteUtils\Models\Traits;
+namespace Antriver\LaravelSiteScaffolding\Models\Traits;
 
-use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
+use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
 
 /**
  * Class CreatedAtWithoutUpdatedAtTrait
