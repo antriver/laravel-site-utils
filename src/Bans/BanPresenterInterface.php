@@ -11,5 +11,5 @@ interface BanPresenterInterface
      *
      * @return array
      */
-    public function present(Model $user): array;
+    public function present(Model $user): ?array;
 }
