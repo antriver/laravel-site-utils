@@ -31,14 +31,14 @@ composer require antriver/laravel-site-scaffolding dev-master
 
 Create a subclass of the provider so you can easily change settings. Edit this file if you need to change the namespace.
 ```
-cp vendor/antriver/laravel-site-scaffolding/templates/LaravelSiteScaffoldingServiceProvider.php providers/LaravelSiteScaffoldingServiceProvider
+cp vendor/antriver/laravel-site-scaffolding/templates/LaravelSiteScaffoldingServiceProvider.php app/Providers/LaravelSiteScaffoldingServiceProvider.php
 ```
 
 Add your subclass to the providers array in `config/app.php`
 ```php
     'providers' => [
         // ...
-        App\LaravelSiteScaffoldingServiceProvider::class,
+        App\Providers\LaravelSiteScaffoldingServiceProvider::class,
         // ...
     ],
 ```
