@@ -2,7 +2,6 @@
 
 namespace Antriver\LaravelSiteScaffolding\Users;
 
-use Antriver\LaravelSiteScaffolding\Users\UserRepositoryInterface;
 use Tmd\LaravelRepositories\Base\AbstractCachedRepository;
 
 class UserRepository extends AbstractCachedRepository implements UserRepositoryInterface

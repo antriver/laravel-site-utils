@@ -7,6 +7,7 @@ use Antriver\LaravelSiteScaffolding\Bans\BanRepositoryInterface;
 use Antriver\LaravelSiteScaffolding\Bans\Exceptions\BannedUserException;
 use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationManager;
 use Antriver\LaravelSiteScaffolding\Exceptions\InvalidInputException;
+use Antriver\LaravelSiteScaffolding\Users\Exceptions\DeactivatedUserException;
 use Antriver\LaravelSiteScaffolding\Users\Exceptions\UnverifiedUserException;
 use Antriver\LaravelSiteScaffolding\Users\User;
 use Antriver\LaravelSiteScaffolding\Users\UserInterface;
@@ -236,10 +237,14 @@ class UserAuthenticator
             throw new BannedUserException($ban, $user);
         }
 
-        // TODO: Copy deactivation stuff from Amirite.
-        /*if ($user->isDeactivated()) {
-            throw new DeactivatedUserException($user);
-        }*/
+        if ($user->isDeactivated()) {
+            $exception = new DeactivatedUserException($user);
+
+            // Add a JWT to the exception so the user can reactivate.
+            $exception->setJwt($this->jwtFactory->generateToken($exception->getUser()));
+
+            throw $exception;
+        }
 
         // We now allow unverified users to login.
         if (!$canLoginIfUnverified && !$user->isEmailVerified()) {

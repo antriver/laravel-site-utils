@@ -17,6 +17,8 @@ interface UserInterface extends Authenticatable
 
     public function isModerator(): bool;
 
+    public function isDeactivated(): bool;
+
     public function isEmailVerified(): bool;
 
     public function setEmailVerified(bool $emailVerified);

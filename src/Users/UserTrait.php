@@ -37,6 +37,11 @@ trait UserTrait
         return !!$this->admin;
     }
 
+    public function isDeactivated(): bool
+    {
+        return !empty($this->deactivatedAt);
+    }
+
     /**
      * @return bool
      */

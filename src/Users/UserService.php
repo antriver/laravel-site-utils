@@ -2,8 +2,12 @@
 
 namespace Antriver\LaravelSiteScaffolding\Users;
 
-use Antriver\LaravelSiteScaffolding\Models\UserSocialAccount;
-use Antriver\LaravelSiteScaffolding\Repositories\UserSocialAccountRepository;
+use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationManager;
+use Antriver\LaravelSiteScaffolding\Tokens\TokenGenerator;
+use Antriver\LaravelSiteScaffolding\UserSettings\UserSettings;
+use Antriver\LaravelSiteScaffolding\UserSettings\UserSettingsRepository;
+use Antriver\LaravelSiteScaffolding\UserSocialAccounts\UserSocialAccount;
+use Antriver\LaravelSiteScaffolding\UserSocialAccounts\UserSocialAccountRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Laravel\Socialite\AbstractUser;
@@ -12,10 +16,27 @@ use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
 class UserService
 {
+    const USERNAME_REGEX = '/^[A-Za-z0-9_-]{1,30}$/';
+
+    /**
+     * @var EmailVerificationManager
+     */
+    private $emailVerificationManager;
+
     /**
      * @var PasswordHasher
      */
     private $passwordHasher;
+
+    /**
+     * @var TokenGenerator
+     */
+    private $tokenGenerator;
+
+    /**
+     * @var UserSettingsRepository
+     */
+    private $userSettingsRepository;
 
     /**
      * @var UsernameFactory
@@ -33,14 +54,20 @@ class UserService
     private $userSocialAccountRepository;
 
     public function __construct(
+        EmailVerificationManager $emailVerificationManager,
         PasswordHasher $passwordHasher,
+        TokenGenerator $tokenGenerator,
         UsernameFactory $usernameFactory,
         UserRepository $userRepository,
+        UserSettingsRepository $userSettingsRepository,
         UserSocialAccountRepository $userSocialAccountRepository
     ) {
+        $this->emailVerificationManager = $emailVerificationManager;
         $this->passwordHasher = $passwordHasher;
+        $this->tokenGenerator = $tokenGenerator;
         $this->usernameFactory = $usernameFactory;
         $this->userRepository = $userRepository;
+        $this->userSettingsRepository = $userSettingsRepository;
         $this->userSocialAccountRepository = $userSocialAccountRepository;
     }
 
@@ -146,11 +173,12 @@ class UserService
      *
      * @param array $data
      * @param Request|null $request
+     * @param bool $verifyEmail
      *
      * @return User
      * @throws \Exception
      */
-    public function createUser($data, Request $request = null)
+    public function createUser($data, Request $request = null, bool $verifyEmail = true)
     {
         if (!empty($data['password'])) {
             $data['password'] = $this->passwordHasher->generateHash($data['password']);
@@ -158,12 +186,41 @@ class UserService
 
         $userClass = $this->userRepository->getModelClass();
 
+        /** @var User $user */
         $user = new $userClass($data);
+
+        if (!$verifyEmail) {
+            $user->emailVerified = true;
+        }
 
         if (!$this->userRepository->persist($user)) {
             throw new \Exception("Unable to save user.");
         }
 
+        $this->createUserSettings($user, $request);
+
+        if ($verifyEmail) {
+            // Send verification email.
+            $this->emailVerificationManager->sendNewUserVerification($user);
+        }
+
         return $user;
+    }
+
+    protected function createUserSettings(UserInterface $user, Request $request)
+    {
+        $settings = new UserSettings(
+            [
+                'userId' => $user->getId(),
+            ]
+        );
+
+        if ($request) {
+            $settings->signupIp = $request->getClientIp();
+        }
+
+        $settings->emailKey = $this->tokenGenerator->generateToken();
+
+        $this->userSettingsRepository->persist($settings);
     }
 }

@@ -12,3 +12,33 @@ Where concrete classes are provided for models, repositories and controllers, ma
 
 If you take a look at `Providers\LaravelSiteScaffoldingServiceProvider` you will find an array containing a mapping of interfaces to concrete implementations. These will be bound in Laravel's DI container. If you want to use custom implementations then extend` LaravelSiteScaffoldingServiceProvider` and overrides the appropriate array values.
 
+## Installation
+
+This is in rapid development so is not tagged with any version. Add this to `composer.json`:
+```json
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/antriver/laravel-site-scaffolding.git"
+        }
+    ],
+```
+
+Then run:
+```
+composer require antriver/laravel-site-scaffolding dev-master
+```
+
+Create a subclass of the provider so you can easily change settings. Edit this file if you need to change the namespace.
+```
+cp vendor/antriver/laravel-site-scaffolding/templates/LaravelSiteScaffoldingServiceProvider.php providers/LaravelSiteScaffoldingServiceProvider
+```
+
+Add your subclass to the providers array in `config/app.php`
+```php
+    'providers' => [
+        // ...
+        App\LaravelSiteScaffoldingServiceProvider::class,
+        // ...
+    ],
+```

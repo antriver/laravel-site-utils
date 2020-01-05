@@ -22,7 +22,7 @@ trait ValidatesUserCredentialsTrait
 
     protected function getUsernameRegex()
     {
-        return '/^[A-Za-z0-9_-]{1,30}$/';
+        return UserService::USERNAME_REGEX;
     }
 
     protected function getReservedUsernames()
