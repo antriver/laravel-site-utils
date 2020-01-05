@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Http\Validators;
+namespace Antriver\LaravelSiteScaffolding\Validation\Validators;
 
-use Antriver\LaravelSiteScaffolding\Models\Image;
-use Antriver\LaravelSiteScaffolding\Repositories\ImageRepository;
+use Antriver\LaravelSiteScaffolding\Images\Image;
+use Antriver\LaravelSiteScaffolding\Images\ImageRepository;
 
 class UserImageValidator
 {
@@ -15,9 +15,9 @@ class UserImageValidator
             return false;
         }
 
-        if (isset($parameters[0])) {
+        if (!empty($parameters[0])) {
             $userId = $parameters[0];
-            if ($image->userId != $userId) {
+            if ($image->getUserId() != $userId) {
                 return false;
             }
         }

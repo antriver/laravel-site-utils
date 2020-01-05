@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Models;
+namespace Antriver\LaravelSiteScaffolding\Images;
 
 use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
 use Antriver\LaravelSiteScaffolding\Models\Interfaces\BelongsToUserInterface;

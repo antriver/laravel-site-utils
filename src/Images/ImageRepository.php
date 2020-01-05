@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Repositories;
+namespace Antriver\LaravelSiteScaffolding\Images;
 
 use Antriver\LaravelSiteScaffolding\Models\Image;
 use Carbon\Carbon;
