@@ -2,7 +2,7 @@
 
 namespace Antriver\LaravelSiteScaffolding\Traits;
 
-use Illuminate\Support\Str;
+use Antriver\LaravelSiteScaffolding\Tokens\TokenGenerator;
 
 trait GeneratesTokensTrait
 {
@@ -13,14 +13,6 @@ trait GeneratesTokensTrait
      */
     protected function generateToken(): string
     {
-        return hash_hmac('sha256', Str::random(40), $this->getHashKey());
-    }
-
-    /**
-     * @return string
-     */
-    private function getHashKey()
-    {
-        return config('app.key');
+        return ((new TokenGenerator()))->generateToken();
     }
 }
