@@ -2,18 +2,18 @@
 
 namespace Antriver\LaravelSiteScaffolding\Auth\Http;
 
-use Antriver\LaravelSiteScaffolding\Auth\JwtFactory;
-use Antriver\LaravelSiteScaffolding\Bans\BanRepositoryInterface;
-use Antriver\LaravelSiteScaffolding\Users\Exceptions\UnverifiedUserException;
+use Antriver\LaravelSiteScaffolding\Auth\UserAuthenticator;
 use Antriver\LaravelSiteScaffolding\Users\UserRepositoryInterface;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Auth\AuthManager;
 use Illuminate\Http\Request;
-use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
 trait AuthControllerTrait
 {
-    use AuthenticatesUsersTrait;
+    public function __construct()
+    {
+        $this->requireAuth(['only' => 'show']);
+    }
 
     /**
      * @api {get} /auth Get User For Session Token
@@ -43,7 +43,8 @@ trait AuthControllerTrait
 
         $response = $apiAuthResponseFactory->make(
             $request,
-            $user
+            $user,
+            $token
         );
 
         return $this->response($response);
@@ -56,32 +57,25 @@ trait AuthControllerTrait
      * Returns an API token for the user.
      *
      * @param ApiAuthResponseFactory $apiAuthResponseFactory
-     * @param BanRepositoryInterface $banRepository
-     * @param JwtFactory $jwtFactory
-     * @param PasswordHasher $passwordHasher
      * @param Request $request
      *
+     * @param UserAuthenticator $userAuthenticator
+     *
      * @return \Illuminate\Http\JsonResponse
-     * @throws UnverifiedUserException
      */
     public function store(
         ApiAuthResponseFactory $apiAuthResponseFactory,
-        BanRepositoryInterface $banRepository,
-        JwtFactory $jwtFactory,
-        PasswordHasher $passwordHasher,
-        Request $request
+        Request $request,
+        UserAuthenticator $userAuthenticator
     ) {
-        try {
-            $user = $this->validateLogin($request, $passwordHasher, $banRepository);
-        } catch (UnverifiedUserException $exception) {
-            // Credentials were valid but email is not verified.
-            // Add a JWT to the response so user can resend or change email.
-            $exception->setJwt($jwtFactory->generateToken($exception->getUser()));
+        // Check the user can login.
+        $user = $userAuthenticator->validateLogin(
+            $request,
+            config('auth.allow_unverified_user_login')
+        );
 
-            throw $exception;
-
-        }
-
+        // An exception would have been thrown above if they cannot login, so it must be okay.
+        // Now return a response containing a session token for them.
         $response = $apiAuthResponseFactory->make(
             $request,
             $user

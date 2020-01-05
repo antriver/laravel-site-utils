@@ -45,4 +45,24 @@ class User
         'admin' => 'bool',
         'moderator' => 'bool',
     ];
+
+    protected $visible = [
+        'id',
+        'username',
+    ];
+
+    public function toArray()
+    {
+        $array = parent::toArray();
+
+        if ($this->admin) {
+            $array['admin'] = true;
+        }
+
+        if ($this->moderator) {
+            $array['moderator'] = true;
+        }
+
+        return $array;
+    }
 }

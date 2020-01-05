@@ -2,10 +2,9 @@
 
 namespace Antriver\LaravelSiteScaffolding\EmailVerification;
 
-use Antriver\LaravelSiteScaffolding\Entities\User\User;
-use Antriver\LaravelSiteScaffolding\Entities\User\UserInterface;
 use Antriver\LaravelSiteScaffolding\Tokens\TokenGenerator;
 use Antriver\LaravelSiteScaffolding\Traits\GeneratesTokensTrait;
+use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 use Antriver\LaravelSiteScaffolding\Users\UserRepositoryInterface;
 use Carbon\Carbon;
 use Mail;

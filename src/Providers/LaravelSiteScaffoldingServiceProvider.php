@@ -38,6 +38,11 @@ class LaravelSiteScaffoldingServiceProvider extends ServiceProvider
     {
         include_once dirname(__DIR__).'/helpers.php';
 
+        if (!defined('LARAVEL_START')) {
+            // LARAVEL_START is not defined when running tests.
+            define('LARAVEL_START', microtime(true));
+        }
+
         // This makes everything break if the DB is down. Disabled.
         //DB::connection()->getPdo()->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
 

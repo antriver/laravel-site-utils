@@ -69,7 +69,7 @@ class Handler extends \Illuminate\Foundation\Exceptions\Handler
             return response()->redirectTo('/');
         }
 
-        if (config('app.debug')) {
+        if (config('app.debug') && !$isJson) {
             return $this->convertExceptionToResponse($exception);
         }
 
