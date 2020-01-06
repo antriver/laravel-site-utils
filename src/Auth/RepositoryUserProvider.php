@@ -3,7 +3,7 @@
 namespace Antriver\LaravelSiteScaffolding\Auth;
 
 use Antriver\LaravelSiteScaffolding\Users\User;
-use Antriver\LaravelSiteScaffolding\Users\UserRepositoryInterface;
+use Antriver\LaravelSiteScaffolding\Users\UserRepository;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider as UserProviderInterface;
 use Illuminate\Support\Facades\Cache;
@@ -21,11 +21,11 @@ class RepositoryUserProvider implements UserProviderInterface
     protected $hasher;
 
     /**
-     * @var UserRepositoryInterface
+     * @var UserRepository
      */
     private $userRepository;
 
-    public function __construct(UserRepositoryInterface $userRepository, PasswordHasher $hasher)
+    public function __construct(UserRepository $userRepository, PasswordHasher $hasher)
     {
         $this->hasher = $hasher;
         $this->userRepository = $userRepository;

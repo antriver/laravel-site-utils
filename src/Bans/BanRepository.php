@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Support\Collection;
 use Tmd\LaravelRepositories\Base\AbstractRepository;
 
-class BanRepository extends AbstractRepository implements BanRepositoryInterface
+class BanRepository extends AbstractRepository
 {
     use ReturnsPaginatorsTrait;
 

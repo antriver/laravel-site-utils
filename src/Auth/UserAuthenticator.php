@@ -3,9 +3,10 @@
 namespace Antriver\LaravelSiteScaffolding\Auth;
 
 use Antriver\LaravelDatabaseSessionAuth\DatabaseSessionGuard;
-use Antriver\LaravelSiteScaffolding\Bans\BanRepositoryInterface;
+use Antriver\LaravelSiteScaffolding\Bans\BanRepository;
 use Antriver\LaravelSiteScaffolding\Bans\Exceptions\BannedUserException;
 use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationManager;
+use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationRepository;
 use Antriver\LaravelSiteScaffolding\Exceptions\InvalidInputException;
 use Antriver\LaravelSiteScaffolding\Users\Exceptions\DeactivatedUserException;
 use Antriver\LaravelSiteScaffolding\Users\Exceptions\UnverifiedUserException;
@@ -21,7 +22,7 @@ class UserAuthenticator
     use ThrottlesLogins;
 
     /**
-     * @var BanRepositoryInterface
+     * @var BanRepository
      */
     private $banRepository;
 
@@ -29,6 +30,11 @@ class UserAuthenticator
      * @var EmailVerificationManager
      */
     private $emailVerificationManager;
+
+    /**
+     * @var EmailVerificationRepository
+     */
+    private $emailVerificationRepository;
 
     /**
      * @var JwtFactory
@@ -46,14 +52,16 @@ class UserAuthenticator
     private $requestValidator;
 
     public function __construct(
-        BanRepositoryInterface $banRepository,
+        BanRepository $banRepository,
         EmailVerificationManager $emailVerificationManager,
+        EmailVerificationRepository $emailVerificationRepository,
         JwtFactory $jwtFactory,
         PasswordHasher $passwordHasher,
         RequestValidator $requestValidator
     ) {
         $this->banRepository = $banRepository;
         $this->emailVerificationManager = $emailVerificationManager;
+        $this->emailVerificationRepository = $emailVerificationRepository;
         $this->jwtFactory = $jwtFactory;
         $this->passwordHasher = $passwordHasher;
         $this->requestValidator = $requestValidator;
@@ -251,7 +259,7 @@ class UserAuthenticator
             // Add the pending email verification to the exception if there is one.
             // Note there may not be one if the user has been de-verified due to an email bounce etc.
             // In which case they should be prompted to change their email address.
-            $emailVerification = $this->emailVerificationManager->findLatestPendingVerification($user);
+            $emailVerification = $this->emailVerificationRepository->findLatestPendingVerification($user);
 
             $exception = new UnverifiedUserException($user, $emailVerification);
 

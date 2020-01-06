@@ -3,15 +3,8 @@
 namespace Antriver\LaravelSiteScaffolding\Providers;
 
 use Antriver\LaravelSiteScaffolding\Auth\RepositoryUserProvider;
-use Antriver\LaravelSiteScaffolding\Bans\BanPresenter;
-use Antriver\LaravelSiteScaffolding\Bans\BanPresenterInterface;
-use Antriver\LaravelSiteScaffolding\Bans\BanRepository;
-use Antriver\LaravelSiteScaffolding\Bans\BanRepositoryInterface;
 use Antriver\LaravelSiteScaffolding\Debug\QueryLogger;
-use Antriver\LaravelSiteScaffolding\Users\UserPresenter;
-use Antriver\LaravelSiteScaffolding\Users\UserPresenterInterface;
 use Antriver\LaravelSiteScaffolding\Users\UserRepository;
-use Antriver\LaravelSiteScaffolding\Users\UserRepositoryInterface;
 use Auth;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Routing\Events\RouteMatched;
@@ -22,13 +15,6 @@ use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
 class LaravelSiteScaffoldingServiceProvider extends ServiceProvider
 {
-    protected $concreteBindings = [
-        BanPresenterInterface::class => BanPresenter::class,
-        BanRepositoryInterface::class => BanRepository::class,
-        UserPresenterInterface::class => UserPresenter::class,
-        UserRepositoryInterface::class => UserRepository::class,
-    ];
-
     /**
      * Bootstrap any application services.
      *
@@ -55,12 +41,11 @@ class LaravelSiteScaffoldingServiceProvider extends ServiceProvider
     protected function setupRepositoryUserProvider()
     {
         // Register a 'repository' user provider.
-        // A service provider prior to this one should have registered UserRepositoryInterface with the DI container.
         Auth::provider(
             'repository',
             function (Container $app) {
                 return new RepositoryUserProvider(
-                    $app->make(UserRepositoryInterface::class),
+                    $app->make(UserRepository::class),
                     $app->make(PasswordHasher::class)
                 );
             }
@@ -101,12 +86,15 @@ class LaravelSiteScaffoldingServiceProvider extends ServiceProvider
         );
     }
 
+    /**
+     * Bind lots of things in Laravel's DI container as singletons.
+     */
     protected function bindInterfaces()
     {
-        foreach ($this->concreteBindings as $interface => $concrete) {
+        /*foreach ($this->concreteBindings as $interface => $concrete) {
             $this->app->singleton($concrete);
             $this->app->singleton($interface, $concrete);
-        }
+        }*/
     }
 
     protected function setupQueryLogger()

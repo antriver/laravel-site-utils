@@ -4,11 +4,10 @@ namespace Antriver\LaravelSiteScaffolding\Bans\Exceptions;
 
 use Antriver\LaravelSiteScaffolding\Bans\Ban;
 use Antriver\LaravelSiteScaffolding\Bans\BanPresenter;
-use Antriver\LaravelSiteScaffolding\Bans\BanPresenterInterface;
 use Antriver\LaravelSiteScaffolding\Exceptions\ForbiddenHttpException;
 use Antriver\LaravelSiteScaffolding\Exceptions\Traits\HasUserTrait;
 use Antriver\LaravelSiteScaffolding\Users\UserInterface;
-use Antriver\LaravelSiteScaffolding\Users\UserPresenterInterface;
+use Antriver\LaravelSiteScaffolding\Users\UserPresenter;
 
 class BannedUserException extends ForbiddenHttpException
 {
@@ -38,12 +37,12 @@ class BannedUserException extends ForbiddenHttpException
 
     public function getData(): array
     {
-        $presentedBan = $this->ban ? app(BanPresenterInterface::class)->present($this->ban) : null;
+        $presentedBan = $this->ban ? app(BanPresenter::class)->present($this->ban) : null;
 
         return [
             'additionalHtml' => $presentedBan ? $presentedBan['reasonHtml'] : null,
             'ban' => $presentedBan,
-            'user' => $this->user ? app(UserPresenterInterface::class)->present($this->user) : null,
+            'user' => $this->user ? app(UserPresenter::class)->present($this->user) : null,
         ];
     }
 }

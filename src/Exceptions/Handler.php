@@ -34,7 +34,9 @@ class Handler extends \Illuminate\Foundation\Exceptions\Handler
 
     protected function shouldRenderAsJson(Request $request): bool
     {
-        return $request->wantsJson() || $request->isJson();
+        return $request->wantsJson()
+            || $request->isJson()
+            || stripos($request->getUri(), config('app.api_url')) !== false;
     }
 
     /**

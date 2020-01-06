@@ -6,9 +6,10 @@ use Tmd\LaravelRepositories\Base\AbstractCachedRepository;
 
 /**
  * @method persist(User $user)
+ * @method findOrFail(int $userId): User
  * @method findOneBy(string $field, $value): User
  */
-class UserRepository extends AbstractCachedRepository implements UserRepositoryInterface
+class UserRepository extends AbstractCachedRepository
 {
     /**
      * Return the fully qualified class name of the Models this repository returns.

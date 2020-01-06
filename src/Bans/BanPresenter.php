@@ -7,10 +7,10 @@ use Antriver\LaravelModelPresenters\PresentArrayTrait;
 use Antriver\LaravelSiteScaffolding\Date\DateFormat;
 use Antriver\LaravelSiteScaffolding\Lang\TextPresenter;
 use Antriver\LaravelSiteScaffolding\Users\UserInterface;
-use Antriver\LaravelSiteScaffolding\Users\UserRepositoryInterface;
+use Antriver\LaravelSiteScaffolding\Users\UserRepository;
 use Illuminate\Database\Eloquent\Model;
 
-class BanPresenter implements ModelPresenterInterface, BanPresenterInterface
+class BanPresenter implements ModelPresenterInterface
 {
     use PresentArrayTrait;
 
@@ -20,13 +20,13 @@ class BanPresenter implements ModelPresenterInterface, BanPresenterInterface
     private $textPresenter;
 
     /**
-     * @var UserRepositoryInterface
+     * @var UserRepository
      */
     private $userRepository;
 
     public function __construct(
         TextPresenter $textPresenter,
-        UserRepositoryInterface $userRepository
+        UserRepository $userRepository
     ) {
         $this->textPresenter = $textPresenter;
         $this->userRepository = $userRepository;

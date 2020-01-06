@@ -7,7 +7,7 @@ use Antriver\LaravelSiteScaffolding\Exceptions\ForbiddenHttpException;
 use Antriver\LaravelSiteScaffolding\Exceptions\Traits\HasJwtTrait;
 use Antriver\LaravelSiteScaffolding\Exceptions\Traits\HasUserTrait;
 use Antriver\LaravelSiteScaffolding\Users\UserInterface;
-use Antriver\LaravelSiteScaffolding\Users\UserPresenterInterface;
+use Antriver\LaravelSiteScaffolding\Users\UserPresenter;
 
 class UnverifiedUserException extends ForbiddenHttpException
 {
@@ -34,7 +34,7 @@ class UnverifiedUserException extends ForbiddenHttpException
         return [
             'emailVerification' => $this->emailVerification ? $this->emailVerification->toArray() : null,
             'jwt' => $this->jwt,
-            'user' => $this->user ? app(UserPresenterInterface::class)->present($this->user) : null,
+            'user' => $this->user ? app(UserPresenter::class)->present($this->user) : null,
             'userEmail' => $this->user->email,
         ];
     }

@@ -5,14 +5,10 @@ namespace Antriver\LaravelSiteScaffolding\EmailVerification;
 use Antriver\LaravelSiteScaffolding\EmailVerification\Events\EmailBouncedEvent;
 use Antriver\LaravelSiteScaffolding\EmailVerification\Events\EmailVerifiedEvent;
 use Antriver\LaravelSiteScaffolding\Tokens\TokenGenerator;
-use Antriver\LaravelSiteScaffolding\Traits\GeneratesTokensTrait;
 use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 use Antriver\LaravelSiteScaffolding\Users\UserRepository;
-use Antriver\LaravelSiteScaffolding\Users\UserRepositoryInterface;
 use Carbon\Carbon;
 use Mail;
-use Tmd\LaravelRepositories\Base\AbstractRepository;
-use Tmd\LaravelRepositories\Interfaces\RepositoryInterface;
 
 /**
  * Handles sending verification emails to new users, or when an existing user changes their email address.
@@ -50,7 +46,6 @@ class EmailVerificationManager
         $this->userRepository = $userRepository;
         $this->emailVerificationRepository = $emailVerificationRepository;
     }
-
 
     /**
      * @param UserInterface $user
@@ -181,7 +176,6 @@ class EmailVerificationManager
 
         event(new EmailVerifiedEvent($user, $newEmail));
     }
-
 
     /**
      * @param EmailVerification $emailVerification

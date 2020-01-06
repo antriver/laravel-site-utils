@@ -8,7 +8,7 @@ use Antriver\LaravelSiteScaffolding\Images\ImageRepository;
 use Antriver\LaravelSiteScaffolding\Images\ImageSize;
 use Illuminate\Database\Eloquent\Model;
 
-class UserPresenter implements ModelPresenterInterface, UserPresenterInterface
+class UserPresenter implements ModelPresenterInterface
 {
     use PresentArrayTrait;
 
@@ -24,7 +24,7 @@ class UserPresenter implements ModelPresenterInterface, UserPresenterInterface
     }
 
     /**
-     * @param Model|User $user
+     * @param Model|User|UserInterface $user
      *
      * @return mixed
      */

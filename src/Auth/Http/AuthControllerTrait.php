@@ -2,8 +2,9 @@
 
 namespace Antriver\LaravelSiteScaffolding\Auth\Http;
 
+use Antriver\LaravelSiteScaffolding\Auth\ApiAuthResponseFactory;
 use Antriver\LaravelSiteScaffolding\Auth\UserAuthenticator;
-use Antriver\LaravelSiteScaffolding\Users\UserRepositoryInterface;
+use Antriver\LaravelSiteScaffolding\Users\UserRepository;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Auth\AuthManager;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ trait AuthControllerTrait
      * @param ApiAuthResponseFactory $apiAuthResponseFactory
      * @param Request $request
      * @param AuthManager $authManager
-     * @param UserRepositoryInterface $userRepository
+     * @param UserRepository $userRepository
      *
      * @return array
      * @throws AuthenticationException
@@ -30,7 +31,7 @@ trait AuthControllerTrait
         ApiAuthResponseFactory $apiAuthResponseFactory,
         Request $request,
         AuthManager $authManager,
-        UserRepositoryInterface $userRepository
+        UserRepository $userRepository
     ) {
         $token = $request->input('token');
 
@@ -71,7 +72,7 @@ trait AuthControllerTrait
         // Check the user can login.
         $user = $userAuthenticator->validateLogin(
             $request,
-            config('auth.allow_unverified_user_login')
+            config('auth.allow_unverified_user_login', false)
         );
 
         // An exception would have been thrown above if they cannot login, so it must be okay.

@@ -6,7 +6,7 @@ use Antriver\LaravelSiteScaffolding\Exceptions\ForbiddenHttpException;
 use Antriver\LaravelSiteScaffolding\Exceptions\Traits\HasJwtTrait;
 use Antriver\LaravelSiteScaffolding\Exceptions\Traits\HasUserTrait;
 use Antriver\LaravelSiteScaffolding\Users\UserInterface;
-use Antriver\LaravelSiteScaffolding\Users\UserPresenterInterface;
+use Antriver\LaravelSiteScaffolding\Users\UserPresenter;
 
 class DeactivatedUserException extends ForbiddenHttpException
 {
@@ -23,7 +23,7 @@ class DeactivatedUserException extends ForbiddenHttpException
     public function getData(): array
     {
         $arr = [
-            'user' => $this->user ? app(UserPresenterInterface::class)->present($this->user) : null,
+            'user' => $this->user ? app(UserPresenter::class)->present($this->user) : null,
         ];
 
         if ($this->jwt) {
