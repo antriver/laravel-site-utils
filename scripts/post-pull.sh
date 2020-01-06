@@ -16,3 +16,5 @@ php artisan route:cache
 
 php artisan queue:restart
 php artisan view:clear
+
+php artisan event:cache
