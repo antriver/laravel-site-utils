@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTests\Feature\Api\EmailVerification;
+namespace Antriver\LaravelSiteScaffoldingTests\Feature\Api\Scaffolding;
 
-use Antriver\LaravelSiteScaffolding\Testing\RouteTests\EmailVerification\EmailVerificationIndexTestTrait;
 use Antriver\LaravelSiteScaffoldingTests\Feature\Api\AbstractApiTestCase;
+use Antriver\LaravelSiteScaffolding\Testing\RouteTests\EmailVerification\EmailVerificationIndexTestTrait;
 
 class EmailVerificationIndexTest extends AbstractApiTestCase
 {

@@ -15,6 +15,11 @@ $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
 
+$appReflection = new ReflectionClass($app);
+$namespaceProperty = $appReflection->getProperty('namespace');
+$namespaceProperty->setAccessible(true);
+$namespaceProperty->setValue($app, 'Antriver\LaravelSiteScaffoldingTestApp\\');
+
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces

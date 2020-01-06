@@ -2,7 +2,10 @@
 
 namespace Antriver\LaravelSiteScaffolding\Providers;
 
+use Antriver\LaravelSingletonDiscovery\Console\SingletonCacheCommand;
+use Antriver\LaravelSingletonDiscovery\Console\SingletonClearCommand;
 use Antriver\LaravelSiteScaffolding\Auth\RepositoryUserProvider;
+use Antriver\LaravelSiteScaffolding\Console\Commands\Scaffolding\PublishTestsCommand;
 use Antriver\LaravelSiteScaffolding\Debug\QueryLogger;
 use Antriver\LaravelSiteScaffolding\Users\UserRepository;
 use Auth;
@@ -22,6 +25,14 @@ class LaravelSiteScaffoldingServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if ($this->app->runningInConsole()) {
+            $this->commands(
+                [
+                    PublishTestsCommand::class,
+                ]
+            );
+        }
+
         include_once dirname(__DIR__).'/helpers.php';
 
         if (!defined('LARAVEL_START')) {

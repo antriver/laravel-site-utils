@@ -7,7 +7,7 @@ use Illuminate\Auth\AuthenticationException;
 
 trait AuthShowTestTrait
 {
-    public function testShow()
+    public function testAuthShow()
     {
         /** @var User $user */
         $user = $this->seedUser();
@@ -26,7 +26,7 @@ trait AuthShowTestTrait
         );
     }
 
-    public function testShowWithImplicitToken()
+    public function testAuthShowWithImplicitToken()
     {
         /** @var User $user */
         $user = $this->seedUser();
@@ -45,7 +45,7 @@ trait AuthShowTestTrait
         );
     }
 
-    public function testShowWithSeededUserAndWrongToken()
+    public function testAuthShowWithSeededUserAndWrongToken()
     {
         $this->seedUser();
 
@@ -53,19 +53,19 @@ trait AuthShowTestTrait
         $this->assertResponseIsAuthenticationError($response);
     }
 
-    public function testShowFailsWithoutToken()
+    public function testAuthShowFailsWithoutToken()
     {
         $response = $this->sendGet('/auth');
         $this->assertResponseIsAuthenticationError($response);
     }
 
-    public function testShowFailsWithEmptyToken()
+    public function testAuthShowFailsWithEmptyToken()
     {
         $response = $this->sendGet('/auth', ['token' => '']);
         $this->assertResponseIsAuthenticationError($response);
     }
 
-    public function testShowFailsWithInvalidToken()
+    public function testAuthShowFailsWithInvalidToken()
     {
         $response = $this->sendGet('/auth', ['token' => 'fake']);
         $this->assertResponseIsAuthenticationError($response);

@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTests\Feature\Api\Auth;
+namespace Antriver\LaravelSiteScaffoldingTests\Feature\Api\Scaffolding;
 
-use Antriver\LaravelSiteScaffolding\Testing\RouteTests\Auth\AuthShowTestTrait;
 use Antriver\LaravelSiteScaffoldingTests\Feature\Api\AbstractApiTestCase;
+use Antriver\LaravelSiteScaffolding\Testing\RouteTests\Auth\AuthShowTestTrait;
 
 class AuthShowTest extends AbstractApiTestCase
 {
