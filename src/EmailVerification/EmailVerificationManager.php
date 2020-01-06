@@ -57,7 +57,7 @@ class EmailVerificationManager
      *
      * @return EmailVerification
      */
-    public function sendNewUserVerification(UserInterface $user)
+    public function sendNewUserVerification(UserInterface $user): EmailVerification
     {
         $token = $this->tokenGenerator->generateToken();
 
@@ -79,11 +79,11 @@ class EmailVerificationManager
 
     /**
      * @param UserInterface $user
-     * @param $email
+     * @param string $email
      *
      * @return EmailVerification
      */
-    public function sendEmailChangeVerification(UserInterface $user, $email)
+    public function sendEmailChangeVerification(UserInterface $user, string $email): EmailVerification
     {
         $token = $this->tokenGenerator->generateToken();
 
@@ -101,6 +101,30 @@ class EmailVerificationManager
         $this->sendEmail($emailVerification, $user);
 
         return $emailVerification;
+    }
+
+    /**
+     * @param UserInterface $user
+     * @param $email
+     *
+     * @return EmailVerification
+     */
+    public function sendReverificationEmail(UserInterface $user, $email): EmailVerification
+    {
+        $token = $this->tokenGenerator->generateToken();
+
+        $emailVerification = new EmailVerification(
+            [
+                'userId' => $user->getId(),
+                'email' => $email,
+                'token' => $token,
+                'type' => EmailVerification::TYPE_REVERIFY,
+            ]
+        );
+
+        $this->sendEmail($emailVerification, $user);
+
+        return $this->find($emailVerification->id);
     }
 
     /**
