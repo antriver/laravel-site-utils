@@ -2,6 +2,7 @@
 
 namespace Antriver\LaravelSiteScaffolding\Auth\Http;
 
+use Antriver\LaravelSiteScaffolding\Auth\ApiAuthResponseFactory;
 use Antriver\LaravelSiteScaffolding\Auth\Forgot\PasswordResetTokenRepository;
 use Antriver\LaravelSiteScaffolding\Auth\UserAuthenticator;
 use Antriver\LaravelSiteScaffolding\Users\User;

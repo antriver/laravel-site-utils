@@ -6,7 +6,7 @@ use Antriver\LaravelSiteScaffolding\Exceptions\InvalidInputException;
 use Antriver\LaravelSiteScaffolding\Users\Exceptions\UnverifiedUserException;
 use Antriver\LaravelSiteScaffolding\Users\User;
 
-trait AuthStoreTestsTrait
+trait AuthStoreTestTrait
 {
     public function testLoginFailsWithoutCredentials()
     {

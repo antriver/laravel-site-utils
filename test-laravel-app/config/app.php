@@ -173,11 +173,11 @@ return [
         /*
          * Application Service Providers...
          */
-        Antriver\LaravelSiteScaffolding\TestLaravelApp\Providers\AppServiceProvider::class,
-        Antriver\LaravelSiteScaffolding\TestLaravelApp\Providers\AuthServiceProvider::class,
-        // Antriver\LaravelSiteScaffolding\TestLaravelApp\Providers\BroadcastServiceProvider::class,
-        Antriver\LaravelSiteScaffolding\TestLaravelApp\Providers\EventServiceProvider::class,
-        Antriver\LaravelSiteScaffolding\TestLaravelApp\Providers\RouteServiceProvider::class,
+        Antriver\LaravelSiteScaffoldingTestApp\Providers\AppServiceProvider::class,
+        Antriver\LaravelSiteScaffoldingTestApp\Providers\AuthServiceProvider::class,
+        // Antriver\LaravelSiteScaffoldingTestApp\Providers\BroadcastServiceProvider::class,
+        Antriver\LaravelSiteScaffoldingTestApp\Providers\EventServiceProvider::class,
+        Antriver\LaravelSiteScaffoldingTestApp\Providers\RouteServiceProvider::class,
 
     ],
 

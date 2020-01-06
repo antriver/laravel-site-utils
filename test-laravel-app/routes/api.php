@@ -17,5 +17,8 @@ use Illuminate\Routing\Router;
 |
 */
 
-$router->get('auth', 'Auth\AuthController@show');
-$router->post('auth', 'Auth\AuthController@store');
+$router->get('auth', 'AuthController@show');
+$router->post('auth', 'AuthController@store');
+
+$router->get('email-verifications', 'EmailVerificationController@index');
+//$router->post('auth', 'Auth\AuthController@store');

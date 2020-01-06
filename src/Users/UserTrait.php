@@ -9,6 +9,11 @@ use Tmd\LaravelPasswordUpdater\PasswordHasher;
 trait UserTrait
 {
     /**
+     * @var string|null
+     */
+    private $apiToken;
+
+    /**
      * @return string|null
      */
     public function getEmail(): ?string
@@ -105,5 +110,21 @@ trait UserTrait
                 'rememberToken' => Str::random(60),
             ]
         );
+    }
+
+    /**
+     * @return string
+     */
+    public function getApiToken(): ?string
+    {
+        return $this->apiToken;
+    }
+
+    /**
+     * @param string $apiToken
+     */
+    public function setApiToken(string $apiToken)
+    {
+        $this->apiToken = $apiToken;
     }
 }

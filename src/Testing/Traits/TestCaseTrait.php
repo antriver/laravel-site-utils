@@ -2,30 +2,12 @@
 
 namespace Antriver\LaravelSiteScaffolding\Testing\Traits;
 
-use Symfony\Component\HttpFoundation\Response;
-
 /**
  * Meta trait that contains all the other traits, plus some from Laravel.
  * DatabaseTransactions trait should be used too but is not used here to make it easier to comment out.
  */
 trait TestCaseTrait
 {
-    public function assertResponseStatusNot(Response $response, int $code, string $assertionMessage = null)
-    {
-        $assertionMessage = ($assertionMessage ?? "Response code should NOT be {$code}.")
-            ." Actual code was {$response->getStatusCode()}.";
-
-        $this->assertNotEquals($code, $response->getStatusCode(), $assertionMessage);
-    }
-
-    public function assertResponseStatus(Response $response, int $code, string $assertionMessage = null)
-    {
-        $assertionMessage = ($assertionMessage ?? "Response code should be {$code}.")
-            ." Actual code was {$response->getStatusCode()}.";
-
-        $this->assertEquals($code, $response->getStatusCode(), $assertionMessage);
-    }
-
     /**
      * @param array $expectedKeys Array of keys where the key is the expected key name, and the value is a boolean to
      *                            say if it must not be null (true if it must not be null).

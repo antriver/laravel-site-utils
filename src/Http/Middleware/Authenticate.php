@@ -3,45 +3,39 @@
 namespace Antriver\LaravelSiteScaffolding\Http\Middleware;
 
 use Closure;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Contracts\Auth\Guard;
 
-class Authenticate
+class Authenticate extends \Illuminate\Auth\Middleware\Authenticate
 {
     /**
-     * The Guard implementation.
+     * Determine if the user is logged in to any of the given guards.
      *
-     * @var Guard
-     */
-    protected $auth;
-
-    /**
-     * Create a new filter instance.
+     * @param  \Illuminate\Http\Request  $request
+     * @param  array  $guards
+     * @return void
      *
-     * @param Guard $auth
+     * @throws \Illuminate\Auth\AuthenticationException
      */
-    public function __construct(Guard $auth)
+    protected function authenticate($request, array $guards)
     {
-        $this->auth = $auth;
-    }
+        try {
+            return parent::authenticate($request, $guards);
+        } catch (AuthenticationException $e) {
+            // Throw an exception with the correct status.
+        }
+        if (empty($guards)) {
+            $guards = [null];
+        }
 
-    /**
-     * Handle an incoming request.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \Closure $next
-     *
-     * @return mixed
-     */
-    public function handle($request, Closure $next)
-    {
-        if ($this->auth->guest()) {
-            if ($request->ajax()) {
-                return response('Unauthorized.', 401);
-            } else {
-                return redirect()->guest('auth/login');
+        foreach ($guards as $guard) {
+            if ($this->auth->guard($guard)->check()) {
+                return $this->auth->shouldUse($guard);
             }
         }
 
-        return $next($request);
+        throw new AuthenticationException(
+            'Unauthenticated.', $guards, $this->redirectTo($request)
+        );
     }
 }

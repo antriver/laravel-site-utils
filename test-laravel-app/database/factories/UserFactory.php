@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use Antriver\LaravelSiteScaffolding\TestLaravelApp\User;
+use Antriver\LaravelSiteScaffoldingTestApp\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 

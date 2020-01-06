@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\TestLaravelApp\Http\Middleware;
+namespace Antriver\LaravelSiteScaffoldingTestApp\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as Middleware;
 

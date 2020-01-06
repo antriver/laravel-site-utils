@@ -16,7 +16,7 @@
     "autoload-dev": {
         "psr-4": {
             "Antriver\\LaravelSiteScaffoldingTests\\": "tests/",
-            "Antriver\\LaravelSiteScaffolding\\TestLaravelApp\\": "test-laravel-app/app/"
+            "Antriver\\LaravelSiteScaffoldingTestApp\\": "test-laravel-app/app/"
         }
     },
     "require": {

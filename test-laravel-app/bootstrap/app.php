@@ -28,17 +28,17 @@ $app = new Illuminate\Foundation\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    Antriver\LaravelSiteScaffolding\TestLaravelApp\Http\Kernel::class
+    Antriver\LaravelSiteScaffoldingTestApp\Http\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    Antriver\LaravelSiteScaffolding\TestLaravelApp\Console\Kernel::class
+    Antriver\LaravelSiteScaffoldingTestApp\Console\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    Antriver\LaravelSiteScaffolding\TestLaravelApp\Exceptions\Handler::class
+    Antriver\LaravelSiteScaffoldingTestApp\Exceptions\Handler::class
 );
 
 /*

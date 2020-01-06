@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\TestLaravelApp\Http\Middleware;
+namespace Antriver\LaravelSiteScaffoldingTestApp\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 

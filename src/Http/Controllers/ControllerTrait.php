@@ -2,13 +2,14 @@
 
 namespace Antriver\LaravelSiteScaffolding\Http\Controllers;
 
+use Antriver\LaravelSiteScaffolding\Users\User;
 use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 
-trait AbstractControllerTrait
+trait ControllerTrait
 {
     use AuthorizesRequests;
     use DispatchesJobs;
@@ -22,9 +23,9 @@ trait AbstractControllerTrait
     /**
      * @param Request $request
      *
-     * @return UserInterface|null
+     * @return UserInterface|User|null
      */
-    protected function getRequestUser(Request $request)
+    protected function getRequestUser(Request $request): ?UserInterface
     {
         return $request->user();
     }

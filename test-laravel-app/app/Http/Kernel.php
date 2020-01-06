@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\TestLaravelApp\Http;
+namespace Antriver\LaravelSiteScaffoldingTestApp\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -14,10 +14,10 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        //\Antriver\LaravelSiteScaffolding\TestLaravelApp\Http\Middleware\TrustProxies::class,
-        \Antriver\LaravelSiteScaffolding\TestLaravelApp\Http\Middleware\CheckForMaintenanceMode::class,
+        //\Antriver\LaravelSiteScaffoldingTestApp\Http\Middleware\TrustProxies::class,
+        \Antriver\LaravelSiteScaffoldingTestApp\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-        \Antriver\LaravelSiteScaffolding\TestLaravelApp\Http\Middleware\TrimStrings::class,
+        \Antriver\LaravelSiteScaffoldingTestApp\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
 
@@ -28,12 +28,12 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \Antriver\LaravelSiteScaffolding\TestLaravelApp\Http\Middleware\EncryptCookies::class,
+            \Antriver\LaravelSiteScaffoldingTestApp\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \Antriver\LaravelSiteScaffolding\TestLaravelApp\Http\Middleware\VerifyCsrfToken::class,
+            \Antriver\LaravelSiteScaffoldingTestApp\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
@@ -51,12 +51,12 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \Antriver\LaravelSiteScaffolding\TestLaravelApp\Http\Middleware\Authenticate::class,
+        'auth' => \Antriver\LaravelSiteScaffoldingTestApp\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \Antriver\LaravelSiteScaffolding\TestLaravelApp\Http\Middleware\RedirectIfAuthenticated::class,
+        'guest' => \Antriver\LaravelSiteScaffoldingTestApp\Http\Middleware\RedirectIfAuthenticated::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
@@ -73,7 +73,7 @@ class Kernel extends HttpKernel
     protected $middlewarePriority = [
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        \Antriver\LaravelSiteScaffolding\TestLaravelApp\Http\Middleware\Authenticate::class,
+        \Antriver\LaravelSiteScaffoldingTestApp\Http\Middleware\Authenticate::class,
         \Illuminate\Routing\Middleware\ThrottleRequests::class,
         \Illuminate\Session\Middleware\AuthenticateSession::class,
         \Illuminate\Routing\Middleware\SubstituteBindings::class,

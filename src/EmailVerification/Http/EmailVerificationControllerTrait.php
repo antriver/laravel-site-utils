@@ -2,18 +2,17 @@
 
 namespace Antriver\LaravelSiteScaffolding\EmailVerification\Http;
 
-use Antriver\LaravelSiteScaffolding\Auth\Http\ApiAuthResponseFactory;
 use Antriver\LaravelSiteScaffolding\Auth\UserAuthenticator;
 use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationManager;
 use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationRepository;
 use Antriver\LaravelSiteScaffolding\Exceptions\ForbiddenHttpException;
-use Antriver\LaravelSiteScaffolding\Http\Controllers\Base\AbstractApiController;
+use Antriver\LaravelSiteScaffolding\Users\User;
 use Antriver\LaravelSiteScaffolding\Users\UserRepository;
 use Antriver\LaravelSiteScaffolding\Users\ValidatesUserCredentialsTrait;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
-class EmailVerificationController extends AbstractApiController
+trait EmailVerificationControllerTrait
 {
     use ValidatesUserCredentialsTrait;
 
@@ -36,6 +35,7 @@ class EmailVerificationController extends AbstractApiController
         EmailVerificationRepository $emailVerificationRepository,
         Request $request
     ) {
+        /** @var User $currentUser */
         $currentUser = $this->getRequestUser($request);
 
         $emailVerification = $emailVerificationRepository->findLatestPendingVerification($currentUser);

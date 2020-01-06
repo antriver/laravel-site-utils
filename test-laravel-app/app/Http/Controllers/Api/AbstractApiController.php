@@ -1,11 +1,11 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\TestLaravelApp\Http\Controllers\Api;
+namespace Antriver\LaravelSiteScaffoldingTestApp\Http\Controllers\Api;
 
-use Antriver\LaravelSiteScaffolding\Http\Controllers\AbstractApiControllerTrait;
-use Antriver\LaravelSiteScaffolding\TestLaravelApp\Http\Controllers\AbstractController;
+use Antriver\LaravelSiteScaffolding\Http\Controllers\ApiControllerTrait;
+use Antriver\LaravelSiteScaffoldingTestApp\Http\Controllers\AbstractController;
 
 abstract class AbstractApiController extends AbstractController
 {
-    use AbstractApiControllerTrait;
+    use ApiControllerTrait;
 }

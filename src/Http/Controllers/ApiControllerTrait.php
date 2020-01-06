@@ -22,7 +22,7 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
  * @apiDefine RequiresAuthentication
  * @apiParam {string} sessionToken This endpoint requires authentication so a session token must be provided.
  */
-trait AbstractApiControllerTrait
+trait ApiControllerTrait
 {
     /**
      * Create a Response. Attaches the default data.

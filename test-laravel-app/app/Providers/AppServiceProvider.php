@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\TestLaravelApp\Providers;
+namespace Antriver\LaravelSiteScaffoldingTestApp\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

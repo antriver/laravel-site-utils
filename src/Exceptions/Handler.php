@@ -116,6 +116,8 @@ class Handler extends \Illuminate\Foundation\Exceptions\Handler
             $status = 404;
         } elseif ($exception instanceof HttpException) {
             $status = $exception->getStatusCode();
+        } elseif ($exception instanceof AuthenticationException) {
+            $status = \Illuminate\Http\Response::HTTP_FORBIDDEN;
         } else {
             $status = 500;
         }
