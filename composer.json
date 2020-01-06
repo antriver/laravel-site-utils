@@ -31,7 +31,9 @@
         "tmd/laravel-repositories": "^2.2",
         "antriver/laravel-database-session-auth": "^2.0",
         "antriver/laravel-model-presenters": "^1.0",
-        "firebase/php-jwt": "^5.0"
+        "firebase/php-jwt": "^5.0",
+        "aws/aws-php-sns-message-validator": "^1.6",
+        "ext-json": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0"

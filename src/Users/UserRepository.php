@@ -5,7 +5,8 @@ namespace Antriver\LaravelSiteScaffolding\Users;
 use Tmd\LaravelRepositories\Base\AbstractCachedRepository;
 
 /**
- * @method persist(User|UserInterface $user)
+ * @method persist(User $user)
+ * @method findOneBy(string $field, $value): User
  */
 class UserRepository extends AbstractCachedRepository implements UserRepositoryInterface
 {

@@ -56,6 +56,19 @@ trait UserTrait
     }
 
     /**
+     * @return bool
+     */
+    public function hasEmailBounced(): bool
+    {
+        return $this->emailBounced;
+    }
+
+    public function setEmailBounced(bool $emailBounced)
+    {
+        $this->emailBounced = $emailBounced;
+    }
+
+    /**
      * @return string
      */
     public function getPossessiveUsername(): string

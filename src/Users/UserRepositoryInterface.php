@@ -17,7 +17,7 @@ interface UserRepositoryInterface extends RepositoryInterface
      *
      * @param int $modelId
      *
-     * @return UserInterface|null
+     * @return User|UserInterface|null
      */
     public function find(int $modelId);
 
@@ -26,7 +26,7 @@ interface UserRepositoryInterface extends RepositoryInterface
      *
      * @param int $modelId
      *
-     * @return UserInterface
+     * @return User|UserInterface
      */
     public function findOrFail(int $modelId);
 
@@ -35,7 +35,7 @@ interface UserRepositoryInterface extends RepositoryInterface
      *
      * @param int[] $modelIds
      *
-     * @return UserInterface[]|Collection
+     * @return User[]|UserInterface[]|Collection
      */
     public function findMany(array $modelIds);
 
@@ -45,7 +45,7 @@ interface UserRepositoryInterface extends RepositoryInterface
      * @param string $field
      * @param mixed $value
      *
-     * @return UserInterface|null
+     * @return User|UserInterface|null
      */
     public function findOneBy(string $field, $value);
 
@@ -55,14 +55,14 @@ interface UserRepositoryInterface extends RepositoryInterface
      * @param string $field
      * @param mixed $value
      *
-     * @return UserInterface
+     * @return User|UserInterface
      */
     public function findOneByOrFail(string $field, $value);
 
     /**
      * Save a model to the database.
      *
-     * @param Model|UserInterface $model
+     * @param Model|UserInterface|User $model
      *
      * @return bool
      */
@@ -71,7 +71,7 @@ interface UserRepositoryInterface extends RepositoryInterface
     /**
      * Delete a model from the database.
      *
-     * @param Model|UserInterface $model
+     * @param Model|UserInterface|User $model
      *
      * @return bool
      */

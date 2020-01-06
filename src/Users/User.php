@@ -16,7 +16,8 @@ use Illuminate\Notifications\Notifiable;
  * @property int $id
  * @property string $username
  * @property string|null $email
- * @property int $emailVerified
+ * @property bool $emailVerified
+ * @property bool $emailBounced
  * @property string $password
  * @property string|null $rememberToken
  * @property int|null $avatarImageId

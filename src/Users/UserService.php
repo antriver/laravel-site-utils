@@ -10,6 +10,7 @@ use Antriver\LaravelSiteScaffolding\UserSocialAccounts\UserSocialAccount;
 use Antriver\LaravelSiteScaffolding\UserSocialAccounts\UserSocialAccountRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Laravel\Socialite\AbstractUser;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
@@ -180,17 +181,17 @@ class UserService
      */
     public function createUser($data, Request $request = null, bool $verifyEmail = true)
     {
-        if (!empty($data['password'])) {
-            $data['password'] = $this->passwordHasher->generateHash($data['password']);
-        }
-
         $userClass = $this->userRepository->getModelClass();
 
         /** @var User $user */
         $user = new $userClass($data);
 
+        if (!empty($data['password'])) {
+            $this->setUserPassword($user, $data['password']);
+        }
+
         if (!$verifyEmail) {
-            $user->emailVerified = true;
+            $user->setEmailVerified(true);
         }
 
         if (!$this->userRepository->persist($user)) {
@@ -205,6 +206,12 @@ class UserService
         }
 
         return $user;
+    }
+
+    public function setUserPassword(User $user, string $password)
+    {
+        $user->password = $this->passwordHasher->generateHash($password);
+        $user->rememberToken = Str::random(60);
     }
 
     protected function createUserSettings(UserInterface $user, Request $request)

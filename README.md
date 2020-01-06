@@ -42,3 +42,15 @@ Add your subclass to the providers array in `config/app.php`
         // ...
     ],
 ```
+
+## Components
+
+* Login - `Antriver\LaravelSiteScaffolding\Auth\Http\AuthController`
+
+* Signup - `Antriver\LaravelSiteScaffolding\Auth\Http\SignupController`
+
+* Forgot Password - `Antriver\LaravelSiteScaffolding\Auth\Http\ForgotController`
+
+* Reset Password - `Antriver\LaravelSiteScaffolding\Auth\Http\ResetController`
+
+* Email Verification - `Antriver\LaravelSiteScaffolding\Auth\Http\ResetController`

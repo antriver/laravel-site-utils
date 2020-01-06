@@ -4,9 +4,8 @@ namespace Antriver\LaravelSiteScaffolding\Users;
 
 use Antriver\LaravelModelPresenters\ModelPresenterInterface;
 use Antriver\LaravelModelPresenters\PresentArrayTrait;
+use Antriver\LaravelSiteScaffolding\Images\ImageRepository;
 use Antriver\LaravelSiteScaffolding\Images\ImageSize;
-use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
-use Antriver\LaravelSiteScaffolding\Repositories\ImageRepository;
 use Illuminate\Database\Eloquent\Model;
 
 class UserPresenter implements ModelPresenterInterface, UserPresenterInterface

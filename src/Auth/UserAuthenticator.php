@@ -229,7 +229,7 @@ class UserAuthenticator
      *
      * @return bool
      */
-    protected function ensureAccountCanLogin(
+    public function ensureAccountCanLogin(
         UserInterface $user,
         bool $canLoginIfUnverified = false
     ) {
