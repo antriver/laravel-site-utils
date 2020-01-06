@@ -2,6 +2,7 @@
 
 namespace Antriver\LaravelSiteScaffolding\EmailVerification;
 
+use Antriver\LaravelSiteScaffolding\EmailVerification\Events\EmailBouncedEvent;
 use Antriver\LaravelSiteScaffolding\EmailVerification\Events\EmailVerifiedEvent;
 use Antriver\LaravelSiteScaffolding\Tokens\TokenGenerator;
 use Antriver\LaravelSiteScaffolding\Traits\GeneratesTokensTrait;
@@ -167,5 +168,38 @@ class EmailVerificationManager
     protected function createMessage(EmailVerification $emailVerification, UserInterface $user)
     {
         return new EmailVerificationMail($emailVerification, $user);
+    }
+
+    /**
+     * Generally called when receiving an SES bounce or complaint.
+     * Unset the user's email as verified, and force them to re-verify their email.
+     *
+     * @param string $email
+     */
+    public function markUserEmailBounced(string $email)
+    {
+        /** @var UserInterface $user */
+        $user = $this->userRepository->findOneBy('email', $email);
+        if ($user) {
+            $user->setEmailBounced(true);
+            $this->userRepository->persist($user);
+
+            event(new EmailBouncedEvent($user, $email));
+        }
+    }
+
+    public function logBounce(string $type, string $email, string $message)
+    {
+        $user = $this->userRepository->findOneBy('email', $email);
+
+        $log = new EmailBounce(
+            [
+                'type' => $type,
+                'email' => $email,
+                'userId' => $user ? $user->id : null,
+                'message' => $message,
+            ]
+        );
+        $log->save();
     }
 }
