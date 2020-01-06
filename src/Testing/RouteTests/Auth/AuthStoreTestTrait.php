@@ -10,7 +10,7 @@ trait AuthStoreTestTrait
 {
     public function testLoginFailsWithoutCredentials()
     {
-        $response = $this->post(
+        $response = $this->sendPost(
             '/auth',
             []
         );
@@ -25,7 +25,7 @@ trait AuthStoreTestTrait
 
     public function testLoginFailsWithoutUsername()
     {
-        $response = $this->post(
+        $response = $this->sendPost(
             '/auth',
             [
                 'password' => 'hello',
@@ -41,7 +41,7 @@ trait AuthStoreTestTrait
 
     public function testLoginFailsWithoutPassword()
     {
-        $response = $this->post(
+        $response = $this->sendPost(
             '/auth',
             [
                 'username' => 'user',
@@ -57,7 +57,7 @@ trait AuthStoreTestTrait
 
     public function testLoginFailsWithUnknownUser()
     {
-        $response = $this->post(
+        $response = $this->sendPost(
             '/auth',
             [
                 'username' => 'user',
@@ -75,9 +75,10 @@ trait AuthStoreTestTrait
 
     public function testLoginFailsWithIncorrectPassword()
     {
-        $user = factory(User::class)->create();
+        /** @var User $user */
+        $user = $this->seedUser();
 
-        $response = $this->post(
+        $response = $this->sendPost(
             '/auth',
             [
                 'username' => $user->username,
@@ -99,9 +100,10 @@ trait AuthStoreTestTrait
     public function testLoginFailsIfUserNotVerified()
     {
         config(['auth.allow_unverified_user_login' => false]);
-        $user = factory(User::class)->create();
+        /** @var User $user */
+        $user = $this->seedUser();
 
-        $response = $this->post(
+        $response = $this->sendPost(
             '/auth',
             [
                 'username' => $user->username,
@@ -121,9 +123,10 @@ trait AuthStoreTestTrait
     public function testLoginIsSuccess()
     {
         config(['auth.allow_unverified_user_login' => true]);
-        $user = factory(User::class)->create();
+        /** @var User $user */
+        $user = $this->seedUser();
 
-        $response = $this->post(
+        $response = $this->sendPost(
             '/auth',
             [
                 'username' => $user->username,
