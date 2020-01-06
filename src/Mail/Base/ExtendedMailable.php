@@ -3,7 +3,7 @@
 namespace Antriver\LaravelSiteScaffolding\Mail\Base;
 
 use Antriver\LaravelSimpleMessageTrait\SimpleMessageTrait;
-use Antriver\LaravelSiteScaffolding\Entities\User\User;
+use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 use Illuminate\Mail\Mailable;
 
 abstract class ExtendedMailable extends Mailable
@@ -16,7 +16,7 @@ abstract class ExtendedMailable extends Mailable
     public $boxes = [];
 
     /**
-     * @var User
+     * @var UserInterface
      */
     public $recipient;
 
@@ -31,7 +31,7 @@ abstract class ExtendedMailable extends Mailable
         return $this;
     }
 
-    public function userBox(User $user, $title = null)
+    public function userBox(UserInterface $user, $title = null)
     {
         $this->boxes[] = [
             'preformattedContent' =>
@@ -46,9 +46,9 @@ abstract class ExtendedMailable extends Mailable
     }
 
     /**
-     * @return User
+     * @return UserInterface
      */
-    public function getRecipient(): User
+    public function getRecipient(): UserInterface
     {
         return $this->recipient;
     }
@@ -57,9 +57,9 @@ abstract class ExtendedMailable extends Mailable
      * IMPORTANT: This does not set the email address being sent to. It only sets the recipient property,
      * which is used in the template to display the user's name.
      *
-     * @param User $recipient
+     * @param UserInterface $recipient
      */
-    public function setRecipient(User $recipient)
+    public function setRecipient(UserInterface $recipient)
     {
         $this->recipient = $recipient;
     }

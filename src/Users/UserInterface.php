@@ -23,6 +23,10 @@ interface UserInterface extends Authenticatable
 
     public function setEmailVerified(bool $emailVerified);
 
+    public function hasEmailBounced(): bool;
+
+    public function setEmailBounced(bool $emailBounced);
+
     public function getPossessiveUsername(): string;
 
     public function getUrl(): string;

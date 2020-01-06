@@ -2,9 +2,11 @@
 
 namespace Antriver\LaravelSiteScaffolding\EmailVerification;
 
+use Antriver\LaravelSiteScaffolding\EmailVerification\Events\EmailVerifiedEvent;
 use Antriver\LaravelSiteScaffolding\Tokens\TokenGenerator;
 use Antriver\LaravelSiteScaffolding\Traits\GeneratesTokensTrait;
 use Antriver\LaravelSiteScaffolding\Users\UserInterface;
+use Antriver\LaravelSiteScaffolding\Users\UserRepository;
 use Antriver\LaravelSiteScaffolding\Users\UserRepositoryInterface;
 use Carbon\Carbon;
 use Mail;
@@ -21,29 +23,33 @@ use Tmd\LaravelRepositories\Interfaces\RepositoryInterface;
  *
  * @package Antriver\LaravelSiteScaffolding\Libraries\Users
  */
-class EmailVerificationManager extends AbstractRepository implements RepositoryInterface
+class EmailVerificationManager
 {
-    use GeneratesTokensTrait;
+    /**
+     * @var TokenGenerator
+     */
+    protected $tokenGenerator;
 
     /**
-     * @param UserInterface $user
-     *
-     * @return \Illuminate\Database\Eloquent\Collection|EmailVerification[]
+     * @var UserRepository
      */
-    public function findPendingVerifications(UserInterface $user)
-    {
-        return EmailVerification::where('userId', $user->getId())->orderBy('id')->get();
-    }
+    protected $userRepository;
 
     /**
-     * @param UserInterface $user
-     *
-     * @return EmailVerification
+     * @var EmailVerificationRepository
      */
-    public function findLatestPendingVerification(UserInterface $user)
-    {
-        return EmailVerification::where('userId', $user->getId())->orderBy('id', 'DESC')->first();
+    private $emailVerificationRepository;
+
+    public function __construct(
+        EmailVerificationRepository $emailVerificationRepository,
+        TokenGenerator $tokenGenerator,
+        UserRepository $userRepository
+    ) {
+        $this->tokenGenerator = $tokenGenerator;
+        $this->userRepository = $userRepository;
+        $this->emailVerificationRepository = $emailVerificationRepository;
     }
+
 
     /**
      * @param UserInterface $user
@@ -52,16 +58,18 @@ class EmailVerificationManager extends AbstractRepository implements RepositoryI
      */
     public function sendNewUserVerification(UserInterface $user)
     {
-        $token = (new TokenGenerator())->generateToken();
+        $token = $this->tokenGenerator->generateToken();
 
         /** @var EmailVerification $emailVerification */
-        $emailVerification = EmailVerification::create(
+        $emailVerification = new EmailVerification(
             [
                 'userId' => $user->id,
                 'email' => $user->email,
                 'token' => $token,
+                'type' => EmailVerification::TYPE_SIGNUP,
             ]
         );
+        $this->emailVerificationRepository->persist($emailVerification);
 
         $this->sendEmail($emailVerification, $user);
 
@@ -76,10 +84,10 @@ class EmailVerificationManager extends AbstractRepository implements RepositoryI
      */
     public function sendEmailChangeVerification(UserInterface $user, $email)
     {
-        $token = (new TokenGenerator())->generateToken();
+        $token = $this->tokenGenerator->generateToken();
 
         /** @var EmailVerification $emailVerification */
-        $emailVerification = EmailVerification::create(
+        $emailVerification = new EmailVerification(
             [
                 'userId' => $user->getId(),
                 'email' => $email,
@@ -87,8 +95,9 @@ class EmailVerificationManager extends AbstractRepository implements RepositoryI
                 'isChange' => 1,
             ]
         );
+        $this->emailVerificationRepository->persist($emailVerification);
 
-        $this->sendEmail($emailVerification, $user, true);
+        $this->sendEmail($emailVerification, $user);
 
         return $emailVerification;
     }
@@ -96,19 +105,12 @@ class EmailVerificationManager extends AbstractRepository implements RepositoryI
     /**
      * @param EmailVerification $emailVerification
      * @param UserInterface $user
-     * @param bool $queued
      */
-    public function sendEmail(EmailVerification $emailVerification, UserInterface $user, $queued = false)
+    public function sendEmail(EmailVerification $emailVerification, UserInterface $user)
     {
-        if ($queued) {
-            Mail::to($emailVerification->email)->queue(
-                $this->createMessage($emailVerification, $user)
-            );
-        } else {
-            Mail::to($emailVerification->email)->send(
-                $this->createMessage($emailVerification, $user)
-            );
-        }
+        Mail::to($emailVerification->email)->send(
+            $this->createMessage($emailVerification, $user)
+        );
     }
 
     /**
@@ -116,59 +118,53 @@ class EmailVerificationManager extends AbstractRepository implements RepositoryI
      * @param UserInterface $user
      * @param bool $queued
      */
-    public function resendEmail(EmailVerification $emailVerification, UserInterface $user, $queued = false)
+    public function resendEmail(EmailVerification $emailVerification, UserInterface $user)
     {
-        $this->sendEmail($emailVerification, $user, $queued);
+        $this->sendEmail($emailVerification, $user);
 
         $emailVerification->resentAt = (new Carbon())->toDateTimeString();
-        $this->persist($emailVerification);
+        $this->emailVerificationRepository->persist($emailVerification);
     }
 
     /**
      * @param EmailVerification $emailVerification
-     * @param UserRepositoryInterface $userRepository
      */
-    public function verify(EmailVerification $emailVerification, UserRepositoryInterface $userRepository)
+    public function verify(EmailVerification $emailVerification)
     {
-        $user = $userRepository->findOrFail($emailVerification->userId);
+        $user = $this->userRepository->findOrFail($emailVerification->userId);
+        $newEmail = $emailVerification->email;
+        $oldEmail = $user->email;
+
+        // Update the user's email address and set them as verified
+        $user->setEmail($newEmail);
+        $user->setEmailVerified(true);
+        $user->setEmailBounced(false);
+        $this->userRepository->persist($user);
 
         if ($emailVerification->isChange) {
             // Log the change
             UserEmailChange::create(
                 [
                     'userId' => $user->getId(),
-                    'oldEmail' => $user->getEmail(),
-                    'newEmail' => $emailVerification->email,
+                    'oldEmail' => $oldEmail,
+                    'newEmail' => $newEmail,
                 ]
             );
         }
 
-        // Update the user's email address and set as verified
-        $user->setEmail($emailVerification->email);
-        $user->setEmailVerified(true);
+        $this->emailVerificationRepository->remove($emailVerification);
 
-        $userRepository->persist($user);
-
-        $emailVerification->delete();
+        event(new EmailVerifiedEvent($user, $newEmail));
     }
 
-    /**
-     * Return the fully qualified class name of the Models this repository returns.
-     *
-     * @return string
-     */
-    public function getModelClass()
-    {
-        return EmailVerification::class;
-    }
 
     /**
      * @param EmailVerification $emailVerification
-     * @param User $user
+     * @param UserInterface $user
      *
      * @return EmailVerificationMail
      */
-    protected function createMessage(EmailVerification $emailVerification, User $user)
+    protected function createMessage(EmailVerification $emailVerification, UserInterface $user)
     {
         return new EmailVerificationMail($emailVerification, $user);
     }

@@ -2,8 +2,8 @@
 
 namespace Antriver\LaravelSiteScaffolding\EmailVerification;
 
-use Antriver\LaravelSiteScaffolding\Entities\User\User;
 use Antriver\LaravelSiteScaffolding\Mail\Base\ExtendedMailable;
+use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 
 class EmailVerificationMail extends ExtendedMailable
 {
@@ -14,9 +14,9 @@ class EmailVerificationMail extends ExtendedMailable
 
     /**
      * @param EmailVerification $emailVerification
-     * @param User $user
+     * @param UserInterface $user
      */
-    public function __construct(EmailVerification $emailVerification, User $user)
+    public function __construct(EmailVerification $emailVerification, UserInterface $user)
     {
         $this->emailVerification = $emailVerification;
         $this->setRecipient($user);
