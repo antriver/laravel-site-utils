@@ -2,10 +2,10 @@
 
 namespace Antriver\LaravelSiteScaffoldingTests\Unit\Lang;
 
-use PHPUnit\Framework\TestCase;
+use Antriver\LaravelSiteScaffoldingTests\Unit\AbstractUnitTestCase;
 use Antriver\LaravelSiteScaffolding\Lang\LanguageHelpers;
 
-class LanguageHelpersTest extends TestCase
+class LanguageHelpersTest extends AbstractUnitTestCase
 {
     public function dataForTestWordTruncate()
     {
