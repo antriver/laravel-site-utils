@@ -43,7 +43,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Antriver\\LaravelSiteScaffolding\\Providers\\LaravelSiteScaffoldingServiceProvider",
+                "Antriver\\LaravelSiteScaffolding\\Providers\\LaravelSiteScaffoldingServiceProvider"
             ]
         }
     }

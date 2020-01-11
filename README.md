@@ -23,7 +23,6 @@ This is in rapid development so is not tagged with any version. Add this to comp
         }
     ],
 
-
 Then run:
 
     composer require antriver/laravel-site-scaffolding dev-master
