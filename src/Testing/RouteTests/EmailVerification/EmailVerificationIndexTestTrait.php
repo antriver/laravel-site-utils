@@ -6,9 +6,15 @@ use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification;
 use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationRepository;
 use Antriver\LaravelSiteScaffolding\Users\User;
 use Antriver\LaravelSiteScaffolding\Users\UserRepository;
+use Faker\Generator;
 
 trait EmailVerificationIndexTestTrait
 {
+    /**
+     * @var Generator
+     */
+    private $faker;
+
     /**
      * @var UserRepository
      */
@@ -18,6 +24,7 @@ trait EmailVerificationIndexTestTrait
     {
         parent::setUp();
 
+        $this->faker = app(Generator::class);
         $this->userRepository = app(UserRepository::class);
     }
 
@@ -64,6 +71,7 @@ trait EmailVerificationIndexTestTrait
             [
                 'userId' => $user->id,
                 'token' => 'abc',
+                'email' => $this->faker->safeEmail,
                 'type' => EmailVerification::TYPE_SIGNUP,
             ]
         );
@@ -79,6 +87,7 @@ trait EmailVerificationIndexTestTrait
                 'emailVerification' => [
                     'id' => $verification->id,
                     'userId' => $user->id,
+                    'email' => $verification->email,
                     'type' => EmailVerification::TYPE_SIGNUP,
                 ],
             ]
@@ -98,6 +107,7 @@ trait EmailVerificationIndexTestTrait
             [
                 'userId' => $user->id,
                 'token' => 'abc',
+                'email' => $this->faker->safeEmail,
                 'type' => EmailVerification::TYPE_SIGNUP,
             ]
         );
@@ -107,6 +117,7 @@ trait EmailVerificationIndexTestTrait
             [
                 'userId' => $user->id,
                 'token' => 'def',
+                'email' => $this->faker->safeEmail,
                 'type' => EmailVerification::TYPE_SIGNUP,
             ]
         );
@@ -120,7 +131,8 @@ trait EmailVerificationIndexTestTrait
             [
                 'emailVerification' => [
                     'id' => $verification2->id,
-                    'userId' => $user->id,
+                    'email' => $verification2->email,
+                    'userId' => $verification2->userId,
                     'type' => EmailVerification::TYPE_SIGNUP,
                 ],
             ]

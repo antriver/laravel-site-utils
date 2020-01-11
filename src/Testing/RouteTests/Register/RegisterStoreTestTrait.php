@@ -178,9 +178,11 @@ trait RegisterStoreTestTrait
 
         $this->assertResponseOk($response);
 
+        // TODO: More tests
         $result = $this->parseResponse($response);
 
         $this->assertResponseContains(
+            $response,
             [
                 'user' => [
                     'username' => $username
