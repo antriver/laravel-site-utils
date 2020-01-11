@@ -46,6 +46,9 @@ class PublishTestsCommand extends AbstractCommand
 
         if (!($outputNamespace = $this->option('output-namespace'))) {
             $outputNamespace = trim(app()->getNamespace(), '\\').'Tests\\Feature\\Api';
+
+            $this->makeAbstractTestCase();
+            $this->makeAbstractApiTestCase();
         }
         $this->info("Output namespace: {$outputNamespace}");
 
@@ -89,8 +92,9 @@ namespace {$outputNamespace};
 
 use Antriver\LaravelSiteScaffolding\Testing\Traits\TestCaseTrait;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\TestCase;
 
-abstract class AbstractTestCase extends \Illuminate\Foundation\Testing\TestCase
+abstract class AbstractTestCase extends TestCase
 {
     use CreatesApplication;
     use DatabaseTransactions;
@@ -103,7 +107,7 @@ EOL;
         }
     }
 
-    protected function makeAbstractApiTest()
+    protected function makeAbstractApiTestCase()
     {
         $outputNamespace = trim(app()->getNamespace(), '\\').'Tests\\Feature\\Api';
         $outputDirectory = app()->basePath().'/tests/Feature/Api';
