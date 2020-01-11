@@ -3,6 +3,7 @@
 namespace Antriver\LaravelSiteScaffolding\Console\Commands\Scaffolding;
 
 use Antriver\LaravelSiteScaffolding\Console\Commands\AbstractCommand;
+use Antriver\LaravelSiteScaffolding\Mail\Http\SnsControllerTrait;
 
 class InstallCommand extends AbstractCommand
 {
@@ -27,7 +28,8 @@ class InstallCommand extends AbstractCommand
         \Antriver\LaravelSiteScaffolding\EmailVerification\Http\EmailVerificationControllerTrait::class => 'EmailVerificationController',
         \Antriver\LaravelSiteScaffolding\Auth\Http\ForgotPasswordControllerTrait::class => 'ForgotPasswordController',
         \Antriver\LaravelSiteScaffolding\Auth\Http\RegisterControllerTrait::class => 'RegisterController',
-        \Antriver\LaravelSiteScaffolding\Auth\Http\ResetPasswordControllerTrait::class => 'ResetPasswordController'
+        \Antriver\LaravelSiteScaffolding\Auth\Http\ResetPasswordControllerTrait::class => 'ResetPasswordController',
+        SnsControllerTrait::class => 'SnsController'
     ];
 
     /**

@@ -4,12 +4,11 @@ namespace Antriver\LaravelSiteScaffolding\Mail\Http;
 
 use Antriver\LaravelSiteScaffolding\Debug\HeaderBagFormatter;
 use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationManager;
-use Antriver\LaravelSiteScaffolding\Http\Controllers\Base\AbstractApiController;
 use Aws\Sns\Message as SnsMessage;
 use Aws\Sns\MessageValidator;
 use Illuminate\Http\Request;
 
-class SnsController extends AbstractApiController
+trait SnsControllerTrait
 {
     /**
      * @param Request $request

@@ -5,6 +5,14 @@ namespace Antriver\LaravelSiteScaffolding\Models\Base;
 use Antriver\LaravelSiteScaffolding\Models\Traits\OutputsDatesTrait;
 use Illuminate\Database\Eloquent\Relations\Pivot as EloquentPivot;
 
+/**
+ * Antriver\LaravelSiteScaffolding\Models\Base\Pivot
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Models\Base\Pivot newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Models\Base\Pivot newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Models\Base\Pivot query()
+ * @mixin \Eloquent
+ */
 class Pivot extends EloquentPivot
 {
     use OutputsDatesTrait;

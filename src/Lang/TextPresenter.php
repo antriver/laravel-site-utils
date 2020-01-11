@@ -2,7 +2,6 @@
 
 namespace Antriver\LaravelSiteScaffolding\Lang;
 
-use Amirite\Libraries\Enums\ImageSize;
 use Amirite\Libraries\Images\Traits\MatchesImageMarkup;
 use Amirite\Libraries\Markdown\Parsedown;
 use Amirite\Models\Image;

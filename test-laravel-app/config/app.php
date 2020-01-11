@@ -170,6 +170,7 @@ return [
          */
         Antriver\LaravelDatabaseSessionAuth\DatabaseSessionAuthServiceProvider::class,
         Antriver\LaravelSiteScaffolding\Providers\LaravelSiteScaffoldingServiceProvider::class,
+        \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
         /*
          * Application Service Providers...
