@@ -85,11 +85,11 @@ EOL;
     protected function makeApiControllersForTraits()
     {
         foreach ($this->traitsForApiControllers as $traitClass => $controllerName) {
-            $this->makeApiControllesForTraits($traitClass => $controllerName);
+            $this->makeApiControllerForTrait($traitClass, $controllerName);
         }
     }
 
-    protected function makeApiControllesForTraits(string $traitClass, string $controllerName)
+    protected function makeApiControllerForTrait(string $traitClass, string $controllerName)
     {
         $traitName = explode('\\', $traitClass);
         $traitName = array_pop($traitName);
