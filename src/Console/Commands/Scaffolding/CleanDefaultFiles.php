@@ -53,7 +53,7 @@ class CleanDefaultFiles extends AbstractCommand
                 if (is_dir($filePath)) {
                     $this->info("Removing directory ${filePath}");
                     if (!$this->isDryRun) {
-                        rmdir($filePath);
+                        passthru("rm -r ".escapeshellarg($filePath));
                     }
                 } else {
                     $this->info("Removing directory ${filePath}");
