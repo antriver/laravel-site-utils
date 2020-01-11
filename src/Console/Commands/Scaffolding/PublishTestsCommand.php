@@ -37,12 +37,12 @@ class PublishTestsCommand extends AbstractCommand
         if (!($traitsNamespace = $this->option('trait-namespace'))) {
             $traitsNamespace = 'Antriver\LaravelSiteScaffolding\Testing\RouteTests';
         }
-        $this->output->writeln(("Input namespace: {$traitsNamespace}");
+        $this->output->writeln("Input namespace: {$traitsNamespace}");
 
         if (!($outputDirectory = $this->option('output-dir'))) {
             $outputDirectory = app()->basePath().'/tests/Feature/Api';
         }
-        $this->output->writeln(("Output directory: {$outputDirectory}");
+        $this->output->writeln("Output directory: {$outputDirectory}");
 
         if (!($outputNamespace = $this->option('output-namespace'))) {
             $outputNamespace = trim(app()->getNamespace(), '\\').'Tests\\Feature\\Api';
@@ -50,7 +50,7 @@ class PublishTestsCommand extends AbstractCommand
             $this->makeAbstractTestCase();
             $this->makeAbstractApiTestCase();
         }
-        $this->output->writeln(("Output namespace: {$outputNamespace}");
+        $this->output->writeln("Output namespace: {$outputNamespace}");
 
         $files = $this->getFiles($traitsDirectory);
 
