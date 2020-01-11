@@ -21,9 +21,21 @@ class CleanDefaultFiles extends AbstractCommand
     protected $description = 'Remove some unused files in a default Laravel install.';
 
     protected $files = [
+        'app/User.php',
+        'app/Http/Controllers/Auth',
+        'database/migrations/2014_10_12_000000_create_users_table.php',
+        'database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'tests/TestCase.php',
         'tests/Feature/ExampleTest.php',
         'tests/Unit/ExampleTest.php',
+        'public/css',
+        'public/js',
+        'public/web.config',
+        'resources/js',
+        'resources/sass',
+        '.styleci.yml',
+        'server.php',
+        'webpack.mix.js'
     ];
 
     protected $supportsDryRun = true;
