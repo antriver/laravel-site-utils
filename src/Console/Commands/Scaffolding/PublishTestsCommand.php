@@ -127,7 +127,7 @@ abstract class AbstractApiTestCase extends AbstractTestCase
 
 EOL;
             file_put_contents($path, $contents);
-            $this->output->success("Created {$path}");
+            $this->info("Wrote {$path}");
         }
     }
 
