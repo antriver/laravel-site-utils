@@ -28,8 +28,8 @@ class InstallCommand extends AbstractCommand
         \Antriver\LaravelSiteScaffolding\EmailVerification\Http\EmailVerificationControllerTrait::class => 'EmailVerificationController',
         \Antriver\LaravelSiteScaffolding\Auth\Http\ForgotPasswordControllerTrait::class => 'ForgotPasswordController',
         \Antriver\LaravelSiteScaffolding\Auth\Http\RegisterControllerTrait::class => 'RegisterController',
-        \Antriver\LaravelSiteScaffolding\Auth\Http\ResetPasswordControllerTrait::class => 'ResetPasswordController',
-        SnsControllerTrait::class => 'SnsController'
+        \Antriver\LaravelSiteScaffolding\Auth\Http\PasswordResetControllerTrait::class => 'PasswordResetController',
+        \Antriver\LaravelSiteScaffolding\Mail\Http\SnsControllerTrait::class => 'SnsController'
     ];
 
     /**
@@ -105,7 +105,7 @@ namespace {$namespace};
 
 use {$traitClass};
 
-abstract class {$controllerName} extends AbstractApiController
+class {$controllerName} extends AbstractApiController
 {
     use {$traitName};
 }

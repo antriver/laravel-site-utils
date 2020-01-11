@@ -13,7 +13,7 @@ use Antriver\LaravelSiteScaffolding\Users\ValidatesUserCredentialsTrait;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
-trait ResetPasswordControllerTrait
+trait PasswordResetControllerTrait
 {
     use ValidatesUserCredentialsTrait;
 

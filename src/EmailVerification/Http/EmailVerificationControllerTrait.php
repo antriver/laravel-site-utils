@@ -203,7 +203,6 @@ trait EmailVerificationControllerTrait
             throw new BadRequestHttpException('Invalid token.');
         }
 
-
         $emailVerificationManager->verify($emailVerification);
 
         $user = $userRepository->findOrFail($emailVerification->userId);
