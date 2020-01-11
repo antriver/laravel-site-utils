@@ -2,9 +2,8 @@
 
 namespace Antriver\LaravelSiteScaffolding\Lang;
 
-use Amirite\Libraries\Images\Traits\MatchesImageMarkup;
-use Amirite\Libraries\Markdown\Parsedown;
-use Amirite\Models\Image;
+//use Amirite\Libraries\Images\Traits\MatchesImageMarkup;
+use Antriver\LaravelSiteScaffolding\Images\Image;
 
 /**
  * Formats text with some very limited markdown support.
@@ -13,7 +12,7 @@ use Amirite\Models\Image;
  */
 class TextPresenter
 {
-    use MatchesImageMarkup;
+    //use MatchesImageMarkup;
 
     private $parsedown;
 

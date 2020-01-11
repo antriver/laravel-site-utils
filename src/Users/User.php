@@ -13,16 +13,44 @@ use Illuminate\Foundation\Auth\Access\Authorizable as AuthorizableTrait;
 use Illuminate\Notifications\Notifiable;
 
 /**
+ * Antriver\LaravelSiteScaffolding\Users\User
+ *
  * @property int $id
  * @property string $username
- * @property string|null $email
- * @property bool $emailVerified
- * @property bool $emailBounced
+ * @property string $email
  * @property string $password
- * @property string|null $rememberToken
+ * @property bool $admin
+ * @property bool $moderator
+ * @property int $emailVerified
+ * @property int $emailBounced
  * @property int|null $avatarImageId
- * @property int $admin
- * @property int $moderator
+ * @property \Illuminate\Support\Carbon $createdAt
+ * @property \Illuminate\Support\Carbon|null $updatedAt
+ * @property \Illuminate\Support\Carbon|null $deletedAt
+ * @property string|null $deactivatedAt
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property-read int|null $notifications_count
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User newQuery()
+ * @method static \Illuminate\Database\Query\Builder|\Antriver\LaravelSiteScaffolding\Users\User onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User query()
+ * @method static bool|null restore()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User whereAdmin($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User whereAvatarImageId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User whereDeactivatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User whereEmailBounced($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User whereEmailVerified($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User whereModerator($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User whereUsername($value)
+ * @method static \Illuminate\Database\Query\Builder|\Antriver\LaravelSiteScaffolding\Users\User withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Antriver\LaravelSiteScaffolding\Users\User withoutTrashed()
  * @mixin \Eloquent
  */
 class User

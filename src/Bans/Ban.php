@@ -5,6 +5,8 @@ namespace Antriver\LaravelSiteScaffolding\Bans;
 use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
 
 /**
+ * Antriver\LaravelSiteScaffolding\Bans\Ban
+ *
  * @property int $id
  * @property int|null $userId
  * @property string|null $ip
@@ -12,17 +14,24 @@ use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
  * @property int|null $unbannedByUserId
  * @property string $reason
  * @property string|null $internalReason
- * @property \Carbon\Carbon $createdAt
- * @property \Carbon\Carbon|null $updatedAt
- * @property \Carbon\Carbon|null $deletedAt
- * @property \Carbon\Carbon|null $expiresAt
- * @method static \Illuminate\Database\Eloquent\Builder|Ban current()
- * @method static \Illuminate\Database\Eloquent\Builder|Ban expired()
- * @method static bool|null forceDelete()
- * @method static \Illuminate\Database\Query\Builder|Ban onlyTrashed()
- * @method static bool|null restore()
- * @method static \Illuminate\Database\Query\Builder|Ban withTrashed()
- * @method static \Illuminate\Database\Query\Builder|Ban withoutTrashed()
+ * @property \Illuminate\Support\Carbon $createdAt
+ * @property \Illuminate\Support\Carbon|null $updatedAt
+ * @property string|null $deletedAt
+ * @property string|null $expiresAt
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereByUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereExpiresAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereInternalReason($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereReason($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereUnbannedByUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereUserId($value)
  * @mixin \Eloquent
  */
 class Ban extends AbstractModel implements BanInterface

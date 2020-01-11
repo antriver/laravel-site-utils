@@ -14,9 +14,7 @@ class BannedUserException extends ForbiddenHttpException
     use HasUserTrait;
 
     private $ban;
-
-    private $user;
-
+    
     public function __construct(Ban $ban, UserInterface $user)
     {
         $this->ban = $ban;

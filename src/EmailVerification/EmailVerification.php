@@ -7,13 +7,25 @@ use Antriver\LaravelSiteScaffolding\Models\Interfaces\BelongsToUserInterface;
 use Antriver\LaravelSiteScaffolding\Models\Traits\BelongsToUserTrait;
 
 /**
+ * Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification
+ *
  * @property int $id
  * @property int $userId
  * @property string $email
  * @property string $token
- * @property int|null $isChange Is this the initial verification, or changing an existing user?
- * @property string $createdAt
- * @property string|null $resentAt
+ * @property string $type
+ * @property \Illuminate\Support\Carbon $createdAt
+ * @property \Illuminate\Support\Carbon|null $resentAt
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification whereResentAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification whereToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification whereUserId($value)
  * @mixin \Eloquent
  */
 class EmailVerification extends AbstractModel implements BelongsToUserInterface

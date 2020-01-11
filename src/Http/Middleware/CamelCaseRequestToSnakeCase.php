@@ -2,7 +2,7 @@
 
 namespace Antriver\LaravelSiteScaffolding\Http\Middleware;
 
-use Antriver\LaravelSiteScaffolding\Libraries\Traits\ConvertsCaseTrait;
+use Antriver\LaravelSiteScaffolding\Traits\ConvertsCaseTrait;
 use Closure;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
