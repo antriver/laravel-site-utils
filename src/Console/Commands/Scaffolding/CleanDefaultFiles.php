@@ -57,7 +57,7 @@ class CleanDefaultFiles extends AbstractCommand
                         passthru("rm -r ".escapeshellarg($filePath));
                     }
                 } else {
-                    $this->info("Removing directory ${filePath}");
+                    $this->info("Removing file ${filePath}");
                     if (!$this->isDryRun) {
                         unlink($filePath);
                     }
