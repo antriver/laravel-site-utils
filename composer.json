@@ -39,5 +39,12 @@
     "require-dev": {
         "fzaninotto/faker": "^1.9",
         "phpunit/phpunit": "^7.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Antriver\\LaravelSiteScaffolding\\Providers\\LaravelSiteScaffoldingServiceProvider",
+            ]
+        }
     }
 }

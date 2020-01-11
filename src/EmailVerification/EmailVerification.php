@@ -21,14 +21,16 @@ class EmailVerification extends AbstractModel implements BelongsToUserInterface
     use BelongsToUserTrait;
 
     const TYPE_SIGNUP = 'signup';
+
     const TYPE_CHANGE = 'change';
-    const TYPE_REVERIFY  = 'reverify';
+
+    const TYPE_REVERIFY = 'reverify';
 
     protected $table = 'email_verifications';
 
     protected $dates = [
         self::CREATED_AT,
-        'resentAt'
+        'resentAt',
     ];
 
     protected $visible = [
@@ -37,7 +39,7 @@ class EmailVerification extends AbstractModel implements BelongsToUserInterface
         'userId',
         'type',
         'createdAt',
-        'resentAt'
+        'resentAt',
     ];
 
     public $timestamps = false;

@@ -2,6 +2,7 @@
 
 namespace Antriver\LaravelSiteScaffolding\EmailVerification\Http;
 
+use Antriver\LaravelSiteScaffolding\Auth\ApiAuthResponseFactory;
 use Antriver\LaravelSiteScaffolding\Auth\UserAuthenticator;
 use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationManager;
 use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationRepository;

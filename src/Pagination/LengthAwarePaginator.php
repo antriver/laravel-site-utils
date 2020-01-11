@@ -34,7 +34,7 @@ class LengthAwarePaginator extends \Illuminate\Pagination\LengthAwarePaginator
      *
      * Add an array of query string values.
      *
-     * @param  array $keys
+     * @param array $keys
      *
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */

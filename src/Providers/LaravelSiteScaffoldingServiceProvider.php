@@ -2,8 +2,6 @@
 
 namespace Antriver\LaravelSiteScaffolding\Providers;
 
-use Antriver\LaravelSingletonDiscovery\Console\SingletonCacheCommand;
-use Antriver\LaravelSingletonDiscovery\Console\SingletonClearCommand;
 use Antriver\LaravelSiteScaffolding\Auth\RepositoryUserProvider;
 use Antriver\LaravelSiteScaffolding\Console\Commands\Scaffolding\PublishTestsCommand;
 use Antriver\LaravelSiteScaffolding\Debug\QueryLogger;
@@ -25,6 +23,13 @@ class LaravelSiteScaffoldingServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        include_once dirname(__DIR__).'/helpers.php';
+
+        if (!defined('LARAVEL_START')) {
+            // LARAVEL_START is not defined when running tests.
+            define('LARAVEL_START', microtime(true));
+        }
+
         if ($this->app->runningInConsole()) {
             $this->commands(
                 [
@@ -33,12 +38,7 @@ class LaravelSiteScaffoldingServiceProvider extends ServiceProvider
             );
         }
 
-        include_once dirname(__DIR__).'/helpers.php';
-
-        if (!defined('LARAVEL_START')) {
-            // LARAVEL_START is not defined when running tests.
-            define('LARAVEL_START', microtime(true));
-        }
+        $this->loadMigrationsFrom(__DIR__.'/../../migrations');
 
         // This makes everything break if the DB is down. Disabled.
         //DB::connection()->getPdo()->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);

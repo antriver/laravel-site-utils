@@ -22,3 +22,5 @@ $router->post('auth', 'AuthController@store');
 
 $router->get('email-verifications', 'EmailVerificationController@index');
 //$router->post('auth', 'Auth\AuthController@store');
+
+$router->post('users', 'RegisterController@store');

@@ -211,7 +211,6 @@ class UserService
     public function setUserPassword(User $user, string $password)
     {
         $user->password = $this->passwordHasher->generateHash($password);
-        $user->rememberToken = Str::random(60);
     }
 
     protected function createUserSettings(UserInterface $user, Request $request)

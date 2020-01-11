@@ -54,9 +54,9 @@ class BanRepository extends AbstractRepository
     public function findAllForUser(UserInterface $user)
     {
         return Ban::fromQuery(
-            'SELECT * FROM bans WHERE userId = ? ORDER BY ID DESC',
+            'SELECT * FROM `bans` WHERE `userId` = ? ORDER BY `ID` DESC',
             [
-                $user->getId()
+                $user->getId(),
             ]
         );
     }
@@ -71,7 +71,7 @@ class BanRepository extends AbstractRepository
         return Ban::fromQuery(
             'SELECT * FROM bans WHERE ip = ? ORDER BY ID DESC',
             [
-                $ip
+                $ip,
             ]
         );
     }

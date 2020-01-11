@@ -14,34 +14,52 @@ If you take a look at `Providers\LaravelSiteScaffoldingServiceProvider` you will
 
 ## Installation
 
-This is in rapid development so is not tagged with any version. Add this to `composer.json`:
-```json
+This is in rapid development so is not tagged with any version. Add this to composer.json:
+
     "repositories": [
         {
             "type": "vcs",
             "url": "https://github.com/antriver/laravel-site-scaffolding.git"
         }
     ],
-```
+
 
 Then run:
-```
-composer require antriver/laravel-site-scaffolding dev-master
-```
 
-Create a subclass of the provider so you can easily change settings. Edit this file if you need to change the namespace.
-```
-cp vendor/antriver/laravel-site-scaffolding/templates/LaravelSiteScaffoldingServiceProvider.php app/Providers/LaravelSiteScaffoldingServiceProvider.php
-```
+    composer require antriver/laravel-site-scaffolding dev-master
 
-Add your subclass to the providers array in `config/app.php`
-```php
+
+### Changing Configuration
+
+Create a subclass of the provider so you can easily change settings. In your `app/providers` directory create `LaravelSiteScaffoldingServiceProvider.php` with the contents:
+
+    <?php
+    
+    namespace App\Providers;
+    
+    class LaravelSiteScaffoldingServiceProvider extends \Antriver\LaravelSiteScaffolding\Providers\LaravelSiteScaffoldingServiceProvider
+    {
+    
+    }
+
+Then add your subclass to the providers array in `config/app.php`
+
     'providers' => [
         // ...
         App\Providers\LaravelSiteScaffoldingServiceProvider::class,
         // ...
     ],
-```
+
+
+And tell Laravel not to auto discover the existing provider. In composer.json:
+
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+                "antriver/laravel-site-scaffolding"
+            ]
+        }
+    }
 
 ## Components
 

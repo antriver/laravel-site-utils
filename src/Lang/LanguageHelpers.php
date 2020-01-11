@@ -210,7 +210,7 @@ class LanguageHelpers
         $fraction = null;
 
         if (strpos($number, '.') !== false) {
-            list($number, $fraction) = explode('.', $number);
+            [$number, $fraction] = explode('.', $number);
         }
 
         switch (true) {

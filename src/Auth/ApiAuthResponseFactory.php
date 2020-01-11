@@ -3,7 +3,6 @@
 namespace Antriver\LaravelSiteScaffolding\Auth;
 
 use Antriver\LaravelDatabaseSessionAuth\DatabaseSessionGuard;
-use Antriver\LaravelSiteScaffolding\Auth\UserAuthenticator;
 use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 use Antriver\LaravelSiteScaffolding\Users\UserPresenter;
 use Auth;

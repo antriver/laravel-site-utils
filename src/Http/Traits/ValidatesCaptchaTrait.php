@@ -8,12 +8,30 @@ trait ValidatesCaptchaTrait
 {
     protected function validateRequestCaptcha(Request $request)
     {
-        $this->validate(
-            $request,
-            [
-                'recaptcha' => 'required_without:solvemedia|recaptcha',
-                'solvemedia' => 'required_without:recaptcha|solvemedia',
-            ]
-        );
+        $rules = [];
+
+        $hasRecaptcha = !empty(config('services.recaptcha'));
+        $hasSolvemedia = !empty(config('services.solvemedia'));
+
+        if ($hasRecaptcha) {
+            $rules['recaptcha'] = [
+                $hasSolvemedia ? 'required_without:solvemedia' : 'required',
+                'recaptcha'
+            ];
+        }
+
+        if ($hasSolvemedia) {
+            $rules['solvemedia'] = [
+                $hasRecaptcha ? 'required_without:recaptcha' : 'required',
+                'solvemedia'
+            ];
+        }
+
+        if (!empty($rules)) {
+            $this->validate(
+                $request,
+                $rules
+            );
+        }
     }
 }

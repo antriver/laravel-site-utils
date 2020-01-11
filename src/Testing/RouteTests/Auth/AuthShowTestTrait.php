@@ -3,7 +3,6 @@
 namespace Antriver\LaravelSiteScaffolding\Testing\RouteTests\Auth;
 
 use Antriver\LaravelSiteScaffolding\Users\User;
-use Illuminate\Auth\AuthenticationException;
 
 trait AuthShowTestTrait
 {

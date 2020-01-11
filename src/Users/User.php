@@ -47,10 +47,27 @@ class User
         'moderator' => 'bool',
     ];
 
+    /**
+     * Disable the 'rememberToken' field on users.
+     *
+     * @var bool
+     */
+    //protected $rememberTokenName = false;
+
     protected $visible = [
         'id',
         'username',
     ];
+
+    /**
+     * Get the column name for the "remember me" token.
+     *
+     * @return string
+     */
+    public function getRememberTokenName()
+    {
+        return '';
+    }
 
     public function toArray()
     {

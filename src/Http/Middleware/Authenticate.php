@@ -2,17 +2,16 @@
 
 namespace Antriver\LaravelSiteScaffolding\Http\Middleware;
 
-use Closure;
 use Illuminate\Auth\AuthenticationException;
-use Illuminate\Contracts\Auth\Guard;
 
 class Authenticate extends \Illuminate\Auth\Middleware\Authenticate
 {
     /**
      * Determine if the user is logged in to any of the given guards.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  array  $guards
+     * @param \Illuminate\Http\Request $request
+     * @param array $guards
+     *
      * @return void
      *
      * @throws \Illuminate\Auth\AuthenticationException

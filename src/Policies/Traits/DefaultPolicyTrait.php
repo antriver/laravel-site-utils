@@ -2,8 +2,8 @@
 
 namespace Antriver\LaravelSiteScaffolding\Policies\Traits;
 
-use Antriver\LaravelSiteScaffolding\Policies\Base\AbstractPolicy;
 use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
+use Antriver\LaravelSiteScaffolding\Policies\Base\AbstractPolicy;
 use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 
 trait DefaultPolicyTrait

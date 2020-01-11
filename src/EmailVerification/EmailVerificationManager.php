@@ -17,8 +17,6 @@ use Mail;
  *
  * @method EmailVerification find($key)
  * @method EmailVerification findOrFail($key)
- *
- * @package Antriver\LaravelSiteScaffolding\Libraries\Users
  */
 class EmailVerificationManager
 {

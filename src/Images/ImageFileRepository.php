@@ -168,7 +168,7 @@ class ImageFileRepository
 
         $image->save($tempFile->getPathname());
 
-        list($size, $optimizedSize) = $this->optimize($tempFile);
+        [$size, $optimizedSize] = $this->optimize($tempFile);
 
         $result = $this->persistFile(
             $tempFile,

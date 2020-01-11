@@ -3,11 +3,13 @@
 namespace Antriver\LaravelSiteScaffolding\Mail\Base;
 
 use Antriver\LaravelSimpleMessageTrait\SimpleMessageTrait;
+use Antriver\LaravelSiteScaffolding\Mail\MailStyleTrait;
 use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 use Illuminate\Mail\Mailable;
 
 abstract class ExtendedMailable extends Mailable
 {
+    use MailStyleTrait;
     use SimpleMessageTrait;
 
     /**

@@ -2,7 +2,6 @@
 
 namespace Antriver\LaravelSiteScaffolding\Bans;
 
-use Antriver\LaravelSiteScaffolding\Bans\Ban;
 use Antriver\LaravelSiteScaffolding\Exceptions\ForbiddenHttpException;
 
 class BannedIpException extends ForbiddenHttpException
