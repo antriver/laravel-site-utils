@@ -53,7 +53,7 @@ class PublishTestsCommand extends AbstractCommand
 
         $outputDirectory = $outputDirectory.'/Scaffolding';
         if (!is_dir($outputDirectory)) {
-            mkdir($outputDirectory);
+            mkdir($outputDirectory, 0777, true);
         }
 
         foreach ($files as $file) {
