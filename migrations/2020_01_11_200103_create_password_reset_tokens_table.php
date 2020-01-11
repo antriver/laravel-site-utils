@@ -23,7 +23,7 @@ class CreatePasswordResetTokensTable extends Migration
             function (Blueprint $table) {
                 $table->string('token', 64);
                 $table->unsignedInteger('userId');
-                $table->dateTime('createdAt')->default('current_timestamp()');
+                \Antriver\LaravelSiteScaffolding\Migrations\MigrationHelper::addCreatedAt($table);
 
                 $table->primary('token');
 
