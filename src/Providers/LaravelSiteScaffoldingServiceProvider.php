@@ -3,6 +3,7 @@
 namespace Antriver\LaravelSiteScaffolding\Providers;
 
 use Antriver\LaravelSiteScaffolding\Auth\RepositoryUserProvider;
+use Antriver\LaravelSiteScaffolding\Console\Commands\Scaffolding\CleanDefaultFiles;
 use Antriver\LaravelSiteScaffolding\Console\Commands\Scaffolding\PublishTestsCommand;
 use Antriver\LaravelSiteScaffolding\Debug\QueryLogger;
 use Antriver\LaravelSiteScaffolding\Users\UserRepository;
@@ -33,6 +34,7 @@ class LaravelSiteScaffoldingServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands(
                 [
+                    CleanDefaultFiles::class,
                     PublishTestsCommand::class,
                 ]
             );

@@ -103,7 +103,7 @@ abstract class AbstractTestCase extends TestCase
 
 EOL;
             file_put_contents($path, $contents);
-            $this->output->success("Created {$path}");
+            $this->info("Wrote {$path}");
         }
     }
 
