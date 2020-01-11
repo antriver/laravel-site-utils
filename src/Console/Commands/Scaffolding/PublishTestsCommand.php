@@ -75,6 +75,62 @@ class PublishTestsCommand extends AbstractCommand
         }
     }
 
+    protected function makeAbstractTestCase()
+    {
+        $outputNamespace = trim(app()->getNamespace(), '\\').'Tests';
+        $outputDirectory = app()->basePath().'/tests';
+        $path = $outputDirectory.'/AbstractTestCase.php';
+
+        if (!file_exists($path)) {
+            $contents = <<<EOL
+<?php
+
+namespace {$outputNamespace};
+
+use Antriver\LaravelSiteScaffolding\Testing\Traits\TestCaseTrait;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+
+abstract class AbstractTestCase extends \Illuminate\Foundation\Testing\TestCase
+{
+    use CreatesApplication;
+    use DatabaseTransactions;
+    use TestCaseTrait;
+}
+
+EOL;
+            file_put_contents($path, $contents);
+            $this->output->success("Created {$path}");
+        }
+    }
+
+    protected function makeAbstractApiTest()
+    {
+        $outputNamespace = trim(app()->getNamespace(), '\\').'Tests\\Feature\\Api';
+        $outputDirectory = app()->basePath().'/tests/Feature/Api';
+        $path = $outputDirectory.'/AbstractApiTestCase.php';
+
+        $testCaseNamespace = trim(app()->getNamespace(), '\\').'Tests';
+
+        if (!file_exists($path)) {
+            $contents = <<<EOL
+<?php
+
+namespace {$outputNamespace};
+
+use Antriver\LaravelSiteScaffolding\Testing\Traits\ApiTestCaseTrait;
+use {$testCaseNamespace}\AbstractTestCase;
+
+abstract class AbstractApiTestCase extends AbstractTestCase
+{
+    use ApiTestCaseTrait;
+}
+
+EOL;
+            file_put_contents($path, $contents);
+            $this->output->success("Created {$path}");
+        }
+    }
+
     /**
      * @param string $path
      *
