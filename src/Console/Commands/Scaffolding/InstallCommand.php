@@ -64,7 +64,7 @@ EOL;
     protected function makeAbstractApiController()
     {
         $namespace = $this->getAppNamespace().'\Http\Controllers\Api';
-        $path = app()->basePath().'/app/Http/Controllers/ApiAbstractApiController.php';
+        $path = app()->basePath().'/app/Http/Controllers/Api/AbstractApiController.php';
         $contents = <<<EOL
 <?php
 
@@ -95,7 +95,7 @@ EOL;
         $traitName = array_pop($traitName);
 
         $namespace = $this->getAppNamespace().'\Http\Controllers\Api';
-        $path = app()->basePath().'/app/Http/Controllers/'.$controllerName.'.php';
+        $path = app()->basePath().'/app/Http/Controllers/Api/'.$controllerName.'.php';
         $contents = <<<EOL
 <?php
 
