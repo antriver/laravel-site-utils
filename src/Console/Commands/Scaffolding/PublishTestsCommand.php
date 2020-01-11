@@ -10,6 +10,8 @@ use Symfony\Component\Finder\Finder;
 
 class PublishTestsCommand extends AbstractCommand
 {
+    use MakesClassesTrait;
+
     /**
      * The name and signature of the console command.
      *
@@ -80,8 +82,8 @@ class PublishTestsCommand extends AbstractCommand
 
     protected function makeAbstractTestCase()
     {
-        $outputNamespace = trim(app()->getNamespace(), '\\').'Tests';
-        $outputDirectory = app()->basePath().'/tests';
+        $outputNamespace = $this->getAppNamespace().'Tests';
+        $outputDirectory = $this->getAppPath().'/tests';
         $path = $outputDirectory.'/AbstractTestCase.php';
 
         if (!file_exists($path)) {
