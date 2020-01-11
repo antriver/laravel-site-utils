@@ -50,7 +50,7 @@ class InstallCommand extends AbstractCommand
 namespace {$namespace};
 
 use Antriver\LaravelSiteScaffolding\Http\Controllers\ControllerTrait;
-use Illuminate\Routing\Controller
+use Illuminate\Routing\Controller;
 
 abstract class AbstractController extends Controller 
 {
@@ -102,9 +102,8 @@ EOL;
 namespace {$namespace};
 
 use {$traitClass};
-use {$this->getAppNamespace()}\Http\Controllers\Api\AbstractApiController;
 
-abstract class {$controllerName} extends AbstractController
+abstract class {$controllerName} extends AbstractApiController
 {
     use {$traitName};
 }
