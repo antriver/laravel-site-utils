@@ -71,3 +71,7 @@ And tell Laravel not to auto discover the existing provider. In composer.json:
 * Reset Password - `Antriver\LaravelSiteScaffolding\Auth\Http\ResetController`
 
 * Email Verification - `Antriver\LaravelSiteScaffolding\Auth\Http\ResetController`
+
+
+## TODO
+* Resetting the password of a user who has not verified their email returns an UnverifiedUserException after trying to login so it looks like the password reset failed when it didn't.

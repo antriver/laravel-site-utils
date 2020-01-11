@@ -112,7 +112,10 @@ trait PasswordResetControllerTrait
         $passwordResetTokenRepository->delete($user);
 
         // Ensure banned users can't login.
-        $userAuthenticator->ensureAccountCanLogin($user);
+        $userAuthenticator->ensureAccountCanLogin(
+            $user,
+            config('auth.allow_unverified_user_login', false)
+        );
 
         $response = $apiAuthResponseFactory->make(
             $request,
