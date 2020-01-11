@@ -32,17 +32,17 @@ class PublishTestsCommand extends AbstractCommand
         if (!($traitsDirectory = $this->option('trait-dir'))) {
             $traitsDirectory = realpath(__DIR__.'/../../../Testing/RouteTests');
         }
-        $this->info("Input directory: {$traitsDirectory}");
+        $this->output->writeln("Input directory: {$traitsDirectory}");
 
         if (!($traitsNamespace = $this->option('trait-namespace'))) {
             $traitsNamespace = 'Antriver\LaravelSiteScaffolding\Testing\RouteTests';
         }
-        $this->info("Input namespace: {$traitsNamespace}");
+        $this->output->writeln(("Input namespace: {$traitsNamespace}");
 
         if (!($outputDirectory = $this->option('output-dir'))) {
             $outputDirectory = app()->basePath().'/tests/Feature/Api';
         }
-        $this->info("Output directory: {$outputDirectory}");
+        $this->output->writeln(("Output directory: {$outputDirectory}");
 
         if (!($outputNamespace = $this->option('output-namespace'))) {
             $outputNamespace = trim(app()->getNamespace(), '\\').'Tests\\Feature\\Api';
@@ -50,7 +50,7 @@ class PublishTestsCommand extends AbstractCommand
             $this->makeAbstractTestCase();
             $this->makeAbstractApiTestCase();
         }
-        $this->info("Output namespace: {$outputNamespace}");
+        $this->output->writeln(("Output namespace: {$outputNamespace}");
 
         $files = $this->getFiles($traitsDirectory);
 
@@ -104,6 +104,8 @@ abstract class AbstractTestCase extends TestCase
 EOL;
             file_put_contents($path, $contents);
             $this->info("Wrote {$path}");
+        } else {
+            $this->output->writeln("{$path} already exists");
         }
     }
 
@@ -132,6 +134,8 @@ abstract class AbstractApiTestCase extends AbstractTestCase
 EOL;
             file_put_contents($path, $contents);
             $this->info("Wrote {$path}");
+        } else {
+            $this->output->writeln("{$path} already exists");
         }
     }
 
