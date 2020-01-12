@@ -4,7 +4,7 @@ namespace Antriver\LaravelSiteScaffolding\Policies\Base;
 
 use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
 use Antriver\LaravelSiteScaffolding\Models\Interfaces\BelongsToUserInterface;
-use Antriver\LaravelSiteScaffolding\Users\UserInterface;
+use Antriver\LaravelSiteScaffolding\Users\User;
 
 abstract class AbstractPolicy
 {
@@ -13,11 +13,11 @@ abstract class AbstractPolicy
      * Moderators can edit most objects, so by default this returns if the user is a moderator.
      * Override this method to restrict access to admins.
      *
-     * @param UserInterface $user
+     * @param User $user
      *
      * @return bool
      */
-    public function isPrivileged(UserInterface $user)
+    public function isPrivileged(User $user)
     {
         return $user->isModerator();
     }
@@ -25,12 +25,12 @@ abstract class AbstractPolicy
     /**
      * Returns true if the authenticated user is the user that created this object.
      *
-     * @param UserInterface $user
+     * @param User $user
      * @param AbstractModel $model
      *
      * @return bool
      */
-    public function isOwner(UserInterface $user, AbstractModel $model)
+    public function isOwner(User $user, AbstractModel $model)
     {
         if (!$model instanceof BelongsToUserInterface) {
             return false;
@@ -39,7 +39,7 @@ abstract class AbstractPolicy
         return $user && $user->id === $model->getUserId();
     }
 
-    public function isOwnerOrPrivileged(UserInterface $user, AbstractModel $model)
+    public function isOwnerOrPrivileged(User $user, AbstractModel $model)
     {
         return $user && ($this->isOwner($user, $model) || $this->isPrivileged($user));
     }
@@ -47,11 +47,11 @@ abstract class AbstractPolicy
     /**
      * Returns true if the user is a moderator.
      *
-     * @param UserInterface $user
+     * @param User $user
      *
      * @return bool
      */
-    public function isModerator(UserInterface $user)
+    public function isModerator(User $user)
     {
         return $user->isModerator();
     }
@@ -59,11 +59,11 @@ abstract class AbstractPolicy
     /**
      * Returns true if the user is an admin.
      *
-     * @param UserInterface $user
+     * @param User $user
      *
      * @return bool
      */
-    public function isAdmin(UserInterface $user)
+    public function isAdmin(User $user)
     {
         return $user->isAdmin();
     }

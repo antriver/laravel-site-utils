@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Http\Exceptions\MaintenanceModeException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Validation\ValidationException;
 use Intervention\Image\Exception\NotReadableException;
 use Laravel\Socialite\Two\InvalidStateException;
@@ -156,6 +157,10 @@ class Handler extends \Illuminate\Foundation\Exceptions\Handler
             } else {
                 $data['additionalHtml'] .= '<br/><small>'.$exception->getPrevious()->getMessage().'</small>';
             }
+        } elseif ($exception instanceof ModelNotFoundException) {
+            $modelClass = explode('\\', $exception->getModel());
+            $modelClass = array_pop($modelClass);
+            $data['error'] = "{$modelClass} ".implode(', ', Arr::wrap($exception->getIds()))." not found.";
         } else {
             $data['error'] = $exception->getMessage();
         }

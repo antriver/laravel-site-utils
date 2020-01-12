@@ -75,3 +75,4 @@ And tell Laravel not to auto discover the existing provider. In composer.json:
 
 ## TODO
 * Resetting the password of a user who has not verified their email returns an UnverifiedUserException after trying to login so it looks like the password reset failed when it didn't.
+* Command to delete expired password reset tokens.

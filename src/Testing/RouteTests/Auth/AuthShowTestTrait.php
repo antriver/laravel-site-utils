@@ -29,6 +29,7 @@ trait AuthShowTestTrait
     {
         /** @var User $user */
         $user = $this->seedUser();
+        $this->setCurrentUser($user);
 
         $response = $this->sendGet('/auth');
         $this->assertResponseOk($response);

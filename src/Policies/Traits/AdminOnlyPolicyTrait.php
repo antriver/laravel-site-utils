@@ -3,18 +3,18 @@
 namespace Antriver\LaravelSiteScaffolding\Policies\Traits;
 
 use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
-use Antriver\LaravelSiteScaffolding\Users\UserInterface;
+use Antriver\LaravelSiteScaffolding\Users\User;
 
 trait AdminOnlyPolicyTrait
 {
     /**
      * Can the current user create a new model?
      *
-     * @param UserInterface $user
+     * @param User $user
      *
      * @return mixed
      */
-    public function create(UserInterface $user)
+    public function create(User $user)
     {
         return $user->isAdmin();
     }
@@ -22,12 +22,12 @@ trait AdminOnlyPolicyTrait
     /**
      * Can the current user view an existing model?
      *
-     * @param UserInterface $user
+     * @param User $user
      * @param AbstractModel $model
      *
      * @return mixed
      */
-    public function view(UserInterface $user, AbstractModel $model)
+    public function view(User $user, AbstractModel $model)
     {
         return $user->isAdmin();
     }
@@ -35,12 +35,12 @@ trait AdminOnlyPolicyTrait
     /**
      * Can the current user edit an existing model?
      *
-     * @param UserInterface $user
+     * @param User $user
      * @param AbstractModel $model
      *
      * @return mixed
      */
-    public function update(UserInterface $user, AbstractModel $model)
+    public function update(User $user, AbstractModel $model)
     {
         return $user->isAdmin();
     }
@@ -48,12 +48,12 @@ trait AdminOnlyPolicyTrait
     /**
      * Can the current user delete an existing model?
      *
-     * @param UserInterface $user
+     * @param User $user
      * @param AbstractModel $model
      *
      * @return mixed
      */
-    public function destroy(UserInterface $user, AbstractModel $model)
+    public function destroy(User $user, AbstractModel $model)
     {
         return $user->isAdmin();
     }

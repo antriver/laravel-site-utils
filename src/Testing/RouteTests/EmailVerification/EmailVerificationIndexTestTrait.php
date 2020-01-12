@@ -36,7 +36,7 @@ trait EmailVerificationIndexTestTrait
 
     public function testIndexWithNoResults()
     {
-        $this->seedUser();
+        $this->setCurrentUser($this->seedUser());
 
         $response = $this->sendGet('/email-verifications');
         $this->assertResponseOk($response);
@@ -53,6 +53,8 @@ trait EmailVerificationIndexTestTrait
         $user->setEmailVerified(true);
         $this->userRepository->persist($user);
 
+        $this->setCurrentUser($user);
+
         $response = $this->sendGet('/email-verifications');
         $this->assertResponseOk($response);
 
@@ -65,6 +67,7 @@ trait EmailVerificationIndexTestTrait
     {
         /** @var User $user */
         $user = $this->seedUser();
+        $this->setCurrentUser($user);
 
         $repo = app(EmailVerificationRepository::class);
         $verification = new EmailVerification(
@@ -101,6 +104,7 @@ trait EmailVerificationIndexTestTrait
     {
         /** @var User $user */
         $user = $this->seedUser();
+        $this->setCurrentUser($user);
 
         $repo = app(EmailVerificationRepository::class);
         $verification1 = new EmailVerification(

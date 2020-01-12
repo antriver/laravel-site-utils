@@ -17,11 +17,11 @@ trait ForgotPasswordControllerTrait
      * @api {post} /auth/forgot Send Password Reset Email
      *
      * @param Request $request
+     * @param ForgottenPasswordManager $forgottenPasswordManager
      * @param PasswordResetTokenRepository $passwordResetTokenRepository
      * @param UserRepository $userRepository
      *
      * @return \Illuminate\Http\JsonResponse
-     * @throws BadRequestHttpException
      */
     public function store(
         Request $request,

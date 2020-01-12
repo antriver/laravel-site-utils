@@ -5,6 +5,7 @@ namespace Antriver\LaravelSiteScaffolding\Testing\RouteTests\Auth;
 use Antriver\LaravelSiteScaffolding\Exceptions\InvalidInputException;
 use Antriver\LaravelSiteScaffolding\Users\Exceptions\UnverifiedUserException;
 use Antriver\LaravelSiteScaffolding\Users\User;
+use Illuminate\Foundation\Testing\TestResponse;
 
 trait AuthStoreTestTrait
 {
@@ -97,7 +98,7 @@ trait AuthStoreTestTrait
         $this->assertArrayNotHasKey('token', $result);
     }
 
-    public function testLoginFailsIfUserNotVerified()
+    public function testLoginFailsIfVerificationRequiredAndUserNotVerified()
     {
         config(['auth.allow_unverified_user_login' => false]);
         /** @var User $user */
@@ -120,7 +121,25 @@ trait AuthStoreTestTrait
         $this->assertNotEmpty($result['jwt']);
     }
 
-    public function testLoginIsSuccess()
+    public function testLoginSucceedsIfVerificationRequiredAndUserVerified()
+    {
+        config(['auth.allow_unverified_user_login' => false]);
+        /** @var User $user */
+        $user = $this->seedUser([
+            'emailVerified' => 1
+        ]);
+
+        $response = $this->sendPost(
+            '/auth',
+            [
+                'username' => $user->username,
+                'password' => 'secret',
+            ]
+        );
+        $this->assertSuccessfulLogin($user, $response);
+    }
+
+    public function testLoginSucceedsIfVerificationNotRequiredAndUserNotVerified()
     {
         config(['auth.allow_unverified_user_login' => true]);
         /** @var User $user */
@@ -133,7 +152,35 @@ trait AuthStoreTestTrait
                 'password' => 'secret',
             ]
         );
+        $this->assertSuccessfulLogin($user, $response);
+    }
 
+    public function testLoginSucceedsIfVerificationNotRequiredAndUserVerified()
+    {
+        config(['auth.allow_unverified_user_login' => true]);
+        /** @var User $user */
+        $user = $this->seedUser(
+            [
+                'emailVerified' => 1
+            ]
+        );
+
+        $response = $this->sendPost(
+            '/auth',
+            [
+                'username' => $user->username,
+                'password' => 'secret',
+            ]
+        );
+        $this->assertSuccessfulLogin($user, $response);
+    }
+
+    /**
+     * @param User $user
+     * @param TestResponse $response
+     */
+    private function assertSuccessfulLogin(User $user, TestResponse $response)
+    {
         $this->assertResponseOk($response);
 
         $result = $this->parseResponse($response);

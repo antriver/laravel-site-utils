@@ -7,8 +7,11 @@ use Antriver\LaravelSiteScaffolding\Console\Commands\Scaffolding\CleanDefaultFil
 use Antriver\LaravelSiteScaffolding\Console\Commands\Scaffolding\InstallCommand;
 use Antriver\LaravelSiteScaffolding\Console\Commands\Scaffolding\PublishTestsCommand;
 use Antriver\LaravelSiteScaffolding\Debug\QueryLogger;
+use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification;
+use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationPolicy;
 use Antriver\LaravelSiteScaffolding\Users\UserRepository;
 use Auth;
+use Gate;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Routing\Events\RouteMatched;
 use Illuminate\Routing\Router;
@@ -18,6 +21,10 @@ use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
 class LaravelSiteScaffoldingServiceProvider extends ServiceProvider
 {
+    protected $policies = [
+        EmailVerification::class => EmailVerificationPolicy::class,
+    ];
+
     /**
      * Bootstrap any application services.
      *
@@ -51,6 +58,7 @@ class LaravelSiteScaffoldingServiceProvider extends ServiceProvider
         $this->setupRepositoryUserProvider();
         $this->setupQueryLogger();
         $this->setupGuardsPerRoute();
+        $this->registerPolicies();
     }
 
     protected function setupRepositoryUserProvider()
@@ -116,6 +124,13 @@ class LaravelSiteScaffoldingServiceProvider extends ServiceProvider
     {
         if (config('app.log_queries')) {
             $this->app->singleton(QueryLogger::class, new QueryLogger());
+        }
+    }
+
+    protected function registerPolicies()
+    {
+        foreach ($this->policies as $key => $value) {
+            Gate::policy($key, $value);
         }
     }
 }

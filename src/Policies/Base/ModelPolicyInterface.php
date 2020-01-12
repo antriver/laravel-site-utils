@@ -3,86 +3,86 @@
 namespace Antriver\LaravelSiteScaffolding\Policies\Base;
 
 use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
-use Antriver\LaravelSiteScaffolding\Users\UserInterface;
+use Antriver\LaravelSiteScaffolding\Users\User;
 
 interface ModelPolicyInterface
 {
     /**
      * Can the current user create a new model?
      *
-     * @param UserInterface $user
+     * @param User $user
      *
      * @return mixed
      */
-    public function create(UserInterface $user);
+    public function create(User $user);
 
     /**
      * Can the current user create a new model belonging to the specified user?
      *
-     * @param UserInterface $user
-     * @param UserInterface $forUser
+     * @param User $user
+     * @param User $forUser
      *
      * @return mixed
      */
-    //public function createForUser(UserInterface $user, UserInterface $forUser);
+    //public function createForUser(User $user, User $forUser);
 
     /**
      * Can the current user view an existing model?
      *
-     * @param UserInterface $user
+     * @param User $user
      * @param AbstractModel $model
      *
      * @return mixed
      */
-    public function view(UserInterface $user, AbstractModel $model);
+    public function view(User $user, AbstractModel $model);
 
     /**
      * Can the current user view existing models belonging to the specified user?
      *
-     * @param UserInterface $user
-     * @param UserInterface $forUser
+     * @param User $user
+     * @param User $forUser
      *
      * @return mixed
      */
-    //public function viewForUser(UserInterface $user, UserInterface $forUser);
+    //public function viewForUser(User $user, User $forUser);
 
     /**
      * Can the current user edit an existing model?
      *
-     * @param UserInterface $user
+     * @param User $user
      * @param AbstractModel $model
      *
      * @return mixed
      */
-    public function update(UserInterface $user, AbstractModel $model);
+    public function update(User $user, AbstractModel $model);
 
     /**
      * Can the current user edit existing models belonging to the specified user?
      *
-     * @param UserInterface $user
-     * @param UserInterface $forUser
+     * @param User $user
+     * @param User $forUser
      *
      * @return mixed
      */
-    //public function updateForUser(UserInterface $user, UserInterface $forUser);
+    //public function updateForUser(User $user, User $forUser);
 
     /**
      * Can the current user delete an existing model?
      *
-     * @param UserInterface $user
+     * @param User $user
      * @param AbstractModel $model
      *
      * @return mixed
      */
-    public function destroy(UserInterface $user, AbstractModel $model);
+    public function destroy(User $user, AbstractModel $model);
 
     /**
      * Can the current user delete existing models belonging to the specified user?
      *
-     * @param UserInterface $user
-     * @param UserInterface $forUser
+     * @param User $user
+     * @param User $forUser
      *
      * @return mixed
      */
-    //public function destroyForUser(UserInterface $user, UserInterface $forUser);
+    //public function destroyForUser(User $user, User $forUser);
 }

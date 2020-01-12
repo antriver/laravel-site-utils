@@ -14,9 +14,6 @@ use Mail;
  * Handles sending verification emails to new users, or when an existing user changes their email address.
  * New users are created with the email set on the User, and emailVerified = 0.
  * Email changes are not set on the User until verified.
- *
- * @method EmailVerification find($key)
- * @method EmailVerification findOrFail($key)
  */
 class EmailVerificationManager
 {
@@ -86,7 +83,7 @@ class EmailVerificationManager
                 'userId' => $user->getId(),
                 'email' => $email,
                 'token' => $token,
-                'isChange' => 1,
+                'type' => EmailVerification::TYPE_CHANGE,
             ]
         );
         $this->emailVerificationRepository->persist($emailVerification);

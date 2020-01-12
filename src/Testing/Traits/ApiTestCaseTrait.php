@@ -13,20 +13,21 @@ use Symfony\Component\HttpFoundation\Response;
 trait ApiTestCaseTrait
 {
     /**
-     * The last seeded user.
+     * A user to make the API request as.
+     * Must have their apiKey field set.
      *
      * @var User|null
      */
-    protected $user;
+    protected $currentUser;
 
     /**
      * @return User
      */
-    protected function seedUser(): User
+    protected function seedUser(array $data = []): User
     {
         // Seed a user with a session.
         /** @var User $user */
-        $user = factory(User::class)->create();
+        $user = factory(User::class)->create($data);
         $user->setApiToken(Str::random(50));
         \DB::table('user_sessions')->insert(
             [
@@ -35,9 +36,23 @@ trait ApiTestCaseTrait
             ]
         );
 
-        $this->user = $user;
-
         return $user;
+    }
+
+    /**
+     * @return User|null
+     */
+    public function getCurrentUser(): ?User
+    {
+        return $this->currentUser;
+    }
+
+    /**
+     * @param User|null $currentUser
+     */
+    public function setCurrentUser(?User $currentUser)
+    {
+        $this->currentUser = $currentUser;
     }
 
     /**
@@ -50,8 +65,8 @@ trait ApiTestCaseTrait
      */
     private function sendRequest(string $method, string $uri, array $query = [], array $data = []): TestResponse
     {
-        if (!array_key_exists('token', $query) && $this->user) {
-            $query['token'] = $this->user->getApiToken();
+        if (!array_key_exists('token', $query) && $this->currentUser) {
+            $query['token'] = $this->currentUser->getApiToken();
         }
 
         if (!empty($query)) {
@@ -292,6 +307,13 @@ trait ApiTestCaseTrait
         $this->assertResponseHasErrorType($response, ValidationException::class);
     }
 
+    public function assertResponseHasSuccess(TestResponse $response)
+    {
+        $this->assertResponseOk($response);
+        $result = $this->parseResponse($response);
+        $this->assertTrue($result['success']);
+    }
+
     /**
      * @param TestResponse $response
      * @param array $expect
@@ -309,12 +331,17 @@ trait ApiTestCaseTrait
         }
     }
 
+    protected function printResponse(TestResponse $response)
+    {
+        print_r($response->decodeResponseJson());
+    }
+
     protected function printResultOnFailure(TestResponse $response, \Closure $closure)
     {
         try {
             $closure();
         } catch (ExpectationFailedException $e) {
-            print_r($response->decodeResponseJson());
+            $this->printResponse($response);
             throw $e;
         }
     }

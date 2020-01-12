@@ -4,12 +4,13 @@ namespace Antriver\LaravelSiteScaffolding\EmailVerification\Http;
 
 use Antriver\LaravelSiteScaffolding\Auth\ApiAuthResponseFactory;
 use Antriver\LaravelSiteScaffolding\Auth\UserAuthenticator;
+use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification;
 use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationManager;
 use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationRepository;
-use Antriver\LaravelSiteScaffolding\Exceptions\ForbiddenHttpException;
 use Antriver\LaravelSiteScaffolding\Users\User;
 use Antriver\LaravelSiteScaffolding\Users\UserRepository;
 use Antriver\LaravelSiteScaffolding\Users\ValidatesUserCredentialsTrait;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
@@ -94,26 +95,18 @@ trait EmailVerificationControllerTrait
     /**
      * @api {get} /email-verifications/:id Get pending email verification.
      *
-     * @param EmailVerificationManager $emailVerificationManager
+     * @param $id
+     * @param EmailVerificationRepository $emailVerificationRepository
      * @param Request $request
      *
-     * @param $id
-     *
      * @return \Illuminate\Http\JsonResponse
-     * @throws ForbiddenHttpException
      */
     public function show(
         $id,
-        EmailVerificationManager $emailVerificationManager,
+        EmailVerificationRepository $emailVerificationRepository,
         Request $request
     ) {
-        $currentUser = $this->getRequestUser($request);
-
-        $emailVerification = $emailVerificationManager->findOrFail($id);
-
-        if ($currentUser->id !== $emailVerification->userId) {
-            throw new ForbiddenHttpException("Incorrect user.");
-        }
+        $emailVerification = $this->loadVerificationForCurrentUser($id, $request, $emailVerificationRepository);
 
         return $this->response(
             [
@@ -125,26 +118,23 @@ trait EmailVerificationControllerTrait
     /**
      * @api {post} /email-verifications/:id/resend Resend a verification.
      *
+     * @param int $id
      * @param EmailVerificationManager $emailVerificationManager
+     * @param EmailVerificationRepository $emailVerificationRepository
      * @param Request $request
      *
-     * @param $id
-     *
      * @return \Illuminate\Http\JsonResponse
-     * @throws ForbiddenHttpException
      */
     public function resend(
         int $id,
         EmailVerificationManager $emailVerificationManager,
+        EmailVerificationRepository $emailVerificationRepository,
         Request $request
     ) {
+        /** @var User $currentUser */
         $currentUser = $this->getRequestUser($request);
 
-        $emailVerification = $emailVerificationManager->findOrFail($id);
-
-        if ($currentUser->id !== $emailVerification->userId) {
-            throw new ForbiddenHttpException("Incorrect user.");
-        }
+        $emailVerification = $this->loadVerificationForCurrentUser($id, $request, $emailVerificationRepository);
 
         $emailVerificationManager->resendEmail($emailVerification, $currentUser);
 
@@ -159,16 +149,18 @@ trait EmailVerificationControllerTrait
     /**
      * @api {delete} /email-verifications/:id Cancel an email verification.
      *
-     * @param EmailVerificationRepository $emailVerificationRepository
      * @param $id
+     * @param Request $request
+     * @param EmailVerificationRepository $emailVerificationRepository
      *
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(
         $id,
+        Request $request,
         EmailVerificationRepository $emailVerificationRepository
     ) {
-        $emailVerification = $emailVerificationRepository->findOrFail($id);
+        $emailVerification = $this->loadVerificationForCurrentUser($id, $request, $emailVerificationRepository);
 
         $this->authorize('destroy', $emailVerification);
 
@@ -214,5 +206,23 @@ trait EmailVerificationControllerTrait
         $response['success'] = true;
 
         return $this->response($response);
+    }
+
+    private function loadVerificationForCurrentUser(
+        $id,
+        Request $request,
+        EmailVerificationRepository $emailVerificationRepository
+    ): EmailVerification {
+        /** @var User $currentUser */
+        $currentUser = $this->getRequestUser($request);
+
+        /** @var EmailVerification|null $emailVerification */
+        $emailVerification = $emailVerificationRepository->find($id);
+
+        if (!$emailVerification || $currentUser->id !== $emailVerification->userId) {
+            throw (new ModelNotFoundException())->setModel(EmailVerification::class, $id);
+        }
+
+        return $emailVerification;
     }
 }
