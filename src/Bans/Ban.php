@@ -22,15 +22,21 @@ use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
  * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban query()
  * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereByUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereExpiresAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban
+ *     whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban
+ *     whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban
+ *     whereExpiresAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereInternalReason($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban
+ *     whereInternalReason($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereIp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereReason($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereUnbannedByUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban
+ *     whereUnbannedByUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban
+ *     whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereUserId($value)
  * @mixin \Eloquent
  */

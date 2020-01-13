@@ -66,7 +66,7 @@ trait PasswordResetStoreTestTrait
             '/users/'.$user->id.'/password',
             [
                 'resetToken' => 'yoyo',
-                'password' => 'a'
+                'password' => 'a',
             ]
         );
         $this->assertResponseHasValidationError(
@@ -86,7 +86,7 @@ trait PasswordResetStoreTestTrait
             '/users/'.$user->id.'/password',
             [
                 'resetToken' => 'yoyo',
-                'password' => 'abc'
+                'password' => 'abc',
             ]
         );
 
@@ -119,7 +119,7 @@ trait PasswordResetStoreTestTrait
             '/users/'.$user->id.'/password',
             [
                 'resetToken' => $token,
-                'password' => 'hunter2'
+                'password' => 'hunter2',
             ]
         );
         $this->assertResponseHasSuccess($response);

@@ -2,8 +2,6 @@
 
 namespace Antriver\LaravelSiteScaffolding\Tokens;
 
-use Illuminate\Support\Str;
-
 class TokenGenerator
 {
     /**
@@ -13,14 +11,6 @@ class TokenGenerator
      */
     public function generateToken(): string
     {
-        return hash_hmac('sha256', Str::random(40), $this->getHashKey());
-    }
-
-    /**
-     * @return string
-     */
-    private function getHashKey()
-    {
-        return config('app.key');
+        return (new \Tokenly\TokenGenerator\TokenGenerator())->generateToken(64);
     }
 }

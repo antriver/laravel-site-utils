@@ -33,16 +33,7 @@ trait AuthShowTestTrait
 
         $response = $this->sendGet('/auth');
         $this->assertResponseOk($response);
-        $this->assertResponseContains(
-            $response,
-            [
-                'token' => $user->getApiToken(),
-                'user' => [
-                    'id' => $user->id,
-                    'username' => $user->username,
-                ],
-            ]
-        );
+        $this->assertResponseContainsAuthInfo($response, $user);
     }
 
     public function testAuthShowWithSeededUserAndWrongToken()

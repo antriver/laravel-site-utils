@@ -69,7 +69,7 @@ class BanRepository extends AbstractRepository
     public function findAllForIp(string $ip)
     {
         return Ban::fromQuery(
-            'SELECT * FROM bans WHERE ip = ? ORDER BY ID DESC',
+            'SELECT * FROM `bans` WHERE `ip` = ? ORDER BY `ID` DESC',
             [
                 $ip,
             ]

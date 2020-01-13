@@ -125,9 +125,11 @@ trait AuthStoreTestTrait
     {
         config(['auth.allow_unverified_user_login' => false]);
         /** @var User $user */
-        $user = $this->seedUser([
-            'emailVerified' => 1
-        ]);
+        $user = $this->seedUser(
+            [
+                'emailVerified' => 1,
+            ]
+        );
 
         $response = $this->sendPost(
             '/auth',
@@ -161,7 +163,7 @@ trait AuthStoreTestTrait
         /** @var User $user */
         $user = $this->seedUser(
             [
-                'emailVerified' => 1
+                'emailVerified' => 1,
             ]
         );
 

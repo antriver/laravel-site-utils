@@ -16,14 +16,14 @@ trait ValidatesCaptchaTrait
         if ($hasRecaptcha) {
             $rules['recaptcha'] = [
                 $hasSolvemedia ? 'required_without:solvemedia' : 'required',
-                'recaptcha'
+                'recaptcha',
             ];
         }
 
         if ($hasSolvemedia) {
             $rules['solvemedia'] = [
                 $hasRecaptcha ? 'required_without:recaptcha' : 'required',
-                'solvemedia'
+                'solvemedia',
             ];
         }
 

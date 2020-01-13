@@ -107,8 +107,8 @@ trait EmailVerificationShowTestTrait
             $response,
             [
                 'emailVerification' => [
-                    'id' => $verification->id
-                ]
+                    'id' => $verification->id,
+                ],
             ]
         );
 

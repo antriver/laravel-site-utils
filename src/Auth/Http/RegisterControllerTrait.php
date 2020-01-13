@@ -45,7 +45,11 @@ trait RegisterControllerTrait
 
         $data = $request->only(['username', 'email', 'password']);
 
-        $user = $userService->createUser($data, $request);
+        $user = $userService->createUser(
+            $data,
+            $request,
+            config('app.send_email_verification_on_signup', true)
+        );
 
         if (config('auth.allow_unverified_user_login')) {
             $response = $apiAuthResponseFactory->make(

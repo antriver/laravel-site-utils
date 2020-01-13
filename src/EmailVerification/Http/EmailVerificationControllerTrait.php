@@ -170,10 +170,12 @@ trait EmailVerificationControllerTrait
     }
 
     /**
+     * @api {post} /email-verifications/:id/verify
+     *
      * @param int $id
-     * @param string $token
      * @param ApiAuthResponseFactory $apiAuthResponseFactory
      * @param EmailVerificationManager $emailVerificationManager
+     * @param EmailVerificationRepository $emailVerificationRepository
      * @param \Illuminate\Http\Request $request
      * @param UserAuthenticator $userAuthenticator
      * @param UserRepository $userRepository
@@ -182,14 +184,22 @@ trait EmailVerificationControllerTrait
      */
     public function verify(
         int $id,
-        string $token,
         ApiAuthResponseFactory $apiAuthResponseFactory,
         EmailVerificationManager $emailVerificationManager,
+        EmailVerificationRepository $emailVerificationRepository,
         Request $request,
         UserAuthenticator $userAuthenticator,
         UserRepository $userRepository
     ) {
-        $emailVerification = $emailVerificationManager->findOrFail($id);
+        $this->validate(
+            $request,
+            [
+                'verificationToken' => 'required'
+            ]
+        );
+        $token = $request->input('verificationToken');
+
+        $emailVerification = $this->loadVerificationForCurrentUser($id, $request, $emailVerificationRepository);
 
         if ($token !== $emailVerification->token) {
             throw new BadRequestHttpException('Invalid token.');

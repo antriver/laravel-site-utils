@@ -21,21 +21,22 @@
     },
     "require": {
         "php": ">=7.3",
-        "laravel/framework": "5.8.*",
+        "ext-json": "*",
+        "antriver/laravel-database-session-auth": "^2.0",
+        "antriver/laravel-model-presenters": "^1.0",
+        "antriver/laravel-simple-message-trait": "^5.8",
+        "aws/aws-php-sns-message-validator": "^1.6",
+        "erusev/parsedown": "^1.7",
+        "firebase/php-jwt": "^5.0",
+        "google/recaptcha": "^1.2",
         "intervention/image": "^2.5",
+        "laravel/framework": "5.8.*",
         "laravel/socialite": "^4.3",
         "league/flysystem-aws-s3-v3": "^1.0",
         "tmd/laravel-password-updater": "^0.0.2",
         "tmd/laravel-registers": "^2.1",
-        "antriver/laravel-simple-message-trait": "^5.8",
-        "google/recaptcha": "^1.2",
         "tmd/laravel-repositories": "^2.2",
-        "antriver/laravel-database-session-auth": "^2.0",
-        "antriver/laravel-model-presenters": "^1.0",
-        "firebase/php-jwt": "^5.0",
-        "aws/aws-php-sns-message-validator": "^1.6",
-        "ext-json": "*",
-        "erusev/parsedown": "^1.7"
+        "tokenly/token-generator": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.9",
@@ -48,5 +49,8 @@
                 "Antriver\\LaravelSiteScaffolding\\Providers\\LaravelSiteScaffoldingServiceProvider"
             ]
         }
+    },
+    "config": {
+        "sort-packages": true
     }
 }

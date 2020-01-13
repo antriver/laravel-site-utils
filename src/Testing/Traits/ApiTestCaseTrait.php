@@ -331,6 +331,16 @@ trait ApiTestCaseTrait
         }
     }
 
+    public function assertResponseContainsAuthInfo(TestResponse $response, User $user)
+    {
+        $result = $this->parseResponse($response);
+        $this->assertNotEmpty($result['token']);
+        $this->assertSame(64, strlen($result['token']));
+
+        $this->assertSame($result['user']['id'], $user->id);
+        $this->assertSame($result['user']['username'], $user->username);
+    }
+
     protected function printResponse(TestResponse $response)
     {
         print_r($response->decodeResponseJson());

@@ -5,6 +5,9 @@ namespace Antriver\LaravelSiteScaffolding\EmailVerification;
 use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 use Tmd\LaravelRepositories\Base\AbstractRepository;
 
+/**
+ * @method findOrFail(int $id): EmailVerification
+ */
 class EmailVerificationRepository extends AbstractRepository
 {
     /**

@@ -11,9 +11,12 @@ use Schema;
 /**
  * Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel
  *
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel
+ *     newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel
+ *     newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel
+ *     query()
  * @mixin \Eloquent
  */
 abstract class AbstractModel extends EloquentModel implements AbstractModelInterface

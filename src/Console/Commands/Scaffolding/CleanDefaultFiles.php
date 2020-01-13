@@ -36,7 +36,7 @@ class CleanDefaultFiles extends AbstractCommand
         'tests/Feature/ExampleTest.php',
         'tests/TestCase.php',
         'tests/Unit/ExampleTest.php',
-        'webpack.mix.js'
+        'webpack.mix.js',
     ];
 
     protected $supportsDryRun = true;

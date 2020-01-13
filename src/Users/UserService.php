@@ -10,7 +10,6 @@ use Antriver\LaravelSiteScaffolding\UserSocialAccounts\UserSocialAccount;
 use Antriver\LaravelSiteScaffolding\UserSocialAccounts\UserSocialAccountRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Laravel\Socialite\AbstractUser;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;

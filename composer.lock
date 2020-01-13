@@ -4,24 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d19a5318b777cc3777e7f07eed7e1091",
+    "content-hash": "ea0e6ba65af005073c394d3b51799dbe",
     "packages": [
         {
             "name": "antriver/laravel-database-session-auth",
-            "version": "2.0.3",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/antriver/laravel-database-session-auth.git",
-                "reference": "6701c89dac525df61e00764f404c27a9a648fb16"
+                "reference": "0703a6d05286d84822c00cf13b02a31bb0c4f745"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/antriver/laravel-database-session-auth/zipball/6701c89dac525df61e00764f404c27a9a648fb16",
-                "reference": "6701c89dac525df61e00764f404c27a9a648fb16",
+                "url": "https://api.github.com/repos/antriver/laravel-database-session-auth/zipball/0703a6d05286d84822c00cf13b02a31bb0c4f745",
+                "reference": "0703a6d05286d84822c00cf13b02a31bb0c4f745",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^5.6"
+                "laravel/framework": "^5.6",
+                "tokenly/token-generator": "^1.0"
             },
             "type": "library",
             "autoload": {
@@ -40,7 +41,7 @@
                 }
             ],
             "description": "Laravel auth guard that stores a session token in the database.",
-            "time": "2020-01-03T00:11:01+00:00"
+            "time": "2020-01-12T22:11:30+00:00"
         },
         {
             "name": "antriver/laravel-model-presenters",
@@ -168,26 +169,26 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.130.3",
+            "version": "3.132.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "916356edb5c30fa564d02de94bde51a9c0bb4469"
+                "reference": "f814995664d4ad616f674e664ae069b9f4e340bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/916356edb5c30fa564d02de94bde51a9c0bb4469",
-                "reference": "916356edb5c30fa564d02de94bde51a9c0bb4469",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f814995664d4ad616f674e664ae069b9f4e340bf",
+                "reference": "f814995664d4ad616f674e664ae069b9f4e340bf",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-pcre": "*",
                 "ext-simplexml": "*",
-                "guzzlehttp/guzzle": "^5.3.3|^6.2.1",
-                "guzzlehttp/promises": "~1.0",
+                "guzzlehttp/guzzle": "^5.3.3|^6.2.1|^7.0",
+                "guzzlehttp/promises": "^1.0",
                 "guzzlehttp/psr7": "^1.4.1",
-                "mtdowling/jmespath.php": "~2.2",
+                "mtdowling/jmespath.php": "^2.5",
                 "php": ">=5.5"
             },
             "require-dev": {
@@ -248,7 +249,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-01-02T19:13:50+00:00"
+            "time": "2020-01-10T19:14:49+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -435,16 +436,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.13",
+            "version": "2.1.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "834593d5900615639208417760ba6a17299e2497"
+                "reference": "c4b8d12921999d8a561004371701dbc2e05b5ece"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/834593d5900615639208417760ba6a17299e2497",
-                "reference": "834593d5900615639208417760ba6a17299e2497",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/c4b8d12921999d8a561004371701dbc2e05b5ece",
+                "reference": "c4b8d12921999d8a561004371701dbc2e05b5ece",
                 "shasum": ""
             },
             "require": {
@@ -488,7 +489,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2019-12-30T08:14:25+00:00"
+            "time": "2020-01-05T14:11:20+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -3536,16 +3537,16 @@
         },
         {
             "name": "tmd/laravel-repositories",
-            "version": "2.2.5",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/antriver/laravel-repositories.git",
-                "reference": "589f2a84bca754ef0df1ae4289bc7745f6a30a13"
+                "reference": "748871ef26c98feee5f593cd4a4dafea45df693e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/antriver/laravel-repositories/zipball/589f2a84bca754ef0df1ae4289bc7745f6a30a13",
-                "reference": "589f2a84bca754ef0df1ae4289bc7745f6a30a13",
+                "url": "https://api.github.com/repos/antriver/laravel-repositories/zipball/748871ef26c98feee5f593cd4a4dafea45df693e",
+                "reference": "748871ef26c98feee5f593cd4a4dafea45df693e",
                 "shasum": ""
             },
             "require": {
@@ -3570,11 +3571,51 @@
             "authors": [
                 {
                     "name": "Anthony Kuske",
-                    "homepage": "http://www.anthonykuske.com"
+                    "homepage": "https://anthonykuske.com"
                 }
             ],
             "description": "Model repositories for Laravel 5.",
-            "time": "2020-01-02T15:44:13+00:00"
+            "time": "2020-01-12T21:41:14+00:00"
+        },
+        {
+            "name": "tokenly/token-generator",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tokenly/token-generator.git",
+                "reference": "a0fff2db10325416ea2bbe1a11b729e97cc6f86c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tokenly/token-generator/zipball/a0fff2db10325416ea2bbe1a11b729e97cc6f86c",
+                "reference": "a0fff2db10325416ea2bbe1a11b729e97cc6f86c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tokenly\\TokenGenerator\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Devon Weller",
+                    "email": "devon@tokenly.com",
+                    "homepage": "http://tokenly.com"
+                }
+            ],
+            "description": "A library to generate secure random strings",
+            "time": "2017-11-01T12:59:07+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -5097,16 +5138,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.18",
+            "version": "7.5.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "fcf6c4bfafaadc07785528b06385cce88935474d"
+                "reference": "9467db479d1b0487c99733bb1e7944d32deded2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/fcf6c4bfafaadc07785528b06385cce88935474d",
-                "reference": "fcf6c4bfafaadc07785528b06385cce88935474d",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9467db479d1b0487c99733bb1e7944d32deded2c",
+                "reference": "9467db479d1b0487c99733bb1e7944d32deded2c",
                 "shasum": ""
             },
             "require": {
@@ -5177,7 +5218,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-12-06T05:14:37+00:00"
+            "time": "2020-01-08T08:45:45+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",

@@ -5,6 +5,7 @@ namespace Antriver\LaravelSiteScaffolding\EmailVerification;
 use Antriver\LaravelSiteScaffolding\EmailVerification\Events\EmailBouncedEvent;
 use Antriver\LaravelSiteScaffolding\EmailVerification\Events\EmailVerifiedEvent;
 use Antriver\LaravelSiteScaffolding\Tokens\TokenGenerator;
+use Antriver\LaravelSiteScaffolding\Users\User;
 use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 use Antriver\LaravelSiteScaffolding\Users\UserRepository;
 use Carbon\Carbon;
@@ -146,6 +147,7 @@ class EmailVerificationManager
      */
     public function verify(EmailVerification $emailVerification)
     {
+        /** @var User $user */
         $user = $this->userRepository->findOrFail($emailVerification->userId);
         $newEmail = $emailVerification->email;
         $oldEmail = $user->email;
@@ -156,8 +158,8 @@ class EmailVerificationManager
         $user->setEmailBounced(false);
         $this->userRepository->persist($user);
 
-        if ($emailVerification->isChange) {
-            // Log the change
+        if ($emailVerification->type === EmailVerification::TYPE_CHANGE) {
+            // Log the change.
             UserEmailChange::create(
                 [
                     'userId' => $user->getId(),

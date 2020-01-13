@@ -262,7 +262,7 @@ class Parsedown extends \Parsedown
                                 'alt' => 'YouTube video thumbnail',
                                 'class' => 'lazyload',
                                 'src' => config('app.spacer_url'),
-                                'data-src' => $ytThumbUrl
+                                'data-src' => $ytThumbUrl,
                             ],
                         ],
                         'attributes' => [
@@ -325,7 +325,7 @@ class Parsedown extends \Parsedown
                     'attributes' => [
                         'href' => $url,
                         'target' => '_blank',
-                        'rel' => 'nofollow noopener'
+                        'rel' => 'nofollow noopener',
                     ],
                 ],
             ];
