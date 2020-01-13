@@ -38,6 +38,7 @@ $router->patch('users/{user}/password', 'PasswordResetController@reset');
 
 // Users
 $router->post('users', 'RegisterController@store');
+$router->patch('users/{user}', 'UserController@update');
 
 // Amazon SNS
 $router->post('sns/ses-bounce', 'SnsController@sesBounce');

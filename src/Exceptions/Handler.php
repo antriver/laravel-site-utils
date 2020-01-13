@@ -4,6 +4,7 @@ namespace Antriver\LaravelSiteScaffolding\Exceptions;
 
 use Auth;
 use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
@@ -112,13 +113,15 @@ class Handler extends \Illuminate\Foundation\Exceptions\Handler
     public function getDataForException(Exception $exception, Request $request = null)
     {
         if ($exception instanceof ValidationException) {
-            $status = 400;
+            $status = \Symfony\Component\HttpFoundation\Response::HTTP_BAD_REQUEST;;
         } elseif ($exception instanceof ModelNotFoundException) {
-            $status = 404;
+            $status = \Symfony\Component\HttpFoundation\Response::HTTP_NOT_FOUND;;
+        } elseif ($exception instanceof AuthorizationException) {
+            $status = \Symfony\Component\HttpFoundation\Response::HTTP_FORBIDDEN;
+        } elseif ($exception instanceof AuthenticationException) {
+            $status = \Symfony\Component\HttpFoundation\Response::HTTP_FORBIDDEN;
         } elseif ($exception instanceof HttpException) {
             $status = $exception->getStatusCode();
-        } elseif ($exception instanceof AuthenticationException) {
-            $status = \Illuminate\Http\Response::HTTP_FORBIDDEN;
         } else {
             $status = 500;
         }

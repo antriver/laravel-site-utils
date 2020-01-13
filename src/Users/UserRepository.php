@@ -6,6 +6,7 @@ use Tmd\LaravelRepositories\Base\AbstractCachedRepository;
 
 /**
  * @method persist(User $user)
+ * @method find(int $userId): ?User
  * @method findOrFail(int $userId): User
  * @method findOneBy(string $field, $value): User
  */

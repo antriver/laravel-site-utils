@@ -24,11 +24,12 @@ class InstallCommand extends AbstractCommand
 
     protected $traitsForApiControllers = [
         \Antriver\LaravelSiteScaffolding\Auth\Http\AuthControllerTrait::class => 'AuthController',
-        \Antriver\LaravelSiteScaffolding\EmailVerification\Http\EmailVerificationControllerTrait::class => 'EmailVerificationController',
         \Antriver\LaravelSiteScaffolding\Auth\Http\ForgotPasswordControllerTrait::class => 'ForgotPasswordController',
-        \Antriver\LaravelSiteScaffolding\Auth\Http\RegisterControllerTrait::class => 'RegisterController',
         \Antriver\LaravelSiteScaffolding\Auth\Http\PasswordResetControllerTrait::class => 'PasswordResetController',
+        \Antriver\LaravelSiteScaffolding\Auth\Http\RegisterControllerTrait::class => 'RegisterController',
+        \Antriver\LaravelSiteScaffolding\EmailVerification\Http\EmailVerificationControllerTrait::class => 'EmailVerificationController',
         \Antriver\LaravelSiteScaffolding\Mail\Http\SnsControllerTrait::class => 'SnsController',
+        \Antriver\LaravelSiteScaffolding\Users\Http\UserControllerTrait::class => 'UserController',
     ];
 
     /**

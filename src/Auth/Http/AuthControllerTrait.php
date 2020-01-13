@@ -33,14 +33,8 @@ trait AuthControllerTrait
         AuthManager $authManager,
         UserRepository $userRepository
     ) {
+        $user = $this->getRequestUser($request);
         $token = $request->input('token');
-
-        $guard = $authManager->guard('api');
-        $userId = $guard->findUserIdBySessionId($token);
-        if (!$userId) {
-            throw new AuthenticationException();
-        }
-        $user = $userRepository->findOrFail($userId);
 
         $response = $apiAuthResponseFactory->make(
             $request,

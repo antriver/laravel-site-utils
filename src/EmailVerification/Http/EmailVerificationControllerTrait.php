@@ -194,7 +194,7 @@ trait EmailVerificationControllerTrait
         $this->validate(
             $request,
             [
-                'verificationToken' => 'required'
+                'verificationToken' => 'required',
             ]
         );
         $token = $request->input('verificationToken');

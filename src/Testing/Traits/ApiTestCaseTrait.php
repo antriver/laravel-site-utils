@@ -3,12 +3,13 @@
 namespace Antriver\LaravelSiteScaffolding\Testing\Traits;
 
 use Antriver\LaravelSiteScaffolding\Users\User;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Testing\TestResponse;
-use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use PHPUnit\Framework\ExpectationFailedException;
 use Symfony\Component\HttpFoundation\Response;
+use Tokenly\TokenGenerator\TokenGenerator;
 
 trait ApiTestCaseTrait
 {
@@ -21,6 +22,8 @@ trait ApiTestCaseTrait
     protected $currentUser;
 
     /**
+     * @param array $data
+     *
      * @return User
      */
     protected function seedUser(array $data = []): User
@@ -28,7 +31,7 @@ trait ApiTestCaseTrait
         // Seed a user with a session.
         /** @var User $user */
         $user = factory(User::class)->create($data);
-        $user->setApiToken(Str::random(50));
+        $user->setApiToken((new TokenGenerator())->generateToken(64));
         \DB::table('user_sessions')->insert(
             [
                 'id' => $user->getApiToken(),
@@ -192,13 +195,15 @@ trait ApiTestCaseTrait
      * @param TestResponse $response
      *
      * @return array
+     * @throws \JsonException
      */
     public function parseResponse(TestResponse $response): array
     {
         try {
             return \GuzzleHttp\json_decode($response->getContent(), true);
         } catch (\InvalidArgumentException $e) {
-            throw new \InvalidArgumentException($e->getMessage().PHP_EOL.$response->getContent());
+            var_dump($response->getContent());
+            throw new \JsonException($e->getMessage());
         }
     }
 
@@ -238,6 +243,13 @@ trait ApiTestCaseTrait
     {
         $this->assertResponseHasError($response, 'Unauthenticated.');
         $this->assertResponseHasErrorType($response, AuthenticationException::class);
+        $this->assertResponseHasErrorStatus($response, 403);
+    }
+
+    public function assertResponseIsAuthorizationError(TestResponse $response)
+    {
+        $this->assertResponseHasError($response, 'This action is unauthorized.');
+        $this->assertResponseHasErrorType($response, AuthorizationException::class);
         $this->assertResponseHasErrorStatus($response, 403);
     }
 
@@ -286,32 +298,43 @@ trait ApiTestCaseTrait
 
     public function assertResponseHasErrors(TestResponse $response, array $errors)
     {
-        $errorStrings = [];
-        foreach ($errors as $key => $keyErrors) {
-            $errorStrings = array_merge($errorStrings, $keyErrors);
-        }
-        $errorString = implode(' ', $errorStrings);
+        $this->printResultOnFailure(
+            $response,
+            function () use ($response, $errors) {
+                $errorStrings = [];
+                foreach ($errors as $key => $keyErrors) {
+                    $errorStrings = array_merge($errorStrings, $keyErrors);
+                }
+                $errorString = implode(' ', $errorStrings);
 
-        $this->assertResponseHasError($response, $errorString);
-        $this->assertResponseIsClientError($response);
+                $this->assertResponseHasError($response, $errorString);
+                $this->assertResponseIsClientError($response);
 
-        $result = $this->parseResponse($response);
+                $result = $this->parseResponse($response);
 
-        $this->assertEquals($errorString, $result['error']);
-        $this->assertEquals($result['errors'], $errors);
+                $this->assertEquals($errorString, $result['error']);
+                $this->assertEquals($result['errors'], $errors);
+            }
+        );
     }
 
     public function assertResponseHasValidationError(TestResponse $response, array $errors)
     {
+
         $this->assertResponseHasErrors($response, $errors);
         $this->assertResponseHasErrorType($response, ValidationException::class);
     }
 
     public function assertResponseHasSuccess(TestResponse $response)
     {
-        $this->assertResponseOk($response);
-        $result = $this->parseResponse($response);
-        $this->assertTrue($result['success']);
+        $this->printResultOnFailure(
+            $response,
+            function () use ($response) {
+                $this->assertResponseOk($response);
+                $result = $this->parseResponse($response);
+                $this->assertTrue($result['success']);
+            }
+        );
     }
 
     /**
@@ -333,12 +356,17 @@ trait ApiTestCaseTrait
 
     public function assertResponseContainsAuthInfo(TestResponse $response, User $user)
     {
-        $result = $this->parseResponse($response);
-        $this->assertNotEmpty($result['token']);
-        $this->assertSame(64, strlen($result['token']));
+        $this->printResultOnFailure(
+            $response,
+            function () use ($response, $user) {
+                $result = $this->parseResponse($response);
+                $this->assertNotEmpty($result['token']);
+                $this->assertSame(64, strlen($result['token']));
 
-        $this->assertSame($result['user']['id'], $user->id);
-        $this->assertSame($result['user']['username'], $user->username);
+                $this->assertSame($result['user']['id'], $user->id);
+                $this->assertSame($result['user']['username'], $user->username);
+            }
+        );
     }
 
     protected function printResponse(TestResponse $response)

@@ -8,9 +8,14 @@ use Antriver\LaravelSiteScaffolding\Models\Traits\CreatedAtWithoutUpdatedAtTrait
 /**
  * Antriver\LaravelSiteScaffolding\EmailVerification\UserEmailChange
  *
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\UserEmailChange newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\UserEmailChange newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\UserEmailChange query()
+ * @method static
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\UserEmailChange
+ *     newModelQuery()
+ * @method static
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\UserEmailChange
+ *     newQuery()
+ * @method static
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\UserEmailChange query()
  * @mixin \Eloquent
  */
 class UserEmailChange extends AbstractModel

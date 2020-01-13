@@ -73,6 +73,34 @@ trait EmailVerificationVerifyTestTrait
         );
     }
 
+    public function testWithWrongToken()
+    {
+        /** @var User $user */
+        $user = $this->seedUser();
+        $this->setCurrentUser($user);
+
+        $verification = new EmailVerification(
+            [
+                'userId' => $user->id,
+                'token' => 'abc',
+                'email' => $this->faker->safeEmail,
+                'type' => EmailVerification::TYPE_SIGNUP,
+            ]
+        );
+        $this->emailVerificationRepository->persist($verification);
+
+        $response = $this->sendPost(
+            '/email-verifications/'.$verification->id.'/verify',
+            [
+                'verificationToken' => 'def',
+            ]
+        );
+        $this->assertResponseHasError(
+            $response,
+            'Invalid token.'
+        );
+    }
+
     public function testWithVerificationForDifferentUser()
     {
         $this->setCurrentUser($this->seedUser());

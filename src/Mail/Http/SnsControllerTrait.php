@@ -13,10 +13,14 @@ trait SnsControllerTrait
     /**
      * @param Request $request
      * @param EmailVerificationManager $emailVerificationManager
+     *
+     * @return
      */
-    public function sesBounce(Request $request, EmailVerificationManager $emailVerificationManager)
-    {
-        $snsMessage = $this->getSnsMessageFromRequest();
+    public function sesBounce(
+        Request $request,
+        EmailVerificationManager $emailVerificationManager
+    ) {
+        $snsMessage = $this->getSnsMessageFromRequest($request);
         $this->notify('sns/ses-bounce', $request, $snsMessage);
 
         if ($data = $this->parseSnsMessageData($snsMessage)) {
@@ -29,15 +33,21 @@ trait SnsControllerTrait
                 }
             }
         }
+
+        return $this->successResponse(true);
     }
 
     /**
      * @param Request $request
      * @param EmailVerificationManager $emailVerificationManager
+     *
+     * @return
      */
-    public function sesComplaint(Request $request, EmailVerificationManager $emailVerificationManager)
-    {
-        $snsMessage = $this->getSnsMessageFromRequest();
+    public function sesComplaint(
+        Request $request,
+        EmailVerificationManager $emailVerificationManager
+    ) {
+        $snsMessage = $this->getSnsMessageFromRequest($request);
         $this->notify('sns/ses-complaint', $request, $snsMessage);
 
         if ($data = $this->parseSnsMessageData($snsMessage)) {
@@ -55,6 +65,8 @@ trait SnsControllerTrait
                 }
             }
         }
+
+        return $this->successResponse(true);
     }
 
     private function log(
@@ -66,7 +78,7 @@ trait SnsControllerTrait
         $emailVerificationManager->logBounce(
             $type,
             $email,
-            $message['Message'] // This is json encoded already.
+            json_encode($message->toArray())
         );
     }
 
@@ -89,9 +101,9 @@ trait SnsControllerTrait
     /**
      * @return SnsMessage
      */
-    private function getSnsMessageFromRequest(): SnsMessage
+    private function getSnsMessageFromRequest(Request $request): SnsMessage
     {
-        $message = SnsMessage::fromRawPostData();
+        $message = SnsMessage::fromJsonString($request->getContent());
 
         // Validate the message (throws an exception if bad).
         $validator = new MessageValidator();

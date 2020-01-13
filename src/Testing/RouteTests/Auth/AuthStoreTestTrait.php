@@ -138,7 +138,8 @@ trait AuthStoreTestTrait
                 'password' => 'secret',
             ]
         );
-        $this->assertSuccessfulLogin($user, $response);
+        $this->assertResponseOk($response);
+        $this->assertResponseContainsAuthInfo($response, $user);
     }
 
     public function testLoginSucceedsIfVerificationNotRequiredAndUserNotVerified()
@@ -154,7 +155,8 @@ trait AuthStoreTestTrait
                 'password' => 'secret',
             ]
         );
-        $this->assertSuccessfulLogin($user, $response);
+        $this->assertResponseOk($response);
+        $this->assertResponseContainsAuthInfo($response, $user);
     }
 
     public function testLoginSucceedsIfVerificationNotRequiredAndUserVerified()
@@ -174,23 +176,7 @@ trait AuthStoreTestTrait
                 'password' => 'secret',
             ]
         );
-        $this->assertSuccessfulLogin($user, $response);
-    }
-
-    /**
-     * @param User $user
-     * @param TestResponse $response
-     */
-    private function assertSuccessfulLogin(User $user, TestResponse $response)
-    {
         $this->assertResponseOk($response);
-
-        $result = $this->parseResponse($response);
-
-        $this->assertNotEmpty($result['user']);
-        $this->assertNotEmpty($result['token']);
-
-        $this->assertNotEmpty($result['user']['id']);
-        $this->assertSame($user->username, $result['user']['username']);
+        $this->assertResponseContainsAuthInfo($response, $user);
     }
 }

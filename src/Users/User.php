@@ -84,6 +84,7 @@ class User
         'id' => 'int',
         'admin' => 'bool',
         'moderator' => 'bool',
+        'emailBounced' => 'bool',
         'emailVerified' => 'bool',
     ];
 

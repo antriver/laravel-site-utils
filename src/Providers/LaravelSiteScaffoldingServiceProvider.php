@@ -9,6 +9,8 @@ use Antriver\LaravelSiteScaffolding\Console\Commands\Scaffolding\PublishTestsCom
 use Antriver\LaravelSiteScaffolding\Debug\QueryLogger;
 use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification;
 use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationPolicy;
+use Antriver\LaravelSiteScaffolding\Users\User;
+use Antriver\LaravelSiteScaffolding\Users\UserPolicy;
 use Antriver\LaravelSiteScaffolding\Users\UserRepository;
 use Auth;
 use Gate;
@@ -23,6 +25,7 @@ class LaravelSiteScaffoldingServiceProvider extends ServiceProvider
 {
     protected $policies = [
         EmailVerification::class => EmailVerificationPolicy::class,
+        User::class => UserPolicy::class,
     ];
 
     /**

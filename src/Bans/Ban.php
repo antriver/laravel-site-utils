@@ -40,7 +40,7 @@ use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
  * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Bans\Ban whereUserId($value)
  * @mixin \Eloquent
  */
-class Ban extends AbstractModel implements BanInterface
+class Ban extends AbstractModel
 {
     use BanTrait;
 }

@@ -16,16 +16,36 @@ use Antriver\LaravelSiteScaffolding\Models\Traits\BelongsToUserTrait;
  * @property string $type
  * @property \Illuminate\Support\Carbon $createdAt
  * @property \Illuminate\Support\Carbon|null $resentAt
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification query()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification whereResentAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification whereToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification whereUserId($value)
+ * @method static
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification
+ *     newModelQuery()
+ * @method static
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification
+ *     newQuery()
+ * @method static
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification
+ *     query()
+ * @method static
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification
+ *     whereCreatedAt($value)
+ * @method static
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification
+ *     whereEmail($value)
+ * @method static
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification
+ *     whereId($value)
+ * @method static
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification
+ *     whereResentAt($value)
+ * @method static
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification
+ *     whereToken($value)
+ * @method static
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification
+ *     whereType($value)
+ * @method static
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification
+ *     whereUserId($value)
  * @mixin \Eloquent
  */
 class EmailVerification extends AbstractModel implements BelongsToUserInterface
