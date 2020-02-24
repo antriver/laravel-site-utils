@@ -13,7 +13,7 @@ use Antriver\LaravelSiteScaffolding\Users\Exceptions\UnverifiedUserException;
 use Antriver\LaravelSiteScaffolding\Users\User;
 use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 use Antriver\LaravelSiteScaffolding\Validation\RequestValidator;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
