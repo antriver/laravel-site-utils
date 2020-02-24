@@ -13,6 +13,7 @@ use Antriver\LaravelSiteScaffolding\Users\Exceptions\UnverifiedUserException;
 use Antriver\LaravelSiteScaffolding\Users\User;
 use Antriver\LaravelSiteScaffolding\Users\UserInterface;
 use Antriver\LaravelSiteScaffolding\Validation\RequestValidator;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
@@ -204,12 +205,15 @@ class UserAuthenticator
     protected function findAccountByCredentials(array $credentials): UserInterface
     {
         /** @var User $user */
-        $user = User::where('username', $credentials['username'])->first();
+        $user = User::where(function (Builder $builder) use ($credentials) {
+            return $builder->where('username', $credentials['username'])
+                ->orWhere('email', $credentials['email']);
+        })->first();
 
         if (!$user) {
             throw new InvalidInputException(
                 [
-                    'username' => ['There is no account with that username.'],
+                    'username' => ['There is no account with that username or email.'],
                 ]
             );
         }
