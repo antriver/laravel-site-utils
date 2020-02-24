@@ -207,7 +207,7 @@ class UserAuthenticator
         /** @var User $user */
         $user = User::where(function (Builder $builder) use ($credentials) {
             return $builder->where('username', $credentials['username'])
-                ->orWhere('email', $credentials['email']);
+                ->orWhere('email', $credentials['username']);
         })->first();
 
         if (!$user) {
