@@ -68,7 +68,7 @@ trait AuthStoreTestTrait
         $this->assertResponseHasErrors(
             $response,
             [
-                'username' => ['There is no account with that username.'],
+                'username' => ['There is no account with that username or email.'],
             ]
         );
         $this->assertResponseHasErrorType($response, InvalidInputException::class);
@@ -173,6 +173,27 @@ trait AuthStoreTestTrait
             '/auth',
             [
                 'username' => $user->username,
+                'password' => 'secret',
+            ]
+        );
+        $this->assertResponseOk($response);
+        $this->assertResponseContainsAuthInfo($response, $user);
+    }
+
+    public function testLoginSucceedsWithEmail()
+    {
+        config(['auth.allow_unverified_user_login' => true]);
+        /** @var User $user */
+        $user = $this->seedUser(
+            [
+                'emailVerified' => 1,
+            ]
+        );
+
+        $response = $this->sendPost(
+            '/auth',
+            [
+                'username' => $user->email,
                 'password' => 'secret',
             ]
         );
