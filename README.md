@@ -59,6 +59,17 @@ And tell Laravel not to auto discover the existing provider. In composer.json:
             ]
         }
     }
+    
+## Commands
+
+### `scaffolding:clean-default-files`
+Remove some unused files in a default Laravel install.
+
+### `scaffolding:install`
+Create some controllers inside your Laravel project, which extends the controllers from this package.
+
+### `scaffolding:publish-tests`
+Create test classes for your new controllers created by the install command.     
 
 ## Components
 
