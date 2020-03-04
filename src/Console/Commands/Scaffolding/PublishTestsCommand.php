@@ -46,6 +46,10 @@ class PublishTestsCommand extends AbstractCommand
         }
         $this->output->writeln("Output directory: {$outputDirectory}");
 
+        if (!is_dir($outputDirectory)) {
+            mkdir($outputDirectory, 0777, true);
+        }
+
         if (!($outputNamespace = $this->option('output-namespace'))) {
             $outputNamespace = trim(app()->getNamespace(), '\\').'Tests\\Feature\\Api';
 
@@ -56,9 +60,9 @@ class PublishTestsCommand extends AbstractCommand
 
         $files = $this->getFiles($traitsDirectory);
 
-        $outputDirectory = $outputDirectory.'/Scaffolding';
-        if (!is_dir($outputDirectory)) {
-            mkdir($outputDirectory, 0777, true);
+        $scaffoldingOutputDirectory = $outputDirectory.'/Scaffolding';
+        if (!is_dir($scaffoldingOutputDirectory)) {
+            mkdir($scaffoldingOutputDirectory, 0777, true);
         }
 
         foreach ($files as $file) {
@@ -73,7 +77,7 @@ class PublishTestsCommand extends AbstractCommand
 
             $fileContents = $this->buildFileContents($traitClass, $testName, $outputNamespace);
 
-            $testPath = $outputDirectory.'/'.$testName.'.php';
+            $testPath = $scaffoldingOutputDirectory.'/'.$testName.'.php';
             file_put_contents($testPath, $fileContents);
 
             $this->info("Wrote {$testPath}");
