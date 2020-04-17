@@ -2,7 +2,6 @@
 
 namespace Antriver\LaravelSiteScaffolding\Images;
 
-use Antriver\LaravelSiteScaffolding\Models\Image;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Tmd\LaravelRepositories\Base\AbstractCachedRepository;
@@ -27,7 +26,7 @@ class ImageRepository extends AbstractCachedRepository
      */
     public function getImageForOriginalUrl($originalUrl, $recent = true)
     {
-        $query = Image::where('originalUrl', $originalUrl);
+        $query = $this->create()->newQuery()->where('originalUrl', $originalUrl);
 
         if ($recent) {
             $cutoff = (new Carbon('-1 MONTH'))->toDateTimeString();

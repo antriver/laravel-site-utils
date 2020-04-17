@@ -96,4 +96,12 @@ class Image extends AbstractModel implements BelongsToUserInterface
     {
         return $this->directory.'/'.$this->filename;
     }
+
+    /**
+     * @return string[]
+     */
+    public static function directories(): array
+    {
+        return [];
+    }
 }
