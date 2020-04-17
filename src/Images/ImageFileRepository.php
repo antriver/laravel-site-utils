@@ -2,7 +2,6 @@
 
 namespace Antriver\LaravelSiteScaffolding\Images;
 
-use Antriver\LaravelSiteScaffolding\Models\Image;
 use Config;
 use Exception;
 use Intervention\Image\Image as InterventionImage;

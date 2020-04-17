@@ -2,9 +2,7 @@
 
 namespace Antriver\LaravelSiteScaffolding\Images;
 
-use Antriver\LaravelSiteScaffolding\Models\Image;
-use Antriver\LaravelSiteScaffolding\Models\User;
-use Antriver\LaravelSiteScaffolding\Repositories\ImageRepository;
+use Antriver\LaravelSiteScaffolding\Users\User;
 
 class AvatarFactory
 {
