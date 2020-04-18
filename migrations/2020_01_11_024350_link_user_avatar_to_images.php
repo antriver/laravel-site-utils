@@ -38,7 +38,7 @@ class LinkUserAvatarToImages extends Migration
             'users',
             function (Blueprint $table) {
                 $table->dropForeign('user_avatar_image');
-                $table->dropIndex('avatarImageId');
+                $table->dropIndex('users_avatarimageid_index');
             }
         );
     }
