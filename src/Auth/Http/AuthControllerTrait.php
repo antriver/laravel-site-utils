@@ -84,7 +84,6 @@ trait AuthControllerTrait
      * @api {delete} /auth Logout (Delete Session Token)
      *
      * @param DatabaseSessionGuard $guard
-     * @param Request $request
      *
      * @return mixed
      */
