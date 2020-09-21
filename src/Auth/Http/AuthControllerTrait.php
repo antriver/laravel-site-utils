@@ -83,13 +83,10 @@ trait AuthControllerTrait
     /**
      * @api {delete} /auth Logout (Delete Session Token)
      *
-     * @param DatabaseSessionGuard $guard
-     *
      * @return mixed
      */
-    public function destroy(
-        DatabaseSessionGuard $guard
-    ) {
+    public function destroy() {
+        $guard = \Auth::guard('api');
         $guard->logout();
 
         return $this->successResponse(true);
