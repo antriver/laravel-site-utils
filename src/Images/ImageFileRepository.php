@@ -221,7 +221,11 @@ class ImageFileRepository
         return $this->storage->put(
             $remotePath,
             file_get_contents($localFile->getPathname()),
-            'public'
+            [
+                'visibility' => 'public',
+                'Expires' => gmdate('D, d M Y H:i:s \G\M\T', time() + 315360000),
+                'CacheControl' => 'max-age=315360000, no-transform, public',
+            ]
         );
     }
 
