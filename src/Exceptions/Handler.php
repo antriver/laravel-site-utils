@@ -38,7 +38,7 @@ class Handler extends \Illuminate\Foundation\Exceptions\Handler
     {
         return $request->wantsJson()
             || $request->isJson()
-            || stripos($request->getUri(), config('app.api_url')) !== false;
+            || (config('app.api_url') && stripos($request->getUri(), config('app.api_url'))) !== false;
     }
 
     /**
