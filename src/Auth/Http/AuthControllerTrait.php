@@ -2,6 +2,7 @@
 
 namespace Antriver\LaravelSiteScaffolding\Auth\Http;
 
+use Antriver\LaravelDatabaseSessionAuth\DatabaseSessionGuard;
 use Antriver\LaravelSiteScaffolding\Auth\ApiAuthResponseFactory;
 use Antriver\LaravelSiteScaffolding\Auth\UserAuthenticator;
 use Antriver\LaravelSiteScaffolding\Users\UserRepository;
@@ -13,7 +14,7 @@ trait AuthControllerTrait
 {
     public function __construct()
     {
-        $this->requireAuth(['only' => 'show']);
+        $this->requireAuth(['only' => ['show', 'destroy']]);
     }
 
     /**
@@ -77,5 +78,17 @@ trait AuthControllerTrait
         );
 
         return $this->response($response);
+    }
+
+    /**
+     * @api {delete} /auth Logout (Delete Session Token)
+     *
+     * @return mixed
+     */
+    public function destroy() {
+        $guard = \Auth::guard('api');
+        $guard->logout();
+
+        return $this->successResponse(true);
     }
 }
