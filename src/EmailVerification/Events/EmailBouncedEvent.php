@@ -2,7 +2,7 @@
 
 namespace Antriver\LaravelSiteUtils\EmailVerification\Events;
 
-use Antriver\LaravelSiteUtils\Events\Base\AbstractEvent;
+use Antriver\LaravelSiteUtils\Events\AbstractEvent;
 use Antriver\LaravelSiteUtils\Traits\HasUserTrait;
 use Antriver\LaravelSiteUtils\Users\UserInterface;
 
