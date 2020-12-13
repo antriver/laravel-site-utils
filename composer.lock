@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea0e6ba65af005073c394d3b51799dbe",
+    "content-hash": "11400111fbd62216e5dcb6d273a81d1f",
     "packages": [
         {
             "name": "antriver/laravel-database-session-auth",
@@ -891,16 +891,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.8.36",
+            "version": "v5.8.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "ccf857af50897eda43ceaf12e318cf214e0e4e95"
+                "reference": "78eb4dabcc03e189620c16f436358d41d31ae11f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/ccf857af50897eda43ceaf12e318cf214e0e4e95",
-                "reference": "ccf857af50897eda43ceaf12e318cf214e0e4e95",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/78eb4dabcc03e189620c16f436358d41d31ae11f",
+                "reference": "78eb4dabcc03e189620c16f436358d41d31ae11f",
                 "shasum": ""
             },
             "require": {
@@ -1035,7 +1035,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-12-17T16:00:14+00:00"
+            "time": "2020-04-14T14:14:36+00:00"
         },
         {
             "name": "laravel/socialite",
@@ -6025,7 +6025,10 @@
     "prefer-lowest": false,
     "platform": {
         "php": ">=7.3",
-        "ext-json": "*"
+        "ext-json": "*",
+        "ext-imagick": "*",
+        "ext-openssl": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
