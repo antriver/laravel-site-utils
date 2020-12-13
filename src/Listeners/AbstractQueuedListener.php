@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Listeners;
+namespace Antriver\LaravelSiteUtils\Listeners;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 

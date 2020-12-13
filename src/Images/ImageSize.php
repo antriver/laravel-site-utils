@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Images;
+namespace Antriver\LaravelSiteUtils\Images;
 
 class ImageSize
 {

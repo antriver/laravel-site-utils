@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Testing\RouteTests\ForgotPassword;
+namespace Antriver\LaravelSiteUtils\Testing\RouteTests\ForgotPassword;
 
-use Antriver\LaravelSiteScaffolding\Auth\Forgot\ForgotDetailsMail;
-use Antriver\LaravelSiteScaffolding\Users\User;
+use Antriver\LaravelSiteUtils\Auth\Forgot\ForgotDetailsMail;
+use Antriver\LaravelSiteUtils\Users\User;
 use Illuminate\Support\Facades\Mail;
 
 trait ForgotPasswordStoreTestTrait

@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Images;
+namespace Antriver\LaravelSiteUtils\Images;
 
-use Antriver\LaravelSiteScaffolding\Users\User;
+use Antriver\LaravelSiteUtils\Users\User;
 
 class AvatarFactory
 {

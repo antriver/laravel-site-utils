@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Repositories\Interfaces;
+namespace Antriver\LaravelSiteUtils\Repositories\Interfaces;
 
-use Antriver\LaravelSiteScaffolding\Users\UserInterface;
+use Antriver\LaravelSiteUtils\Users\UserInterface;
 
 interface UserBelongingsRepositoryInterface
 {

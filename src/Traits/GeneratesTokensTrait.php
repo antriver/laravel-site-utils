@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Traits;
+namespace Antriver\LaravelSiteUtils\Traits;
 
-use Antriver\LaravelSiteScaffolding\Tokens\TokenGenerator;
+use Antriver\LaravelSiteUtils\Tokens\TokenGenerator;
 
 trait GeneratesTokensTrait
 {

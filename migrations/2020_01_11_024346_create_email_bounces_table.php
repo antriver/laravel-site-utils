@@ -25,7 +25,7 @@ class CreateEmailBouncesTable extends Migration
                 $table->string('email', 191)->index();
                 $table->unsignedInteger('userId')->nullable();
                 $table->longText('message');
-                \Antriver\LaravelSiteScaffolding\Migrations\MigrationHelper::addCreatedAt($table);
+                \Antriver\LaravelSiteUtils\Migrations\MigrationHelper::addCreatedAt($table);
                 $table->enum('type', ['bounce', 'complaint'])->nullable();
 
                 $table->foreign(['userId'], 'email_bounces_user')

@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Users;
+namespace Antriver\LaravelSiteUtils\Users;
 
-use Antriver\LaravelSiteScaffolding\Policies\Base\AbstractPolicy;
+use Antriver\LaravelSiteUtils\Policies\Base\AbstractPolicy;
 
 class UserPolicy extends AbstractPolicy
 {

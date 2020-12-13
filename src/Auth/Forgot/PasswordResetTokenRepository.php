@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Auth\Forgot;
+namespace Antriver\LaravelSiteUtils\Auth\Forgot;
 
-use Antriver\LaravelSiteScaffolding\Tokens\TokenGenerator;
+use Antriver\LaravelSiteUtils\Tokens\TokenGenerator;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Auth\Passwords\TokenRepositoryInterface;

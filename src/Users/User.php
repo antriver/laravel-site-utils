@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Users;
+namespace Antriver\LaravelSiteUtils\Users;
 
-use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
+use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
 use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 use Illuminate\Auth\Passwords\CanResetPassword as CanResetPasswordTrait;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
@@ -13,7 +13,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable as AuthorizableTrait;
 use Illuminate\Notifications\Notifiable;
 
 /**
- * Antriver\LaravelSiteScaffolding\Users\User
+ * Antriver\LaravelSiteUtils\Users\User
  *
  * @property int $id
  * @property string $username
@@ -32,36 +32,36 @@ use Illuminate\Notifications\Notifiable;
  *     $notifications
  * @property-read int|null $notifications_count
  * @method static bool|null forceDelete()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User newQuery()
- * @method static \Illuminate\Database\Query\Builder|\Antriver\LaravelSiteScaffolding\Users\User onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Users\User newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Users\User newQuery()
+ * @method static \Illuminate\Database\Query\Builder|\Antriver\LaravelSiteUtils\Users\User onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Users\User query()
  * @method static bool|null restore()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User whereAdmin($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Users\User whereAdmin($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Users\User
  *     whereAvatarImageId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Users\User
  *     whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Users\User
  *     whereDeactivatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Users\User
  *     whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Users\User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Users\User
  *     whereEmailBounced($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Users\User
  *     whereEmailVerified($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Users\User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Users\User
  *     whereModerator($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Users\User
  *     wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Users\User
  *     whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Users\User
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Users\User
  *     whereUsername($value)
- * @method static \Illuminate\Database\Query\Builder|\Antriver\LaravelSiteScaffolding\Users\User withTrashed()
- * @method static \Illuminate\Database\Query\Builder|\Antriver\LaravelSiteScaffolding\Users\User withoutTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Antriver\LaravelSiteUtils\Users\User withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Antriver\LaravelSiteUtils\Users\User withoutTrashed()
  * @mixin \Eloquent
  */
 class User

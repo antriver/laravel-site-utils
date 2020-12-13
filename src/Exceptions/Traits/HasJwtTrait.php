@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Exceptions\Traits;
+namespace Antriver\LaravelSiteUtils\Exceptions\Traits;
 
 trait HasJwtTrait
 {

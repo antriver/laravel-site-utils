@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Exceptions\Traits;
+namespace Antriver\LaravelSiteUtils\Exceptions\Traits;
 
 trait HasUserTrait
 {
-    use \Antriver\LaravelSiteScaffolding\Traits\HasUserTrait;
+    use \Antriver\LaravelSiteUtils\Traits\HasUserTrait;
 }

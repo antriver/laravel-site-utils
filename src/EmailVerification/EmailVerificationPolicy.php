@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\EmailVerification;
+namespace Antriver\LaravelSiteUtils\EmailVerification;
 
-use Antriver\LaravelSiteScaffolding\Policies\Base\AbstractPolicy;
-use Antriver\LaravelSiteScaffolding\Users\User;
+use Antriver\LaravelSiteUtils\Policies\Base\AbstractPolicy;
+use Antriver\LaravelSiteUtils\Users\User;
 
 class EmailVerificationPolicy extends AbstractPolicy
 {

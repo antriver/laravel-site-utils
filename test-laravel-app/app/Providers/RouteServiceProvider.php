@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTestApp\Providers;
+namespace Antriver\LaravelSiteUtilsTestApp\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'Antriver\LaravelSiteScaffoldingTestApp\Http\Controllers';
+    protected $namespace = 'Antriver\LaravelSiteUtilsTestApp\Http\Controllers';
 
     /**
      * The path to the "home" route for your application.
@@ -74,7 +74,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::prefix('api')
              ->middleware('api')
-             ->namespace('\\Antriver\LaravelSiteScaffoldingTestApp\Http\Controllers\Api')
+             ->namespace('\\Antriver\LaravelSiteUtilsTestApp\Http\Controllers\Api')
              ->group(base_path('routes/api.php'));
     }
 }

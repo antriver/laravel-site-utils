@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTestApp\Http\Middleware;
+namespace Antriver\LaravelSiteUtilsTestApp\Http\Middleware;
 
-use Antriver\LaravelSiteScaffoldingTestApp\Providers\RouteServiceProvider;
+use Antriver\LaravelSiteUtilsTestApp\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 

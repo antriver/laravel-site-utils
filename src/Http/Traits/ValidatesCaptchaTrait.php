@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Http\Traits;
+namespace Antriver\LaravelSiteUtils\Http\Traits;
 
 use Illuminate\Http\Request;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Testing\RouteTests\PasswordReset;
+namespace Antriver\LaravelSiteUtils\Testing\RouteTests\PasswordReset;
 
-use Antriver\LaravelSiteScaffolding\Users\User;
-use Antriver\LaravelSiteScaffolding\Users\UserRepository;
+use Antriver\LaravelSiteUtils\Users\User;
+use Antriver\LaravelSiteUtils\Users\UserRepository;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 trait PasswordResetStoreTestTrait

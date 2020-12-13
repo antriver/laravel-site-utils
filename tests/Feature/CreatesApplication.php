@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTests\Feature;
+namespace Antriver\LaravelSiteUtilsTests\Feature;
 
 use Illuminate\Contracts\Console\Kernel;
 

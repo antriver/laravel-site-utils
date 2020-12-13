@@ -1,11 +1,11 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Testing\RouteTests\Register;
+namespace Antriver\LaravelSiteUtils\Testing\RouteTests\Register;
 
-use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationMail;
-use Antriver\LaravelSiteScaffolding\Users\User;
-use Antriver\LaravelSiteScaffolding\Users\UserRepository;
-use Antriver\LaravelSiteScaffolding\Users\ValidatesUserCredentialsTrait;
+use Antriver\LaravelSiteUtils\EmailVerification\EmailVerificationMail;
+use Antriver\LaravelSiteUtils\Users\User;
+use Antriver\LaravelSiteUtils\Users\UserRepository;
+use Antriver\LaravelSiteUtils\Users\ValidatesUserCredentialsTrait;
 use Faker\Generator;
 
 trait RegisterStoreTestTrait

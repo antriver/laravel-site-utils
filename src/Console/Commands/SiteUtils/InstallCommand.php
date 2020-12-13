@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Console\Commands\Scaffolding;
+namespace Antriver\LaravelSiteUtils\Console\Commands\SiteUtils;
 
-use Antriver\LaravelSiteScaffolding\Console\Commands\AbstractCommand;
+use Antriver\LaravelSiteUtils\Console\Commands\AbstractCommand;
 
 class InstallCommand extends AbstractCommand
 {
@@ -13,7 +13,7 @@ class InstallCommand extends AbstractCommand
      *
      * @var string
      */
-    protected $signature = 'scaffolding:install';
+    protected $signature = 'site-utils:install';
 
     /**
      * The console command description.
@@ -23,13 +23,13 @@ class InstallCommand extends AbstractCommand
     protected $description = 'Create default files.';
 
     protected $traitsForApiControllers = [
-        \Antriver\LaravelSiteScaffolding\Auth\Http\AuthControllerTrait::class => 'AuthController',
-        \Antriver\LaravelSiteScaffolding\Auth\Http\ForgotPasswordControllerTrait::class => 'ForgotPasswordController',
-        \Antriver\LaravelSiteScaffolding\Auth\Http\PasswordResetControllerTrait::class => 'PasswordResetController',
-        \Antriver\LaravelSiteScaffolding\Auth\Http\RegisterControllerTrait::class => 'RegisterController',
-        \Antriver\LaravelSiteScaffolding\EmailVerification\Http\EmailVerificationControllerTrait::class => 'EmailVerificationController',
-        \Antriver\LaravelSiteScaffolding\Mail\Http\SnsControllerTrait::class => 'SnsController',
-        \Antriver\LaravelSiteScaffolding\Users\Http\UserControllerTrait::class => 'UserController',
+        \Antriver\LaravelSiteUtils\Auth\Http\AuthControllerTrait::class => 'AuthController',
+        \Antriver\LaravelSiteUtils\Auth\Http\ForgotPasswordControllerTrait::class => 'ForgotPasswordController',
+        \Antriver\LaravelSiteUtils\Auth\Http\PasswordResetControllerTrait::class => 'PasswordResetController',
+        \Antriver\LaravelSiteUtils\Auth\Http\RegisterControllerTrait::class => 'RegisterController',
+        \Antriver\LaravelSiteUtils\EmailVerification\Http\EmailVerificationControllerTrait::class => 'EmailVerificationController',
+        \Antriver\LaravelSiteUtils\Mail\Http\SnsControllerTrait::class => 'SnsController',
+        \Antriver\LaravelSiteUtils\Users\Http\UserControllerTrait::class => 'UserController',
     ];
 
     /**
@@ -51,7 +51,7 @@ class InstallCommand extends AbstractCommand
 
 namespace {$namespace};
 
-use Antriver\LaravelSiteScaffolding\Http\Controllers\ControllerTrait;
+use Antriver\LaravelSiteUtils\Http\Controllers\ControllerTrait;
 use Illuminate\Routing\Controller;
 
 abstract class AbstractController extends Controller 
@@ -72,7 +72,7 @@ EOL;
 
 namespace {$namespace};
 
-use Antriver\LaravelSiteScaffolding\Http\Controllers\ApiControllerTrait;
+use Antriver\LaravelSiteUtils\Http\Controllers\ApiControllerTrait;
 use {$this->getAppNamespace()}\Http\Controllers\AbstractController;
 
 abstract class AbstractApiController extends AbstractController

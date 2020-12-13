@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\EmailVerification;
+namespace Antriver\LaravelSiteUtils\EmailVerification;
 
-use Antriver\LaravelSiteScaffolding\Users\UserInterface;
+use Antriver\LaravelSiteUtils\Users\UserInterface;
 use Tmd\LaravelRepositories\Base\AbstractRepository;
 
 /**

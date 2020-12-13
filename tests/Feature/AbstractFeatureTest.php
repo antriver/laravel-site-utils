@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTests\Feature;
+namespace Antriver\LaravelSiteUtilsTests\Feature;
 
-use Antriver\LaravelSiteScaffolding\Testing\Traits\TestCaseTrait;
+use Antriver\LaravelSiteUtils\Testing\Traits\TestCaseTrait;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 abstract class AbstractFeatureTest extends \Illuminate\Foundation\Testing\TestCase

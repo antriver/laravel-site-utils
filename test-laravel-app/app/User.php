@@ -1,13 +1,13 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTestApp;
+namespace Antriver\LaravelSiteUtilsTestApp;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 /**
- * Antriver\LaravelSiteScaffoldingTestApp\User
+ * Antriver\LaravelSiteUtilsTestApp\User
  *
  * @property int $id
  * @property string $username
@@ -24,22 +24,22 @@ use Illuminate\Notifications\Notifiable;
  * @property string|null $deactivatedAt
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffoldingTestApp\User newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffoldingTestApp\User newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffoldingTestApp\User query()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffoldingTestApp\User whereAdmin($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffoldingTestApp\User whereAvatarImageId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffoldingTestApp\User whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffoldingTestApp\User whereDeactivatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffoldingTestApp\User whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffoldingTestApp\User whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffoldingTestApp\User whereEmailBounced($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffoldingTestApp\User whereEmailVerified($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffoldingTestApp\User whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffoldingTestApp\User whereModerator($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffoldingTestApp\User wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffoldingTestApp\User whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffoldingTestApp\User whereUsername($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtilsTestApp\User newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtilsTestApp\User newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtilsTestApp\User query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtilsTestApp\User whereAdmin($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtilsTestApp\User whereAvatarImageId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtilsTestApp\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtilsTestApp\User whereDeactivatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtilsTestApp\User whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtilsTestApp\User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtilsTestApp\User whereEmailBounced($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtilsTestApp\User whereEmailVerified($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtilsTestApp\User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtilsTestApp\User whereModerator($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtilsTestApp\User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtilsTestApp\User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtilsTestApp\User whereUsername($value)
  * @mixin \Eloquent
  */
 class User extends Authenticatable

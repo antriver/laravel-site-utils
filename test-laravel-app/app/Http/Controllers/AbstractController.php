@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTestApp\Http\Controllers;
+namespace Antriver\LaravelSiteUtilsTestApp\Http\Controllers;
 
-use Antriver\LaravelSiteScaffolding\Http\Controllers\ControllerTrait;
+use Antriver\LaravelSiteUtils\Http\Controllers\ControllerTrait;
 
 abstract class AbstractController extends \Illuminate\Routing\Controller
 {

@@ -25,7 +25,7 @@ class CreateUserEmailChangesTable extends Migration
                 $table->unsignedInteger('userId');
                 $table->string('oldEmail', 200);
                 $table->string('newEmail', 200);
-                \Antriver\LaravelSiteScaffolding\Migrations\MigrationHelper::addCreatedAt($table);
+                \Antriver\LaravelSiteUtils\Migrations\MigrationHelper::addCreatedAt($table);
 
                 $table->index('userId', 'user_email_changes_user');
 

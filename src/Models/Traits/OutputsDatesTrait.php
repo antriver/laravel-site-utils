@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Models\Traits;
+namespace Antriver\LaravelSiteUtils\Models\Traits;
 
-use Antriver\LaravelSiteScaffolding\Date\DateFormat;
+use Antriver\LaravelSiteUtils\Date\DateFormat;
 use Carbon\Carbon;
 
 /**

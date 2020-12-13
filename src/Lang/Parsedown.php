@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Lang;
+namespace Antriver\LaravelSiteUtils\Lang;
 
-use Antriver\LaravelSiteScaffolding\Images\ImageSize;
+use Antriver\LaravelSiteUtils\Images\ImageSize;
 
 class Parsedown extends \Parsedown
 {

@@ -1,6 +1,6 @@
 <?php
 
-use Antriver\LaravelSiteScaffolding\Users\User;
+use Antriver\LaravelSiteUtils\Users\User;
 
 return [
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTests\Feature\Api;
+namespace Antriver\LaravelSiteUtilsTests\Feature\Api;
 
-use Antriver\LaravelSiteScaffolding\Testing\Traits\ApiTestCaseTrait;
-use Antriver\LaravelSiteScaffoldingTests\Feature\AbstractFeatureTest;
+use Antriver\LaravelSiteUtils\Testing\Traits\ApiTestCaseTrait;
+use Antriver\LaravelSiteUtilsTests\Feature\AbstractFeatureTest;
 
 abstract class AbstractApiTestCase extends AbstractFeatureTest
 {

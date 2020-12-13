@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Users;
+namespace Antriver\LaravelSiteUtils\Users;
 
-use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
+use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
 
 /**
  * Amirite\Models\UserNameChange

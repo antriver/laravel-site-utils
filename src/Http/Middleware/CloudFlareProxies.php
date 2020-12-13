@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Http\Middleware;
+namespace Antriver\LaravelSiteUtils\Http\Middleware;
 
 use Cache;
 use Closure;

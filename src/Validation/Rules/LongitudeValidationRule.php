@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Validation\Rules;
+namespace Antriver\LaravelSiteUtils\Validation\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 

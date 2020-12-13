@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Mail;
+namespace Antriver\LaravelSiteUtils\Mail;
 
 trait MailStyleTrait
 {

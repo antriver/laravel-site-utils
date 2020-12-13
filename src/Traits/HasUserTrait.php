@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Traits;
+namespace Antriver\LaravelSiteUtils\Traits;
 
-use Antriver\LaravelSiteScaffolding\Users\UserInterface;
+use Antriver\LaravelSiteUtils\Users\UserInterface;
 
 trait HasUserTrait
 {

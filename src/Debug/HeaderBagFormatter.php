@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Debug;
+namespace Antriver\LaravelSiteUtils\Debug;
 
 use Symfony\Component\HttpFoundation\HeaderBag;
 

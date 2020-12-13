@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Validation\Validators;
+namespace Antriver\LaravelSiteUtils\Validation\Validators;
 
 class InCaseInsensitiveValidator
 {

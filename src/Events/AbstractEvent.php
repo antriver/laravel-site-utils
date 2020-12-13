@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Events;
+namespace Antriver\LaravelSiteUtils\Events;
 
 use Illuminate\Queue\SerializesModels;
 use ReflectionClass;

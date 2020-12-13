@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Date;
+namespace Antriver\LaravelSiteUtils\Date;
 
 class DateFormat
 {

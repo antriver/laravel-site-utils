@@ -1,18 +1,18 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Auth;
+namespace Antriver\LaravelSiteUtils\Auth;
 
 use Antriver\LaravelDatabaseSessionAuth\DatabaseSessionGuard;
-use Antriver\LaravelSiteScaffolding\Bans\BanRepository;
-use Antriver\LaravelSiteScaffolding\Bans\Exceptions\BannedUserException;
-use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationManager;
-use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationRepository;
-use Antriver\LaravelSiteScaffolding\Exceptions\InvalidInputException;
-use Antriver\LaravelSiteScaffolding\Users\Exceptions\DeactivatedUserException;
-use Antriver\LaravelSiteScaffolding\Users\Exceptions\UnverifiedUserException;
-use Antriver\LaravelSiteScaffolding\Users\User;
-use Antriver\LaravelSiteScaffolding\Users\UserInterface;
-use Antriver\LaravelSiteScaffolding\Validation\RequestValidator;
+use Antriver\LaravelSiteUtils\Bans\BanRepository;
+use Antriver\LaravelSiteUtils\Bans\Exceptions\BannedUserException;
+use Antriver\LaravelSiteUtils\EmailVerification\EmailVerificationManager;
+use Antriver\LaravelSiteUtils\EmailVerification\EmailVerificationRepository;
+use Antriver\LaravelSiteUtils\Exceptions\InvalidInputException;
+use Antriver\LaravelSiteUtils\Users\Exceptions\DeactivatedUserException;
+use Antriver\LaravelSiteUtils\Users\Exceptions\UnverifiedUserException;
+use Antriver\LaravelSiteUtils\Users\User;
+use Antriver\LaravelSiteUtils\Users\UserInterface;
+use Antriver\LaravelSiteUtils\Validation\RequestValidator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;

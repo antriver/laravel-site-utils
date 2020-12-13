@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTests\Unit\Validation\Rules;
+namespace Antriver\LaravelSiteUtilsTests\Unit\Validation\Rules;
 
-use Antriver\LaravelSiteScaffolding\Validation\Rules\LatitudeValidationRule;
-use Antriver\LaravelSiteScaffoldingTests\Unit\AbstractUnitTestCase;
+use Antriver\LaravelSiteUtils\Validation\Rules\LatitudeValidationRule;
+use Antriver\LaravelSiteUtilsTests\Unit\AbstractUnitTestCase;
 
 class LatitudeValidationRuleTest extends AbstractUnitTestCase
 {

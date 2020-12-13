@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTestApp\Console;
+namespace Antriver\LaravelSiteUtilsTestApp\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;

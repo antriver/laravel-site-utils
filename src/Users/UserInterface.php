@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Users;
+namespace Antriver\LaravelSiteUtils\Users;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;

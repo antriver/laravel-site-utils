@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTests\Feature\Tokens;
+namespace Antriver\LaravelSiteUtilsTests\Feature\Tokens;
 
-use Antriver\LaravelSiteScaffolding\Tokens\TokenGenerator;
-use Antriver\LaravelSiteScaffoldingTests\Feature\AbstractFeatureTest;
+use Antriver\LaravelSiteUtils\Tokens\TokenGenerator;
+use Antriver\LaravelSiteUtilsTests\Feature\AbstractFeatureTest;
 
 class TokenGeneratorTest extends AbstractFeatureTest
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Http\Controllers;
+namespace Antriver\LaravelSiteUtils\Http\Controllers;
 
 use Antriver\LaravelModelPresenters\ModelPresenterInterface;
-use Antriver\LaravelSiteScaffolding\Pagination\LengthAwarePaginator;
-use Antriver\LaravelSiteScaffolding\Users\UserInterface;
+use Antriver\LaravelSiteUtils\Pagination\LengthAwarePaginator;
+use Antriver\LaravelSiteUtils\Users\UserInterface;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Response;

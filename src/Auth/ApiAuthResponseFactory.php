@@ -1,10 +1,10 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Auth;
+namespace Antriver\LaravelSiteUtils\Auth;
 
 use Antriver\LaravelDatabaseSessionAuth\DatabaseSessionGuard;
-use Antriver\LaravelSiteScaffolding\Users\UserInterface;
-use Antriver\LaravelSiteScaffolding\Users\UserPresenter;
+use Antriver\LaravelSiteUtils\Users\UserInterface;
+use Antriver\LaravelSiteUtils\Users\UserPresenter;
 use Auth;
 use Illuminate\Contracts\Encryption\Encrypter;
 use Illuminate\Http\Request;

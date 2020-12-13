@@ -1,10 +1,10 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Testing\RouteTests\Sns;
+namespace Antriver\LaravelSiteUtils\Testing\RouteTests\Sns;
 
-use Antriver\LaravelSiteScaffolding\Testing\Traits\TestsSesNotificationsTrait;
-use Antriver\LaravelSiteScaffolding\Users\User;
-use Antriver\LaravelSiteScaffolding\Users\UserRepository;
+use Antriver\LaravelSiteUtils\Testing\Traits\TestsSesNotificationsTrait;
+use Antriver\LaravelSiteUtils\Users\User;
+use Antriver\LaravelSiteUtils\Users\UserRepository;
 use Illuminate\Http\Request;
 
 trait SnsControllerTestTrait

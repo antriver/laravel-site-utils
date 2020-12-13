@@ -1,14 +1,14 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Images;
+namespace Antriver\LaravelSiteUtils\Images;
 
-use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
-use Antriver\LaravelSiteScaffolding\Models\Interfaces\BelongsToUserInterface;
-use Antriver\LaravelSiteScaffolding\Models\Traits\BelongsToUserTrait;
+use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
+use Antriver\LaravelSiteUtils\Models\Interfaces\BelongsToUserInterface;
+use Antriver\LaravelSiteUtils\Models\Traits\BelongsToUserTrait;
 use Config;
 
 /**
- * Antriver\LaravelSiteScaffolding\Images\Image
+ * Antriver\LaravelSiteUtils\Images\Image
  *
  * @property int $id
  * @property int|null $userId
@@ -22,30 +22,30 @@ use Config;
  * @property string|null $originalUrl
  * @property \Illuminate\Support\Carbon $createdAt
  * @property string|null $updatedAt
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Images\Image newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Images\Image newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Images\Image query()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Images\Image
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Images\Image newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Images\Image newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Images\Image query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Images\Image
  *     whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Images\Image
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Images\Image
  *     whereDirectory($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Images\Image
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Images\Image
  *     whereFilename($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Images\Image
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Images\Image
  *     whereHasThumbnail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Images\Image
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Images\Image
  *     whereHeight($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Images\Image whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Images\Image
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Images\Image whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Images\Image
  *     whereOptimizedSize($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Images\Image
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Images\Image
  *     whereOriginalUrl($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Images\Image whereSize($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Images\Image
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Images\Image whereSize($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Images\Image
  *     whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Images\Image
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Images\Image
  *     whereUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Images\Image
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Images\Image
  *     whereWidth($value)
  * @mixin \Eloquent
  */

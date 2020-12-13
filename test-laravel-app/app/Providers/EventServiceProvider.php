@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTestApp\Providers;
+namespace Antriver\LaravelSiteUtilsTestApp\Providers;
 
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;

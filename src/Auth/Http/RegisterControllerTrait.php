@@ -1,14 +1,14 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Auth\Http;
+namespace Antriver\LaravelSiteUtils\Auth\Http;
 
-use Antriver\LaravelSiteScaffolding\Auth\ApiAuthResponseFactory;
-use Antriver\LaravelSiteScaffolding\Auth\JwtFactory;
-use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationManager;
-use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationRepository;
-use Antriver\LaravelSiteScaffolding\Http\Traits\ValidatesCaptchaTrait;
-use Antriver\LaravelSiteScaffolding\Users\UserService;
-use Antriver\LaravelSiteScaffolding\Users\ValidatesUserCredentialsTrait;
+use Antriver\LaravelSiteUtils\Auth\ApiAuthResponseFactory;
+use Antriver\LaravelSiteUtils\Auth\JwtFactory;
+use Antriver\LaravelSiteUtils\EmailVerification\EmailVerificationManager;
+use Antriver\LaravelSiteUtils\EmailVerification\EmailVerificationRepository;
+use Antriver\LaravelSiteUtils\Http\Traits\ValidatesCaptchaTrait;
+use Antriver\LaravelSiteUtils\Users\UserService;
+use Antriver\LaravelSiteUtils\Users\ValidatesUserCredentialsTrait;
 use Illuminate\Http\Request;
 
 trait RegisterControllerTrait

@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTestApp\Http\Controllers\Api;
+namespace Antriver\LaravelSiteUtilsTestApp\Http\Controllers\Api;
 
-use Antriver\LaravelSiteScaffolding\EmailVerification\Http\EmailVerificationControllerTrait;
+use Antriver\LaravelSiteUtils\EmailVerification\Http\EmailVerificationControllerTrait;
 
 class EmailVerificationController extends AbstractApiController
 {

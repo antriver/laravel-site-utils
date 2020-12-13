@@ -1,10 +1,10 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Policies\Traits;
+namespace Antriver\LaravelSiteUtils\Policies\Traits;
 
-use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
-use Antriver\LaravelSiteScaffolding\Policies\Base\AbstractPolicy;
-use Antriver\LaravelSiteScaffolding\Users\User;
+use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
+use Antriver\LaravelSiteUtils\Policies\Base\AbstractPolicy;
+use Antriver\LaravelSiteUtils\Users\User;
 
 trait DefaultPolicyTrait
 {

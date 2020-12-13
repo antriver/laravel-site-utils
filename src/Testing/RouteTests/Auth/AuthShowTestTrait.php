@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Testing\RouteTests\Auth;
+namespace Antriver\LaravelSiteUtils\Testing\RouteTests\Auth;
 
-use Antriver\LaravelSiteScaffolding\Users\User;
+use Antriver\LaravelSiteUtils\Users\User;
 
 trait AuthShowTestTrait
 {

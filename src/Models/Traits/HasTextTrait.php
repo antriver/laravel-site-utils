@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Models\Traits;
+namespace Antriver\LaravelSiteUtils\Models\Traits;
 
-use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
+use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
 
 trait HasTextTrait
 {

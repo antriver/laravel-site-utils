@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Lang;
+namespace Antriver\LaravelSiteUtils\Lang;
 
 //use Amirite\Libraries\Images\Traits\MatchesImageMarkup;
-use Antriver\LaravelSiteScaffolding\Images\Image;
+use Antriver\LaravelSiteUtils\Images\Image;
 
 /**
  * Formats text with some very limited markdown support.

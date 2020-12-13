@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTestApp\Http\Controllers\Api;
+namespace Antriver\LaravelSiteUtilsTestApp\Http\Controllers\Api;
 
-use Antriver\LaravelSiteScaffolding\Auth\Http\ForgotPasswordControllerTrait;
+use Antriver\LaravelSiteUtils\Auth\Http\ForgotPasswordControllerTrait;
 
 class ForgotPasswordController extends AbstractApiController
 {

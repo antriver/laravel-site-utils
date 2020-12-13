@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Mail\Http;
+namespace Antriver\LaravelSiteUtils\Mail\Http;
 
-use Antriver\LaravelSiteScaffolding\Debug\HeaderBagFormatter;
-use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationManager;
+use Antriver\LaravelSiteUtils\Debug\HeaderBagFormatter;
+use Antriver\LaravelSiteUtils\EmailVerification\EmailVerificationManager;
 use Aws\Sns\Message as SnsMessage;
 use Aws\Sns\MessageValidator;
 use Illuminate\Http\Request;

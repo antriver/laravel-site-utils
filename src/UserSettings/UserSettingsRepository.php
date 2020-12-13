@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\UserSettings;
+namespace Antriver\LaravelSiteUtils\UserSettings;
 
-use Antriver\LaravelSiteScaffolding\Repositories\Interfaces\UserBelongingsRepositoryInterface;
-use Antriver\LaravelSiteScaffolding\Users\UserInterface;
+use Antriver\LaravelSiteUtils\Repositories\Interfaces\UserBelongingsRepositoryInterface;
+use Antriver\LaravelSiteUtils\Users\UserInterface;
 use Tmd\LaravelRepositories\Base\AbstractRepository;
 
 /**

@@ -6,4 +6,4 @@ DIR=`pwd`
 
 cd test-laravel-app
 
-php artisan scaffolding:publish-tests --output-dir $DIR/tests/Feature/Api --output-namespace Antriver\\LaravelSiteScaffoldingTests\\Feature\\Api
+php artisan site-utils:publish-tests --output-dir $DIR/tests/Feature/Api --output-namespace Antriver\\LaravelSiteUtilsTests\\Feature\\Api

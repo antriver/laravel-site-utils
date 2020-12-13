@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Testing\Traits;
+namespace Antriver\LaravelSiteUtils\Testing\Traits;
 
-use Antriver\LaravelSiteScaffolding\Users\User;
-use Antriver\LaravelSiteScaffolding\Users\UserRepository;
+use Antriver\LaravelSiteUtils\Users\User;
+use Antriver\LaravelSiteUtils\Users\UserRepository;
 
 trait TestsSesNotificationsTrait
 {

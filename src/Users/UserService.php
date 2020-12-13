@@ -1,13 +1,13 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Users;
+namespace Antriver\LaravelSiteUtils\Users;
 
-use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationManager;
-use Antriver\LaravelSiteScaffolding\Tokens\TokenGenerator;
-use Antriver\LaravelSiteScaffolding\UserSettings\UserSettings;
-use Antriver\LaravelSiteScaffolding\UserSettings\UserSettingsRepository;
-use Antriver\LaravelSiteScaffolding\UserSocialAccounts\UserSocialAccount;
-use Antriver\LaravelSiteScaffolding\UserSocialAccounts\UserSocialAccountRepository;
+use Antriver\LaravelSiteUtils\EmailVerification\EmailVerificationManager;
+use Antriver\LaravelSiteUtils\Tokens\TokenGenerator;
+use Antriver\LaravelSiteUtils\UserSettings\UserSettings;
+use Antriver\LaravelSiteUtils\UserSettings\UserSettingsRepository;
+use Antriver\LaravelSiteUtils\UserSocialAccounts\UserSocialAccount;
+use Antriver\LaravelSiteUtils\UserSocialAccounts\UserSocialAccountRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Laravel\Socialite\AbstractUser;

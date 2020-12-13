@@ -32,7 +32,7 @@ class CreateImagesTable extends Migration
                 $table->boolean('hasThumbnail')->default(false);
                 $table->string('originalUrl', 255)->nullable();
 
-                \Antriver\LaravelSiteScaffolding\Migrations\MigrationHelper::addTimestamps($table);
+                \Antriver\LaravelSiteUtils\Migrations\MigrationHelper::addTimestamps($table);
 
                 $table->unique(['directory', 'filename'], 'directory_filename');
 

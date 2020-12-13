@@ -18,7 +18,7 @@ $app = new Illuminate\Foundation\Application(
 $appReflection = new ReflectionClass($app);
 $namespaceProperty = $appReflection->getProperty('namespace');
 $namespaceProperty->setAccessible(true);
-$namespaceProperty->setValue($app, 'Antriver\LaravelSiteScaffoldingTestApp\\');
+$namespaceProperty->setValue($app, 'Antriver\LaravelSiteUtilsTestApp\\');
 
 /*
 |--------------------------------------------------------------------------
@@ -33,17 +33,17 @@ $namespaceProperty->setValue($app, 'Antriver\LaravelSiteScaffoldingTestApp\\');
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    Antriver\LaravelSiteScaffoldingTestApp\Http\Kernel::class
+    Antriver\LaravelSiteUtilsTestApp\Http\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    Antriver\LaravelSiteScaffoldingTestApp\Console\Kernel::class
+    Antriver\LaravelSiteUtilsTestApp\Console\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    Antriver\LaravelSiteScaffoldingTestApp\Exceptions\Handler::class
+    Antriver\LaravelSiteUtilsTestApp\Exceptions\Handler::class
 );
 
 /*

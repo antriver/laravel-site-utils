@@ -1,10 +1,10 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\EmailVerification\Events;
+namespace Antriver\LaravelSiteUtils\EmailVerification\Events;
 
-use Antriver\LaravelSiteScaffolding\Events\Base\AbstractEvent;
-use Antriver\LaravelSiteScaffolding\Traits\HasUserTrait;
-use Antriver\LaravelSiteScaffolding\Users\UserInterface;
+use Antriver\LaravelSiteUtils\Events\Base\AbstractEvent;
+use Antriver\LaravelSiteUtils\Traits\HasUserTrait;
+use Antriver\LaravelSiteUtils\Users\UserInterface;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 

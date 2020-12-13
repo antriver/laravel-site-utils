@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Console\Commands\Scaffolding;
+namespace Antriver\LaravelSiteUtils\Console\Commands\SiteUtils;
 
 trait MakesClassesTrait
 {

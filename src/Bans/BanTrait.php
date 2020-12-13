@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Bans;
+namespace Antriver\LaravelSiteUtils\Bans;
 
 use Carbon\Carbon;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Models\Traits;
+namespace Antriver\LaravelSiteUtils\Models\Traits;
 
 trait BelongsToUserTrait
 {

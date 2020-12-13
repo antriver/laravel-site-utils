@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTestApp\Http\Controllers\Api;
+namespace Antriver\LaravelSiteUtilsTestApp\Http\Controllers\Api;
 
-use Antriver\LaravelSiteScaffolding\Auth\Http\RegisterControllerTrait;
+use Antriver\LaravelSiteUtils\Auth\Http\RegisterControllerTrait;
 
 class RegisterController extends AbstractApiController
 {

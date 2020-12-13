@@ -1,15 +1,15 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\EmailVerification\Http;
+namespace Antriver\LaravelSiteUtils\EmailVerification\Http;
 
-use Antriver\LaravelSiteScaffolding\Auth\ApiAuthResponseFactory;
-use Antriver\LaravelSiteScaffolding\Auth\UserAuthenticator;
-use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification;
-use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationManager;
-use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationRepository;
-use Antriver\LaravelSiteScaffolding\Users\User;
-use Antriver\LaravelSiteScaffolding\Users\UserRepository;
-use Antriver\LaravelSiteScaffolding\Users\ValidatesUserCredentialsTrait;
+use Antriver\LaravelSiteUtils\Auth\ApiAuthResponseFactory;
+use Antriver\LaravelSiteUtils\Auth\UserAuthenticator;
+use Antriver\LaravelSiteUtils\EmailVerification\EmailVerification;
+use Antriver\LaravelSiteUtils\EmailVerification\EmailVerificationManager;
+use Antriver\LaravelSiteUtils\EmailVerification\EmailVerificationRepository;
+use Antriver\LaravelSiteUtils\Users\User;
+use Antriver\LaravelSiteUtils\Users\UserRepository;
+use Antriver\LaravelSiteUtils\Users\ValidatesUserCredentialsTrait;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;

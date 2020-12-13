@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Testing\RouteTests\PasswordReset;
+namespace Antriver\LaravelSiteUtils\Testing\RouteTests\PasswordReset;
 
-use Antriver\LaravelSiteScaffolding\Users\User;
+use Antriver\LaravelSiteUtils\Users\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 

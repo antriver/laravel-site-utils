@@ -28,8 +28,8 @@ class CreateBansTable extends Migration
                 $table->unsignedInteger('unbannedByUserId')->nullable();
                 $table->longText('reason');
                 $table->longText('internalReason')->nullable();
-                \Antriver\LaravelSiteScaffolding\Migrations\MigrationHelper::addTimestamps($table);
-                \Antriver\LaravelSiteScaffolding\Migrations\MigrationHelper::addDeletedAt($table);
+                \Antriver\LaravelSiteUtils\Migrations\MigrationHelper::addTimestamps($table);
+                \Antriver\LaravelSiteUtils\Migrations\MigrationHelper::addDeletedAt($table);
                 $table->dateTime('expiresAt')->nullable();
 
                 $table->index('userId', 'userId');

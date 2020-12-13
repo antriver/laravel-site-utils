@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-class LaravelSiteScaffoldingServiceProvider extends \Antriver\LaravelSiteScaffolding\Providers\LaravelSiteScaffoldingServiceProvider
+class LaravelSiteUtilsServiceProvider extends \Antriver\LaravelSiteUtils\Providers\LaravelSiteUtilsServiceProvider
 {
 
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Users\Http;
+namespace Antriver\LaravelSiteUtils\Users\Http;
 
-use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationManager;
-use Antriver\LaravelSiteScaffolding\Users\User;
-use Antriver\LaravelSiteScaffolding\Users\UserNameChange;
-use Antriver\LaravelSiteScaffolding\Users\UserPresenter;
-use Antriver\LaravelSiteScaffolding\Users\UserRepository;
+use Antriver\LaravelSiteUtils\EmailVerification\EmailVerificationManager;
+use Antriver\LaravelSiteUtils\Users\User;
+use Antriver\LaravelSiteUtils\Users\UserNameChange;
+use Antriver\LaravelSiteUtils\Users\UserPresenter;
+use Antriver\LaravelSiteUtils\Users\UserRepository;
 use Illuminate\Http\Request;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
 

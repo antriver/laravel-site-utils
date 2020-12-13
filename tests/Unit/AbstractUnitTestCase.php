@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTests\Unit;
+namespace Antriver\LaravelSiteUtilsTests\Unit;
 
 use PHPUnit\Framework\TestCase;
 

@@ -1,21 +1,21 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Models\Base;
+namespace Antriver\LaravelSiteUtils\Models\Base;
 
-use Antriver\LaravelSiteScaffolding\Models\Traits\OutputsDatesTrait;
+use Antriver\LaravelSiteUtils\Models\Traits\OutputsDatesTrait;
 use DB;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Support\Str;
 use Schema;
 
 /**
- * Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel
+ * Antriver\LaravelSiteUtils\Models\Base\AbstractModel
  *
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Models\Base\AbstractModel
  *     newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Models\Base\AbstractModel
  *     newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Models\Base\AbstractModel
  *     query()
  * @mixin \Eloquent
  */

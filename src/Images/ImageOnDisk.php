@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Images;
+namespace Antriver\LaravelSiteUtils\Images;
 
 use Intervention\Image\Image as InterventionImage;
 use Symfony\Component\HttpFoundation\File\File;

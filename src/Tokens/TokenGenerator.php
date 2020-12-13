@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Tokens;
+namespace Antriver\LaravelSiteUtils\Tokens;
 
 class TokenGenerator
 {

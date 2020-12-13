@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Auth;
+namespace Antriver\LaravelSiteUtils\Auth;
 
-use Antriver\LaravelSiteScaffolding\Users\UserInterface;
+use Antriver\LaravelSiteUtils\Users\UserInterface;
 use Carbon\Carbon;
 use Firebase\JWT\JWT;
 use Illuminate\Config\Repository;

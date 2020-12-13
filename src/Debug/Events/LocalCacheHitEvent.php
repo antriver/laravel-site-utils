@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Debug\Events;
+namespace Antriver\LaravelSiteUtils\Debug\Events;
 
 class LocalCacheHitEvent
 {

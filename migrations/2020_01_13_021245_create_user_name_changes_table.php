@@ -25,7 +25,7 @@ class CreateUserNameChangesTable extends Migration
                 $table->unsignedInteger('userId');
                 $table->string('oldName', 50);
                 $table->string('newName', 50);
-                \Antriver\LaravelSiteScaffolding\Migrations\MigrationHelper::addCreatedAt($table);
+                \Antriver\LaravelSiteUtils\Migrations\MigrationHelper::addCreatedAt($table);
 
                 $table->index('oldName', 'oldname');
                 $table->index('userId', 'userId');

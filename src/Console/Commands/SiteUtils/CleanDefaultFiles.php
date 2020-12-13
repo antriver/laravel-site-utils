@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Console\Commands\Scaffolding;
+namespace Antriver\LaravelSiteUtils\Console\Commands\SiteUtils;
 
-use Antriver\LaravelSiteScaffolding\Console\Commands\AbstractCommand;
+use Antriver\LaravelSiteUtils\Console\Commands\AbstractCommand;
 
 class CleanDefaultFiles extends AbstractCommand
 {
@@ -11,7 +11,7 @@ class CleanDefaultFiles extends AbstractCommand
      *
      * @var string
      */
-    protected $signature = 'scaffolding:clean-default-files';
+    protected $signature = 'site-utils:clean-default-files';
 
     /**
      * The console command description.

@@ -1,11 +1,11 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Testing\RouteTests\EmailVerification;
+namespace Antriver\LaravelSiteUtils\Testing\RouteTests\EmailVerification;
 
-use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification;
-use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationRepository;
-use Antriver\LaravelSiteScaffolding\Users\User;
-use Antriver\LaravelSiteScaffolding\Users\UserRepository;
+use Antriver\LaravelSiteUtils\EmailVerification\EmailVerification;
+use Antriver\LaravelSiteUtils\EmailVerification\EmailVerificationRepository;
+use Antriver\LaravelSiteUtils\Users\User;
+use Antriver\LaravelSiteUtils\Users\UserRepository;
 use Faker\Generator;
 
 trait EmailVerificationShowTestTrait

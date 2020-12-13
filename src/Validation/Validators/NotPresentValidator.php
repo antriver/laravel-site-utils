@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace Antriver\LaravelSiteScaffolding\Validation\Validators;
+namespace Antriver\LaravelSiteUtils\Validation\Validators;
 
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Validator;

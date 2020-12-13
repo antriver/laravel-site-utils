@@ -1,17 +1,17 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Models\Base;
+namespace Antriver\LaravelSiteUtils\Models\Base;
 
-use Antriver\LaravelSiteScaffolding\Models\Traits\OutputsDatesTrait;
+use Antriver\LaravelSiteUtils\Models\Traits\OutputsDatesTrait;
 use Illuminate\Database\Eloquent\Relations\Pivot as EloquentPivot;
 
 /**
- * Antriver\LaravelSiteScaffolding\Models\Base\Pivot
+ * Antriver\LaravelSiteUtils\Models\Base\Pivot
  *
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Models\Base\Pivot
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Models\Base\Pivot
  *     newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Models\Base\Pivot newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\Models\Base\Pivot query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Models\Base\Pivot newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\Models\Base\Pivot query()
  * @mixin \Eloquent
  */
 class Pivot extends EloquentPivot

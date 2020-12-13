@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Testing\Traits;
+namespace Antriver\LaravelSiteUtils\Testing\Traits;
 
 /**
  * Meta trait that contains all the other traits, plus some from Laravel.

@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTests\Unit\Lang;
+namespace Antriver\LaravelSiteUtilsTests\Unit\Lang;
 
-use Antriver\LaravelSiteScaffoldingTests\Unit\AbstractUnitTestCase;
-use Antriver\LaravelSiteScaffolding\Lang\LanguageHelpers;
+use Antriver\LaravelSiteUtilsTests\Unit\AbstractUnitTestCase;
+use Antriver\LaravelSiteUtils\Lang\LanguageHelpers;
 
 class LanguageHelpersTest extends AbstractUnitTestCase
 {

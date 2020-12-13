@@ -1,17 +1,17 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Providers;
+namespace Antriver\LaravelSiteUtils\Providers;
 
-use Antriver\LaravelSiteScaffolding\Auth\RepositoryUserProvider;
-use Antriver\LaravelSiteScaffolding\Console\Commands\Scaffolding\CleanDefaultFiles;
-use Antriver\LaravelSiteScaffolding\Console\Commands\Scaffolding\InstallCommand;
-use Antriver\LaravelSiteScaffolding\Console\Commands\Scaffolding\PublishTestsCommand;
-use Antriver\LaravelSiteScaffolding\Debug\QueryLogger;
-use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerification;
-use Antriver\LaravelSiteScaffolding\EmailVerification\EmailVerificationPolicy;
-use Antriver\LaravelSiteScaffolding\Users\User;
-use Antriver\LaravelSiteScaffolding\Users\UserPolicy;
-use Antriver\LaravelSiteScaffolding\Users\UserRepository;
+use Antriver\LaravelSiteUtils\Auth\RepositoryUserProvider;
+use Antriver\LaravelSiteUtils\Console\Commands\SiteUtils\CleanDefaultFiles;
+use Antriver\LaravelSiteUtils\Console\Commands\SiteUtils\InstallCommand;
+use Antriver\LaravelSiteUtils\Console\Commands\SiteUtils\PublishTestsCommand;
+use Antriver\LaravelSiteUtils\Debug\QueryLogger;
+use Antriver\LaravelSiteUtils\EmailVerification\EmailVerification;
+use Antriver\LaravelSiteUtils\EmailVerification\EmailVerificationPolicy;
+use Antriver\LaravelSiteUtils\Users\User;
+use Antriver\LaravelSiteUtils\Users\UserPolicy;
+use Antriver\LaravelSiteUtils\Users\UserRepository;
 use Auth;
 use Gate;
 use Illuminate\Contracts\Container\Container;
@@ -21,7 +21,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
-class LaravelSiteScaffoldingServiceProvider extends ServiceProvider
+class LaravelSiteUtilsServiceProvider extends ServiceProvider
 {
     protected $policies = [
         EmailVerification::class => EmailVerificationPolicy::class,

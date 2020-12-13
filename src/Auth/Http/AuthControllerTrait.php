@@ -1,11 +1,11 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Auth\Http;
+namespace Antriver\LaravelSiteUtils\Auth\Http;
 
 use Antriver\LaravelDatabaseSessionAuth\DatabaseSessionGuard;
-use Antriver\LaravelSiteScaffolding\Auth\ApiAuthResponseFactory;
-use Antriver\LaravelSiteScaffolding\Auth\UserAuthenticator;
-use Antriver\LaravelSiteScaffolding\Users\UserRepository;
+use Antriver\LaravelSiteUtils\Auth\ApiAuthResponseFactory;
+use Antriver\LaravelSiteUtils\Auth\UserAuthenticator;
+use Antriver\LaravelSiteUtils\Users\UserRepository;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Auth\AuthManager;
 use Illuminate\Http\Request;

@@ -161,7 +161,7 @@ return [
         Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
-        Antriver\LaravelSiteScaffolding\Providers\ValidationServiceProvider::class,
+        Antriver\LaravelSiteUtils\Providers\ValidationServiceProvider::class,
         //Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
@@ -169,17 +169,17 @@ return [
          * Package Service Providers...
          */
         Antriver\LaravelDatabaseSessionAuth\DatabaseSessionAuthServiceProvider::class,
-        Antriver\LaravelSiteScaffolding\Providers\LaravelSiteScaffoldingServiceProvider::class,
+        Antriver\LaravelSiteUtils\Providers\LaravelSiteUtilsServiceProvider::class,
         \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
-        Antriver\LaravelSiteScaffoldingTestApp\Providers\AppServiceProvider::class,
-        Antriver\LaravelSiteScaffoldingTestApp\Providers\AuthServiceProvider::class,
-        // Antriver\LaravelSiteScaffoldingTestApp\Providers\BroadcastServiceProvider::class,
-        Antriver\LaravelSiteScaffoldingTestApp\Providers\EventServiceProvider::class,
-        Antriver\LaravelSiteScaffoldingTestApp\Providers\RouteServiceProvider::class,
+        Antriver\LaravelSiteUtilsTestApp\Providers\AppServiceProvider::class,
+        Antriver\LaravelSiteUtilsTestApp\Providers\AuthServiceProvider::class,
+        // Antriver\LaravelSiteUtilsTestApp\Providers\BroadcastServiceProvider::class,
+        Antriver\LaravelSiteUtilsTestApp\Providers\EventServiceProvider::class,
+        Antriver\LaravelSiteUtilsTestApp\Providers\RouteServiceProvider::class,
 
     ],
 

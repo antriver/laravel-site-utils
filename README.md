@@ -1,4 +1,4 @@
-# Laravel Site Scaffolding
+# Laravel Site Utils
 
 A whole bunch of stuff to not have to duplicate common things in every app.
 - User login
@@ -10,7 +10,7 @@ Laravel has built in methods for doing a lot of this but this does it nicer (rea
 
 Where concrete classes are provided for models, repositories and controllers, matching interfaces and traits are also provided so you can use those on your own concrete versions instead. Where possible type hints are interfaces.
 
-If you take a look at `Providers\LaravelSiteScaffoldingServiceProvider` you will find an array containing a mapping of interfaces to concrete implementations. These will be bound in Laravel's DI container. If you want to use custom implementations then extend` LaravelSiteScaffoldingServiceProvider` and overrides the appropriate array values.
+If you take a look at `Providers\LaravelSiteUtilsServiceProvider` you will find an array containing a mapping of interfaces to concrete implementations. These will be bound in Laravel's DI container. If you want to use custom implementations then extend` LaravelSiteUtilsServiceProvider` and overrides the appropriate array values.
 
 ## Installation
 
@@ -19,33 +19,33 @@ This is in rapid development so is not tagged with any version. Add this to comp
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/antriver/laravel-site-scaffolding.git"
+            "url": "https://github.com/antriver/laravel-site-utils.git"
         }
     ],
 
 Then run:
 
-    composer require antriver/laravel-site-scaffolding dev-master
+    composer require antriver/laravel-site-utils dev-master
 
 
 ### Changing Configuration
 
-Create a subclass of the provider so you can easily change settings. In your `app/providers` directory create `LaravelSiteScaffoldingServiceProvider.php` with the contents:
+Create a subclass of the provider so you can easily change settings. In your `app/providers` directory create `LaravelSiteUtilsServiceProvider.php` with the contents:
 
     <?php
-    
+
     namespace App\Providers;
-    
-    class LaravelSiteScaffoldingServiceProvider extends \Antriver\LaravelSiteScaffolding\Providers\LaravelSiteScaffoldingServiceProvider
+
+    class LaravelSiteUtilsServiceProvider extends \Antriver\LaravelSiteUtils\Providers\LaravelSiteUtilsServiceProvider
     {
-    
+
     }
 
 Then add your subclass to the providers array in `config/app.php`
 
     'providers' => [
         // ...
-        App\Providers\LaravelSiteScaffoldingServiceProvider::class,
+        App\Providers\LaravelSiteUtilsServiceProvider::class,
         // ...
     ],
 
@@ -55,33 +55,33 @@ And tell Laravel not to auto discover the existing provider. In composer.json:
     "extra": {
         "laravel": {
             "dont-discover": [
-                "antriver/laravel-site-scaffolding"
+                "antriver/laravel-site-utils"
             ]
         }
     }
-    
+
 ## Commands
 
-### `scaffolding:clean-default-files`
+### `site-utils:clean-default-files`
 Remove some unused files in a default Laravel install.
 
-### `scaffolding:install`
+### `site-utils:install`
 Create some controllers inside your Laravel project, which extends the controllers from this package.
 
-### `scaffolding:publish-tests`
-Create test classes for your new controllers created by the install command.     
+### `site-utils:publish-tests`
+Create test classes for your new controllers created by the install command.
 
 ## Components
 
-* Login - `Antriver\LaravelSiteScaffolding\Auth\Http\AuthController`
+* Login - `Antriver\LaravelSiteUtils\Auth\Http\AuthController`
 
-* Signup - `Antriver\LaravelSiteScaffolding\Auth\Http\SignupController`
+* Signup - `Antriver\LaravelSiteUtils\Auth\Http\SignupController`
 
-* Forgot Password - `Antriver\LaravelSiteScaffolding\Auth\Http\ForgotController`
+* Forgot Password - `Antriver\LaravelSiteUtils\Auth\Http\ForgotController`
 
-* Reset Password - `Antriver\LaravelSiteScaffolding\Auth\Http\ResetController`
+* Reset Password - `Antriver\LaravelSiteUtils\Auth\Http\ResetController`
 
-* Email Verification - `Antriver\LaravelSiteScaffolding\Auth\Http\ResetController`
+* Email Verification - `Antriver\LaravelSiteUtils\Auth\Http\ResetController`
 
 
 ## TODO

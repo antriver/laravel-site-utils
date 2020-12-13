@@ -1,6 +1,6 @@
 {
-    "name": "antriver/laravel-site-scaffolding",
-    "description": "A bunch of stuff to reduce duplication between Laravel apps.",
+    "name": "antriver/laravel-site-utils",
+    "description": "A bunch of stuff to help building Laravel apps.",
     "type": "library",
     "authors": [
         {
@@ -10,13 +10,13 @@
     ],
     "autoload": {
         "psr-4": {
-            "Antriver\\LaravelSiteScaffolding\\": "src/"
+            "Antriver\\LarvelSiteUtils\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Antriver\\LaravelSiteScaffoldingTests\\": "tests/",
-            "Antriver\\LaravelSiteScaffoldingTestApp\\": "test-laravel-app/app/"
+            "Antriver\\LarvelSiteUtilsTests\\": "tests/",
+            "Antriver\\LarvelSiteUtilsTestApp\\": "test-laravel-app/app/"
         }
     },
     "require": {
@@ -48,7 +48,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Antriver\\LaravelSiteScaffolding\\Providers\\LaravelSiteScaffoldingServiceProvider"
+                "Antriver\\LarvelSiteUtils\\Providers\\LarvelSiteUtilsServiceProvider"
             ]
         }
     },

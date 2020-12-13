@@ -26,7 +26,7 @@ class CreateEmailVerificationsTable extends Migration
                 $table->string('email', 191)->index();
                 $table->string('token', 64)->unique();
                 $table->enum('type', ['signup', 'change', 'reverify']);
-                \Antriver\LaravelSiteScaffolding\Migrations\MigrationHelper::addCreatedAt($table);
+                \Antriver\LaravelSiteUtils\Migrations\MigrationHelper::addCreatedAt($table);
                 $table->dateTime('resentAt')->nullable();
             }
         );

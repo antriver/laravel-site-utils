@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTestApp\Exceptions;
+namespace Antriver\LaravelSiteUtilsTestApp\Exceptions;
 
-class Handler extends \Antriver\LaravelSiteScaffolding\Exceptions\Handler
+class Handler extends \Antriver\LaravelSiteUtils\Exceptions\Handler
 {
 
 }

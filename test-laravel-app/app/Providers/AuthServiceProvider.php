@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTestApp\Providers;
+namespace Antriver\LaravelSiteUtilsTestApp\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'Antriver\LaravelSiteScaffoldingTestApp\Model' => 'App\Policies\ModelPolicy',
+        // 'Antriver\LaravelSiteUtilsTestApp\Model' => 'App\Policies\ModelPolicy',
     ];
 
     /**

@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Console\Commands\Scaffolding;
+namespace Antriver\LaravelSiteUtils\Console\Commands\SiteUtils;
 
-use Antriver\LaravelSiteScaffolding\Console\Commands\AbstractCommand;
+use Antriver\LaravelSiteUtils\Console\Commands\AbstractCommand;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use SplFileInfo;
@@ -17,14 +17,14 @@ class PublishTestsCommand extends AbstractCommand
      *
      * @var string
      */
-    protected $signature = 'scaffolding:publish-tests  {--trait-dir=} {--trait-namespace=} {--output-dir=} {--output-namespace=}';
+    protected $signature = 'site-utils:publish-tests  {--trait-dir=} {--trait-namespace=} {--output-dir=} {--output-namespace=}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create concrete tests from the scaffolding test traits.';
+    protected $description = 'Create concrete tests from the site-utils test traits.';
 
     /**
      * Execute the console command.
@@ -37,7 +37,7 @@ class PublishTestsCommand extends AbstractCommand
         $this->output->writeln("Input directory: {$traitsDirectory}");
 
         if (!($traitsNamespace = $this->option('trait-namespace'))) {
-            $traitsNamespace = 'Antriver\LaravelSiteScaffolding\Testing\RouteTests';
+            $traitsNamespace = 'Antriver\LaravelSiteUtils\Testing\RouteTests';
         }
         $this->output->writeln("Input namespace: {$traitsNamespace}");
 
@@ -60,9 +60,9 @@ class PublishTestsCommand extends AbstractCommand
 
         $files = $this->getFiles($traitsDirectory);
 
-        $scaffoldingOutputDirectory = $outputDirectory.'/Scaffolding';
-        if (!is_dir($scaffoldingOutputDirectory)) {
-            mkdir($scaffoldingOutputDirectory, 0777, true);
+        $siteUtilsOutputDirectory = $outputDirectory.'/SiteUtils';
+        if (!is_dir($siteUtilsOutputDirectory)) {
+            mkdir($siteUtilsOutputDirectory, 0777, true);
         }
 
         foreach ($files as $file) {
@@ -77,7 +77,7 @@ class PublishTestsCommand extends AbstractCommand
 
             $fileContents = $this->buildFileContents($traitClass, $testName, $outputNamespace);
 
-            $testPath = $scaffoldingOutputDirectory.'/'.$testName.'.php';
+            $testPath = $siteUtilsOutputDirectory.'/'.$testName.'.php';
             file_put_contents($testPath, $fileContents);
 
             $this->info("Wrote {$testPath}");
@@ -96,7 +96,7 @@ class PublishTestsCommand extends AbstractCommand
 
 namespace {$outputNamespace};
 
-use Antriver\LaravelSiteScaffolding\Testing\Traits\TestCaseTrait;
+use Antriver\LaravelSiteUtils\Testing\Traits\TestCaseTrait;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\TestCase;
 
@@ -129,7 +129,7 @@ EOL;
 
 namespace {$outputNamespace};
 
-use Antriver\LaravelSiteScaffolding\Testing\Traits\ApiTestCaseTrait;
+use Antriver\LaravelSiteUtils\Testing\Traits\ApiTestCaseTrait;
 use {$testCaseNamespace}\AbstractTestCase;
 
 abstract class AbstractApiTestCase extends AbstractTestCase
@@ -199,7 +199,7 @@ EOL;
         return <<<EOL
 <?php
 
-namespace {$outputNamespace}\\Scaffolding;
+namespace {$outputNamespace}\\SiteUtils;
 
 use {$outputNamespace}\\AbstractApiTestCase;
 use {$traitClass};

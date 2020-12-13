@@ -1,14 +1,14 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Providers;
+namespace Antriver\LaravelSiteUtils\Providers;
 
-use Antriver\LaravelSiteScaffolding\Validation\Validators\EmailMXValidator;
-use Antriver\LaravelSiteScaffolding\Validation\Validators\EmptyValidator;
-use Antriver\LaravelSiteScaffolding\Validation\Validators\HexColorValidator;
-use Antriver\LaravelSiteScaffolding\Validation\Validators\InCaseInsensitiveValidator;
-use Antriver\LaravelSiteScaffolding\Validation\Validators\NotPresentValidator;
-use Antriver\LaravelSiteScaffolding\Validation\Validators\RecaptchaValidator;
-use Antriver\LaravelSiteScaffolding\Validation\Validators\UserImageValidator;
+use Antriver\LaravelSiteUtils\Validation\Validators\EmailMXValidator;
+use Antriver\LaravelSiteUtils\Validation\Validators\EmptyValidator;
+use Antriver\LaravelSiteUtils\Validation\Validators\HexColorValidator;
+use Antriver\LaravelSiteUtils\Validation\Validators\InCaseInsensitiveValidator;
+use Antriver\LaravelSiteUtils\Validation\Validators\NotPresentValidator;
+use Antriver\LaravelSiteUtils\Validation\Validators\RecaptchaValidator;
+use Antriver\LaravelSiteUtils\Validation\Validators\UserImageValidator;
 use Validator;
 
 class ValidationServiceProvider extends \Illuminate\Validation\ValidationServiceProvider

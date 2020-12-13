@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTestApp\Http\Controllers\Api;
+namespace Antriver\LaravelSiteUtilsTestApp\Http\Controllers\Api;
 
-use Antriver\LaravelSiteScaffolding\Users\Http\UserControllerTrait;
+use Antriver\LaravelSiteUtils\Users\Http\UserControllerTrait;
 
 class UserController extends AbstractApiController
 {

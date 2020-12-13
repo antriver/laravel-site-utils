@@ -5,7 +5,7 @@
 use Faker\Generator;
 
 $factory->define(
-    \Antriver\LaravelSiteScaffolding\Users\User::class,
+    \Antriver\LaravelSiteUtils\Users\User::class,
     function (Generator $faker) {
         return [
             'username' => $faker->userName,

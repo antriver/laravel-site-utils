@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\UserSocialAccounts;
+namespace Antriver\LaravelSiteUtils\UserSocialAccounts;
 
-use Antriver\LaravelSiteScaffolding\Users\UserInterface;
+use Antriver\LaravelSiteUtils\Users\UserInterface;
 use Tmd\LaravelRepositories\Base\AbstractRepository;
 
 class UserSocialAccountRepository extends AbstractRepository

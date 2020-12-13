@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Validation;
+namespace Antriver\LaravelSiteUtils\Validation;
 
 use Illuminate\Contracts\Validation\Factory;
 use Illuminate\Foundation\Validation\ValidatesRequests;

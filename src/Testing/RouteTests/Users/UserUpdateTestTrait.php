@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Testing\RouteTests\Users;
+namespace Antriver\LaravelSiteUtils\Testing\RouteTests\Users;
 
-use Antriver\LaravelSiteScaffolding\Users\UserRepository;
+use Antriver\LaravelSiteUtils\Users\UserRepository;
 
 trait UserUpdateTestTrait
 {

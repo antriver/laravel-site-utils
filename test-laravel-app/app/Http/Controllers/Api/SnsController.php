@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTestApp\Http\Controllers\Api;
+namespace Antriver\LaravelSiteUtilsTestApp\Http\Controllers\Api;
 
-use Antriver\LaravelSiteScaffolding\Mail\Http\SnsControllerTrait;
+use Antriver\LaravelSiteUtils\Mail\Http\SnsControllerTrait;
 
 class SnsController extends AbstractApiController
 {

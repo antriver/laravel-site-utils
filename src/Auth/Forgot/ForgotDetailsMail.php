@@ -1,9 +1,9 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Auth\Forgot;
+namespace Antriver\LaravelSiteUtils\Auth\Forgot;
 
-use Antriver\LaravelSiteScaffolding\Mail\Base\ExtendedMailable;
-use Antriver\LaravelSiteScaffolding\Users\User;
+use Antriver\LaravelSiteUtils\Mail\Base\ExtendedMailable;
+use Antriver\LaravelSiteUtils\Users\User;
 
 class ForgotDetailsMail extends ExtendedMailable
 {

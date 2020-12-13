@@ -1,13 +1,13 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\EmailVerification;
+namespace Antriver\LaravelSiteUtils\EmailVerification;
 
-use Antriver\LaravelSiteScaffolding\EmailVerification\Events\EmailBouncedEvent;
-use Antriver\LaravelSiteScaffolding\EmailVerification\Events\EmailVerifiedEvent;
-use Antriver\LaravelSiteScaffolding\Tokens\TokenGenerator;
-use Antriver\LaravelSiteScaffolding\Users\User;
-use Antriver\LaravelSiteScaffolding\Users\UserInterface;
-use Antriver\LaravelSiteScaffolding\Users\UserRepository;
+use Antriver\LaravelSiteUtils\EmailVerification\Events\EmailBouncedEvent;
+use Antriver\LaravelSiteUtils\EmailVerification\Events\EmailVerifiedEvent;
+use Antriver\LaravelSiteUtils\Tokens\TokenGenerator;
+use Antriver\LaravelSiteUtils\Users\User;
+use Antriver\LaravelSiteUtils\Users\UserInterface;
+use Antriver\LaravelSiteUtils\Users\UserRepository;
 use Carbon\Carbon;
 use Mail;
 

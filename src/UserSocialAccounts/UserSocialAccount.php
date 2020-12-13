@@ -1,20 +1,20 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\UserSocialAccounts;
+namespace Antriver\LaravelSiteUtils\UserSocialAccounts;
 
-use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
+use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
 
 /**
- * Antriver\LaravelSiteScaffolding\UserSocialAccounts\UserSocialAccount
+ * Antriver\LaravelSiteUtils\UserSocialAccounts\UserSocialAccount
  *
  * @method static
- *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\UserSocialAccounts\UserSocialAccount
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\UserSocialAccounts\UserSocialAccount
  *     newModelQuery()
  * @method static
- *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\UserSocialAccounts\UserSocialAccount
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\UserSocialAccounts\UserSocialAccount
  *     newQuery()
  * @method static
- *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\UserSocialAccounts\UserSocialAccount
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\UserSocialAccounts\UserSocialAccount
  *     query()
  * @mixin \Eloquent
  */

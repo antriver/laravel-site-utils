@@ -1,21 +1,21 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\EmailVerification;
+namespace Antriver\LaravelSiteUtils\EmailVerification;
 
-use Antriver\LaravelSiteScaffolding\Models\Base\AbstractModel;
-use Antriver\LaravelSiteScaffolding\Models\Traits\CreatedAtWithoutUpdatedAtTrait;
+use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
+use Antriver\LaravelSiteUtils\Models\Traits\CreatedAtWithoutUpdatedAtTrait;
 
 /**
- * Antriver\LaravelSiteScaffolding\EmailVerification\UserEmailChange
+ * Antriver\LaravelSiteUtils\EmailVerification\UserEmailChange
  *
  * @method static
- *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\UserEmailChange
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\EmailVerification\UserEmailChange
  *     newModelQuery()
  * @method static
- *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\UserEmailChange
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\EmailVerification\UserEmailChange
  *     newQuery()
  * @method static
- *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteScaffolding\EmailVerification\UserEmailChange query()
+ *     \Illuminate\Database\Eloquent\Builder|\Antriver\LaravelSiteUtils\EmailVerification\UserEmailChange query()
  * @mixin \Eloquent
  */
 class UserEmailChange extends AbstractModel

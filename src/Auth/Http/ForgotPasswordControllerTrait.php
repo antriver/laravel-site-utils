@@ -1,11 +1,11 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Auth\Http;
+namespace Antriver\LaravelSiteUtils\Auth\Http;
 
-use Antriver\LaravelSiteScaffolding\Auth\Forgot\ForgottenPasswordManager;
-use Antriver\LaravelSiteScaffolding\Auth\Forgot\PasswordResetTokenRepository;
-use Antriver\LaravelSiteScaffolding\Http\Traits\ValidatesCaptchaTrait;
-use Antriver\LaravelSiteScaffolding\Users\UserRepository;
+use Antriver\LaravelSiteUtils\Auth\Forgot\ForgottenPasswordManager;
+use Antriver\LaravelSiteUtils\Auth\Forgot\PasswordResetTokenRepository;
+use Antriver\LaravelSiteUtils\Http\Traits\ValidatesCaptchaTrait;
+use Antriver\LaravelSiteUtils\Users\UserRepository;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 

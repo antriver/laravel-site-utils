@@ -1,6 +1,6 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Migrations;
+namespace Antriver\LaravelSiteUtils\Migrations;
 
 use Illuminate\Database\Schema\Blueprint;
 

@@ -30,8 +30,8 @@ class CreateUsersTable extends Migration
                 $table->boolean('emailVerified')->default(false);
                 $table->boolean('emailBounced')->default(false);
                 $table->unsignedInteger('avatarImageId')->nullable();
-                \Antriver\LaravelSiteScaffolding\Migrations\MigrationHelper::addTimestamps($table);
-                \Antriver\LaravelSiteScaffolding\Migrations\MigrationHelper::addDeletedAt($table);
+                \Antriver\LaravelSiteUtils\Migrations\MigrationHelper::addTimestamps($table);
+                \Antriver\LaravelSiteUtils\Migrations\MigrationHelper::addDeletedAt($table);
                 $table->dateTime('deactivatedAt')->nullable();
             }
         );

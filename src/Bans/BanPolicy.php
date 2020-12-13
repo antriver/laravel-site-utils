@@ -1,10 +1,10 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffolding\Bans;
+namespace Antriver\LaravelSiteUtils\Bans;
 
-use Antriver\LaravelSiteScaffolding\Policies\Base\AbstractPolicy;
-use Antriver\LaravelSiteScaffolding\Policies\Base\ModelPolicyInterface;
-use Antriver\LaravelSiteScaffolding\Policies\Traits\AdminOnlyPolicyTrait;
+use Antriver\LaravelSiteUtils\Policies\Base\AbstractPolicy;
+use Antriver\LaravelSiteUtils\Policies\Base\ModelPolicyInterface;
+use Antriver\LaravelSiteUtils\Policies\Traits\AdminOnlyPolicyTrait;
 
 class BanPolicy extends AbstractPolicy implements ModelPolicyInterface
 {

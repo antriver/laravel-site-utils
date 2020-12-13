@@ -1,8 +1,8 @@
 <?php
 
-namespace Antriver\LaravelSiteScaffoldingTestApp\Http\Controllers\Api;
+namespace Antriver\LaravelSiteUtilsTestApp\Http\Controllers\Api;
 
-use Antriver\LaravelSiteScaffolding\Auth\Http\PasswordResetControllerTrait;
+use Antriver\LaravelSiteUtils\Auth\Http\PasswordResetControllerTrait;
 
 class PasswordResetController extends AbstractApiController
 {

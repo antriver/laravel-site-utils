@@ -1,6 +1,6 @@
 <?php
 
-use Antriver\LaravelSiteScaffolding\Date\DateFormat;
+use Antriver\LaravelSiteUtils\Date\DateFormat;
 
 if (!function_exists('display_datetime')) {
     /**
