@@ -10,13 +10,13 @@
     ],
     "autoload": {
         "psr-4": {
-            "Antriver\\LarvelSiteUtils\\": "src/"
+            "Antriver\\LaravelSiteUtils\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Antriver\\LarvelSiteUtilsTests\\": "tests/",
-            "Antriver\\LarvelSiteUtilsTestApp\\": "test-laravel-app/app/"
+            "Antriver\\LaravelSiteUtilsTests\\": "tests/",
+            "Antriver\\LaravelSiteUtilsTestApp\\": "test-laravel-app/app/"
         }
     },
     "require": {
@@ -48,7 +48,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Antriver\\LarvelSiteUtils\\Providers\\LarvelSiteUtilsServiceProvider"
+                "Antriver\\LaravelSiteUtils\\Providers\\LaravelSiteUtilsServiceProvider"
             ]
         }
     },
