@@ -39,7 +39,7 @@ class ForgotDetailsMail extends ExtendedMailable
                 your email address."
             )
             ->line('If you have forgotten your password, click this button to create a new one:')
-            ->action('Reset Password', url('reset-password').'?id='.$this->recipient->id.'&token='.$this->token)
+            ->action('Reset Password', www_url('reset-password').'?id='.$this->recipient->id.'&token='.$this->token)
             ->line(
                 'If you did not make this request, no action is required on your part. 
             Your account information is safe, and nobody is seeing this email except you.'
