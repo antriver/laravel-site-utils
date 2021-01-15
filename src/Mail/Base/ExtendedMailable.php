@@ -3,13 +3,12 @@
 namespace Antriver\LaravelSiteUtils\Mail\Base;
 
 use Antriver\LaravelSimpleMessageTrait\SimpleMessageTrait;
-use Antriver\LaravelSiteUtils\Mail\MailStyleTrait;
+use Antriver\LaravelSiteUtils\Mail\MailStylesInterface;
 use Antriver\LaravelSiteUtils\Users\UserInterface;
 use Illuminate\Mail\Mailable;
 
 abstract class ExtendedMailable extends Mailable
 {
-    use MailStyleTrait;
     use SimpleMessageTrait;
 
     /**
@@ -76,6 +75,10 @@ abstract class ExtendedMailable extends Mailable
         $data = parent::buildViewData();
 
         $data['recipient'] = $this->getRecipient();
+
+        // Add the styles as variables in the template.
+        $data['style'] = app(MailStylesInterface::class)->getStyles();
+        $data['fontFamily'] = app(MailStylesInterface::class)->getFontFamily();
 
         return $data;
     }
