@@ -82,7 +82,7 @@ abstract class ExtendedMailable extends Mailable
         $data['style'] = $mailStyles->getStyles();
         $data['fontFamily'] = $mailStyles->getFontFamily();
         $data['contactUrl'] = $mailStyles->getContactUrl();
-        $data['logoUrl'] = $mailStyles->getFontFamily();
+        $data['logoUrl'] = $mailStyles->getLogoUrl();
 
         return $data;
     }
