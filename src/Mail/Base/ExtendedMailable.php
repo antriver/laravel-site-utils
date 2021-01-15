@@ -77,8 +77,12 @@ abstract class ExtendedMailable extends Mailable
         $data['recipient'] = $this->getRecipient();
 
         // Add the styles as variables in the template.
-        $data['style'] = app(MailStylesInterface::class)->getStyles();
-        $data['fontFamily'] = app(MailStylesInterface::class)->getFontFamily();
+        /** @var MailStylesInterface $mailStyles */
+        $mailStyles = app(MailStylesInterface::class);
+        $data['style'] = $mailStyles->getStyles();
+        $data['fontFamily'] = $mailStyles->getFontFamily();
+        $data['contactUrl'] = $mailStyles->getContactUrl();
+        $data['logoUrl'] = $mailStyles->getFontFamily();
 
         return $data;
     }
