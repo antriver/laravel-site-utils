@@ -5,8 +5,6 @@ namespace Antriver\LaravelSiteUtils\Users;
 use Antriver\LaravelSiteUtils\Models\Base\AbstractModel;
 
 /**
- * Amirite\Models\UserNameChange
- *
  * @property int $id
  * @property int $userId
  * @property string $oldName

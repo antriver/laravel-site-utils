@@ -1,3 +1,11 @@
+<?php
+/**
+ * @var string[] $style
+ * @var string $fontFamily
+ * @var string $logoUrl
+ * @var string $contactUrl
+ */
+?>
 <div style="{{ $fontFamily }} {{ $style['body'] }}">
     <table width="100%" cellpadding="0" cellspacing="0">
         <tr>
@@ -10,8 +18,7 @@
                             <a style="{{ $fontFamily }} {{ $style['email-masthead_name'] }}"
                                href="{{ www_url('/') }}"
                                target="_blank">
-                                <img src="<?=asset_url('img/email-logo.jpg', true)?>" alt="Amirite?" width="177"
-                                     height="40"/>
+                                <img src="<?=$logoUrl?>" alt="<?=config('app.name')?>>" width="177" />
                             </a>
                         </td>
                     </tr>
@@ -59,12 +66,7 @@
                                                 @if (!empty($box['preformattedContent']))
                                                     {!! $box['preformattedContent'] !!}
                                                 @else
-                                                    <?php
-                                                    echo app(\Amirite\Presenters\TextPresenter::class)->format(
-                                                        $box['content'],
-                                                        false
-                                                    );
-                                                    ?>
+                                                    {{ $box['content'] }}
                                                 @endif
 
                                                 <?php
@@ -123,7 +125,7 @@
 
                                     <!-- Salutation -->
                                         <p style="{{ $style['paragraph'] }}">
-                                            <em>{{ !empty($signoff) ? $signoff : 'Amirite?' }}</em>
+                                            <em>{{ !empty($signoff) ? $signoff : config('app.name') }}</em>
                                         </p>
 
                                         <!-- Sub Copy -->
@@ -178,9 +180,9 @@
                                                 </p>
                                                 <p style="{{ $style['paragraph-sub'] }}">
                                                     <a style="{{ $style['anchor'] }}"
-                                                       href="{{ url('/contact') }}"
+                                                       href="<?=$contactUrl?>"
                                                        target="_blank">
-                                                        {{ www_url('/contact') }}
+                                                        <?=$contactUrl?>
                                                     </a>
                                                 </p>
                                             @endif
@@ -189,8 +191,8 @@
                                                 <a style="{{ $style['anchor'] }}"
                                                    href="{{ www_url('/') }}"
                                                    target="_blank">
-                                                    <img src="<?=asset_url('img/email-logo.jpg', true)?>"
-                                                         alt="Amirite?"
+                                                    <img src="<?=$logoUrl?>"
+                                                         alt="<?=config('app_name')?>"
                                                          height="20"/>
                                                 </a>
                                             </p>

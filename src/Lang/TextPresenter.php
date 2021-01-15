@@ -2,13 +2,11 @@
 
 namespace Antriver\LaravelSiteUtils\Lang;
 
-//use Amirite\Libraries\Images\Traits\MatchesImageMarkup;
+//use Antriver\LaravelSiteUtils\Images\Traits\MatchesImageMarkup;
 use Antriver\LaravelSiteUtils\Images\Image;
 
 /**
  * Formats text with some very limited markdown support.
- *
- * @package Amirite\Presenters
  */
 class TextPresenter
 {
@@ -77,7 +75,7 @@ class TextPresenter
         $this->parsedown->setUrlsLinked(true);
 
         $text = $this->parseSmilies($text);
-        $text = $this->parseUploadedImages($text, $fullsizeImages);
+        // $text = $this->parseUploadedImages($text, $fullsizeImages);
 
         $text = preg_replace(
             '/(::: diff)(.*?)(:::)/is',
@@ -157,46 +155,9 @@ class TextPresenter
         );
     }
 
-    public function boldAmirite(string $text): string
-    {
-        return preg_replace(static::getAmiriteEndingRegex(), "<strong>$1</strong>", $text);
-    }
-
-    public function formatPostText(string $text): string
-    {
-        return $this->boldAmirite(
-            trim(
-                $this->formatLine(
-                    $text
-                )
-            )
-        );
-    }
-
-    public static function getAmiriteEndingRegex(): string
-    {
-        return "/((amirite|am i right|right|rite|am i rite)[\?\!\.]*?)$/i";
-    }
-
     public static function stripNonWords(string $string): string
     {
         return preg_replace("/[^A-Za-z0-9 ]/", "", $string);
-    }
-
-    public static function enforceAmirite(string $string, string $ending = 'amirite?'): string
-    {
-        if (!preg_match(static::getAmiriteEndingRegex(), $string)) {
-            $noCommaEndings = ['!', '?', ',', '.', ':', ';', '-', '(', ')', '[', ']'];
-
-            $comma = '';
-            if (!in_array(substr($string, -1, 1), $noCommaEndings)) {
-                $comma = ',';
-            }
-
-            $string .= $comma.' '.$ending;
-        }
-
-        return $string;
     }
 
     public static function formatScore(int $score)

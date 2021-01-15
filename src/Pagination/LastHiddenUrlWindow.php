@@ -6,8 +6,6 @@ namespace Antriver\LaravelSiteUtils\Pagination;
  * Class LastHiddenUrlWindow
  *
  * Always shows 8 links
- *
- * @package Amirite\Libraries\Pagination
  */
 class LastHiddenUrlWindow extends UrlWindow
 {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "11400111fbd62216e5dcb6d273a81d1f",
+    "content-hash": "eb8f4bb95af60a0d2efdf3b8f71888b0",
     "packages": [
         {
             "name": "antriver/laravel-database-session-auth",
@@ -3537,16 +3537,16 @@
         },
         {
             "name": "tmd/laravel-repositories",
-            "version": "2.3.0",
+            "version": "2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/antriver/laravel-repositories.git",
-                "reference": "748871ef26c98feee5f593cd4a4dafea45df693e"
+                "reference": "7709f75a7299cbd5a328a0905b1d2d4cafc3a51d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/antriver/laravel-repositories/zipball/748871ef26c98feee5f593cd4a4dafea45df693e",
-                "reference": "748871ef26c98feee5f593cd4a4dafea45df693e",
+                "url": "https://api.github.com/repos/antriver/laravel-repositories/zipball/7709f75a7299cbd5a328a0905b1d2d4cafc3a51d",
+                "reference": "7709f75a7299cbd5a328a0905b1d2d4cafc3a51d",
                 "shasum": ""
             },
             "require": {
@@ -3575,7 +3575,7 @@
                 }
             ],
             "description": "Model repositories for Laravel 5.",
-            "time": "2020-01-12T21:41:14+00:00"
+            "time": "2021-01-15T14:55:51+00:00"
         },
         {
             "name": "tokenly/token-generator",
@@ -4452,6 +4452,7 @@
                 "faker",
                 "fixtures"
             ],
+            "abandoned": true,
             "time": "2019-12-12T13:22:17+00:00"
         },
         {
@@ -5134,6 +5135,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {
@@ -6025,8 +6027,8 @@
     "prefer-lowest": false,
     "platform": {
         "php": ">=7.3",
-        "ext-json": "*",
         "ext-imagick": "*",
+        "ext-json": "*",
         "ext-openssl": "*"
     },
     "platform-dev": [],

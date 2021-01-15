@@ -2,7 +2,7 @@
 
 namespace Antriver\LaravelSiteUtils\Bans;
 
-//use Amirite\Events\ContentTextUpdatedEvent;
+//use Antriver\LaravelSiteUtils\Events\ContentTextUpdatedEvent;
 use Antriver\LaravelSiteUtils\Pagination\ReturnsPaginatorsTrait;
 use Antriver\LaravelSiteUtils\Users\UserInterface;
 use Cache;
