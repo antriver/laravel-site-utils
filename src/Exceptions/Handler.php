@@ -8,7 +8,6 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
-use Illuminate\Foundation\Http\Exceptions\MaintenanceModeException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\ValidationException;
@@ -45,19 +44,19 @@ class Handler extends \Illuminate\Foundation\Exceptions\Handler
      * Render an exception into an HTTP response.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \Exception $exception
+     * @param \Exception $e
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function render($request, Exception $exception)
+    public function render($request, Throwable $e)
     {
         $isJson = $this->shouldRenderAsJson($request);
 
-        if (!$isJson && $exception instanceof MaintenanceModeException) {
+        if (!$isJson && $e instanceof MaintenanceModeException) {
             return response()->view(
                 'errors.503',
                 [
-                    'exception' => $exception,
+                    'exception' => $e,
                 ],
                 503
             );
@@ -69,15 +68,15 @@ class Handler extends \Illuminate\Foundation\Exceptions\Handler
                 ],
                 404
             );
-        }*/ elseif (!$isJson && $exception instanceof InvalidStateException) {
+        }*/ elseif (!$isJson && $e instanceof InvalidStateException) {
             return response()->redirectTo('/');
         }
 
         if (config('app.debug') && !$isJson) {
-            return $this->convertExceptionToResponse($exception);
+            return $this->convertExceptionToResponse($e);
         }
 
-        $data = $this->getDataForException($exception, $request);
+        $data = $this->getDataForException($e, $request);
 
         /*$data['request'] = [
             'url' => $request->fullUrl(),
@@ -90,14 +89,14 @@ class Handler extends \Illuminate\Foundation\Exceptions\Handler
             return Response::json($data, $data['status']);
         }
 
-        if ($exception instanceof ValidationException) {
+        if ($e instanceof ValidationException) {
             // Laravel's ValidationExceptions are recoverable - redirect the user back to the form with errors.
             // The API throws InvalidInputExceptions, with an array of messages, instead of ValidationExceptions.
-            return $this->convertValidationExceptionToResponse($exception, $request);
+            return $this->convertValidationExceptionToResponse($e, $request);
         }
 
-        if ($exception instanceof AuthenticationException) {
-            return $this->unauthenticated($request, $exception);
+        if ($e instanceof AuthenticationException) {
+            return $this->unauthenticated($request, $e);
         }
 
         return response()->view('errors.general', $data, $data['status']);
@@ -212,13 +211,13 @@ class Handler extends \Illuminate\Foundation\Exceptions\Handler
     /**
      * Report or log an exception.
      *
-     * @param \Exception $e
+     * @param Throwable $e
      *
-     * @return mixed
+     * @return void
      *
-     * @throws \Exception
+     * @throws Throwable
      */
-    public function report(Exception $e)
+    public function report(Throwable $e)
     {
         if ($this->shouldntReport($e)) {
             return null;
