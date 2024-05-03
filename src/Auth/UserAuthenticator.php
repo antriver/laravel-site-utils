@@ -10,13 +10,13 @@ use Antriver\LaravelSiteUtils\EmailVerification\EmailVerificationRepository;
 use Antriver\LaravelSiteUtils\Exceptions\InvalidInputException;
 use Antriver\LaravelSiteUtils\Users\Exceptions\DeactivatedUserException;
 use Antriver\LaravelSiteUtils\Users\Exceptions\UnverifiedUserException;
+use Antriver\LaravelSiteUtils\Users\PasswordHasher;
 use Antriver\LaravelSiteUtils\Users\User;
 use Antriver\LaravelSiteUtils\Users\UserInterface;
 use Antriver\LaravelSiteUtils\Validation\RequestValidator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
-use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
 class UserAuthenticator
 {

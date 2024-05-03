@@ -3,12 +3,12 @@
 namespace Antriver\LaravelSiteUtils\Users\Http;
 
 use Antriver\LaravelSiteUtils\EmailVerification\EmailVerificationManager;
+use Antriver\LaravelSiteUtils\Users\PasswordHasher;
 use Antriver\LaravelSiteUtils\Users\User;
 use Antriver\LaravelSiteUtils\Users\UserNameChange;
 use Antriver\LaravelSiteUtils\Users\UserPresenter;
 use Antriver\LaravelSiteUtils\Users\UserRepository;
 use Illuminate\Http\Request;
-use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
 trait UserControllerTrait
 {

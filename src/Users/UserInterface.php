@@ -3,7 +3,6 @@
 namespace Antriver\LaravelSiteUtils\Users;
 
 use Illuminate\Contracts\Auth\Authenticatable;
-use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
 interface UserInterface extends Authenticatable
 {

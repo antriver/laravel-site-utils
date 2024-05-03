@@ -12,7 +12,6 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Laravel\Socialite\AbstractUser;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
 class UserService
 {
@@ -121,8 +120,8 @@ class UserService
         $account = $this->returnUserSocialAccountFromSocialUser($service, $socialUser);
         if ($account->userId && $account->userId != $user->id) {
             throw new BadRequestHttpException(
-                "This {$service} account is already linked to another user. 
-                (Tip: you can logout then login via {$service} to get to that account, 
+                "This {$service} account is already linked to another user.
+                (Tip: you can logout then login via {$service} to get to that account,
                 then remove the link from the Settings page.)"
             );
         }

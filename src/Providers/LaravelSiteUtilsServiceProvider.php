@@ -9,6 +9,7 @@ use Antriver\LaravelSiteUtils\Console\Commands\SiteUtils\PublishTestsCommand;
 use Antriver\LaravelSiteUtils\Debug\QueryLogger;
 use Antriver\LaravelSiteUtils\EmailVerification\EmailVerification;
 use Antriver\LaravelSiteUtils\EmailVerification\EmailVerificationPolicy;
+use Antriver\LaravelSiteUtils\Users\PasswordHasher;
 use Antriver\LaravelSiteUtils\Users\User;
 use Antriver\LaravelSiteUtils\Users\UserPolicy;
 use Antriver\LaravelSiteUtils\Users\UserRepository;
@@ -19,7 +20,6 @@ use Illuminate\Routing\Events\RouteMatched;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
-use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
 class LaravelSiteUtilsServiceProvider extends ServiceProvider
 {

@@ -2,13 +2,13 @@
 
 namespace Antriver\LaravelSiteUtils\Auth;
 
+use Antriver\LaravelSiteUtils\Users\PasswordHasher;
 use Antriver\LaravelSiteUtils\Users\User;
 use Antriver\LaravelSiteUtils\Users\UserRepository;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider as UserProviderInterface;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
-use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
 /**
  * Laravel auth provider that loads users from a repository.
