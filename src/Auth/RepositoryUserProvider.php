@@ -130,4 +130,9 @@ class RepositoryUserProvider implements UserProviderInterface
 
         return $this->hasher->verify($plain, $user, 'password');
     }
+
+    public function rehashPasswordIfRequired(Authenticatable $user, array $credentials, bool $force = false)
+    {
+        // TODO: Implement rehashPasswordIfRequired() method.
+    }
 }
