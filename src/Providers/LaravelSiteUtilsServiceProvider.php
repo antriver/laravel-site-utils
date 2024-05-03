@@ -126,7 +126,7 @@ class LaravelSiteUtilsServiceProvider extends ServiceProvider
     protected function setupQueryLogger()
     {
         if (config('app.log_queries')) {
-            $this->app->singleton(QueryLogger::class, new QueryLogger());
+            $this->app->singleton(QueryLogger::class);
         }
     }
 
