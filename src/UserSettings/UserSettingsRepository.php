@@ -4,7 +4,7 @@ namespace Antriver\LaravelSiteUtils\UserSettings;
 
 use Antriver\LaravelSiteUtils\Repositories\Interfaces\UserBelongingsRepositoryInterface;
 use Antriver\LaravelSiteUtils\Users\UserInterface;
-use Tmd\LaravelRepositories\Base\AbstractRepository;
+use Antriver\LaravelRepositories\Base\AbstractRepository;
 
 /**
  * @method UserSettings find(int $modelId)

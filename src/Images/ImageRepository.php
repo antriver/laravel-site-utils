@@ -4,7 +4,7 @@ namespace Antriver\LaravelSiteUtils\Images;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
-use Tmd\LaravelRepositories\Base\AbstractCachedRepository;
+use Antriver\LaravelRepositories\Base\AbstractCachedRepository;
 
 class ImageRepository extends AbstractCachedRepository
 {

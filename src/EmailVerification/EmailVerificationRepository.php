@@ -3,7 +3,7 @@
 namespace Antriver\LaravelSiteUtils\EmailVerification;
 
 use Antriver\LaravelSiteUtils\Users\UserInterface;
-use Tmd\LaravelRepositories\Base\AbstractRepository;
+use Antriver\LaravelRepositories\Base\AbstractRepository;
 
 /**
  * @method findOrFail(int $id): EmailVerification

@@ -2,7 +2,7 @@
 
 namespace Antriver\LaravelSiteUtils\Users;
 
-use Tmd\LaravelRepositories\Base\AbstractCachedRepository;
+use Antriver\LaravelRepositories\Base\AbstractCachedRepository;
 
 /**
  * @method persist(User $user)

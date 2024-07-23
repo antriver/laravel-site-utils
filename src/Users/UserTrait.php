@@ -4,7 +4,6 @@ namespace Antriver\LaravelSiteUtils\Users;
 
 use Antriver\LaravelSiteUtils\Lang\LanguageHelpers;
 use Illuminate\Support\Str;
-use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
 trait UserTrait
 {

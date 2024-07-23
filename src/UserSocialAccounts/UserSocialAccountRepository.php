@@ -3,7 +3,7 @@
 namespace Antriver\LaravelSiteUtils\UserSocialAccounts;
 
 use Antriver\LaravelSiteUtils\Users\UserInterface;
-use Tmd\LaravelRepositories\Base\AbstractRepository;
+use Antriver\LaravelRepositories\Base\AbstractRepository;
 
 class UserSocialAccountRepository extends AbstractRepository
 {
