@@ -53,4 +53,14 @@ class MailStyles implements MailStylesInterface
     {
         return 'font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;';
     }
+
+    public function getContactUrl(): string
+    {
+        return ''; // TODO
+    }
+
+    public function getLogoUrl(): string
+    {
+        return ''; // TODO
+    }
 }

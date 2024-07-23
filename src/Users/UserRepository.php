@@ -17,7 +17,7 @@ class UserRepository extends AbstractCachedRepository
      *
      * @return string
      */
-    public function getModelClass()
+    public function getModelClass(): string
     {
         return User::class;
     }

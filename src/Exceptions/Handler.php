@@ -52,23 +52,7 @@ class Handler extends \Illuminate\Foundation\Exceptions\Handler
     {
         $isJson = $this->shouldRenderAsJson($request);
 
-        if (!$isJson && $e instanceof MaintenanceModeException) {
-            return response()->view(
-                'errors.503',
-                [
-                    'exception' => $e,
-                ],
-                503
-            );
-        } /*elseif (!$isJson && $exception instanceof NotFoundHttpException) {
-            return response()->view(
-                'errors.404',
-                [
-                    'exception' => $exception,
-                ],
-                404
-            );
-        }*/ elseif (!$isJson && $e instanceof InvalidStateException) {
+        if (!$isJson && $e instanceof InvalidStateException) {
             return response()->redirectTo('/');
         }
 

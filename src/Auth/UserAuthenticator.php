@@ -15,12 +15,13 @@ use Antriver\LaravelSiteUtils\Users\User;
 use Antriver\LaravelSiteUtils\Users\UserInterface;
 use Antriver\LaravelSiteUtils\Validation\RequestValidator;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
+// use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserAuthenticator
 {
-    use ThrottlesLogins;
+    // use ThrottlesLogins;
 
     /**
      * @var BanRepository
@@ -131,7 +132,7 @@ class UserAuthenticator
      */
     public function setSessionCookieAndLoginToWeb(UserInterface $user, Request $request): string
     {
-        $this->clearLoginAttempts($request);
+        // $this->clearLoginAttempts($request);
         $request->session()->regenerate();
 
         $token = $this->createUserDatabaseSessionToken($user, $request, Auth::guard('web'));

@@ -12,7 +12,7 @@ class UserSocialAccountRepository extends AbstractRepository
      *
      * @return string
      */
-    public function getModelClass()
+    public function getModelClass(): string
     {
         return UserSocialAccount::class;
     }

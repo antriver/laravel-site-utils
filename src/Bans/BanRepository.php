@@ -146,7 +146,7 @@ class BanRepository extends AbstractRepository
      *
      * @return EloquentModel|string|\Illuminate\Database\Eloquent\Builder
      */
-    public function getModelClass()
+    public function getModelClass(): string
     {
         return Ban::class;
     }

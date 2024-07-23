@@ -2,6 +2,8 @@
 
 namespace Antriver\LaravelSiteUtils\Lang;
 
+use Illuminate\Support\Str;
+
 class LanguageHelpers
 {
     public static function s($num)
@@ -133,17 +135,14 @@ class LanguageHelpers
         }
     }
 
-    public static function sluggify($source, $separator = '-')
+    public static function sluggify($source, $separator = '-'): string
     {
         $source = preg_replace("/[^A-Za-z0-9 ]/", '', $source);
 
-        $slugEngine = new \Cocur\Slugify\Slugify();
-        $slug = $slugEngine->slugify($source, $separator);
-
-        return $slug;
+        return Str::slug($source, $separator);
     }
 
-    public static function expressNumberAsWords($number)
+    public static function expressNumberAsWords($number): string
     {
         $hyphen = '-';
         $conjunction = ' and ';

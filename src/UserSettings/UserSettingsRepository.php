@@ -16,7 +16,7 @@ class UserSettingsRepository extends AbstractRepository implements UserBelonging
     /**
      * @return string
      */
-    public function getModelClass()
+    public function getModelClass(): string
     {
         return UserSettings::class;
     }

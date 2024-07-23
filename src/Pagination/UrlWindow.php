@@ -86,7 +86,7 @@ class UrlWindow extends \Illuminate\Pagination\UrlWindow
      *
      * @return array
      */
-    protected function getSliderTooCloseToBeginning($window)
+    protected function getSliderTooCloseToBeginning($window, $onEachSide): array
     {
         return [
             'first' => $this->paginator->getUrlRange(1, $this->maxItems - 2),
@@ -103,7 +103,7 @@ class UrlWindow extends \Illuminate\Pagination\UrlWindow
      *
      * @return array
      */
-    protected function getSliderTooCloseToEnding($window)
+    protected function getSliderTooCloseToEnding($window, $onEachSide): array
     {
         $last = $this->paginator->getUrlRange(
             $this->lastPage() - ($this->maxItems - 3),

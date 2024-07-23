@@ -111,4 +111,9 @@ class PasswordResetTokenRepository implements TokenRepositoryInterface
     {
         return DB::table('password_reset_tokens');
     }
+
+    public function recentlyCreatedToken(CanResetPasswordContract $user): bool
+    {
+        return false; // TODO
+    }
 }
