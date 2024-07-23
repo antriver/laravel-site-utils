@@ -4,10 +4,11 @@ namespace Antriver\LaravelSiteUtilsTests\Unit\Validation\Rules;
 
 use Antriver\LaravelSiteUtils\Validation\Rules\LongitudeValidationRule;
 use Antriver\LaravelSiteUtilsTests\Unit\AbstractUnitTestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class LongitudeValidationRuleTest extends AbstractUnitTestCase
 {
-    public function dataForTestPasses()
+    public static function dataForTestPasses(): array
     {
         return [
             [
@@ -69,12 +70,7 @@ class LongitudeValidationRuleTest extends AbstractUnitTestCase
         ];
     }
 
-    /**
-     * @dataProvider dataForTestPasses
-     *
-     * @param $input
-     * @param bool $expect
-     */
+    #[DataProvider('dataForTestPasses')]
     public function testPasses($input, bool $expect)
     {
         $rule = new LongitudeValidationRule();

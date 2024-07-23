@@ -4,10 +4,11 @@ namespace Antriver\LaravelSiteUtilsTests\Unit\Lang;
 
 use Antriver\LaravelSiteUtilsTests\Unit\AbstractUnitTestCase;
 use Antriver\LaravelSiteUtils\Lang\LanguageHelpers;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class LanguageHelpersTest extends AbstractUnitTestCase
 {
-    public function dataForTestWordTruncate()
+    public static function dataForTestWordTruncate(): array
     {
         return [
             [
@@ -57,19 +58,14 @@ class LanguageHelpersTest extends AbstractUnitTestCase
         ];
     }
 
-    /**
-     * @dataProvider dataForTestWordTruncate
-     *
-     * @param $input
-     * @param $expect
-     */
+    #[DataProvider('dataForTestWordTruncate')]
     public function testWordTruncate($input, $expect)
     {
         $result = LanguageHelpers::wordTruncate($input, 10);
         $this->assertSame($expect, $result);
     }
 
-    public function dataForTestWordTruncateDetail()
+    public static function dataForTestWordTruncateDetail(): array
     {
         return [
             [
@@ -163,12 +159,7 @@ class LanguageHelpersTest extends AbstractUnitTestCase
         ];
     }
 
-    /**
-     * @dataProvider dataForTestWordTruncateDetail
-     *
-     * @param $input
-     * @param $expect
-     */
+    #[DataProvider('dataForTestWordTruncateDetail')]
     public function testWordTruncateAsSArray($input, $expect)
     {
         $result = LanguageHelpers::wordTruncateDetail($input, 10);

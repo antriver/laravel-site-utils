@@ -41,7 +41,7 @@
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.0",
         "fakerphp/faker": "^1.23",
-        "phpunit/phpunit": "^9.0"
+        "phpunit/phpunit": "^11.2"
     },
     "extra": {
         "laravel": {

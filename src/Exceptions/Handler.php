@@ -109,7 +109,7 @@ class Handler extends \Illuminate\Foundation\Exceptions\Handler
      *
      * @return array
      */
-    public function getDataForException(Exception $exception, Request $request = null)
+    public function getDataForException(Throwable $exception, Request $request = null)
     {
         if ($exception instanceof ValidationException) {
             $status = \Symfony\Component\HttpFoundation\Response::HTTP_BAD_REQUEST;;

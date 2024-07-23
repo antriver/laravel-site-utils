@@ -1,16 +1,21 @@
 # Laravel Site Utils
 
-A whole bunch of stuff to not have to duplicate common things in every app.
+A bunch of stuff to not have to duplicate common things in every app.
 - User login
 - Email verification
 - Banning users
 - Image handling
 
-Laravel has built in methods for some of this already but this does it nicer (this really means the way I like, so this isn't really desined to be used by anyone else).
+Laravel has built in methods for some of this already but this does it "nicer" (read: the way I like),
+so this isn't really designed to be used by anyone else).
 
-Where concrete classes are provided for models, repositories and controllers, matching interfaces and traits are also provided so you can use those on your own concrete versions instead. Where possible type hints are interfaces.
+Where concrete classes are provided for models, repositories and controllers, matching interfaces and traits are also
+provided, so you can use those on your own concrete versions instead. Where possible type hints are interfaces.
 
-If you take a look at `Providers\LaravelSiteUtilsServiceProvider` you will find an array containing a mapping of interfaces to concrete implementations. These will be bound in Laravel's DI container. If you want to use custom implementations then extend` LaravelSiteUtilsServiceProvider` and overrides the appropriate array values.
+If you take a look at `Providers\LaravelSiteUtilsServiceProvider` you will find an array containing a mapping of
+interfaces to concrete implementations. These will be bound in Laravel's DI container.
+If you want to use custom implementations then extend` LaravelSiteUtilsServiceProvider` and overrides the
+appropriate array values.
 
 ## Installation
 
@@ -30,7 +35,8 @@ Then run:
 
 ### Changing Configuration
 
-Create a subclass of the provider so you can easily change settings. In your `app/providers` directory create `LaravelSiteUtilsServiceProvider.php` with the contents:
+Create a subclass of the provider so that you can easily change settings. In your `app/providers` directory
+create `LaravelSiteUtilsServiceProvider.php` with the contents:
 
     <?php
 
@@ -85,5 +91,6 @@ Create test classes for your new controllers created by the install command.
 
 
 ## TODO
-* Resetting the password of a user who has not verified their email returns an UnverifiedUserException after trying to login so it looks like the password reset failed when it didn't.
+* Resetting the password of a user who has not verified their email returns an UnverifiedUserException after trying to
+  login, so it looks like the password reset failed when it didn't.
 * Command to delete expired password reset tokens.
