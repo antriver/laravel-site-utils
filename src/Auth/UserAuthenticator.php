@@ -15,73 +15,29 @@ use Antriver\LaravelSiteUtils\Users\User;
 use Antriver\LaravelSiteUtils\Users\UserInterface;
 use Antriver\LaravelSiteUtils\Validation\RequestValidator;
 use Illuminate\Database\Eloquent\Builder;
-// use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class UserAuthenticator
 {
-    // use ThrottlesLogins;
-
-    /**
-     * @var BanRepository
-     */
-    private $banRepository;
-
-    /**
-     * @var EmailVerificationManager
-     */
-    private $emailVerificationManager;
-
-    /**
-     * @var EmailVerificationRepository
-     */
-    private $emailVerificationRepository;
-
-    /**
-     * @var JwtFactory
-     */
-    private $jwtFactory;
-
-    /**
-     * @var PasswordHasher
-     */
-    private $passwordHasher;
-
-    /**
-     * @var RequestValidator
-     */
-    private $requestValidator;
-
     public function __construct(
-        BanRepository $banRepository,
-        EmailVerificationManager $emailVerificationManager,
-        EmailVerificationRepository $emailVerificationRepository,
-        JwtFactory $jwtFactory,
-        PasswordHasher $passwordHasher,
-        RequestValidator $requestValidator
+        private BanRepository $banRepository,
+        private EmailVerificationRepository $emailVerificationRepository,
+        private JwtFactory $jwtFactory,
+        private PasswordHasher $passwordHasher,
+        private RequestValidator $requestValidator
     ) {
-        $this->banRepository = $banRepository;
-        $this->emailVerificationManager = $emailVerificationManager;
-        $this->emailVerificationRepository = $emailVerificationRepository;
-        $this->jwtFactory = $jwtFactory;
-        $this->passwordHasher = $passwordHasher;
-        $this->requestValidator = $requestValidator;
     }
 
     /**
      * Check the given username and password. Return the matching user if there is one and that user
-     * is allowed to login.
-     *
-     * @param Request $request
-     * @param bool $canLoginIfUnverified
-     *
-     * @return UserInterface
+     * is allowed to log in.
      */
     public function validateLogin(
         Request $request,
         bool $canLoginIfUnverified = false
-    ) {
+    ): UserInterface {
         // Check input for sanity
         $this->requestValidator->validate(
             $request,
@@ -91,26 +47,12 @@ class UserAuthenticator
             ]
         );
 
-        // If the class is using the ThrottlesLogins trait, we can automatically throttle
-        // the login attempts for this application. We'll key this by the username and
-        // the IP address of the client making these requests into this application.
-        if ($lockedOut = $this->hasTooManyLoginAttempts($request)) {
-            $this->fireLockoutEvent($request);
-            $this->sendLockoutResponse($request);
-        }
-
         $credentials = $request->only(
             'username',
             'password'
         );
 
-        try {
-            $user = $this->findAccountByCredentials($credentials);
-        } finally {
-            if (empty($user)) {
-                $this->incrementLoginAttempts($request);
-            }
-        }
+        $user = $this->findAccountByCredentials($credentials);
 
         // Credentials are valid. Throw an exception if the user is deactivated or banned.
         $this->ensureAccountCanLogin(
@@ -132,21 +74,24 @@ class UserAuthenticator
      */
     public function setSessionCookieAndLoginToWeb(UserInterface $user, Request $request): string
     {
-        // $this->clearLoginAttempts($request);
         $request->session()->regenerate();
 
-        $token = $this->createUserDatabaseSessionToken($user, $request, Auth::guard('web'));
+        $token = $this->createUserDatabaseSessionToken(
+            $user,
+            $request,
+            Auth::guard('web')
+        );
 
         $this->setSessionTokenCookie($token);
 
         return $token;
     }
 
-    protected function setSessionTokenCookie(?string $token)
+    protected function setSessionTokenCookie(?string $token): void
     {
         if (!empty($token)) {
-            \Cookie::queue(
-                \Cookie::make(
+            Cookie::queue(
+                Cookie::make(
                     config('app.session_cookie_name'),
                     $token,
                     2628000,
@@ -157,8 +102,8 @@ class UserAuthenticator
                 )
             );
         } else {
-            \Cookie::queue(
-                \Cookie::make(
+            Cookie::queue(
+                Cookie::make(
                     config('app.session_cookie_name'),
                     '',
                     -2628000,
@@ -175,21 +120,18 @@ class UserAuthenticator
         UserInterface $user,
         Request $request,
         DatabaseSessionGuard $guard
-    ) {
+    ): ?string {
         $guard->login($user, $request);
 
         return $guard->getSessionId();
     }
 
-    /**
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function redirectSuccessfulLogin()
+    public function redirectSuccessfulLogin(): \Illuminate\Http\RedirectResponse
     {
         return redirect()->intended('/');
     }
 
-    public function redirectUnverifiedUser(Request $request, UserInterface $user)
+    public function redirectUnverifiedUser(Request $request, UserInterface $user): \Illuminate\Http\RedirectResponse
     {
         // Set user in session.
         $request->session()->put('newUser', $user);
@@ -197,12 +139,6 @@ class UserAuthenticator
         return redirect('/signup-complete');
     }
 
-    /**
-     * @param array $credentials
-     *
-     * @return UserInterface If success.
-     * @throws InvalidInputException
-     */
     protected function findAccountByCredentials(array $credentials): UserInterface
     {
         /** @var User $user */
@@ -232,7 +168,7 @@ class UserAuthenticator
 
     /**
      * Called after the credentials have been checked, so we know the user is who they claim to be.
-     * Before we actually log the user in check this account is allowed to login.
+     * Before we actually log the user in check this account is allowed to log in.
      * - Not banned
      * - Not deactivation
      * - Email verified (if enabled)
@@ -245,7 +181,7 @@ class UserAuthenticator
     public function ensureAccountCanLogin(
         UserInterface $user,
         bool $canLoginIfUnverified = false
-    ) {
+    ): bool {
         if ($ban = $this->banRepository->findCurrentForUser($user)) {
             throw new BannedUserException($ban, $user);
         }
@@ -275,16 +211,5 @@ class UserAuthenticator
         }
 
         return true;
-    }
-
-    /**
-     * Get the login username to be used by the controller.
-     * (Needed for ThrottlesLogins trait)
-     *
-     * @return string
-     */
-    protected function username()
-    {
-        return 'username';
     }
 }

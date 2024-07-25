@@ -160,9 +160,9 @@ class ImageFileRepository
      * @return Image
      * @throws Exception
      */
-    public function persistImage(InterventionImage $image, $directory, $filename = null, $extension = 'jpg')
+    public function persistImage(InterventionImage $image, $directory, $filename = null, string $extension = 'jpg')
     {
-        // Generate a new temporary file so we can force images to be the desired format
+        // Generate a new temporary file, so we can force images to be the desired format.
         $tempFile = $this->makeTempFile($extension);
 
         $image->save($tempFile->getPathname());
