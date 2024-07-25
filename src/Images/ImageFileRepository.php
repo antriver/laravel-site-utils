@@ -299,12 +299,8 @@ class ImageFileRepository
 
     /**
      * TODO: Move to queue. Serve unoptimized version until it's ready.
-     *
-     * @param File $file
-     *
-     * @return int[]
      */
-    private function optimize(File $file)
+    private function optimize(File $file): ?array
     {
         clearstatcache();
         $size = $file->getSize();
@@ -313,11 +309,22 @@ class ImageFileRepository
             return [$size, null];
         }
 
-        $jpegtran = Config::get('app.jpegtran_bin');
+        $jpegtranPath = Config::get('app.jpegtran_bin');
+        if (empty($jpegtranPath)) {
+            return null;
+        }
+
         $inPath = escapeshellarg($file->getPathname());
         $outPath = $inPath;
 
-        $cmd = "{$jpegtran} -optimize -progressive -copy none -outfile {$outPath} {$inPath}";
+        $cmd = [
+            $jpegtranPath,
+            '-optimize',
+            '-progressive',
+            '-copy none',
+            '-outfile '. $outPath,
+            $inPath
+        ];
 
         $process = new Process($cmd);
 
