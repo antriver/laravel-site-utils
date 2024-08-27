@@ -6,8 +6,8 @@ A bunch of stuff to not have to duplicate common things in every app.
 - Banning users
 - Image handling
 
-Laravel has built in methods for some of this already but this does it "nicer" (read: the way I like),
-so this isn't really designed to be used by anyone else).
+Laravel has built in methods for some of this already but this does it "nicer" (read: the way I like).
+This isn't designed to be used by anyone else, but it's here if you want it.
 
 Where concrete classes are provided for models, repositories and controllers, matching interfaces and traits are also
 provided, so you can use those on your own concrete versions instead. Where possible type hints are interfaces.
