@@ -52,8 +52,6 @@ class LaravelSiteUtilsServiceProvider extends ServiceProvider
             );
         }
 
-        $this->loadMigrationsFrom(__DIR__.'/../../migrations');
-
         // This makes everything break if the DB is down. Disabled.
         //DB::connection()->getPdo()->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
 
@@ -62,6 +60,11 @@ class LaravelSiteUtilsServiceProvider extends ServiceProvider
         $this->setupQueryLogger();
         $this->setupGuardsPerRoute();
         $this->registerPolicies();
+    }
+
+    protected function loadMigrations()
+    {
+        $this->loadMigrationsFrom(__DIR__.'/../../migrations');
     }
 
     protected function setupRepositoryUserProvider()
