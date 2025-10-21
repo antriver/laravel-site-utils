@@ -8,7 +8,7 @@ if (!function_exists('display_datetime')) {
      *
      * @return null|string Nov 10th 2017 10:51 AM
      */
-    function display_datetime(DateTime $dateTime = null)
+    function display_datetime(?DateTime $dateTime = null)
     {
         if (!$dateTime) {
             return null;
@@ -24,7 +24,7 @@ if (!function_exists('display_date')) {
      *
      * @return string|null Nov 10th 2017
      */
-    function display_date(DateTime $dateTime = null)
+    function display_date(?DateTime $dateTime = null)
     {
         if (!$dateTime) {
             return null;
