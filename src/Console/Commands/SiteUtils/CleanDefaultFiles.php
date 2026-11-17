@@ -52,18 +52,18 @@ class CleanDefaultFiles extends AbstractCommand
             $filePath = $basePath.$file;
             if (file_exists($filePath)) {
                 if (is_dir($filePath)) {
-                    $this->info("Removing directory ${filePath}");
+                    $this->info("Removing directory {$filePath}");
                     if (!$this->isDryRun) {
                         passthru("rm -r ".escapeshellarg($filePath));
                     }
                 } else {
-                    $this->info("Removing file ${filePath}");
+                    $this->info("Removing file {$filePath}");
                     if (!$this->isDryRun) {
                         unlink($filePath);
                     }
                 }
             } else {
-                $this->output->writeln("Didn't find ${filePath}");
+                $this->output->writeln("Didn't find {$filePath}");
             }
         }
     }

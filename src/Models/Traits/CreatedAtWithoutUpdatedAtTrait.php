@@ -18,11 +18,9 @@ trait CreatedAtWithoutUpdatedAtTrait
      */
     public function getDates()
     {
-        $defaults = [AbstractModel::CREATED_AT];
-
         /** @var AbstractModel $this */
 
-        return $this->timestamps ? array_merge($this->dates, $defaults) : $this->dates;
+        return $this->usesTimestamps() ? [$this->getCreatedAtColumn()] : [];
     }
 
     public function setUpdatedAt($value)

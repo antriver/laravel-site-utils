@@ -5,7 +5,7 @@ namespace Antriver\LaravelSiteUtils\Testing\RouteTests\Auth;
 use Antriver\LaravelSiteUtils\Exceptions\InvalidInputException;
 use Antriver\LaravelSiteUtils\Users\Exceptions\UnverifiedUserException;
 use Antriver\LaravelSiteUtils\Users\User;
-use Illuminate\Foundation\Testing\TestResponse;
+use Illuminate\Testing\TestResponse;
 
 trait AuthStoreTestTrait
 {

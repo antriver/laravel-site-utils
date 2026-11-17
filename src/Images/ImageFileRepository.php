@@ -4,8 +4,15 @@ namespace Antriver\LaravelSiteUtils\Images;
 
 use Config;
 use Exception;
-use Intervention\Image\Image as InterventionImage;
+use Illuminate\Support\Facades\Http;
+use Intervention\Image\Decoders\Base64ImageDecoder;
+use Intervention\Image\Decoders\BinaryImageDecoder;
+use Intervention\Image\Decoders\DataUriImageDecoder;
+use Intervention\Image\Drivers\Imagick\Driver as ImagickDriver;
+use Intervention\Image\Exceptions\ImageDecoderException;
+use Intervention\Image\Exceptions\InvalidArgumentException as InterventionInvalidArgumentException;
 use Intervention\Image\ImageManager as InterventionImageManager;
+use Intervention\Image\Interfaces\ImageInterface as InterventionImage;
 use Storage;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -35,11 +42,7 @@ class ImageFileRepository
 
     public function __construct()
     {
-        $this->imageManager = new InterventionImageManager(
-            [
-                'driver' => 'imagick',
-            ]
-        );
+        $this->imageManager = new InterventionImageManager(ImagickDriver::class);
 
         $this->storage = Storage::cloud();
         $this->tempPath = config('filesystems.disks.temp.root');
@@ -54,10 +57,7 @@ class ImageFileRepository
      */
     public function makeImageFromFile(File $file)
     {
-        $image = $this->imageManager->make($file->getPathname());
-        if (!$image) {
-            throw new Exception("Unable to create image from file.");
-        }
+        $image = $this->imageManager->decodePath($file->getPathname());
 
         return new ImageOnDisk($image, $file);
     }
@@ -70,10 +70,7 @@ class ImageFileRepository
      */
     public function makeImageFromUploadedFile(UploadedFile $file)
     {
-        $image = $this->imageManager->make($file->getPathname());
-        if (!$image) {
-            throw new Exception("Unable to create image from uploaded file.");
-        }
+        $image = $this->imageManager->decodePath($file->getPathname());
 
         return new ImageOnDisk($image, $file);
     }
@@ -86,10 +83,7 @@ class ImageFileRepository
      */
     public function makeImageFromUrl($url)
     {
-        $image = $this->imageManager->make($url);
-        if (!$image) {
-            throw new \Exception("Unable to create image from url.");
-        }
+        $image = $this->imageManager->decodeBinary(Http::get($url)->throw()->body());
 
         // Save the image to a temporary file on disk.
         $file = $this->makeTempFile();
@@ -109,9 +103,16 @@ class ImageFileRepository
         if (empty($string)) {
             throw new \Exception("Image string must not be empty.");
         }
-        $image = $this->imageManager->make($string);
-        if (!$image) {
-            throw new \Exception("Unable to create image from string.");
+        // Only decode the string's own contents, so a string that happens to be a local file path is not read.
+        // Input none of those decoders recognise throws InvalidArgumentException, so convert it to the decoder
+        // exception the Handler treats as bad input rather than a bug.
+        try {
+            $image = $this->imageManager->decode(
+                $string,
+                [BinaryImageDecoder::class, Base64ImageDecoder::class, DataUriImageDecoder::class]
+            );
+        } catch (InterventionInvalidArgumentException $e) {
+            throw new ImageDecoderException('Unable to create image from string.', 0, $e);
         }
 
         // Save the image to a temporary file on disk.
@@ -281,7 +282,7 @@ class ImageFileRepository
     private function makeImageModel(
         $filename,
         $directory,
-        InterventionImage $image = null,
+        ?InterventionImage $image = null,
         $size = null,
         $optimizedSize = null
     ) {

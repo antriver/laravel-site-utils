@@ -43,7 +43,7 @@ abstract class AbstractCommand extends Command
      * @param InputInterface $input An InputInterface instance
      * @param OutputInterface $output An OutputInterface instance
      */
-    protected function initialize(InputInterface $input, OutputInterface $output)
+    protected function initialize(InputInterface $input, OutputInterface $output): void
     {
         $this->output->writeln("\n*****\n".date('Y-m-d H:i:s')."\n".static::class."\n*****");
 

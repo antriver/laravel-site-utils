@@ -177,7 +177,7 @@ class UserService
      * @return User
      * @throws \Exception
      */
-    public function createUser($data, Request $request = null, bool $verifyEmail = true)
+    public function createUser($data, ?Request $request = null, bool $verifyEmail = true)
     {
         $userClass = $this->userRepository->getModelClass();
 

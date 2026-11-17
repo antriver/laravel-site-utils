@@ -20,28 +20,28 @@
         }
     },
     "require": {
-        "php": ">=8.0",
+        "php": "^8.4",
         "ext-json": "*",
         "ext-openssl": "*",
         "antriver/laravel-database-session-auth": "^6.0",
         "antriver/laravel-model-presenters": "^1.0",
         "antriver/laravel-registers": "^6.0",
-        "antriver/laravel-repositories": "^10.0",
+        "antriver/laravel-repositories": "^10.0.4",
         "antriver/laravel-simple-message-trait": "^5.8",
-        "aws/aws-php-sns-message-validator": "^1.6",
-        "erusev/parsedown": "^1.7",
-        "firebase/php-jwt": "^5.0",
-        "google/recaptcha": "^1.2",
-        "intervention/image": "^2.5",
-        "laravel/framework": "^11.0",
-        "laravel/socialite": "^5.12",
-        "league/flysystem-aws-s3-v3": "^3.27",
+        "aws/aws-php-sns-message-validator": "^1.10",
+        "erusev/parsedown": "^1.8",
+        "firebase/php-jwt": "^7.2",
+        "google/recaptcha": "^2.1",
+        "intervention/image": "^4.4",
+        "laravel/framework": "^12.0 || ^13.0",
+        "laravel/socialite": "^5.32",
+        "league/flysystem-aws-s3-v3": "^3.35",
         "tokenly/token-generator": "^1.0"
     },
     "require-dev": {
-        "barryvdh/laravel-ide-helper": "^3.0",
-        "fakerphp/faker": "^1.23",
-        "phpunit/phpunit": "^11.2"
+        "barryvdh/laravel-ide-helper": "^3.8",
+        "fakerphp/faker": "^1.24",
+        "phpunit/phpunit": "^12.5 || ^13.4"
     },
     "extra": {
         "laravel": {

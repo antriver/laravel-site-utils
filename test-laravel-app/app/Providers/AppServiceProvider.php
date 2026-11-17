@@ -2,6 +2,8 @@
 
 namespace Antriver\LaravelSiteUtilsTestApp\Providers;
 
+use Antriver\LaravelSiteUtils\Mail\MailStyles;
+use Antriver\LaravelSiteUtils\Mail\MailStylesInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(MailStylesInterface::class, MailStyles::class);
     }
 
     /**

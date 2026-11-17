@@ -21,7 +21,7 @@ class NotPresentValidator
      *
      * @return bool
      */
-    public function validate($attribute, $value, $parameters = [], Validator $validator = null): bool
+    public function validate($attribute, $value, $parameters = [], ?Validator $validator = null): bool
     {
         return !Arr::has($validator->attributes(), $attribute);
     }

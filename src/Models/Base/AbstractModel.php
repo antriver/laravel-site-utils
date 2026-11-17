@@ -75,6 +75,18 @@ abstract class AbstractModel extends EloquentModel implements AbstractModelInter
     }
 
     /**
+     * Returns the timestamp columns plus any columns listed in the model's $dates property.
+     * Laravel 10 stopped reading $dates, but it decides which attributes are cast to Carbon and which are
+     * formatted by toArray(), so the models in this package still rely on it.
+     *
+     * @return array
+     */
+    public function getDates()
+    {
+        return array_values(array_unique(array_merge(parent::getDates(), $this->dates ?? [])));
+    }
+
+    /**
      * Return the attributes in an array.
      * Here we convert DateTimes to ISO 8601 format.
      *

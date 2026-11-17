@@ -24,16 +24,10 @@ class BanRepository extends AbstractRepository
      */
     public function findCurrentForUser(UserInterface $user): ?Ban
     {
-        $result = Cache::rememberForever(
-            'user-ban:'.$user->getId(),
-            function () use ($user) {
-                $ban = Ban::where('userId', $user->getId())->first();
-
-                return $ban ?: false;
-            }
+        return $this->rememberBan(
+            $this->getUserCacheKey($user->getId()),
+            fn () => Ban::where('userId', $user->getId())->first()
         );
-
-        return $result instanceof Ban ? $result : null;
     }
 
     /**
@@ -83,16 +77,10 @@ class BanRepository extends AbstractRepository
      */
     public function findCurrentForIp(string $ip)
     {
-        $result = Cache::rememberForever(
-            'ip-ban:'.md5($ip),
-            function () use ($ip) {
-                $ban = Ban::where('ip', $ip)->first();
-
-                return $ban ?: false;
-            }
+        return $this->rememberBan(
+            $this->getIpCacheKey($ip),
+            fn () => Ban::where('ip', $ip)->first()
         );
-
-        return $result instanceof Ban ? $result : null;
     }
 
     public function allCurrent(int $page = 1)
@@ -128,14 +116,14 @@ class BanRepository extends AbstractRepository
      * @param EloquentModel|Ban $model
      * @param array $dirtyAttributes
      */
-    protected function onChange(EloquentModel $model, array $dirtyAttributes = null)
+    protected function onChange(EloquentModel $model, ?array $dirtyAttributes = null)
     {
         if ($model->userId) {
-            Cache::forget('user-ban:'.$model->userId);
+            Cache::forget($this->getUserCacheKey($model->userId));
         }
 
         if ($model->ip) {
-            Cache::forget('ip-ban:'.md5($model->ip));
+            Cache::forget($this->getIpCacheKey($model->ip));
         }
 
         //event(new ContentTextUpdatedEvent($model));
@@ -149,5 +137,41 @@ class BanRepository extends AbstractRepository
     public function getModelClass(): string
     {
         return Ban::class;
+    }
+
+    /**
+     * Returns the ban found by $query, caching it forever under $key.
+     * The ban is cached as an array of attributes rather than a Ban object, so it still works when the cache is
+     * not allowed to unserialize objects (Laravel's cache.serializable_classes option).
+     */
+    private function rememberBan(string $key, callable $query): ?Ban
+    {
+        $attributes = Cache::rememberForever(
+            $key,
+            function () use ($query) {
+                $ban = $query();
+
+                return $ban ? $ban->getAttributes() : false;
+            }
+        );
+
+        return is_array($attributes) ? (new Ban())->newFromBuilder($attributes) : null;
+    }
+
+    /**
+     * Returns the cache key for the current ban of a user.
+     * The v2 suffix keeps entries cached as Ban objects by older versions from being read.
+     */
+    private function getUserCacheKey(int $userId): string
+    {
+        return 'user-ban-v2:'.$userId;
+    }
+
+    /**
+     * Returns the cache key for the current ban of an IP address.
+     */
+    private function getIpCacheKey(string $ip): string
+    {
+        return 'ip-ban-v2:'.md5($ip);
     }
 }

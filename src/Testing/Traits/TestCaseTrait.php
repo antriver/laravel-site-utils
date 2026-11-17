@@ -2,12 +2,23 @@
 
 namespace Antriver\LaravelSiteUtils\Testing\Traits;
 
+use Illuminate\Testing\Assert;
+
 /**
  * Meta trait that contains all the other traits, plus some from Laravel.
  * DatabaseTransactions trait should be used too but is not used here to make it easier to comment out.
  */
 trait TestCaseTrait
 {
+    /**
+     * Asserts that $array contains every key and value in $subset.
+     * PHPUnit removed this assertion in version 9, so this uses Laravel's copy of it.
+     */
+    public static function assertArraySubset($subset, $array, bool $checkForIdentity = false, string $msg = ''): void
+    {
+        Assert::assertArraySubset($subset, $array, $checkForIdentity, $msg);
+    }
+
     /**
      * @param array $expectedKeys Array of keys where the key is the expected key name, and the value is a boolean to
      *                            say if it must not be null (true if it must not be null).

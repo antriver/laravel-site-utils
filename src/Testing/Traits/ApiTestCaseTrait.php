@@ -5,7 +5,7 @@ namespace Antriver\LaravelSiteUtils\Testing\Traits;
 use Antriver\LaravelSiteUtils\Users\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
-use Illuminate\Foundation\Testing\TestResponse;
+use Illuminate\Testing\TestResponse;
 use Illuminate\Validation\ValidationException;
 use PHPUnit\Framework\ExpectationFailedException;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,7 +30,7 @@ trait ApiTestCaseTrait
     {
         // Seed a user with a session.
         /** @var User $user */
-        $user = factory(User::class)->create($data);
+        $user = $this->createUser($data);
         $user->setApiToken((new TokenGenerator())->generateToken(64));
         \DB::table('user_sessions')->insert(
             [
@@ -38,6 +38,28 @@ trait ApiTestCaseTrait
                 'userId' => $user->id,
             ]
         );
+
+        return $user;
+    }
+
+    /**
+     * Creates and saves a user with the password "secret".
+     * Any attributes not given in $data are filled with fake values.
+     */
+    protected function createUser(array $data = []): User
+    {
+        $user = new User();
+        $user->forceFill(
+            array_merge(
+                [
+                    'username' => fake()->unique()->userName(),
+                    'email' => fake()->unique()->safeEmail(),
+                    'password' => bcrypt('secret'),
+                ],
+                $data
+            )
+        );
+        $user->save();
 
         return $user;
     }
@@ -177,7 +199,7 @@ trait ApiTestCaseTrait
 
     public function createUserAndLoginViaApi()
     {
-        $user = factory(User::class)->create();
+        $user = $this->createUser();
 
         /** @var TestResponse $response */
         $response = $this->post('/auth', ['username' => $user->username, 'password' => 'secret']);
@@ -200,10 +222,10 @@ trait ApiTestCaseTrait
     public function parseResponse(TestResponse $response): array
     {
         try {
-            return \GuzzleHttp\json_decode($response->getContent(), true);
-        } catch (\InvalidArgumentException $e) {
+            return json_decode($response->getContent(), true, 512, JSON_THROW_ON_ERROR);
+        } catch (\JsonException $e) {
             var_dump($response->getContent());
-            throw new \JsonException($e->getMessage());
+            throw $e;
         }
     }
 

@@ -4,7 +4,7 @@ namespace Antriver\LaravelSiteUtils\Users;
 
 trait ValidatesUserCredentialsTrait
 {
-    protected function getUsernameValidationRules(UserInterface $user = null, $required = true)
+    protected function getUsernameValidationRules(?UserInterface $user = null, $required = true)
     {
         $rules = [
             'max:30',
@@ -37,7 +37,7 @@ trait ValidatesUserCredentialsTrait
         ];
     }
 
-    protected function getEmailValidationRules(UserInterface $user = null, $required = true)
+    protected function getEmailValidationRules(?UserInterface $user = null, $required = true)
     {
         $rules = [
             'bail',

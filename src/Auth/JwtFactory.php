@@ -5,6 +5,7 @@ namespace Antriver\LaravelSiteUtils\Auth;
 use Antriver\LaravelSiteUtils\Users\UserInterface;
 use Carbon\Carbon;
 use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 use Illuminate\Config\Repository;
 
 class JwtFactory
@@ -54,6 +55,6 @@ class JwtFactory
 
     public function decodeToken(string $jwt)
     {
-        return JWT::decode($jwt, $this->key, [$this->alg]);
+        return JWT::decode($jwt, new Key($this->key, $this->alg));
     }
 }

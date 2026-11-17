@@ -5,6 +5,8 @@ namespace Antriver\LaravelSiteUtils\Testing\RouteTests\Sns;
 use Antriver\LaravelSiteUtils\Testing\Traits\TestsSesNotificationsTrait;
 use Antriver\LaravelSiteUtils\Users\User;
 use Antriver\LaravelSiteUtils\Users\UserRepository;
+use Aws\Sns\Message;
+use Aws\Sns\MessageValidator;
 use Illuminate\Http\Request;
 
 trait SnsControllerTestTrait
@@ -19,6 +21,17 @@ trait SnsControllerTestTrait
         parent::setUp();
 
         $this->userRepository = app(UserRepository::class);
+
+        // The sample messages below are real SNS messages, but AWS no longer serves the certificate they were
+        // signed with, so the signature can never be verified. Skip that check and test everything after it.
+        $this->app->instance(
+            MessageValidator::class,
+            new class extends MessageValidator {
+                public function validate(Message $message)
+                {
+                }
+            }
+        );
     }
 
     private function assertUserEmailBounced(int $userId)

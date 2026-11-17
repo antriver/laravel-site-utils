@@ -72,7 +72,7 @@ trait ApiControllerTrait
     protected function paginatorToArray(
         LengthAwarePaginator $paginator,
         string $dataKey = 'items',
-        ModelPresenterInterface $presenter = null
+        ?ModelPresenterInterface $presenter = null
     ) {
         $request = app(Request::class);
         $paginator->appendsArray($request->query->all());

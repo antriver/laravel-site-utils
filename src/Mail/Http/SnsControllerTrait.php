@@ -106,7 +106,8 @@ trait SnsControllerTrait
         $message = SnsMessage::fromJsonString($request->getContent());
 
         // Validate the message (throws an exception if bad).
-        $validator = new MessageValidator();
+        // Resolved from the container so tests can swap in a validator that skips the signature check.
+        $validator = app(MessageValidator::class);
         $validator->validate($message);
 
         return $message;

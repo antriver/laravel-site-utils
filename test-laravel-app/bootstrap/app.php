@@ -17,7 +17,6 @@ $app = new Illuminate\Foundation\Application(
 
 $appReflection = new ReflectionClass($app);
 $namespaceProperty = $appReflection->getProperty('namespace');
-$namespaceProperty->setAccessible(true);
 $namespaceProperty->setValue($app, 'Antriver\LaravelSiteUtilsTestApp\\');
 
 /*

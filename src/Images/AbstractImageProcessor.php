@@ -3,7 +3,7 @@
 namespace Antriver\LaravelSiteUtils\Images;
 
 use Imagick;
-use Intervention\Image\Image as InterventionImage;
+use Intervention\Image\Interfaces\ImageInterface as InterventionImage;
 
 abstract class AbstractImageProcessor
 {
@@ -25,7 +25,7 @@ abstract class AbstractImageProcessor
     protected function toThumbnail(InterventionImage $image, $width, $height)
     {
         /** @var Imagick $imagickImage */
-        $imagickImage = $image->getCore();
+        $imagickImage = $image->core()->native();
 
         $imagickImage->cropThumbnailImage($width, $height);
     }
@@ -33,7 +33,7 @@ abstract class AbstractImageProcessor
     protected function toBackground(InterventionImage $image)
     {
         /** @var Imagick $imagickImage */
-        $imagickImage = $image->getCore();
+        $imagickImage = $image->core()->native();
 
         $imagickImage->setGravity(Imagick::GRAVITY_CENTER);
 

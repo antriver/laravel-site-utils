@@ -22,7 +22,7 @@ class EmailVerifiedEvent extends AbstractEvent implements ShouldBroadcast
      */
     public $oldEmail;
 
-    public function __construct(UserInterface $user, string $email, string $oldEmail = null)
+    public function __construct(UserInterface $user, string $email, ?string $oldEmail = null)
     {
         $this->setUser($user);
         $this->email = $email;

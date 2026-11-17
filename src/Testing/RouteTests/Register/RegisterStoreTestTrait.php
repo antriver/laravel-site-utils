@@ -3,10 +3,10 @@
 namespace Antriver\LaravelSiteUtils\Testing\RouteTests\Register;
 
 use Antriver\LaravelSiteUtils\EmailVerification\EmailVerificationMail;
-use Antriver\LaravelSiteUtils\Users\User;
 use Antriver\LaravelSiteUtils\Users\UserRepository;
 use Antriver\LaravelSiteUtils\Users\ValidatesUserCredentialsTrait;
 use Faker\Generator;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 trait RegisterStoreTestTrait
 {
@@ -74,7 +74,7 @@ trait RegisterStoreTestTrait
     public function testStoreWithDuplicateUsername()
     {
         $username = $this->faker->regexify($this->getUsernameRegex());
-        factory(User::class)->create(
+        $this->createUser(
             [
                 'username' => $username,
             ]
@@ -123,7 +123,7 @@ trait RegisterStoreTestTrait
     public function testStoreWithDuplicateEmail()
     {
         $email = $this->faker->email;
-        factory(User::class)->create(
+        $this->createUser(
             [
                 'email' => $email,
             ]
@@ -169,7 +169,7 @@ trait RegisterStoreTestTrait
         );
     }
 
-    public function dataForTestStoreWithValidData()
+    public static function dataForTestStoreWithValidData(): array
     {
         return [
             'Send verification and no unverified login' => [
@@ -211,11 +211,10 @@ trait RegisterStoreTestTrait
     }
 
     /**
-     * @dataProvider dataForTestStoreWithValidData
-     *
      * @param bool $assertMailSent
      * @param bool $assertAuthResponse
      */
+    #[DataProvider('dataForTestStoreWithValidData')]
     public function testStoreWithValidData(array $config, bool $assertMailSent, bool $assertAuthResponse)
     {
         config($config);

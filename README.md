@@ -17,9 +17,21 @@ interfaces to concrete implementations. These will be bound in Laravel's DI cont
 If you want to use custom implementations then extend` LaravelSiteUtilsServiceProvider` and overrides the
 appropriate array values.
 
+## Version support
+
+The major version of this package matches the newest major version of Laravel it supports, so 13.x works with
+Laravel 13. A major version may also support older Laravel versions while they still get security fixes.
+
+| Package | Laravel    | PHP       | Status                                                      |
+|---------|------------|-----------|-------------------------------------------------------------|
+| 13.x    | 12.x, 13.x | 8.4 - 8.5 | Active                                                      |
+| 11.x    | 11.x       | 8.2 - 8.4 | Unmaintained (Laravel 11 reached end of life in March 2026) |
+
+There was no 12.x release of this package. Use 13.x with Laravel 12.
+
 ## Installation
 
-This is in rapid development so is not tagged with any version. Add this to composer.json:
+The package is not on Packagist. Add the repository to composer.json:
 
     "repositories": [
         {
@@ -30,7 +42,7 @@ This is in rapid development so is not tagged with any version. Add this to comp
 
 Then run:
 
-    composer require antriver/laravel-site-utils dev-master
+    composer require antriver/laravel-site-utils:^13.0
 
 
 ### Changing Configuration
@@ -65,6 +77,38 @@ And tell Laravel not to auto discover the existing provider. In composer.json:
             ]
         }
     }
+
+## Upgrading to 13.0
+
+* Requires PHP 8.4 or newer and Laravel 12 or 13.
+* `intervention/image` is now 4.x. `AbstractImageProcessor::process()`, `ImageOnDisk` and
+  `ImageFileRepository::persistImage()` take `Intervention\Image\Interfaces\ImageInterface`, and `$image->getCore()` is
+  now `$image->core()->native()`. Update any subclasses of `AbstractImageProcessor`.
+* `ImageFileRepository::makeImageFromString()` only decodes binary, base64 and data URI strings. It no longer reads a
+  file when given a path, so use `makeImageFromFile()` for that.
+* `firebase/php-jwt` is now 7.x, which requires the signing key (`app.key`) to be at least 32 bytes.
+* `google/recaptcha` is now 2.x. `RecaptchaValidator` fails validation for non-string values instead of throwing.
+* Laravel 13's new apps set `cache.serializable_classes` to `false`, so cached objects cannot be unserialized.
+  `UserRepository`, `ImageRepository` and `RepositoryUserProvider` cache whole models, so if your app uses that
+  setting, list the model classes you use (for example `Antriver\LaravelSiteUtils\Users\User` and
+  `Antriver\LaravelSiteUtils\Images\Image`, or your own subclasses) in `cache.serializable_classes`.
+  `BanRepository` caches plain arrays and works either way. Its cache keys changed, so bans cached by an older
+  version are ignored and looked up again.
+* Columns listed in a model's `$dates` property are cast to Carbon again and output in RFC 3339 format by
+  `toArray()`. Laravel 10 had silently stopped doing this.
+* Testing helpers: `ApiTestCaseTrait::createUser()` replaces the removed `factory(User::class)`,
+  `TestCaseTrait::assertArraySubset()` replaces the assertion PHPUnit removed, and `SnsControllerTestTrait` skips the
+  SNS signature check because AWS no longer serves the certificate its sample messages were signed with.
+
+## Running the tests
+
+The feature tests need a MySQL database. `scripts/test-db.sh` starts a `mysql:8.4` Docker container on port 33306
+and runs the migrations. The connection details match the `DB_*` values in `phpunit.xml`.
+
+    scripts/test-db.sh
+    vendor/bin/phpunit
+
+The image tests need the `imagick` PHP extension and are skipped without it.
 
 ## Commands
 

@@ -16,7 +16,7 @@ class EmptyValidator
      *
      * @return bool
      */
-    public function validate($attribute, $value, $parameters = [], Validator $validator = null): bool
+    public function validate($attribute, $value, $parameters = [], ?Validator $validator = null): bool
     {
         $attributes = $validator->attributes();
 

@@ -39,7 +39,7 @@ class ApiAuthResponseFactory
     public function make(
         Request $request,
         UserInterface $user,
-        string $token = null
+        ?string $token = null
     ) {
         if (empty($token)) {
             /** @var DatabaseSessionGuard $guard */

@@ -11,7 +11,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\ValidationException;
-use Intervention\Image\Exception\NotReadableException;
+use Intervention\Image\Exceptions\DecoderException;
 use Laravel\Socialite\Two\InvalidStateException;
 use Psr\Log\LoggerInterface;
 use Response;
@@ -29,7 +29,7 @@ class Handler extends \Illuminate\Foundation\Exceptions\Handler
     protected $dontReport = [
         BadRequestHttpException::class,
         InvalidInputException::class,
-        NotReadableException::class,
+        DecoderException::class,
         InvalidStateException::class,
     ];
 
@@ -93,7 +93,7 @@ class Handler extends \Illuminate\Foundation\Exceptions\Handler
      *
      * @return array
      */
-    public function getDataForException(Throwable $exception, Request $request = null)
+    public function getDataForException(Throwable $exception, ?Request $request = null)
     {
         if ($exception instanceof ValidationException) {
             $status = \Symfony\Component\HttpFoundation\Response::HTTP_BAD_REQUEST;;

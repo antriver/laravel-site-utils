@@ -5,7 +5,7 @@
          colors="true"
          processIsolation="false"
          stopOnFailure="false"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.2/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/13.4/phpunit.xsd"
          cacheDirectory=".phpunit.cache"
          backupStaticProperties="false">
     <testsuites>
@@ -14,6 +14,7 @@
         </testsuite>
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
+            <exclude>./tests/Feature/AbstractFeatureTest.php</exclude>
         </testsuite>
     </testsuites>
     <php>
@@ -23,6 +24,13 @@
         <server name="MAIL_DRIVER" value="array"/>
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
+        <env name="APP_KEY" value="base64:ZUfbVb/32NsX/yZ3Hf+17AZ5pJzEPlLZB2i2oxMKnHY=" force="true"/>
+        <env name="DB_CONNECTION" value="mysql"/>
+        <env name="DB_HOST" value="127.0.0.1"/>
+        <env name="DB_PORT" value="33306"/>
+        <env name="DB_DATABASE" value="site_utils_test"/>
+        <env name="DB_USERNAME" value="root"/>
+        <env name="DB_PASSWORD" value="secret"/>
     </php>
     <source>
         <include>
