@@ -93,6 +93,8 @@ And tell Laravel not to auto discover the existing provider. In composer.json:
   `UserRepository`, `ImageRepository` and `RepositoryUserProvider` cache whole models, so if your app uses that
   setting, list the model classes you use (for example `Antriver\LaravelSiteUtils\Users\User` and
   `Antriver\LaravelSiteUtils\Images\Image`, or your own subclasses) in `cache.serializable_classes`.
+  `antriver/laravel-repositories` is now 13.x, which throws a `CachedModelNotUnserializableException` naming the
+  class when one is missing from that list.
   `BanRepository` caches plain arrays and works either way. Its cache keys changed, so bans cached by an older
   version are ignored and looked up again.
 * Columns listed in a model's `$dates` property are cast to Carbon again and output in RFC 3339 format by
