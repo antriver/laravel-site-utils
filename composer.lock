@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7bcebbae79c4cead53dd68cf3cbc5023",
+    "content-hash": "b3dc8dd94d91dde32653d73672a4c9cf",
     "packages": [
         {
             "name": "antriver/laravel-database-session-auth",
@@ -9474,7 +9474,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.4",
+        "php": "^8.3",
         "ext-json": "*",
         "ext-openssl": "*"
     },

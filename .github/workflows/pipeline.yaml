@@ -1,0 +1,60 @@
+name: pipeline
+
+# https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#concurrency
+concurrency:
+  group: ${{ github.ref_name }}
+  cancel-in-progress: true
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: "PHP ${{ matrix.php }} / Laravel ${{ matrix.laravel }}"
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.3', '8.4', '8.5']
+        laravel: ['^12.0', '^13.0']
+
+    runs-on: ubuntu-latest
+
+    # The host port matches the DB_* defaults in phpunit.xml and scripts/migrate-test-db.sh.
+    services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_ROOT_PASSWORD: secret
+          MYSQL_DATABASE: site_utils_test
+        ports:
+          - 33306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -psecret"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: imagick, gd, exif, pdo_mysql, mbstring
+          coverage: none
+          tools: composer
+
+      - name: Install dependencies
+        run: |
+          composer require --no-update --no-interaction "laravel/framework:${{ matrix.laravel }}"
+          composer update --with-all-dependencies --no-interaction --prefer-dist
+
+      - name: Migrate test database
+        run: scripts/migrate-test-db.sh
+
+      # Fail on skipped tests so the image tests cannot quietly skip if imagick goes missing.
+      - name: Run tests
+        run: composer test -- --fail-on-skipped

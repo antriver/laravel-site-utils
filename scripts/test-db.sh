@@ -8,13 +8,10 @@ set -euo pipefail
 cd "$(dirname "$0")/.." # cd to the package root
 
 CONTAINER=laravel-site-utils-mysql
-
-export DB_CONNECTION=mysql
-export DB_HOST=127.0.0.1
-export DB_PORT=33306
-export DB_DATABASE=site_utils_test
-export DB_USERNAME=root
-export DB_PASSWORD=secret
+DB_HOST=127.0.0.1
+DB_PORT=33306
+DB_DATABASE=site_utils_test
+DB_PASSWORD=secret
 
 if docker container inspect "$CONTAINER" > /dev/null 2>&1; then
     docker start "$CONTAINER" > /dev/null
@@ -34,5 +31,4 @@ for _ in $(seq 1 60); do
     sleep 2
 done
 
-# The service provider does not auto-load the package migrations, so point migrate at them directly.
-php test-laravel-app/artisan migrate:fresh --force --realpath --path="$PWD/migrations"
+scripts/migrate-test-db.sh
